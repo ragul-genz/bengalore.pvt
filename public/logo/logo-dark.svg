@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="100%" height="100%" fill="none">
+  <!-- Symbol Icon: Geometric Connected Nodes -->
+  <g transform="translate(10, 10)">
+    <rect width="60" height="60" rx="14" fill="#142B4A" stroke="#2563EB" stroke-width="1.5" />
+    <!-- Node links -->
+    <path d="M22 40 L38 20" stroke="#60A5FA" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M22 22 L38 38" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6" />
+    <!-- Connecting Nodes -->
+    <circle cx="22" cy="40" r="6" fill="#3B82F6" />
+    <circle cx="22" cy="40" r="3" fill="#FFFFFF" />
+    <circle cx="38" cy="20" r="6" fill="#3B82F6" />
+    <circle cx="38" cy="20" r="3" fill="#FFFFFF" />
+    <circle cx="22" cy="20" r="5" fill="#FFFFFF" />
+    <circle cx="38" cy="40" r="5" fill="#93C5FD" />
+  </g>
+
+  <!-- Typography: NEW LINK TECHNOLOGIES -->
+  <text x="85" y="38" font-family="'Manrope', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="-0.02em">
+    NEW LINK
+  </text>
+  <text x="195" y="38" font-family="'Manrope', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="600" font-size="22" fill="#60A5FA" letter-spacing="-0.01em">
+    TECHNOLOGIES
+  </text>
+  
+  <!-- Sub-bar: Bangalore Pvt. Ltd. & Tagline -->
+  <text x="86" y="58" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="600" font-size="10.5" fill="#94A3B8" letter-spacing="0.08em">
+    BANGALORE PVT. LTD.
+  </text>
+  <circle cx="218" cy="55" r="2" fill="#60A5FA" />
+  <text x="226" y="58" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="500" font-size="10.5" fill="#60A5FA" letter-spacing="0.02em">
+    Connecting Values.
+  </text>
+</svg>
+
