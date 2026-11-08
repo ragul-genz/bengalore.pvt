@@ -6,3 +6,5 @@ export * from "./SectionHeading";
 export * from "./Logo";
 export * from "./CurrentYear";
 export * from "./ServiceIcon";
+export * from "./Lightbox";
+export * from "./ContactForm";
