@@ -169,112 +169,109 @@ export function Navbar() {
         </Container>
       </nav>
 
-      {/* Mobile Navigation Drawer Overlay */}
-      <div
-        className={cn(
-          "fixed inset-0 bg-brand-navy/60 backdrop-blur-xs z-40 md:hidden transition-opacity duration-300",
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        onClick={() => setIsOpen(false)}
-        aria-hidden="true"
-      />
-
-      {/* Mobile Drawer Panel */}
-      <div
-        className={cn(
-          "fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-white z-50 shadow-2xl flex flex-col md:hidden transition-transform duration-300 ease-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        {/* Drawer Header */}
-        <div className="p-5 border-b border-brand-border flex items-center justify-between">
-          <Logo variant="light" size="sm" href="/" />
-          <button
-            type="button"
+      {/* Mobile Navigation Drawer (Rendered conditionally on user toggle) */}
+      {isOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-brand-navy/60 backdrop-blur-xs z-40 md:hidden transition-opacity"
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg text-brand-secondary hover:text-brand-navy hover:bg-slate-100 transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
+            aria-hidden="true"
+          />
 
-        {/* Navigation Links */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-1">
-          <p className="text-[11px] font-semibold text-brand-secondary uppercase tracking-wider px-3 mb-2">
-            Navigation Menu
-          </p>
-          {COMPANY_DETAILS.navLinks.map((item) => {
-            const active = isActiveLink(item.href);
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
+          {/* Drawer Panel */}
+          <div className="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-white z-50 shadow-2xl flex flex-col md:hidden animate-in slide-in-from-right duration-300">
+            {/* Drawer Header */}
+            <div className="p-5 border-b border-brand-border flex items-center justify-between">
+              <Logo variant="light" size="sm" href="/" />
+              <button
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className={cn(
-                  "flex items-center justify-between px-3.5 py-3 rounded-lg text-sm font-medium transition-colors",
-                  active
-                    ? "bg-brand-blue/10 text-brand-blue font-semibold"
-                    : "text-brand-text hover:bg-slate-50 hover:text-brand-navy"
-                )}
+                className="p-2 rounded-lg text-brand-secondary hover:text-brand-navy hover:bg-slate-100 transition-colors"
+                aria-label="Close menu"
               >
-                <span>{item.label}</span>
-                <ChevronRight
-                  className={cn(
-                    "w-4 h-4",
-                    active ? "text-brand-blue" : "text-slate-400"
-                  )}
-                />
-              </Link>
-            );
-          })}
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-          {/* Quick Quote Banner inside Drawer */}
-          <div className="pt-6">
-            <Button
-              variant="primary"
-              size="lg"
-              href="/contact#quote"
-              onClick={() => setIsOpen(false)}
-              className="w-full justify-center shadow-sm"
-              rightIcon={<ArrowRight className="w-4 h-4" />}
-            >
-              Get a Quote
-            </Button>
+            {/* Navigation Links */}
+            <div className="flex-1 overflow-y-auto p-5 space-y-1">
+              <p className="text-[11px] font-semibold text-brand-secondary uppercase tracking-wider px-3 mb-2">
+                Navigation Menu
+              </p>
+              {COMPANY_DETAILS.navLinks.map((item) => {
+                const active = isActiveLink(item.href);
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "flex items-center justify-between px-3.5 py-3 rounded-lg text-sm font-medium transition-colors",
+                      active
+                        ? "bg-brand-blue/10 text-brand-blue font-semibold"
+                        : "text-brand-text hover:bg-slate-50 hover:text-brand-navy"
+                    )}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronRight
+                      className={cn(
+                        "w-4 h-4",
+                        active ? "text-brand-blue" : "text-slate-400"
+                      )}
+                    />
+                  </Link>
+                );
+              })}
+
+              {/* Quick Quote Banner inside Drawer */}
+              <div className="pt-6">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href="/contact#quote"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full justify-center shadow-sm"
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
+                >
+                  Get a Quote
+                </Button>
+              </div>
+            </div>
+
+            {/* Drawer Footer with Verified Contact Info */}
+            <div className="p-5 bg-brand-lightBg border-t border-brand-border space-y-3">
+              <p className="text-[11px] font-semibold text-brand-secondary uppercase tracking-wider">
+                Direct Assistance
+              </p>
+              <a
+                href={`tel:${COMPANY_DETAILS.contact.phone}`}
+                className="flex items-center gap-3 text-xs text-brand-navy font-semibold hover:text-brand-blue transition-colors"
+              >
+                <div className="w-8 h-8 rounded-full bg-white border border-brand-border flex items-center justify-center shrink-0 text-brand-blue">
+                  <Phone className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-brand-secondary font-normal">Call Us Directly</p>
+                  <p>{COMPANY_DETAILS.contact.phoneDisplay}</p>
+                </div>
+              </a>
+              <a
+                href={`mailto:${COMPANY_DETAILS.contact.email}`}
+                className="flex items-center gap-3 text-xs text-brand-navy font-semibold hover:text-brand-blue transition-colors"
+              >
+                <div className="w-8 h-8 rounded-full bg-white border border-brand-border flex items-center justify-center shrink-0 text-brand-blue">
+                  <Mail className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-brand-secondary font-normal">Email Our Team</p>
+                  <p className="truncate">{COMPANY_DETAILS.contact.email}</p>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-
-        {/* Drawer Footer with Verified Contact Info */}
-        <div className="p-5 bg-brand-lightBg border-t border-brand-border space-y-3">
-          <p className="text-[11px] font-semibold text-brand-secondary uppercase tracking-wider">
-            Direct Assistance
-          </p>
-          <a
-            href={`tel:${COMPANY_DETAILS.contact.phone}`}
-            className="flex items-center gap-3 text-xs text-brand-navy font-semibold hover:text-brand-blue transition-colors"
-          >
-            <div className="w-8 h-8 rounded-full bg-white border border-brand-border flex items-center justify-center shrink-0 text-brand-blue">
-              <Phone className="w-3.5 h-3.5" />
-            </div>
-            <div>
-              <p className="text-[10px] text-brand-secondary font-normal">Call Us Directly</p>
-              <p>{COMPANY_DETAILS.contact.phoneDisplay}</p>
-            </div>
-          </a>
-          <a
-            href={`mailto:${COMPANY_DETAILS.contact.email}`}
-            className="flex items-center gap-3 text-xs text-brand-navy font-semibold hover:text-brand-blue transition-colors"
-          >
-            <div className="w-8 h-8 rounded-full bg-white border border-brand-border flex items-center justify-center shrink-0 text-brand-blue">
-              <Mail className="w-3.5 h-3.5" />
-            </div>
-            <div>
-              <p className="text-[10px] text-brand-secondary font-normal">Email Our Team</p>
-              <p className="truncate">{COMPANY_DETAILS.contact.email}</p>
-            </div>
-          </a>
-        </div>
-      </div>
+        </>
+      )}
     </header>
   );
 }
