@@ -95,20 +95,25 @@ export default function AboutPage() {
               </p>
 
               {/* Verified Leadership */}
-              <div className="p-4 rounded-xl border border-brand-border bg-brand-lightBg flex items-center justify-between">
+              <div className="p-4 rounded-2xl border border-brand-border bg-brand-lightBg flex items-center gap-4">
+                <div className="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-white shadow-md shrink-0">
+                  <Image
+                    src="/leadership/director-mg-girish.jpg"
+                    alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
                 <div>
-                  <p className="text-xs uppercase font-semibold tracking-wider text-brand-secondary">
-                    Company Leadership
+                  <p className="text-[11px] uppercase font-bold tracking-wider text-brand-blue">
+                    Executive Leadership
                   </p>
-                  <p className="text-base font-bold text-brand-navy font-heading">
+                  <p className="text-base sm:text-lg font-bold text-brand-navy font-heading">
                     {COMPANY_DETAILS.leadership.director}
                   </p>
-                  <p className="text-xs text-brand-blue font-medium">
+                  <p className="text-xs text-brand-secondary font-medium">
                     {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.shortName}
                   </p>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy shadow-xs">
-                  <ShieldCheck className="w-5 h-5 text-brand-blue" />
                 </div>
               </div>
             </div>
@@ -293,6 +298,51 @@ export default function AboutPage() {
                   Acoustic wall paneling, interactive displays, digital conference audio,
                   and integrated video conferencing.
                 </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Executive Leadership Section */}
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+        <Container size="default">
+          <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-5 flex justify-center">
+                <div className="relative w-60 h-76 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-200">
+                  <Image
+                    src="/leadership/director-mg-girish.jpg"
+                    alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
+                    fill
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 text-white text-center">
+                    <p className="font-heading font-bold text-base">M.G. Girish</p>
+                    <p className="text-xs text-blue-200">Director, New Link Technologies</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="md:col-span-7 space-y-4 text-center md:text-left">
+                <span className="eyebrow-badge">Leadership Commitment</span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug">
+                  Driven by Precision, Value, and Enduring Integrity
+                </h3>
+                <p className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                  &ldquo;At New Link Technologies Bangalore Pvt. Ltd., our core mission is simple yet uncompromising: to provide enterprises, government bodies, and institutions with technology infrastructure that performs reliably 24/7/365. When you partner with us, you deal directly with dedicated engineers and an accountable leadership team.&rdquo;
+                </p>
+                <div className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                    Director-Led Quality Oversight
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                    Connecting Values Across Karnataka
+                  </span>
+                </div>
               </div>
             </div>
           </div>

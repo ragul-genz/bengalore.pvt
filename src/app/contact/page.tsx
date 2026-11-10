@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -8,6 +9,7 @@ import {
   Building2,
   Sparkles,
   ExternalLink,
+  ShieldCheck,
 } from "lucide-react";
 import { Container, ContactForm } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
@@ -72,13 +74,27 @@ export default function ContactPage() {
                   <span>Headquarters</span>
                 </div>
 
-                <div className="space-y-1">
-                  <h3 className="text-lg font-bold font-heading text-brand-navy">
-                    {COMPANY_DETAILS.name}
-                  </h3>
-                  <p className="text-xs text-brand-secondary">
-                    Director: <strong className="text-brand-navy">{COMPANY_DETAILS.leadership.director}</strong>
-                  </p>
+                {/* Executive Leadership Spotlight */}
+                <div className="p-4 rounded-xl border border-brand-border bg-brand-lightBg flex items-center gap-3.5">
+                  <div className="relative w-14 h-14 rounded-lg overflow-hidden border border-white shadow-xs shrink-0">
+                    <Image
+                      src="/leadership/director-mg-girish.jpg"
+                      alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">
+                      Executive Leadership
+                    </p>
+                    <p className="text-sm font-bold text-brand-navy font-heading">
+                      {COMPANY_DETAILS.leadership.director}
+                    </p>
+                    <p className="text-[11px] text-brand-secondary">
+                      {COMPANY_DETAILS.leadership.role}, New Link Technologies
+                    </p>
+                  </div>
                 </div>
 
                 <div className="space-y-4 pt-2 text-sm text-brand-text">
@@ -169,6 +185,22 @@ export default function ContactPage() {
                   <MessageCircle className="w-4 h-4 text-emerald-950" />
                   <span>Chat on WhatsApp</span>
                 </a>
+              </div>
+
+              {/* Official Corporate Contact Presentation Card */}
+              <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-navy">
+                  <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                  <span>Verified Corporate Credentials</span>
+                </div>
+                <div className="relative aspect-16/10 w-full rounded-xl overflow-hidden border border-brand-border bg-slate-50">
+                  <Image
+                    src="/contact/company-contact-slide.png"
+                    alt="New Link Technologies Official Corporate Contact Slide"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
 
               {/* Directions & Map Card */}

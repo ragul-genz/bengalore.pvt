@@ -192,17 +192,37 @@ export function AboutPreview() {
               </div>
             </motion.div>
 
-            {/* CTA Button linking to /about */}
-            <motion.div variants={itemVariants} className="pt-4">
+            {/* Leadership Signoff & CTA Button */}
+            <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
               <Button
                 variant="primary"
                 size="lg"
                 href="/about"
                 rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="shadow-sm font-semibold"
+                className="shadow-sm font-semibold w-fit"
               >
                 Learn More
               </Button>
+
+              <div className="flex items-center gap-3 border-l-0 sm:border-l sm:border-brand-border sm:pl-6">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-blue shadow-xs shrink-0 bg-slate-100">
+                  <Image
+                    src="/leadership/director-mg-girish.jpg"
+                    alt={`${COMPANY_DETAILS.leadership.director} - ${COMPANY_DETAILS.leadership.role}, ${COMPANY_DETAILS.name}`}
+                    fill
+                    sizes="48px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="text-xs">
+                  <p className="font-heading font-bold text-brand-navy text-sm">
+                    {COMPANY_DETAILS.leadership.director}
+                  </p>
+                  <p className="text-brand-secondary font-medium">
+                    {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.shortName}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>
