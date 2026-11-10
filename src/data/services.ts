@@ -134,25 +134,26 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     slug: "cctv-surveillance",
     title: "CCTV and Surveillance",
-    tag: "Surveillance & Public Address",
+    tag: "Surveillance & Video Walls",
     iconName: "Camera",
-    image: "/services/public-address-system.png",
-    brands: ["Bosch", "Cisco", "Honeywell"],
+    image: "/services/cctv-surveillance.png",
+    diagramImage: "/services/command-room-video-wall.png",
+    brands: ["Bosch", "Honeywell", "Axis Communications", "Sony", "Cisco"],
     shortDescription:
-      "Enterprise IP surveillance networks, public address systems, multi-camera perimeter coverage, central NVR storage, and real-time security monitoring.",
+      "Enterprise IP surveillance networks, Command Room Video Walls, multi-camera perimeter coverage, central NVR storage, and real-time security monitoring.",
     fullDescription:
-      "We design and deploy industrial-grade CCTV surveillance systems and centralized Public Address (PA) solutions that provide 24/7 situational awareness across expansive facilities. Partnering with Bosch, Cisco, and Honeywell, our installations cover perimeter boundaries, entrance checkpoints, administrative corridors, and server rooms.",
+      "We design and deploy industrial-grade CCTV surveillance systems, centralized Public Address (PA) solutions, and Command Room Video Walls that provide 24/7 situational awareness across expansive facilities. Partnering with Bosch, Honeywell, Axis Communications, Sony, and Cisco, our installations cover perimeter boundaries, entrance checkpoints, administrative corridors, server rooms, and central command stations.",
     features: [
       "High-resolution IP dome, bullet, and PTZ security cameras",
-      "Centralized Public Address (PA) system with zone-wise announcement controllers",
-      "Delegate & conference discussion units with priority control",
+      "Enterprise Command Room Video Wall & multi-screen monitoring consoles",
       "Centralized NVR storage arrays with RAID redundancy for long retention",
-      "Authorized Bosch, Cisco, and Honeywell infrastructure integration",
+      "Integrated Public Address (PA) announcement controllers and discussion units",
+      "Authorized hardware partnerships with Bosch, Honeywell, Axis Communications & Sony",
     ],
     deliverables: [
       "Site survey, blind-spot mapping, and camera angle design",
+      "Command room console layout, video wall mounting, and matrix configuration",
       "Conduit laying, optical fiber/Cat6 cabling, and camera mounting",
-      "Central monitoring station setup and storage configuration",
       "Comprehensive maintenance contract and camera health checks",
     ],
     referenceHighlights:
@@ -164,12 +165,14 @@ export const SERVICES_DATA: ServiceItem[] = [
     tag: "Core Infrastructure",
     iconName: "Network",
     image: "/projects/project-structured-cabling.png",
+    diagramImage: "/services/optical-fiber-infrastructure.png",
     shortDescription:
       "Campus-wide optical fiber networks, managed switching, high-density enterprise Wi-Fi, and certified structured cabling with neat cable dressing.",
     fullDescription:
       "A resilient digital organization depends on a clean, robust physical networking layer. New Link Technologies specializes in complex structured cabling installations, high-speed optical fiber backbones connecting multiple campus buildings, core/distribution switching matrices, and high-density enterprise Wi-Fi solutions.",
     features: [
       "Single-mode and multi-mode campus optical fiber backbones",
+      "Armored multi-tube optical fiber infrastructure for inter-building links",
       "ISO-standard Cat6/Cat6A structured cabling with certified termination",
       "Professional vertical and horizontal cable dressing and rack organization",
       "Core, distribution, and access layer managed switching",

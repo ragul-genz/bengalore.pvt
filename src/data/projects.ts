@@ -90,6 +90,19 @@ export const PROJECTS_DATA: ProjectItem[] = [
     verifiedHighlights:
       "Showcased in company portfolio as the benchmark for professional rack dressing versus disorganized installations.",
   },
+  {
+    id: "command-room-video-wall",
+    title: "Enterprise Command Room Video Wall & Surveillance Center",
+    category: "Surveillance & Control Room",
+    client: "High-Security Operations & Command Center",
+    image: "/projects/project-command-room-video-wall.png",
+    description:
+      "Turnkey architectural design and installation of an enterprise Command & Control Room. Encompasses an ultra-narrow bezel multi-display video wall, dual multi-monitor operator stations, ergonomic console integration with New Link branding, and 24/7 security monitoring visualization.",
+    scope:
+      "Video wall mounting infrastructure, digital matrix controller, operator workstations, cable management, and integration with surveillance camera networks.",
+    verifiedHighlights:
+      "Custom branded New Link control console and operational command video wall deployment.",
+  },
 ];
 
 export const INSTALLATION_GALLERY: GalleryItem[] = [
@@ -141,6 +154,20 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     category: "Clean Energy",
     image: "/projects/project-solar-naac.png",
     caption: "High-capacity rooftop solar photovoltaic installation executed through ITI Limited for NAAC.",
+  },
+  {
+    id: "gal-8",
+    title: "Enterprise Command Room Video Wall",
+    category: "Surveillance",
+    image: "/projects/project-command-room-video-wall.png",
+    caption: "Centralized command room video wall with dual operator workstations and integrated security feeds.",
+  },
+  {
+    id: "gal-9",
+    title: "Armored Optical Fiber Infrastructure",
+    category: "Campus Network",
+    image: "/projects/project-optical-fiber-cable.png",
+    caption: "Multi-core armored optical fiber cable infrastructure deployed for inter-building high-speed campus backbones.",
   },
 ];
 
