@@ -1,11 +1,35 @@
 "use client";
 
-import React from "react";
-import { ShieldCheck, Handshake, Cpu } from "lucide-react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { ShieldCheck, Handshake, Cpu, Layers } from "lucide-react";
 import { Container, SectionHeading } from "@/components/common";
-import { TECHNOLOGY_PARTNERS, OEM_BRAND_PARTNERS } from "@/data/partners";
+import { TECHNOLOGY_PARTNERS, OEM_BRAND_PARTNERS, OEMBrandPartner } from "@/data/partners";
+
+type FilterTag = "all" | "network" | "av" | "security" | "computing";
+
+interface FilterOption {
+  id: FilterTag;
+  label: string;
+  count: number;
+}
 
 export function Partners() {
+  const [activeFilter, setActiveFilter] = useState<FilterTag>("all");
+
+  const filterOptions: FilterOption[] = [
+    { id: "all", label: "All OEM Brands", count: OEM_BRAND_PARTNERS.length },
+    { id: "network", label: "Networking & Fiber", count: OEM_BRAND_PARTNERS.filter((b) => b.tag === "network").length },
+    { id: "av", label: "Audio-Visual & Acoustics", count: OEM_BRAND_PARTNERS.filter((b) => b.tag === "av").length },
+    { id: "security", label: "Security & Life Safety", count: OEM_BRAND_PARTNERS.filter((b) => b.tag === "security").length },
+    { id: "computing", label: "IT Systems & Cyber", count: OEM_BRAND_PARTNERS.filter((b) => b.tag === "computing").length },
+  ];
+
+  const filteredBrands: OEMBrandPartner[] =
+    activeFilter === "all"
+      ? OEM_BRAND_PARTNERS
+      : OEM_BRAND_PARTNERS.filter((brand) => brand.tag === activeFilter);
+
   return (
     <section className="py-16 md:py-24 bg-white border-b border-brand-border relative">
       <Container size="default">
@@ -25,9 +49,21 @@ export function Partners() {
               className="p-6 rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue group-hover:scale-105 transition-transform">
-                  <Handshake className="w-6 h-6" />
-                </div>
+                {partner.logo ? (
+                  <div className="h-14 w-full rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 group-hover:bg-white group-hover:border-blue-100 transition-colors">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={160}
+                      height={60}
+                      className="max-h-10 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue group-hover:scale-105 transition-transform">
+                    <Handshake className="w-6 h-6" />
+                  </div>
+                )}
 
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-wider text-brand-blue">
@@ -56,7 +92,7 @@ export function Partners() {
 
         {/* OEM Brand Ecosystem Showcase */}
         <div className="mt-16 pt-12 border-t border-brand-border">
-          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <div className="text-center max-w-2xl mx-auto mb-6 space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-blue">
               <Cpu className="w-3.5 h-3.5" />
               <span>OEM Brand Ecosystem</span>
@@ -69,25 +105,77 @@ export function Partners() {
             </p>
           </div>
 
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            {filterOptions.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                onClick={() => setActiveFilter(opt.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                  activeFilter === opt.id
+                    ? "bg-brand-navy text-white shadow-sm"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200/80"
+                }`}
+              >
+                <span>{opt.label}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                    activeFilter === opt.id
+                      ? "bg-white/20 text-white"
+                      : "bg-white text-slate-500"
+                  }`}
+                >
+                  {opt.count}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* OEM Brands Grid with Authentic Logos */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
-            {OEM_BRAND_PARTNERS.map((brand) => (
+            {filteredBrands.map((brand) => (
               <div
                 key={brand.name}
-                className="p-3.5 rounded-xl border border-brand-border bg-slate-50/70 hover:bg-white hover:border-brand-blue/50 hover:shadow-md transition-all duration-200 text-center flex flex-col justify-center items-center group"
+                className="p-3 rounded-xl border border-brand-border bg-white hover:border-brand-blue/50 hover:shadow-md transition-all duration-200 text-center flex flex-col justify-between items-center group"
               >
-                <span className="text-sm font-extrabold font-heading text-brand-navy group-hover:text-brand-blue transition-colors">
-                  {brand.name}
-                </span>
-                <span className="text-[10px] text-slate-500 font-medium line-clamp-1 mt-0.5">
-                  {brand.category}
-                </span>
-                {brand.subtitle && (
-                  <span className="text-[9px] text-blue-600 font-medium mt-0.5">
-                    {brand.subtitle}
+                {/* Brand Logo Container */}
+                <div className="w-full h-14 rounded-lg bg-slate-50/70 border border-slate-100/90 flex items-center justify-center p-2 group-hover:bg-white group-hover:border-slate-200 transition-colors">
+                  <Image
+                    src={brand.logo}
+                    alt={`${brand.name} official logo`}
+                    width={140}
+                    height={50}
+                    className="max-h-8 w-auto object-contain filter group-hover:scale-105 transition-transform duration-200"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Brand Details */}
+                <div className="mt-2 w-full">
+                  <span className="text-xs sm:text-sm font-bold font-heading text-brand-navy group-hover:text-brand-blue transition-colors block">
+                    {brand.name}
                   </span>
-                )}
+                  <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1 mt-0.5 block">
+                    {brand.category}
+                  </span>
+                  {brand.subtitle && (
+                    <span className="text-[9px] text-blue-600 font-medium mt-0.5 block truncate">
+                      {brand.subtitle}
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Trust Banner Footer */}
+          <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+            <div className="flex items-center gap-2">
+              <Layers className="w-4 h-4 text-brand-blue shrink-0" />
+              <span>Authentic OEM warranties, genuine components &amp; certified tier-1 engineer deployments.</span>
+            </div>
+            <span className="font-semibold text-brand-navy">28+ Tier-1 Global OEM Alliances</span>
           </div>
         </div>
       </Container>
