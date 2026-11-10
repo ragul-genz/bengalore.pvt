@@ -46,5 +46,17 @@ export const CERTIFICATES_DATA: CertificateItem[] = [
       "Supply, installation, and handover of smart campus IT solutions, LAN networking, and established MDC facilities.",
     dateOrRef: "Ref: No. R/UASR/DSIR/2020-21/2388 | Date: 10-11-2020",
   },
+  {
+    id: "cert-naac-heatpump-led",
+    title: "Project Appreciation Certificate – Solar Heat Pump & Campus LED Modernization",
+    issuingBody: "National Assessment and Accreditation Council (NAAC) / ITI Limited",
+    category: "Solar Thermal & Campus Energy Efficiency",
+    image: "/certificates/cert-naac-heatpump-led.png",
+    description:
+      "Awarded to New Link Technologies Bangalore Pvt. Ltd. (through partner ITI Limited) for successfully completing the design, supply, installation, and commissioning of solar hot water heat pump systems and campus-wide LED lighting modernization at NAAC campus.",
+    workDetails:
+      "Solar Hot Water System 5kW Heat Pump with 500L pressurized solar water heater & 11.5kW Heat Pump with 1000L pressurized heater, plus campus-wide LED lighting fixtures (Project Value: Rs 35,00,245.00).",
+    dateOrRef: "Ref: NAAC/Admin/Solar/2021 | Completed: March 2022",
+  },
 ];
 

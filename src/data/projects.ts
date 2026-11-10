@@ -103,6 +103,19 @@ export const PROJECTS_DATA: ProjectItem[] = [
     verifiedHighlights:
       "Custom branded New Link control console and operational command video wall deployment.",
   },
+  {
+    id: "campus-fiber-sjbit",
+    title: "14-Building Campus Fiber Networking, Switching & Wi-Fi at SJBIT",
+    category: "Campus Network & Switching",
+    client: "SJB Institute of Technology (SJBIT) - Sri Adichunchanagiri Shikshana Trust",
+    image: "/projects/project-sjbit-campus-fiber.png",
+    description:
+      "Turnkey supply, termination, and multi-building commissioning of campus-wide optical fiber networking, managed switching matrices, and high-density Wi-Fi solutions providing seamless connectivity across 14 academic and administrative buildings.",
+    scope:
+      "Inter-building optical fiber backbone, core/distribution switches, Cat6 structured cabling, enterprise Wi-Fi APs, and executive handover.",
+    verifiedHighlights:
+      "Executive felicitation and official handover ceremony with SJBIT trust leadership and New Link management.",
+  },
 ];
 
 export const INSTALLATION_GALLERY: GalleryItem[] = [
@@ -129,10 +142,10 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
   },
   {
     id: "gal-4",
-    title: "Modular Data Centre Operational Commissioning",
+    title: "Modular Data Centre Commissioning at UAS Raichur",
     category: "Data Centre",
-    image: "/projects/project-datacenter-inauguration.png",
-    caption: "Inauguration and client handover of turnkey modular data centre computing facility.",
+    image: "/projects/project-uas-raichur-datacenter-inauguration.png",
+    caption: "Inauguration and client handover of turnkey modular data centre and Wi-Fi facility at UAS Raichur.",
   },
   {
     id: "gal-5",
@@ -145,7 +158,7 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     id: "gal-6",
     title: "Tumkur University Auditorium & Facility",
     category: "Auditorium",
-    image: "/projects/project-tumkur-auditorium.png",
+    image: "/projects/project-tumkur-auditorium-inauguration.png",
     caption: "Establishment of auditorium acoustics, wall paneling, and computer lab infrastructure.",
   },
   {
@@ -175,6 +188,13 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     category: "Networking",
     image: "/projects/project-color-patching-dressing.png",
     caption: "Professional bundle dressing, Velcro harness management, and machine-labeled color patch cables.",
+  },
+  {
+    id: "gal-11",
+    title: "14-Building Campus Fiber Handover at SJBIT",
+    category: "Campus Network",
+    image: "/projects/project-sjbit-campus-fiber.png",
+    caption: "Official handover and felicitation ceremony for 14-building campus networking at SJB Institute of Technology.",
   },
 ];
 
