@@ -9,7 +9,6 @@ import {
   Server,
   Cpu,
   Network,
-  Sparkles,
   CheckCircle2,
 } from "lucide-react";
 import { Container, Button } from "@/components/common";
@@ -76,23 +75,24 @@ export function Hero() {
             animate="visible"
             className="lg:col-span-7 flex flex-col space-y-6 lg:space-y-7 text-left"
           >
-            {/* Tagline / Eyebrow Badge */}
+            {/* Tagline / Eyebrow Badge - Matching Official Logo */}
             <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/15 text-blue-300 border border-brand-blue/30 backdrop-blur-xs">
-                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                <span>Connecting Values</span>
-                <span className="w-1 h-1 rounded-full bg-blue-400" />
-                <span className="text-slate-300 font-normal">Bangalore</span>
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/20 backdrop-blur-md shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-blue-400" />
+                <span className="font-bold text-white tracking-wide">NEW</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <span className="font-bold text-rose-400 tracking-wide">LINK</span>
+                <span className="text-slate-300 font-normal">• Connecting Values</span>
               </span>
             </motion.div>
 
-            {/* Main Heading */}
+            {/* Main Heading - Clean, Neat Typography */}
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]"
+              className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.14]"
             >
               <span className="text-white block sm:inline">Connecting Technology.</span>{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-sky-300 to-indigo-300">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-sky-300 to-rose-300">
                 Empowering Businesses.
               </span>
             </motion.h1>
@@ -106,6 +106,24 @@ export function Hero() {
               Modular Data Centres, and Clean Solar Energy for academic institutions, public sector bodies,
               and corporate leaders across Bangalore & India.
             </motion.p>
+
+            {/* Official Corporate 5 Verticals Strip from Profile */}
+            <motion.div variants={itemVariants} className="pt-0.5">
+              <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/80 text-xs text-white backdrop-blur-md shadow-inner">
+                <span className="px-2 py-0.5 rounded-md bg-rose-600/90 text-white font-bold uppercase tracking-wider text-[10px]">
+                  5 Verticals
+                </span>
+                <span className="text-slate-200 font-medium">IT</span>
+                <span className="text-rose-500 font-bold">•</span>
+                <span className="text-slate-200 font-medium">Hardware</span>
+                <span className="text-rose-500 font-bold">•</span>
+                <span className="text-slate-200 font-medium">Software</span>
+                <span className="text-rose-500 font-bold">•</span>
+                <span className="text-slate-200 font-medium">Infrastructure</span>
+                <span className="text-rose-500 font-bold">•</span>
+                <span className="text-slate-200 font-medium">Consulting</span>
+              </div>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div

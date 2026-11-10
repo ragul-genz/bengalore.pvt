@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Phone, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { Container, Button } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
@@ -14,14 +14,15 @@ export function CtaSection() {
 
       <Container size="default" className="relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-7">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/20 text-blue-300 border border-brand-blue/30 backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span>Connecting Values</span>
-            <span className="w-1 h-1 rounded-full bg-blue-400" />
-            <span>Bangalore, India</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/20 backdrop-blur-md shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-blue-400" />
+            <span className="font-bold text-white tracking-wide">NEW</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+            <span className="font-bold text-rose-400 tracking-wide">LINK</span>
+            <span className="text-slate-300 font-normal">• Connecting Values</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white tracking-tight leading-[1.15]">
             Let&apos;s Build Something Connected.
           </h2>
 
@@ -38,7 +39,7 @@ export function CtaSection() {
               size="lg"
               href="/contact"
               rightIcon={<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
-              className="w-full sm:w-auto font-semibold bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-xl shadow-blue-600/30 rounded-xl"
+              className="w-full sm:w-auto font-semibold bg-linear-to-r from-blue-600 via-blue-600 to-rose-600 hover:from-blue-500 hover:to-rose-500 text-white shadow-xl shadow-blue-600/30 rounded-xl"
             >
               Get in Touch
             </Button>

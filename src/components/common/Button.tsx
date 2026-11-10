@@ -41,15 +41,15 @@ export const Button = React.forwardRef<
 
     const variantStyles = {
       primary:
-        "bg-brand-navy text-white hover:bg-brand-darkNavy shadow-xs hover:shadow-md border border-transparent",
+        "bg-brand-navy text-white hover:bg-brand-darkNavy shadow-xs hover:shadow-md border border-transparent font-semibold",
       secondary:
-        "bg-brand-blue text-white hover:bg-brand-blueHover shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 border border-transparent",
+        "bg-linear-to-r from-blue-600 via-blue-600 to-rose-600 hover:from-blue-500 hover:to-rose-500 text-white shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/35 border border-transparent font-semibold",
       outline:
-        "border border-slate-300 text-brand-navy bg-white hover:bg-slate-50 hover:border-brand-blue/50 shadow-2xs",
+        "border border-slate-300 text-brand-navy bg-white hover:bg-slate-50 hover:border-brand-blue/50 shadow-2xs font-medium",
       ghost:
-        "text-brand-navy bg-transparent hover:bg-slate-100/80 border border-transparent",
+        "text-brand-navy bg-transparent hover:bg-slate-100/80 border border-transparent font-medium",
       white:
-        "bg-white text-brand-navy hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md",
+        "bg-white text-brand-navy hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md font-semibold",
     };
 
     const sizeStyles = {

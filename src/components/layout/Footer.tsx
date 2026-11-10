@@ -14,8 +14,8 @@ import { COMPANY_DETAILS } from "@/data/company";
 export function Footer() {
   return (
     <footer className="bg-brand-navy text-white relative overflow-hidden border-t border-brand-darkNavy">
-      {/* Top subtle border accent */}
-      <div className="h-1 w-full bg-linear-to-r from-brand-navy via-brand-blue to-brand-navy" />
+      {/* Top dual-color brand accent line matching logo */}
+      <div className="h-1 w-full bg-linear-to-r from-blue-600 via-rose-500 to-blue-600" />
 
       {/* Main Footer Content */}
       <div className="pt-16 pb-12 sm:pt-20 sm:pb-16">

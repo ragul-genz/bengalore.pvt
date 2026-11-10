@@ -3,6 +3,7 @@
 @theme {
   /* ==========================================================================
      Brand Color Palette - New Link Technologies Bangalore Pvt. Ltd.
+     Harmonized with Official Logo: Royal Navy ("New") + Crimson Red ("Link")
      ========================================================================== */
   --color-brand-navy: #0B1F3A;
   --color-brand-dark-navy: #142B4A;
@@ -10,14 +11,20 @@
   --color-brand-blue: #2563EB;
   --color-brand-blue-hover: #1D4ED8;
   --color-brand-blueHover: #1D4ED8;
+  --color-brand-red: #D92D20;
+  --color-brand-red-hover: #B42318;
+  --color-brand-red-light: #FEE4E2;
+  --color-brand-redHover: #B42318;
+  --color-brand-redLight: #FEE4E2;
+  --color-brand-crimson: #E11D48;
   --color-brand-white: #FFFFFF;
-  --color-brand-light-bg: #F5F7FA;
-  --color-brand-lightBg: #F5F7FA;
-  --color-brand-text: #172033;
-  --color-brand-secondary: #667085;
-  --color-brand-border: #E5E9F0;
-  --color-brand-border-subtle: #ECEFF4;
-  --color-brand-borderSubtle: #ECEFF4;
+  --color-brand-light-bg: #F8FAFC;
+  --color-brand-lightBg: #F8FAFC;
+  --color-brand-text: #0F172A;
+  --color-brand-secondary: #475569;
+  --color-brand-border: #E2E8F0;
+  --color-brand-border-subtle: #F1F5F9;
+  --color-brand-borderSubtle: #F1F5F9;
 
   /* Typography Font Families */
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -31,11 +38,14 @@
   --color-navy: #0B1F3A;
   --color-dark-navy: #142B4A;
   --color-blue: #2563EB;
+  --color-red: #D92D20;
+  --color-red-hover: #B42318;
+  --color-red-light: #FEE4E2;
   --color-white: #FFFFFF;
-  --color-light-bg: #F5F7FA;
-  --color-text: #172033;
-  --color-secondary-text: #667085;
-  --color-border: #E5E9F0;
+  --color-light-bg: #F8FAFC;
+  --color-text: #0F172A;
+  --color-secondary-text: #475569;
+  --color-border: #E2E8F0;
 }
 
 @layer base {
@@ -50,13 +60,13 @@
     background-color: var(--color-brand-lightBg);
     color: var(--color-brand-text);
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.65;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
     font-weight: 700;
     line-height: 1.25;
     color: inherit;

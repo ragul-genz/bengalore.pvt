@@ -65,15 +65,36 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             {/* Tagline & Location */}
             <div className="flex items-center gap-6">
-              <span className="inline-flex items-center gap-1.5 text-blue-300 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                {COMPANY_DETAILS.tagline}
-              </span>
-              <span className="text-slate-400">|</span>
+              <div className="flex items-center gap-2 font-medium">
+                <span className="flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                </span>
+                <span className="text-white font-semibold">New Link</span>
+                <span className="text-slate-400">—</span>
+                <span className="text-slate-200">{COMPANY_DETAILS.tagline}</span>
+              </div>
+              <span className="text-slate-600">|</span>
               <div className="flex items-center gap-1.5 text-slate-300">
                 <MapPin className="w-3.5 h-3.5 text-blue-400" />
                 <span>Rajajinagar, Bangalore - 560010</span>
               </div>
+            </div>
+
+            {/* Official 5 Verticals Strip */}
+            <div className="hidden xl:flex items-center gap-2 text-[11px] font-medium text-slate-300">
+              <span className="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30 font-semibold uppercase tracking-wider text-[10px]">
+                Verticals
+              </span>
+              <span>IT</span>
+              <span className="text-rose-400">•</span>
+              <span>Hardware</span>
+              <span className="text-rose-400">•</span>
+              <span>Software</span>
+              <span className="text-rose-400">•</span>
+              <span>Infrastructure</span>
+              <span className="text-rose-400">•</span>
+              <span>Consulting</span>
             </div>
 
             {/* Direct Phone & Email Channels */}
@@ -86,7 +107,7 @@ export function Navbar() {
                 <Phone className="w-3.5 h-3.5 text-blue-400" />
                 <span className="font-medium">{COMPANY_DETAILS.contact.phoneDisplay}</span>
               </a>
-              <span className="text-slate-400">|</span>
+              <span className="text-slate-600">|</span>
               <a
                 href={`mailto:${COMPANY_DETAILS.contact.email}`}
                 className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors"
@@ -132,7 +153,7 @@ export function Navbar() {
                   >
                     {item.label}
                     {active && (
-                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-brand-blue rounded-full" />
+                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-linear-to-r from-blue-600 to-rose-500 rounded-full" />
                     )}
                   </Link>
                 );
@@ -146,6 +167,7 @@ export function Navbar() {
                 size="md"
                 href="/contact#quote"
                 rightIcon={<ArrowRight className="w-4 h-4" />}
+                className="bg-linear-to-r from-blue-600 via-blue-600 to-rose-600 hover:from-blue-500 hover:to-rose-500 text-white rounded-xl shadow-md shadow-blue-600/20 hover:shadow-blue-600/35 border-0 font-semibold"
               >
                 Get a Quote
               </Button>

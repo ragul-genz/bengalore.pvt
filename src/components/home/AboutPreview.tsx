@@ -40,11 +40,11 @@ const itemVariants: Variants = {
 };
 
 const categoryIcons: Record<string, React.ReactNode> = {
-  IT: <Network className="w-4 h-4 text-brand-blue" />,
-  Hardware: <Cpu className="w-4 h-4 text-brand-blue" />,
-  Software: <Layers className="w-4 h-4 text-brand-blue" />,
-  Infrastructure: <Server className="w-4 h-4 text-brand-blue" />,
-  Consulting: <FileCheck2 className="w-4 h-4 text-brand-blue" />,
+  IT: <Network className="w-4 h-4 text-blue-600" />,
+  Hardware: <Cpu className="w-4 h-4 text-indigo-600" />,
+  Software: <Layers className="w-4 h-4 text-cyan-600" />,
+  Infrastructure: <Server className="w-4 h-4 text-rose-600" />,
+  Consulting: <FileCheck2 className="w-4 h-4 text-emerald-600" />,
 };
 
 export function AboutPreview() {
