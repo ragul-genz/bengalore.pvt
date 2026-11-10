@@ -89,10 +89,10 @@ export function Hero() {
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]"
+              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]"
             >
-              <span className="text-white">Connecting Technology.</span>{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-blue-300 to-indigo-200">
+              <span className="text-white block sm:inline">Connecting Technology.</span>{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-sky-300 to-indigo-300">
                 Empowering Businesses.
               </span>
             </motion.h1>
@@ -100,22 +100,24 @@ export function Hero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed"
+              className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed"
             >
-              Integrated IT, Hardware, Software and Infrastructure Solutions for Modern Enterprises.
+              Delivering turnkey Enterprise IT systems, Computing Hardware, Smart Campus Networks,
+              Modular Data Centres, and Clean Solar Energy for academic institutions, public sector bodies,
+              and corporate leaders across Bangalore & India.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
             >
               <Button
                 variant="secondary"
                 size="lg"
                 href="/services"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="shadow-lg shadow-blue-600/20 font-semibold"
+                rightIcon={<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
+                className="bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 rounded-xl font-semibold transition-all duration-200"
               >
                 Explore Our Solutions
               </Button>
@@ -124,28 +126,40 @@ export function Hero() {
                 variant="white"
                 size="lg"
                 href="/contact"
-                className="font-semibold"
+                className="rounded-xl font-semibold shadow-sm hover:shadow-md transition-all duration-200"
               >
-                Contact Us
+                Schedule Consultation
               </Button>
             </motion.div>
 
             {/* Enterprise Highlights / Trust Pillars */}
             <motion.div
               variants={itemVariants}
-              className="pt-4 border-t border-slate-700/60 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-slate-300"
+              className="pt-6 border-t border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300"
             >
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Enterprise SLA Delivery</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span className="font-medium text-slate-200">220 kWp Solar Rooftop Delivered</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Server className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Data Center Grade</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <Server className="w-4 h-4" />
+                </div>
+                <span className="font-medium text-slate-200">Modular Data Centre Execution</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                <Network className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>End-to-End Networking</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <Network className="w-4 h-4" />
+                </div>
+                <span className="font-medium text-slate-200">14-Building Optical Fiber Campus</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <span className="font-medium text-slate-200">Multi-OEM Certified Engineering</span>
               </div>
             </motion.div>
           </motion.div>

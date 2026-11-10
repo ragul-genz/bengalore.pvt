@@ -56,7 +56,7 @@ export function ProjectsPreview() {
           {PROJECTS_DATA.slice(0, 3).map((project: ProjectItem) => (
             <div
               key={project.id}
-              className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden"
             >
               <div>
                 {/* Project Image with Lightbox Button */}
@@ -72,7 +72,7 @@ export function ProjectsPreview() {
 
                   {/* Category Pill */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-brand-navy/90 text-white backdrop-blur-xs">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-brand-navy/90 text-white backdrop-blur-md border border-white/20">
                       {project.category}
                     </span>
                   </div>
@@ -87,7 +87,7 @@ export function ProjectsPreview() {
                         `Client: ${project.client}`
                       )
                     }
-                    className="absolute bottom-3 right-3 w-9 h-9 rounded-lg bg-white/90 backdrop-blur-xs hover:bg-white text-brand-navy flex items-center justify-center shadow-md transition-transform group-hover:scale-110 focus-visible:outline-none"
+                    className="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md hover:bg-white text-brand-navy flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 focus-visible:outline-none"
                     title="Expand photograph"
                     aria-label={`Expand ${project.title} photograph`}
                   >

@@ -37,19 +37,19 @@ export const Button = React.forwardRef<
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-200 select-none rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.99]";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 select-none rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none hover:scale-[1.01] active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-brand-navy text-white hover:bg-brand-darkNavy shadow-xs hover:shadow-sm border border-transparent",
+        "bg-brand-navy text-white hover:bg-brand-darkNavy shadow-xs hover:shadow-md border border-transparent",
       secondary:
-        "bg-brand-blue text-white hover:bg-brand-blueHover shadow-xs hover:shadow-sm border border-transparent",
+        "bg-brand-blue text-white hover:bg-brand-blueHover shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 border border-transparent",
       outline:
-        "border border-brand-navy/20 text-brand-navy bg-transparent hover:bg-brand-navy/5 hover:border-brand-navy/40",
+        "border border-slate-300 text-brand-navy bg-white hover:bg-slate-50 hover:border-brand-blue/50 shadow-2xs",
       ghost:
-        "text-brand-navy bg-transparent hover:bg-brand-navy/5 border border-transparent",
+        "text-brand-navy bg-transparent hover:bg-slate-100/80 border border-transparent",
       white:
-        "bg-white text-brand-navy hover:bg-zinc-50 border border-slate-200 shadow-xs hover:shadow-sm",
+        "bg-white text-brand-navy hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md",
     };
 
     const sizeStyles = {

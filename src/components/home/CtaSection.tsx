@@ -26,8 +26,9 @@ export function CtaSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto">
-            Looking for reliable IT and infrastructure solutions? Connect with our team to
-            discuss your requirements.
+            From turnkey modular data centres to campus optical fiber backbones, boardroom AV systems,
+            and enterprise hardware procurement — our engineering team in Rajajinagar, Bangalore is ready
+            to assess your infrastructure requirements.
           </p>
 
           {/* Action Buttons */}
@@ -36,8 +37,8 @@ export function CtaSection() {
               variant="secondary"
               size="lg"
               href="/contact"
-              rightIcon={<ArrowRight className="w-4 h-4" />}
-              className="w-full sm:w-auto font-semibold shadow-xl shadow-blue-600/25"
+              rightIcon={<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
+              className="w-full sm:w-auto font-semibold bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-xl shadow-blue-600/30 rounded-xl"
             >
               Get in Touch
             </Button>
@@ -47,7 +48,7 @@ export function CtaSection() {
               size="lg"
               href={`tel:${COMPANY_DETAILS.contact.phone}`}
               leftIcon={<Phone className="w-4 h-4 text-brand-navy" />}
-              className="w-full sm:w-auto font-semibold"
+              className="w-full sm:w-auto font-semibold rounded-xl shadow-sm hover:shadow-md"
             >
               Call Our Team
             </Button>

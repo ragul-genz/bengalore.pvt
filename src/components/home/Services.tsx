@@ -56,9 +56,9 @@ export function Services() {
             <motion.div
               key={service.slug}
               variants={cardVariants}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -6 }}
               transition={{ duration: 0.25 }}
-              className="group flex flex-col justify-between bg-white rounded-xl border border-brand-border overflow-hidden shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
+              className="group flex flex-col justify-between bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
             >
               <div>
                 {/* Service Image with Aspect Ratio & Subtle Zoom */}
@@ -70,16 +70,16 @@ export function Services() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/60 via-transparent to-transparent opacity-70" />
 
                   {/* Icon Badge Overlay */}
-                  <div className="absolute top-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-xs border border-white/40 flex items-center justify-center text-brand-navy shadow-md">
+                  <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md border border-white/50 flex items-center justify-center shadow-md">
                     <ServiceIcon name={service.iconName} className="w-5 h-5 text-brand-blue" />
                   </div>
 
                   {/* Tag Pill */}
                   <div className="absolute bottom-2.5 right-3">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-brand-navy/90 text-white backdrop-blur-xs">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-brand-navy/90 text-white backdrop-blur-md border border-white/15">
                       {service.tag}
                     </span>
                   </div>
@@ -98,9 +98,9 @@ export function Services() {
 
                   {/* Brand Partners Badge Strip */}
                   {service.brands && (
-                    <div className="flex flex-wrap gap-1 pt-1.5">
+                    <div className="flex flex-wrap gap-1.5 pt-1.5">
                       {service.brands.slice(0, 4).map((b) => (
-                        <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium border border-slate-200">
+                        <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-blue-50/80 text-blue-800 font-semibold border border-blue-100">
                           {b}
                         </span>
                       ))}
@@ -120,8 +120,8 @@ export function Services() {
                   href={`/services/${service.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-darkNavy transition-colors group/link pt-3 border-t border-brand-border/60 w-full justify-between"
                 >
-                  <span>Learn More</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  <span>Explore Capabilities</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 text-brand-blue" />
                 </Link>
               </div>
             </motion.div>

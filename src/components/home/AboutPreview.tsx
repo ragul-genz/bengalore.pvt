@@ -84,17 +84,20 @@ export function AboutPreview() {
               </div>
 
               {/* Floating Verified Capability Card */}
-              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-8 sm:-right-6 bg-white rounded-xl border border-brand-border p-4 shadow-xl max-w-xs">
+              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-4 bg-white/95 backdrop-blur-md rounded-2xl border border-brand-border p-4 shadow-xl max-w-xs ring-1 ring-slate-900/5">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0 shadow-2xs">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs font-bold text-brand-navy font-heading">
-                      Public & Enterprise Proven
-                    </p>
-                    <p className="text-[11px] text-brand-secondary leading-snug">
-                      Projects delivered with ITI Limited, KEONICS, NAAC & State Universities.
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <p className="text-xs font-bold text-brand-navy font-heading">
+                        Public & Enterprise Proven
+                      </p>
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-snug">
+                      Verified projects delivered with ITI Limited, KEONICS, NAAC & State Universities.
                     </p>
                   </div>
                 </div>
@@ -142,25 +145,25 @@ export function AboutPreview() {
 
             {/* 5 Core Business Categories */}
             <motion.div variants={itemVariants} className="space-y-3 pt-2">
-              <p className="text-xs font-bold uppercase tracking-wider text-brand-secondary">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Core Business Verticals
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {COMPANY_DETAILS.categories.map((cat) => (
                   <div
                     key={cat.title}
-                    className="flex items-center gap-2.5 p-3 rounded-lg border border-brand-border bg-brand-lightBg hover:border-brand-blue/40 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-xl border border-slate-200/80 bg-slate-50/80 hover:bg-white hover:border-blue-500/40 hover:shadow-md transition-all duration-200 group"
                   >
-                    <div className="w-7 h-7 rounded-md bg-white border border-brand-border flex items-center justify-center shrink-0">
-                      {categoryIcons[cat.title] || (
-                        <CheckCircle2 className="w-4 h-4 text-brand-blue" />
-                      )}
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 transition-colors group-hover:bg-blue-600">
+                      <span className="text-brand-blue group-hover:text-white transition-colors">
+                        {categoryIcons[cat.title] || <CheckCircle2 className="w-4 h-4" />}
+                      </span>
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-brand-navy font-heading">
+                      <p className="text-xs font-bold text-brand-navy font-heading group-hover:text-brand-blue transition-colors">
                         {cat.title}
                       </p>
-                      <p className="text-[11px] text-brand-secondary line-clamp-1">
+                      <p className="text-[11px] text-slate-500 line-clamp-1">
                         {cat.tag}
                       </p>
                     </div>

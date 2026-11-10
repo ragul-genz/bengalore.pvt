@@ -62,18 +62,18 @@ export function WhyChooseUs() {
           {reasons.map((item, idx) => (
             <div
               key={item.title}
-              className="bg-white p-7 rounded-2xl border border-brand-border shadow-xs hover:border-brand-blue/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white p-7 rounded-2xl border border-brand-border shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
                   {item.icon}
                 </div>
 
                 <div className="space-y-1.5">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">
                     Pillar 0{idx + 1}
                   </span>
-                  <h3 className="text-lg font-bold font-heading text-brand-navy leading-snug">
+                  <h3 className="text-lg font-bold font-heading text-brand-navy group-hover:text-brand-blue transition-colors leading-snug">
                     {item.title}
                   </h3>
                 </div>
@@ -91,9 +91,10 @@ export function WhyChooseUs() {
           ))}
 
           {/* Sixth Card: Corporate Commitment */}
-          <div className="bg-brand-navy text-white p-7 rounded-2xl border border-brand-darkNavy shadow-xl flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-blue-300">
+          <div className="bg-linear-to-br from-[#0B1F3A] via-[#102544] to-[#0A1A30] text-white p-7 rounded-2xl border border-blue-900/60 shadow-xl flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center text-blue-300 shadow-sm">
                 <ShieldCheck className="w-6 h-6" />
               </div>
 
@@ -113,9 +114,9 @@ export function WhyChooseUs() {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-700/60 flex items-center gap-1.5 text-xs text-blue-300 font-medium">
-              <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-              <span>Full Project Transparency</span>
+            <div className="mt-6 pt-4 border-t border-slate-700/60 flex items-center gap-1.5 text-xs text-blue-300 font-medium relative z-10">
+              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+              <span>Full Project Transparency & SLA</span>
             </div>
           </div>
         </div>
