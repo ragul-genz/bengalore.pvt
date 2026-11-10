@@ -164,18 +164,20 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Networking and Cabling",
     tag: "Core Infrastructure",
     iconName: "Network",
-    image: "/projects/project-structured-cabling.png",
+    image: "/services/networking-cabling.png",
     diagramImage: "/services/optical-fiber-infrastructure.png",
+    brands: ["D-Link", "Belden", "3M", "Molex", "Cisco"],
     shortDescription:
       "Campus-wide optical fiber networks, managed switching, high-density enterprise Wi-Fi, and certified structured cabling with neat cable dressing.",
     fullDescription:
-      "A resilient digital organization depends on a clean, robust physical networking layer. New Link Technologies specializes in complex structured cabling installations, high-speed optical fiber backbones connecting multiple campus buildings, core/distribution switching matrices, and high-density enterprise Wi-Fi solutions.",
+      "A resilient digital organization depends on a clean, robust physical networking layer. Partnering with D-Link, Belden, 3M, and Molex, New Link Technologies specializes in complex structured cabling installations, high-speed optical fiber backbones connecting multiple campus buildings, core/distribution switching matrices, and high-density enterprise Wi-Fi solutions.",
     features: [
       "Single-mode and multi-mode campus optical fiber backbones",
       "Armored multi-tube optical fiber infrastructure for inter-building links",
       "ISO-standard Cat6/Cat6A structured cabling with certified termination",
       "Professional vertical and horizontal cable dressing and rack organization",
-      "Core, distribution, and access layer managed switching",
+      "Authorized OEM partnerships with D-Link, Belden, 3M, and Molex",
+      "Core, distribution, and access layer managed switching matrices",
       "High-density enterprise wireless access points with central controller management",
     ],
     deliverables: [
@@ -192,7 +194,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Data Centre Solutions",
     tag: "Mission-Critical",
     iconName: "Server",
-    image: "/projects/project-modular-datacenter.png",
+    image: "/services/data-centre.png",
+    diagramImage: "/projects/project-modular-datacenter.png",
     shortDescription:
       "Modular data centre design, server rack infrastructure, precision cooling, power redundancy, and turnkey commissioning for enterprise computing.",
     fullDescription:
@@ -216,11 +219,12 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     slug: "solar-fire-safety",
     title: "Solar and Fire Safety Solutions",
-    tag: "Energy & Life Safety",
+    tag: "Energy & Fire Safety",
     iconName: "Sun",
     image: "/projects/project-solar-naac.png",
+    diagramImage: "/services/fire-alarm-safety.png",
     shortDescription:
-      "Rooftop solar power plant installation, commercial clean energy engineering, fire detection alarms, and life safety infrastructure integration.",
+      "Rooftop solar power plant installation, commercial clean energy engineering, fire alarm systems, and life safety infrastructure integration.",
     fullDescription:
       "New Link Technologies executes sustainable power generation and life-safety systems for large institutional and commercial facilities. We handle turnkey grid-tied solar photovoltaic installations—such as high-capacity rooftop power plants—alongside addressable fire alarm systems, smoke detectors, and emergency warning equipment.",
     features: [

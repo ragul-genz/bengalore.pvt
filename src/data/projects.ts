@@ -169,5 +169,12 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     image: "/projects/project-optical-fiber-cable.png",
     caption: "Multi-core armored optical fiber cable infrastructure deployed for inter-building high-speed campus backbones.",
   },
+  {
+    id: "gal-10",
+    title: "High-Density Color-Coded Patch Cabling & Trunk Dressing",
+    category: "Networking",
+    image: "/projects/project-color-patching-dressing.png",
+    caption: "Professional bundle dressing, Velcro harness management, and machine-labeled color patch cables.",
+  },
 ];
 
