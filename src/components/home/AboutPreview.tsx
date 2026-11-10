@@ -64,7 +64,7 @@ export function AboutPreview() {
               {/* Primary Image: Professional Structured Cabling from Company Portfolio */}
               <div className="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-lightBg shadow-lg aspect-4/3 sm:aspect-16/10">
                 <Image
-                  src="/about/structured-cabling.png"
+                  src="/projects/project-structured-cabling.png"
                   alt="New Link Technologies Professional Structured Cabling and Network Infrastructure"
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"

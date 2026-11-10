@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-lightBg shadow-lg aspect-4/3 sm:aspect-16/10">
                 <Image
-                  src="/about/network-patching.png"
+                  src="/projects/project-cable-patching.png"
                   alt="New Link Technologies Engineering Team Network Patching"
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"
@@ -228,7 +228,7 @@ export default function AboutPage() {
             <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
                 <Image
-                  src="/about/modular-datacenter.png"
+                  src="/projects/project-modular-datacenter.png"
                   alt="Modular Data Centre Execution by New Link Technologies"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -252,7 +252,7 @@ export default function AboutPage() {
             <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
                 <Image
-                  src="/about/structured-cabling.png"
+                  src="/projects/project-structured-cabling.png"
                   alt="Professional Structured Cabling by New Link Technologies"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -276,7 +276,7 @@ export default function AboutPage() {
             <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
                 <Image
-                  src="/about/boardroom-solution.png"
+                  src="/services/boardroom-solutions.png"
                   alt="Boardroom and Video Conferencing Solutions by New Link Technologies"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
