@@ -91,7 +91,7 @@ export function Hero() {
               variants={itemVariants}
               className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]"
             >
-              Connecting Technology.{" "}
+              <span className="text-white">Connecting Technology.</span>{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-blue-300 to-indigo-200">
                 Empowering Businesses.
               </span>

@@ -38,32 +38,29 @@
   --color-border: #E5E9F0;
 }
 
-html {
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  background-color: var(--color-brand-lightBg);
-  color: var(--color-brand-text);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  min-height: 100vh;
-}
+  body {
+    background-color: var(--color-brand-lightBg);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-/* ==========================================================================
-   Typography Hierarchy & Rules
-   Headings: Manrope (Geometric, Corporate, Authoritative)
-   Body: Inter (Legible, Enterprise Standard)
-   ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.025em;
-  color: var(--color-brand-navy);
-  font-weight: 700;
-  line-height: 1.25;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: inherit;
+  }
 }
 
 .heading-display {
