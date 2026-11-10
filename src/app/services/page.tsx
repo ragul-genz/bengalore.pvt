@@ -6,9 +6,19 @@ import { Container, Button, Badge, ServiceIcon } from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Enterprise Technology Services | New Link Technologies Bangalore Pvt. Ltd.",
+  title: "Enterprise Technology Services & Infrastructure Solutions",
   description:
-    "Explore our complete enterprise technology portfolio: Audio, Auditorium, Boardroom, Video Conferencing, CCTV Surveillance, Networking & Cabling, Data Centre, and Solar & Fire Safety Solutions.",
+    "Explore our complete enterprise portfolio: Modular Data Centres, Campus Optical Fiber, Structured Cabling, Digital Boardrooms, Auditorium AV, CCTV Surveillance, and Solar Energy.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Enterprise Technology Services | New Link Technologies",
+    description:
+      "Comprehensive infrastructure engineering and consulting services by New Link Technologies Bangalore Pvt. Ltd.",
+    url: "https://www.newlinktec.com/services",
+    images: ["/services/data-centre.png"],
+  },
 };
 
 export default function ServicesPage() {

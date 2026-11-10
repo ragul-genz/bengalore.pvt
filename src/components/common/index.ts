@@ -8,3 +8,4 @@ export * from "./CurrentYear";
 export * from "./ServiceIcon";
 export * from "./Lightbox";
 export * from "./ContactForm";
+export * from "./JsonLd";

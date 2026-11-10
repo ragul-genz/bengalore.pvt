@@ -41,8 +41,17 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${service.title} | New Link Technologies Bangalore Pvt. Ltd.`,
+    title: `${service.title} Solutions & Systems`,
     description: service.shortDescription,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
+    openGraph: {
+      title: `${service.title} | New Link Technologies Bangalore`,
+      description: service.shortDescription,
+      url: `https://www.newlinktec.com/services/${slug}`,
+      images: [service.image],
+    },
   };
 }
 

@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "ENQ-1794305561930-vpaht",
+    "receivedAt": "2026-11-10T10:12:41.930Z",
+    "fullName": "Girish Kumar",
+    "companyName": "Karnataka Technology Corporation",
+    "email": "girish@ktc.gov.in",
+    "phone": "+91 9535314141",
+    "interestedService": "Campus Structured Cabling & Optical Fiber",
+    "projectDetails": "Requirement for campus wide optical fiber backbone connecting 8 academic blocks.",
+    "privacyConsent": true
+  }
+]

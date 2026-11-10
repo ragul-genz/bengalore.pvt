@@ -19,9 +19,19 @@ import { Container, Button, Badge } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "About Us | New Link Technologies Bangalore Pvt. Ltd.",
+  title: "About Us | Corporate Profile & Leadership",
   description:
-    "Learn about New Link Technologies Bangalore Pvt. Ltd. - Integrated IT, Hardware, Software, Infrastructure, and Consulting solutions headquartered in Bangalore, India.",
+    "Learn about New Link Technologies Bangalore Pvt. Ltd., our executive leadership under Director M.G. Girish, and our proven delivery model across IT, hardware, infrastructure, and consulting.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About New Link Technologies Bangalore Pvt. Ltd.",
+    description:
+      "Integrated enterprise technology provider headquartered in Rajajinagar, Bangalore under Director M.G. Girish.",
+    url: "https://www.newlinktec.com/about",
+    images: ["/leadership/director-mg-girish.jpg"],
+  },
 };
 
 const categoryIcons: Record<string, React.ReactNode> = {

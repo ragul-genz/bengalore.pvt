@@ -15,9 +15,19 @@ import { Container, ContactForm } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Contact Us | New Link Technologies Bangalore Pvt. Ltd.",
+  title: "Contact Us | Rajajinagar Office, Bangalore",
   description:
-    "Get in touch with New Link Technologies Bangalore Pvt. Ltd. in Rajajinagar, Bangalore. Telephone: +91 9535314141, Email: girish.mg@newlinktec.com.",
+    "Connect with New Link Technologies Bangalore Pvt. Ltd. at No. 12/1, 1st Floor, 11th 'B' Main Road, Rajajinagar, Bangalore. Phone: +91 9535314141, Email: girish.mg@newlinktec.com.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact New Link Technologies Bangalore Pvt. Ltd.",
+    description:
+      "Direct communication channels, office location map, and corporate enquiry form.",
+    url: "https://www.newlinktec.com/contact",
+    images: ["/contact/company-contact-slide.png"],
+  },
 };
 
 export default function ContactPage() {
