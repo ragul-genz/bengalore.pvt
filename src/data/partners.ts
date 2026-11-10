@@ -125,6 +125,7 @@ export const OEM_BRAND_PARTNERS: OEMBrandPartner[] = [
   { name: "Sony", category: "High-Definition Video & Security Systems" },
   { name: "Polycom", category: "Enterprise Video Conferencing" },
   { name: "Honeywell", category: "Life Safety & Surveillance" },
+  { name: "Agni Protection", category: "Fire Alarm Panels & Life Safety Equipment" },
   { name: "Yamaha", category: "Pro Audio & Sound Consoles", subtitle: "Make Waves" },
   { name: "JBL", category: "Commercial Sound Systems" },
   { name: "Sennheiser", category: "Wireless Microphone Systems" },

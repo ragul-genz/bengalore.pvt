@@ -222,17 +222,19 @@ export const SERVICES_DATA: ServiceItem[] = [
     tag: "Energy & Fire Safety",
     iconName: "Sun",
     image: "/projects/project-solar-naac.png",
-    diagramImage: "/services/fire-alarm-safety.png",
+    diagramImage: "/services/fire-safety-equipment-oem.png",
+    brands: ["Bosch", "Honeywell", "Agni Protection", "ITI Limited"],
     shortDescription:
-      "Rooftop solar power plant installation, commercial clean energy engineering, fire alarm systems, and life safety infrastructure integration.",
+      "Rooftop solar power plant installation, clean energy engineering, Bosch & Honeywell fire alarms, and institutional life safety infrastructure.",
     fullDescription:
-      "New Link Technologies executes sustainable power generation and life-safety systems for large institutional and commercial facilities. We handle turnkey grid-tied solar photovoltaic installations—such as high-capacity rooftop power plants—alongside addressable fire alarm systems, smoke detectors, and emergency warning equipment.",
+      "New Link Technologies Bangalore Pvt. Ltd. executes sustainable power generation and life-safety systems for major institutional and government facilities. Our verified installations include turnkey grid-tied solar photovoltaic power plants—such as the 220 kWp Rooftop Solar Installation at NAAC Bengaluru executed through ITI Limited—as well as addressable fire alarm networks, optical smoke sensors, and life safety control panels partnering with Bosch, Honeywell, and Agni Protection.",
     features: [
-      "Turnkey grid-interactive commercial and institutional rooftop solar PV",
-      "High-efficiency solar module arrays with structural mounting engineering",
-      "Grid inverters, net metering synchronization, and generation monitoring",
-      "Addressable fire alarm control panels and optical smoke detection",
-      "Audible/visual fire evacuation sounders and manual call points",
+      "Turnkey 220 kWp Rooftop Solar Power Plant executed through ITI Limited for client NAAC",
+      "Addressable fire alarm control panels from certified OEMs Bosch and Honeywell",
+      "Optical smoke detectors, flame sensors, and aspiration detection systems",
+      "Complete life-safety infrastructure with Agni Protection & fire suppression systems",
+      "Solar grid-tie inverters, net metering synchronization, and power generation monitoring",
+      "Module mounting structures designed for wind resilience and structural safety",
     ],
     deliverables: [
       "Solar irradiation analysis, roof structural validation, and electrical design",
@@ -241,7 +243,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Operations, warranty support, and comprehensive O&M contracts",
     ],
     referenceHighlights:
-      "Supplying, installing, testing, and commissioning of a 220 kWp Rooftop Solar Power Plant executed through ITI Limited for client NAAC.",
+      "220 KW Solar Rooftop Power Plant successfully executed through ITI Limited for client NAAC Bengaluru with official Appreciation Certificate.",
   },
 ];
 
