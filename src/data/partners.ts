@@ -106,3 +106,24 @@ export const CLIENT_INSTITUTIONS: PartnerEntity[] = [
     scopeOfWork: "Interactive AV systems and exhibition digital infrastructure.",
   },
 ];
+
+export interface OEMBrandPartner {
+  name: string;
+  category: string;
+  subtitle?: string;
+}
+
+export const OEM_BRAND_PARTNERS: OEMBrandPartner[] = [
+  { name: "Bose", category: "Pro Audio & Acoustics" },
+  { name: "Bosch", category: "Security & Public Address" },
+  { name: "Cisco", category: "Networking & Video Collaboration" },
+  { name: "Polycom", category: "Enterprise Video Conferencing" },
+  { name: "Honeywell", category: "Life Safety & Public Address" },
+  { name: "Yamaha", category: "Pro Audio & Sound Consoles", subtitle: "Make Waves" },
+  { name: "JBL", category: "Commercial Sound Systems" },
+  { name: "Sennheiser", category: "Wireless Microphone Systems" },
+  { name: "Harman", category: "Professional AV Integration", subtitle: "A Samsung Company" },
+  { name: "Ahuja", category: "Public Address Systems", subtitle: "80 Years of Reliability" },
+  { name: "Heinrich", category: "Commercial Audio & PA Systems" },
+];
+

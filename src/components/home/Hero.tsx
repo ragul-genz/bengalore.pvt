@@ -164,18 +164,18 @@ export function Hero() {
 
               {/* Main Infrastructure Image Card */}
               <div className="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-brand-darkNavy shadow-2xl">
-                {/* Professional Data Center Stock Imagery */}
+                {/* Authentic Company Profile Presentation Visual */}
                 <div className="relative aspect-4/3 sm:aspect-16/10 w-full overflow-hidden">
                   <Image
-                    src="/hero/datacenter-infrastructure.jpg"
-                    alt="Enterprise Data Center and Network Infrastructure"
+                    src="/hero/business-solutions-globe.png"
+                    alt="New Link Technologies - Business Solutions We Provide"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
                     className="object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
                   {/* Visual Gradient Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-brand-navy/30 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-brand-navy/20 to-transparent" />
                 </div>
 
                 {/* Sub-bar Information: Data Center & Network Infrastructure */}

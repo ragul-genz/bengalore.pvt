@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Handshake } from "lucide-react";
+import { ShieldCheck, Handshake, Cpu } from "lucide-react";
 import { Container, SectionHeading } from "@/components/common";
-import { TECHNOLOGY_PARTNERS } from "@/data/partners";
+import { TECHNOLOGY_PARTNERS, OEM_BRAND_PARTNERS } from "@/data/partners";
 
 export function Partners() {
   return (
@@ -52,6 +52,43 @@ export function Partners() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* OEM Brand Ecosystem Showcase */}
+        <div className="mt-16 pt-12 border-t border-brand-border">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-blue">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>OEM Brand Ecosystem</span>
+            </div>
+            <h4 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+              Certified Technology &amp; Audio-Visual Brands
+            </h4>
+            <p className="text-xs sm:text-sm text-brand-secondary">
+              Deploying certified hardware, audio processing consoles, conferencing hardware, and security systems from world-class manufacturers:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+            {OEM_BRAND_PARTNERS.map((brand) => (
+              <div
+                key={brand.name}
+                className="p-3.5 rounded-xl border border-brand-border bg-slate-50/70 hover:bg-white hover:border-brand-blue/50 hover:shadow-md transition-all duration-200 text-center flex flex-col justify-center items-center group"
+              >
+                <span className="text-sm font-extrabold font-heading text-brand-navy group-hover:text-brand-blue transition-colors">
+                  {brand.name}
+                </span>
+                <span className="text-[10px] text-slate-500 font-medium line-clamp-1 mt-0.5">
+                  {brand.category}
+                </span>
+                {brand.subtitle && (
+                  <span className="text-[9px] text-blue-600 font-medium mt-0.5">
+                    {brand.subtitle}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

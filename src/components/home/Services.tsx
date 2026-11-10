@@ -95,6 +95,22 @@ export function Services() {
                   <p className="text-xs sm:text-sm text-brand-secondary line-clamp-3 leading-relaxed">
                     {service.shortDescription}
                   </p>
+
+                  {/* Brand Partners Badge Strip */}
+                  {service.brands && (
+                    <div className="flex flex-wrap gap-1 pt-1.5">
+                      {service.brands.slice(0, 4).map((b) => (
+                        <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium border border-slate-200">
+                          {b}
+                        </span>
+                      ))}
+                      {service.brands.length > 4 && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-500 font-medium border border-slate-200">
+                          +{service.brands.length - 4} more
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 

@@ -160,6 +160,60 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </p>
               </div>
 
+              {/* Authorized Technology Brands / OEMs */}
+              {service.brands && service.brands.length > 0 && (
+                <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-4 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-bold font-heading text-brand-navy">
+                      Authorized Technology Brands &amp; OEMs
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-brand-secondary">
+                    Installed and integrated using genuine equipment from certified enterprise manufacturers:
+                  </p>
+                  <div className="flex flex-wrap gap-2.5 pt-1">
+                    {service.brands.map((brand) => (
+                      <span
+                        key={brand}
+                        className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold hover:border-brand-blue/60 hover:bg-blue-50/50 transition-colors"
+                      >
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Solution Architecture / Features Diagram */}
+              {service.diagramImage && (
+                <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-5 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                      <Building2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold font-heading text-brand-navy">
+                        Solution Architecture &amp; Features
+                      </h3>
+                      <p className="text-xs text-brand-secondary">
+                        Official technical integration topology from New Link Technologies profile
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative aspect-16/10 w-full rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                    <Image
+                      src={service.diagramImage}
+                      alt={`${service.title} Architecture Diagram`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Key Features & Architecture Specifications */}
               <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-6 shadow-xs">
                 <div className="flex items-center gap-2">

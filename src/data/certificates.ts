@@ -47,3 +47,4 @@ export const CERTIFICATES_DATA: CertificateItem[] = [
     dateOrRef: "Ref: No. R/UASR/DSIR/2020-21/2388 | Date: 10-11-2020",
   },
 ];
+

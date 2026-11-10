@@ -5,7 +5,9 @@ export interface ServiceItem {
   fullDescription: string;
   iconName: string;
   image: string;
+  diagramImage?: string;
   tag: string;
+  brands?: string[];
   features: string[];
   deliverables: string[];
   referenceHighlights?: string;
@@ -17,17 +19,27 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Audio Solutions",
     tag: "Acoustics & Sound",
     iconName: "Volume2",
-    image: "/services/audio-solutions.jpg",
+    image: "/services/audio-solutions.png",
+    brands: [
+      "Bose",
+      "Ahuja",
+      "Bosch",
+      "Yamaha",
+      "JBL",
+      "Sennheiser",
+      "Heinrich",
+      "Harman",
+    ],
     shortDescription:
-      "Professional audio systems, digital sound processing, acoustic wall treatments, and distributed commercial sound for institutional environments.",
+      "Professional audio systems, digital sound processing consoles, acoustic wall treatments, and distributed commercial sound for institutional environments and auditoriums.",
     fullDescription:
-      "New Link Technologies engineers end-to-end commercial and institutional audio solutions designed for clear speech intelligibility, balanced frequency response, and reliable operation. Our designs encompass digital signal processing, professional line-array speakers, wireless microphone systems, and acoustic surface treatments tailored to high-occupancy venues.",
+      "New Link Technologies Bangalore Pvt. Ltd. delivers end-to-end commercial and institutional audio solutions with industry-leading OEM partnerships. Our designs incorporate digital sound mixing consoles, multi-channel rack power amplifiers, high-performance microphones, and line-array speakers from certified technology brands.",
     features: [
-      "Digital Signal Processing (DSP) and automated feedback suppression",
-      "Multi-zone distributed commercial audio distribution",
+      "Digital Signal Processing (DSP) & audio mixing consoles",
+      "Multi-zone distributed commercial audio and power amplifiers",
       "Wireless delegate and podium microphone systems",
-      "Acoustic wall paneling and ambient noise control",
-      "Integration with central conference control interfaces",
+      "Acoustic wall paneling and ambient reverberation control",
+      "OEM Integration with Bose, Ahuja, Bosch, Yamaha, JBL, Sennheiser, Heinrich & Harman",
     ],
     deliverables: [
       "Acoustic assessment and sound coverage mapping",
@@ -43,9 +55,9 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Auditorium Solutions",
     tag: "Large Venue AV",
     iconName: "Presentation",
-    image: "/services/auditorium-solutions.jpg",
+    image: "/services/auditorium-solutions.png",
     shortDescription:
-      "Turnkey auditorium integration including acoustic wall paneling, false ceilings, stage lighting, pro audio, and large-format projection.",
+      "Turnkey auditorium integration including acoustic wall paneling, false ceilings, stage lighting, pro sound, and large-format projection.",
     fullDescription:
       "From architectural acoustics to high-lumen projection systems, New Link Technologies delivers complete, turnkey auditorium environments. We coordinate stage lighting, motorized projection screens, pro sound arrays, false ceilings, and wall paneling to create modern, multipurpose event venues for universities and institutions.",
     features: [
@@ -70,16 +82,18 @@ export const SERVICES_DATA: ServiceItem[] = [
     tag: "Executive AV",
     iconName: "MonitorCheck",
     image: "/services/boardroom-solutions.png",
+    diagramImage: "/services/boardroom-features-diagram.png",
     shortDescription:
-      "Modern executive meeting environments equipped with smart interactive touch screens, conference booking, automated controls, and digital sound.",
+      "Modern executive meeting environments equipped with smart interactive touch screens, digital conference systems, booking management, and pro sound.",
     fullDescription:
       "We transform corporate boardrooms and meeting spaces into modern, collaborative hubs. Our boardroom solutions combine interactive touch displays, integrated room scheduling systems, automated smart lighting and climate controls, cable cubbies, and digital conference speakerphones into a seamless, intuitive interface.",
     features: [
-      "Smart interactive 4K touch displays and digital whiteboarding",
-      "Integrated conference room booking and scheduling panels",
-      "Digital conference microphone systems with priority override",
-      "Smart environmental control (lighting, motorized blinds, AV power)",
-      "Concealed architectural table connectivity and pop-up cable cubbies",
+      "Smart interactive touch screen & digital whiteboard",
+      "Digital conference system with delegate priority",
+      "Conference booking system & panel scheduling",
+      "Smart control system for lighting & AV automation",
+      "Pro sound system & acoustic optimization",
+      "Video conference system with seamless connectivity",
     ],
     deliverables: [
       "Boardroom layout architecture and sightline optimization",
@@ -96,16 +110,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     tag: "Hybrid Collaboration",
     iconName: "Video",
     image: "/services/video-conferencing.png",
+    brands: ["Polycom", "Cisco"],
     shortDescription:
       "Enterprise video conferencing systems featuring PTZ optical zoom cameras, dual-display video walls, beamforming audio, and multi-party connectivity.",
     fullDescription:
-      "New Link Technologies provides robust video conferencing systems built for flawless hybrid collaboration. We integrate broadcast-grade PTZ tracking cameras, dual-monitor displays, intelligent beamforming ceiling microphone arrays, and digital video matrix switchers that interface with major enterprise collaboration platforms.",
+      "New Link Technologies provides robust video conferencing systems built for flawless hybrid collaboration. In partnership with industry leaders like Polycom and Cisco, we integrate broadcast-grade PTZ tracking cameras, dual-monitor displays, intelligent beamforming ceiling microphone arrays, and digital video matrix switchers that interface with major enterprise collaboration platforms.",
     features: [
       "Ultra-HD PTZ cameras with optical zoom and auto-framing tracking",
       "Dual-display configurations for simultaneous content and participant viewing",
       "Ceiling beamforming microphone arrays with acoustic echo cancellation",
       "Hardware codecs and software-agnostic USB conferencing interfaces",
-      "Low-latency digital video distribution over IP",
+      "Certified integration with Polycom and Cisco collaboration suites",
     ],
     deliverables: [
       "Network bandwidth assessment and video room calibration",
@@ -119,19 +134,20 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     slug: "cctv-surveillance",
     title: "CCTV and Surveillance",
-    tag: "Physical Security",
+    tag: "Surveillance & Public Address",
     iconName: "Camera",
-    image: "/services/cctv-surveillance.jpg",
+    image: "/services/public-address-system.png",
+    brands: ["Bosch", "Cisco", "Honeywell"],
     shortDescription:
-      "Enterprise IP surveillance networks, multi-camera perimeter coverage, central NVR storage arrays, and real-time security monitoring stations.",
+      "Enterprise IP surveillance networks, public address systems, multi-camera perimeter coverage, central NVR storage, and real-time security monitoring.",
     fullDescription:
-      "We design and deploy industrial-grade CCTV surveillance systems that provide 24/7 situational awareness across expansive facilities. Covering perimeter boundaries, entrance checkpoints, administrative corridors, and server rooms, our IP camera networks feed high-capacity Network Video Recorders (NVR) with centralized video monitoring.",
+      "We design and deploy industrial-grade CCTV surveillance systems and centralized Public Address (PA) solutions that provide 24/7 situational awareness across expansive facilities. Partnering with Bosch, Cisco, and Honeywell, our installations cover perimeter boundaries, entrance checkpoints, administrative corridors, and server rooms.",
     features: [
       "High-resolution IP dome, bullet, and PTZ security cameras",
-      "Infrared night vision, wide dynamic range, and vandal-resistant housings",
+      "Centralized Public Address (PA) system with zone-wise announcement controllers",
+      "Delegate & conference discussion units with priority control",
       "Centralized NVR storage arrays with RAID redundancy for long retention",
-      "Command and control room monitoring video walls",
-      "Integration with perimeter access control and alarm notifications",
+      "Authorized Bosch, Cisco, and Honeywell infrastructure integration",
     ],
     deliverables: [
       "Site survey, blind-spot mapping, and camera angle design",
@@ -147,7 +163,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Networking and Cabling",
     tag: "Core Infrastructure",
     iconName: "Network",
-    image: "/services/networking-cabling.png",
+    image: "/projects/project-structured-cabling.png",
     shortDescription:
       "Campus-wide optical fiber networks, managed switching, high-density enterprise Wi-Fi, and certified structured cabling with neat cable dressing.",
     fullDescription:
@@ -173,7 +189,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Data Centre Solutions",
     tag: "Mission-Critical",
     iconName: "Server",
-    image: "/services/data-centre.jpg",
+    image: "/projects/project-modular-datacenter.png",
     shortDescription:
       "Modular data centre design, server rack infrastructure, precision cooling, power redundancy, and turnkey commissioning for enterprise computing.",
     fullDescription:
@@ -199,7 +215,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "Solar and Fire Safety Solutions",
     tag: "Energy & Life Safety",
     iconName: "Sun",
-    image: "/services/solar-fire-safety.jpg",
+    image: "/projects/project-solar-naac.png",
     shortDescription:
       "Rooftop solar power plant installation, commercial clean energy engineering, fire detection alarms, and life safety infrastructure integration.",
     fullDescription:
@@ -229,4 +245,3 @@ export function getServiceBySlug(slug: string): ServiceItem | undefined {
 export function getAllServiceSlugs(): string[] {
   return SERVICES_DATA.map((s) => s.slug);
 }
-

@@ -143,3 +143,4 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     caption: "High-capacity rooftop solar photovoltaic installation executed through ITI Limited for NAAC.",
   },
 ];
+
