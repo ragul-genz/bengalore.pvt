@@ -26,12 +26,14 @@ export const TECHNOLOGY_PARTNERS: PartnerEntity[] = [
     type: "Public Sector Undertaking",
     location: "Broadcast Engineering Consultants India Ltd. (Govt. of India)",
     scopeOfWork: "Technology systems, audio-visual broadcasting, and communications integration.",
+    logo: "/partners/clients/becil.png",
   },
   {
     name: "Centre for e-Governance (CeG)",
     type: "Government & PSU",
     location: "Government of Karnataka",
     scopeOfWork: "Public sector IT enablement and electronic governance infrastructure support.",
+    logo: "/partners/clients/ceg.png",
   },
 ];
 
