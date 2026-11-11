@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Maximize2, Building2, CheckCircle2 } from "lucide-react";
-import { Container, Button, Lightbox } from "@/components/common";
+import { Container, Lightbox } from "@/components/common";
 import { PROJECTS_DATA, type ProjectItem } from "@/data/projects";
 
 export function ProjectsPreview() {
@@ -33,21 +34,31 @@ export function ProjectsPreview() {
       <Container size="default">
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <span className="eyebrow-badge mb-3">Demonstrated Track Record</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-brand-navy tracking-tight leading-tight">
-              Our Successful Installations
+          <div className="max-w-2xl space-y-3">
+            <div className="flex items-center gap-2.5">
+              <span className="w-6 h-[2px] bg-blue-600 rounded-full shrink-0" />
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-blue-600">
+                Demonstrated Track Record
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#0A192F] tracking-tight leading-tight">
+              Our Successful{" "}
+              <span className="text-blue-600">Installations</span>
             </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <p className="text-sm sm:text-base text-slate-600">
               Verified physical infrastructure, optical networking, and turnkey technology
               systems deployed for premier institutions across Karnataka.
             </p>
           </div>
 
           <div className="shrink-0">
-            <Button variant="outline" size="md" href="/projects" rightIcon={<ArrowRight className="w-4 h-4" />}>
-              View All Projects
-            </Button>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:border-blue-600 hover:bg-blue-50/40 text-slate-900 hover:text-blue-600 text-sm font-semibold shadow-2xs transition-all duration-200"
+            >
+              <span>View All Projects</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 

@@ -14,31 +14,31 @@ import { Container, SectionHeading } from "@/components/common";
 
 const reasons = [
   {
-    icon: <Layers className="w-6 h-6 text-brand-blue" />,
+    icon: <Layers className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />,
     title: "Integrated Technology Solutions",
     description:
       "A unified, single-window provider across IT, Hardware, Software, Infrastructure, and Consulting, eliminating multi-vendor coordination friction.",
   },
   {
-    icon: <Server className="w-6 h-6 text-brand-blue" />,
+    icon: <Server className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />,
     title: "Multiple Infrastructure Capabilities",
     description:
       "Broad engineering execution spanning modular data centres, campus optical fiber networks, boardroom automation, and clean solar rooftop energy.",
   },
   {
-    icon: <Wrench className="w-6 h-6 text-brand-blue" />,
+    icon: <Wrench className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />,
     title: "Professional Installation Experience",
     description:
       "Strict adherence to structured cabling standards, neat vertical/horizontal cable dressing, certified terminations, and rigorous site safety protocols.",
   },
   {
-    icon: <Building2 className="w-6 h-6 text-brand-blue" />,
+    icon: <Building2 className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />,
     title: "Enterprise Technology Solutions",
     description:
       "Architectures engineered specifically for large-footprint enterprises, universities, state departments, and mission-critical public infrastructure.",
   },
   {
-    icon: <TrendingUp className="w-6 h-6 text-brand-blue" />,
+    icon: <TrendingUp className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />,
     title: "Business-Focused Approach",
     description:
       "Aligned with our founding motto 'Connecting Values' — delivering transparent proposals, practical bills of materials, and accountable multi-year SLA support.",
@@ -51,7 +51,8 @@ export function WhyChooseUs() {
       <Container size="default">
         <SectionHeading
           eyebrow="Our Engineering Differentiators"
-          title="Why Choose New Link Technologies?"
+          title="Why Choose"
+          highlight="New Link Technologies?"
           description="We deliver dependability, technical precision, and comprehensive accountability across every physical and digital technology layer."
           align="center"
           className="mb-14"

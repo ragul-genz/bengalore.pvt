@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
-import { Container, Button, Badge, ServiceIcon } from "@/components/common";
+import { Container, Button, Badge, ServiceIcon, PageHero } from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -23,33 +23,18 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-brand-lightBg">
-      {/* Services Header Banner */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 md:pt-24 md:pb-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#3b82f615_1px,transparent_1px),linear-gradient(to_bottom,#3b82f615_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/15 rounded-full blur-[100px] pointer-events-none" />
-
-        <Container size="default" className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/20 text-blue-300 border border-brand-blue/30 mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              <span>Full Lifecycle Engineering</span>
-              <span className="w-1 h-1 rounded-full bg-blue-400" />
-              <span>Bangalore, India</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              Complete Technology Solutions
-            </h1>
-
-            <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              From mission-critical modular data centres and campus fiber networks to
-              smart conference facilities and institutional solar energy systems, we
-              deliver turnkey engineering tailored for reliability and performance.
-            </p>
-          </div>
-        </Container>
-      </section>
+    <div className="bg-white">
+      {/* Services Hero Banner matching Home Aesthetic */}
+      <PageHero
+        eyebrow="Full Lifecycle Engineering • Bangalore, India"
+        title="Complete Technology"
+        highlight="Solutions"
+        description="From mission-critical modular data centres and campus fiber networks to smart conference facilities and institutional solar energy systems, we deliver turnkey engineering tailored for reliability and performance."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services" },
+        ]}
+      />
 
       {/* Services Grid Section */}
       <section className="py-16 md:py-24">

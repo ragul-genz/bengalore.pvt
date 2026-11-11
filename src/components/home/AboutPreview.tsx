@@ -2,18 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import {
   ArrowRight,
-  Server,
-  Layers,
-  Network,
-  Cpu,
-  FileCheck2,
   CheckCircle2,
   Building2,
 } from "lucide-react";
-import { Container, Button } from "@/components/common";
+import { Container } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 const containerVariants: Variants = {
@@ -39,198 +35,136 @@ const itemVariants: Variants = {
   },
 };
 
-const categoryIcons: Record<string, React.ReactNode> = {
-  IT: <Network className="w-4 h-4 text-blue-600" />,
-  Hardware: <Cpu className="w-4 h-4 text-indigo-600" />,
-  Software: <Layers className="w-4 h-4 text-cyan-600" />,
-  Infrastructure: <Server className="w-4 h-4 text-rose-600" />,
-  Consulting: <FileCheck2 className="w-4 h-4 text-emerald-600" />,
-};
-
 export function AboutPreview() {
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-brand-border relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
       <Container size="default">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
         >
-          {/* Left Column: Authentic Imagery Composite (5 cols) */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
-              {/* Primary Image: Professional Structured Cabling from Company Portfolio */}
-              <div className="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-lightBg shadow-lg aspect-4/3 sm:aspect-16/10">
-                <Image
-                  src="/projects/project-structured-cabling.png"
-                  alt="New Link Technologies Professional Structured Cabling and Network Infrastructure"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover object-center transition-transform duration-500 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-brand-navy/80 via-transparent to-transparent" />
-                
-                {/* Image caption bar */}
-                <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                  <p className="font-heading font-bold text-sm">
-                    Structured Cabling Standards
-                  </p>
-                  <p className="text-slate-300 text-[11px]">
-                    High-density cable dressing and rack optimization
-                  </p>
+          {/* Left Column: Eyebrow, Dual-Tone Heading & Description (7 cols) */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            {/* Heading Column */}
+            <motion.div variants={itemVariants} className="md:col-span-6 space-y-4">
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-[2px] bg-blue-600 rounded-full shrink-0" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-blue-700">
+                  About New Link Technologies
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#0A192F] tracking-tight leading-[1.15]">
+                Technology That{" "}
+                <span className="text-blue-600 block">
+                  Connects Possibilities
+                </span>
+              </h2>
+            </motion.div>
+
+            {/* Narrative & Learn More Pill Button Column */}
+            <motion.div variants={itemVariants} className="md:col-span-6 space-y-5 md:pt-7">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                <strong className="text-slate-900 font-semibold">
+                  {COMPANY_DETAILS.name}
+                </strong>{" "}
+                is a trusted technology partner, delivering integrated IT, hardware,
+                software and infrastructure solutions for government undertakings,
+                universities, and modern enterprises.
+              </p>
+
+              <div>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:border-blue-600 hover:bg-blue-50/40 text-slate-900 hover:text-blue-600 text-sm font-semibold shadow-2xs transition-all duration-200"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Capabilities Highlights & Director Sign-off Row */}
+            <motion.div
+              variants={itemVariants}
+              className="md:col-span-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+            >
+              <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs sm:text-sm text-slate-700">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="font-medium">Modular Data Centres</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="font-medium">Optical Fiber Backbones</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="font-medium">Digital Auditorium &amp; AV</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="font-medium">220 kWp Solar Deployments</span>
                 </div>
               </div>
 
-              {/* Floating Verified Capability Card */}
-              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-4 bg-white/95 backdrop-blur-md rounded-2xl border border-brand-border p-4 shadow-xl max-w-xs ring-1 ring-slate-900/5">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0 shadow-2xs">
-                    <Building2 className="w-5 h-5" />
+              {/* Director Sign-off */}
+              <div className="flex items-center gap-3 shrink-0 bg-slate-50/90 px-4 py-2.5 rounded-2xl border border-slate-200/70">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-blue-600 shadow-2xs shrink-0">
+                  <Image
+                    src="/leadership/director-mg-girish.jpg"
+                    alt={`${COMPANY_DETAILS.leadership.director} - ${COMPANY_DETAILS.leadership.role}`}
+                    fill
+                    sizes="40px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="text-xs">
+                  <p className="font-heading font-bold text-[#0A192F]">
+                    {COMPANY_DETAILS.leadership.director}
+                  </p>
+                  <p className="text-slate-500 text-[11px] font-medium">
+                    {COMPANY_DETAILS.leadership.role}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Corporate Visual Card (5 cols) */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/60 bg-slate-50 aspect-16/10">
+              <Image
+                src="/about/corporate-glass-building.png"
+                alt="New Link Technologies Bangalore Corporate Operations"
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                className="object-cover object-center transition-transform duration-500 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/65 via-transparent to-transparent" />
+
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-md text-slate-900 px-3.5 py-2 rounded-xl shadow-md">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                    <Building2 className="w-4 h-4" />
                   </div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <p className="text-xs font-bold text-brand-navy font-heading">
-                        Public & Enterprise Proven
-                      </p>
-                    </div>
-                    <p className="text-[11px] text-slate-500 leading-snug">
-                      Verified projects delivered with ITI Limited, KEONICS, NAAC & State Universities.
+                  <div className="text-xs">
+                    <p className="font-bold text-[#0A192F] leading-tight">
+                      Rajajinagar, Bangalore
+                    </p>
+                    <p className="text-[10px] text-slate-500 font-medium">
+                      Serving PSUs, Universities &amp; Enterprises
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
-
-          {/* Right Column: Company Narrative & Capabilities (7 cols) */}
-          <motion.div
-            variants={containerVariants}
-            className="lg:col-span-7 flex flex-col space-y-6 order-1 lg:order-2"
-          >
-            {/* Eyebrow Label */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="eyebrow-badge">
-                About {COMPANY_DETAILS.shortName}
-              </span>
-            </motion.div>
-
-            {/* Main Section Heading */}
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-brand-navy tracking-tight leading-[1.18]"
-            >
-              Technology That Connects Possibilities
-            </motion.h2>
-
-            {/* Professional Company Introduction */}
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-brand-secondary leading-relaxed font-normal"
-            >
-              <strong className="text-brand-text font-semibold">
-                {COMPANY_DETAILS.name}
-              </strong>{" "}
-              is a comprehensive technology integrator specializing in end-to-end
-              systems for academic institutions, public sector organizations, and
-              corporate enterprises. Under our core philosophy of{" "}
-              <em className="text-brand-blue font-medium not-italic">
-                &ldquo;Connecting Values,&rdquo;
-              </em>{" "}
-              we bridge complex infrastructure challenges with dependable, standards-compliant
-              engineering.
-            </motion.p>
-
-            {/* 5 Core Business Categories */}
-            <motion.div variants={itemVariants} className="space-y-3 pt-2">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Core Business Verticals
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {COMPANY_DETAILS.categories.map((cat) => (
-                  <div
-                    key={cat.title}
-                    className="flex items-center gap-3 p-3 rounded-xl border border-slate-200/80 bg-slate-50/80 hover:bg-white hover:border-blue-500/40 hover:shadow-md transition-all duration-200 group"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 transition-colors group-hover:bg-blue-600">
-                      <span className="text-brand-blue group-hover:text-white transition-colors">
-                        {categoryIcons[cat.title] || <CheckCircle2 className="w-4 h-4" />}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-brand-navy font-heading group-hover:text-brand-blue transition-colors">
-                        {cat.title}
-                      </p>
-                      <p className="text-[11px] text-slate-500 line-clamp-1">
-                        {cat.tag}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Verified Capabilities Checklist */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-xs sm:text-sm text-brand-text"
-            >
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
-                <span>Modular Data Centre Execution</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
-                <span>Campus Optical Fiber Backbones</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
-                <span>Digital Boardroom & Auditorium AV</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
-                <span>Smart Surveillance & IP Security</span>
-              </div>
-            </motion.div>
-
-            {/* Leadership Signoff & CTA Button */}
-            <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
-              <Button
-                variant="primary"
-                size="lg"
-                href="/about"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="shadow-sm font-semibold w-fit"
-              >
-                Learn More
-              </Button>
-
-              <div className="flex items-center gap-3 border-l-0 sm:border-l sm:border-brand-border sm:pl-6">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-blue shadow-xs shrink-0 bg-slate-100">
-                  <Image
-                    src="/leadership/director-mg-girish.jpg"
-                    alt={`${COMPANY_DETAILS.leadership.director} - ${COMPANY_DETAILS.leadership.role}, ${COMPANY_DETAILS.name}`}
-                    fill
-                    sizes="48px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="text-xs">
-                  <p className="font-heading font-bold text-brand-navy text-sm">
-                    {COMPANY_DETAILS.leadership.director}
-                  </p>
-                  <p className="text-brand-secondary font-medium">
-                    {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.shortName}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </Container>
     </section>
   );
 }
-

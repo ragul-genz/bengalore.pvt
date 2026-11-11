@@ -2,264 +2,225 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import {
   ArrowRight,
-  ShieldCheck,
-  Server,
+  Play,
   Cpu,
-  Network,
-  CheckCircle2,
+  Server,
+  Code2,
+  CloudUpload,
+  Users,
 } from "lucide-react";
-import { Container, Button } from "@/components/common";
+import { Container } from "@/components/common";
+import { cn } from "@/lib/utils";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.55,
       ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
-const floatingBadgeVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9, y: 15 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      delay: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
+const VERTICAL_PILLARS = [
+  {
+    icon: Cpu,
+    line1: "IT",
+    line2: "Solutions",
+    href: "/services/networking-cabling",
   },
-};
+  {
+    icon: Server,
+    line1: "Hardware",
+    line2: "Solutions",
+    href: "/services/data-centre",
+  },
+  {
+    icon: Code2,
+    line1: "Software",
+    line2: "Solutions",
+    href: "/services/video-conferencing",
+  },
+  {
+    icon: CloudUpload,
+    line1: "Infrastructure",
+    line2: "Solutions",
+    href: "/services/solar-fire-safety",
+  },
+  {
+    icon: Users,
+    line1: "Consulting",
+    line2: "Services",
+    href: "/contact",
+  },
+];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-brand-navy text-white pt-12 pb-20 md:pt-20 md:pb-28 lg:pt-24 lg:pb-32">
-      {/* Subtle Animated Background Grid & Radial Glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-        {/* Ambient Dark Navy Gradient Base */}
-        <div className="absolute inset-0 bg-linear-to-b from-[#08172c] via-[#0B1F3A] to-[#0d2240]" />
+    <div className="relative bg-white">
+      {/* Main Light High-Tech Hero Section */}
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC] via-[#F4F8FE] to-[#FFFFFF] pt-10 pb-24 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32">
+        {/* Geometric Angular Light Ribbons (Subtle Modern Backdrop) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+          <div className="absolute -left-24 top-0 w-96 h-full bg-linear-to-br from-blue-200/35 via-blue-100/20 to-transparent -skew-x-12 transform" />
+          <div className="absolute left-1/3 bottom-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
 
-        {/* Subtle Tech Grid Pattern */}
-        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#3b82f615_1px,transparent_1px),linear-gradient(to_bottom,#3b82f615_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_30%,#000_60%,transparent_100%)]" />
-
-        {/* Soft Electric Blue Ambient Lighting */}
-        <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-brand-blue/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-brand-darkNavy/40 rounded-full blur-[100px] pointer-events-none" />
-      </div>
-
-      <Container size="default" className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copy & Actions (7 cols) */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-7 flex flex-col space-y-6 lg:space-y-7 text-left"
-          >
-            {/* Tagline / Eyebrow Badge - Matching Official Logo */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/20 backdrop-blur-md shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-blue-400" />
-                <span className="font-bold text-white tracking-wide">NEW</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                <span className="font-bold text-rose-400 tracking-wide">LINK</span>
-                <span className="text-slate-300 font-normal">• Connecting Values</span>
-              </span>
-            </motion.div>
-
-            {/* Main Heading - Clean, Neat Typography */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.14]"
+          {/* Right Side Diagonal Server Corridor Mask (Desktop) */}
+          <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[48%] xl:w-[46%] overflow-hidden">
+            {/* Diagonal Cut Accent Ribbon */}
+            <div
+              className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-[#F4F8FE] via-blue-100/60 to-transparent z-10"
+              style={{ clipPath: "polygon(0 0, 100% 0, 35% 100%, 0% 100%)" }}
+            />
+            <div
+              className="relative w-full h-full"
+              style={{ clipPath: "polygon(18% 0, 100% 0, 100% 100%, 0% 100%)" }}
             >
-              <span className="text-white block sm:inline">Connecting Technology.</span>{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-sky-300 to-rose-300">
-                Empowering Businesses.
-              </span>
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed"
-            >
-              Delivering turnkey Enterprise IT systems, Computing Hardware, Smart Campus Networks,
-              Modular Data Centres, and Clean Solar Energy for academic institutions, public sector bodies,
-              and corporate leaders across Bangalore & India.
-            </motion.p>
-
-            {/* Official Corporate 5 Verticals Strip from Profile */}
-            <motion.div variants={itemVariants} className="pt-0.5">
-              <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/80 text-xs text-white backdrop-blur-md shadow-inner">
-                <span className="px-2 py-0.5 rounded-md bg-rose-600/90 text-white font-bold uppercase tracking-wider text-[10px]">
-                  5 Verticals
-                </span>
-                <span className="text-slate-200 font-medium">IT</span>
-                <span className="text-rose-500 font-bold">•</span>
-                <span className="text-slate-200 font-medium">Hardware</span>
-                <span className="text-rose-500 font-bold">•</span>
-                <span className="text-slate-200 font-medium">Software</span>
-                <span className="text-rose-500 font-bold">•</span>
-                <span className="text-slate-200 font-medium">Infrastructure</span>
-                <span className="text-rose-500 font-bold">•</span>
-                <span className="text-slate-200 font-medium">Consulting</span>
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
-            >
-              <Button
-                variant="secondary"
-                size="lg"
-                href="/services"
-                rightIcon={<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
-                className="bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 rounded-xl font-semibold transition-all duration-200"
-              >
-                Explore Our Solutions
-              </Button>
-
-              <Button
-                variant="white"
-                size="lg"
-                href="/contact"
-                className="rounded-xl font-semibold shadow-sm hover:shadow-md transition-all duration-200"
-              >
-                Schedule Consultation
-              </Button>
-            </motion.div>
-
-            {/* Enterprise Highlights / Trust Pillars */}
-            <motion.div
-              variants={itemVariants}
-              className="pt-6 border-t border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300"
-            >
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span className="font-medium text-slate-200">220 kWp Solar Rooftop Delivered</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                  <Server className="w-4 h-4" />
-                </div>
-                <span className="font-medium text-slate-200">Modular Data Centre Execution</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                  <Network className="w-4 h-4" />
-                </div>
-                <span className="font-medium text-slate-200">14-Building Optical Fiber Campus</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                  <Cpu className="w-4 h-4" />
-                </div>
-                <span className="font-medium text-slate-200">Multi-OEM Certified Engineering</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column: Visual Imagery (5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
-          >
-            {/* Visual Frame */}
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Outer Glow Halo */}
-              <div className="absolute -inset-1.5 bg-linear-to-r from-blue-600/30 to-indigo-600/20 rounded-2xl blur-lg opacity-70 pointer-events-none" />
-
-              {/* Main Infrastructure Image Card */}
-              <div className="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-brand-darkNavy shadow-2xl">
-                {/* Authentic Company Profile Presentation Visual */}
-                <div className="relative aspect-4/3 sm:aspect-16/10 w-full overflow-hidden">
-                  <Image
-                    src="/hero/business-solutions-globe.png"
-                    alt="New Link Technologies - Business Solutions We Provide"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                  />
-                  {/* Visual Gradient Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-brand-navy/20 to-transparent" />
-                </div>
-
-                {/* Sub-bar Information: Data Center & Network Infrastructure */}
-                <div className="p-4 sm:p-5 bg-brand-darkNavy/95 border-t border-slate-800 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-brand-blue/15 border border-brand-blue/30 flex items-center justify-center text-blue-400 shrink-0">
-                      <Cpu className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-white font-heading">
-                        Enterprise Infrastructure
-                      </p>
-                      <p className="text-[11px] text-slate-400">
-                        High-Density Computing & Structured Cabling
-                      </p>
-                    </div>
-                  </div>
-
-                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Active
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Metric Badge (Top Right) */}
-              <motion.div
-                variants={floatingBadgeVariants}
-                initial="hidden"
-                animate="visible"
-                className="absolute -top-4 -right-2 sm:-right-4 bg-brand-navy/90 backdrop-blur-md border border-brand-blue/40 rounded-xl px-4 py-2.5 shadow-xl hidden sm:flex items-center gap-3"
-              >
-                <div className="w-8 h-8 rounded-lg bg-brand-blue/20 flex items-center justify-center text-blue-300">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <p className="text-[10px] uppercase font-semibold text-slate-300 tracking-wider">
-                      Uptime Ready
-                    </p>
-                  </div>
-                  <p className="text-xs font-bold text-white font-heading">
-                    99.9% Reliability
-                  </p>
-                </div>
-              </motion.div>
+              <Image
+                src="/hero/server-datacenter-hero-hd.png"
+                alt="High-tech Data Centre Server Corridor - New Link Technologies"
+                fill
+                priority
+                sizes="50vw"
+                className="object-cover object-center"
+              />
+              {/* Soft Left Blue Glow Blend */}
+              <div className="absolute inset-0 bg-linear-to-r from-blue-900/25 via-transparent to-blue-950/20" />
             </div>
-          </motion.div>
+          </div>
         </div>
-      </Container>
-    </section>
+
+        <Container size="default" className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Copy & Actions (7 cols) */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-7 flex flex-col space-y-5 lg:space-y-6 text-left"
+            >
+              {/* Eyebrow with Horizontal Line */}
+              <motion.div variants={itemVariants} className="flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-slate-500 rounded-full shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] text-slate-600">
+                  IT | HARDWARE | SOFTWARE | INFRASTRUCTURE | CONSULTING
+                </span>
+              </motion.div>
+
+              {/* Main Bold Dual-Tone Heading */}
+              <motion.h1
+                variants={itemVariants}
+                className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#0A192F] leading-[1.1]"
+              >
+                <span className="block">Connecting Technology.</span>
+                <span className="text-blue-600 block mt-1">
+                  Empowering Businesses.
+                </span>
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed"
+              >
+                Integrated IT, Hardware, Software and{" "}
+                <span className="text-blue-700 font-medium border-b-2 border-blue-200/80 pb-0.5">
+                  Infrastructure
+                </span>{" "}
+                Solutions for Modern Enterprises.
+              </motion.p>
+
+              {/* Action Pill Buttons */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap items-center gap-4 pt-2"
+              >
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:shadow-lg transition-all duration-200"
+                >
+                  <span>Explore Our Solutions</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/documents/New-Link-Company-Profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm shadow-xs hover:border-slate-400 transition-all duration-200"
+                >
+                  <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center shrink-0">
+                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+                  </span>
+                  <span>Watch Our Profile</span>
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Mobile/Tablet Server Image (visible below lg) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:hidden relative rounded-2xl overflow-hidden shadow-lg border border-blue-100 aspect-16/9"
+            >
+              <Image
+                src="/hero/server-datacenter-hero-hd.png"
+                alt="High-tech Data Centre Server Corridor - New Link Technologies"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Floating 5 Verticals Pill Strip Overlapping Hero Bottom */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 relative z-20 mb-4">
+        <div className="bg-white rounded-2xl lg:rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-100 px-4 py-4 sm:px-6 sm:py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-0">
+          {VERTICAL_PILLARS.map((item, idx) => (
+            <Link
+              key={item.line1}
+              href={item.href}
+              className={cn(
+                "flex items-center gap-3.5 px-3 py-2 rounded-xl hover:bg-blue-50/70 transition-all duration-200 group",
+                idx < VERTICAL_PILLARS.length - 1 && "lg:border-r lg:border-slate-100"
+              )}
+            >
+              <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-105 transition-all duration-200 shrink-0">
+                <item.icon className="w-5 h-5 stroke-[1.8]" />
+              </div>
+              <div className="leading-tight">
+                <span className="block text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {item.line1}
+                </span>
+                <span className="block text-xs font-medium text-slate-500">
+                  {item.line2}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
-

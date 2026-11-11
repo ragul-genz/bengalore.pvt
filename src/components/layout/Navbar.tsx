@@ -11,6 +11,7 @@ import {
   MapPin,
   ArrowRight,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 import { Container, Button, Logo } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
@@ -59,46 +60,25 @@ export function Navbar() {
 
   return (
     <header className="w-full sticky top-0 z-50">
-      {/* Top Bar - Corporate Contact & Tagline (Desktop) */}
-      <div className="bg-brand-navy text-white/90 text-xs py-2 border-b border-brand-darkNavy hidden lg:block select-none">
+      {/* Top Bar - Matching Official Corporate Header */}
+      <div className="bg-[#08162B] text-white/90 text-xs py-2 border-b border-white/10 hidden lg:block select-none">
         <Container size="default">
           <div className="flex items-center justify-between">
             {/* Tagline & Location */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <div className="flex items-center gap-2 font-medium">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                </span>
-                <span className="text-white font-semibold">New Link</span>
-                <span className="text-slate-400">—</span>
-                <span className="text-slate-200">{COMPANY_DETAILS.tagline}</span>
+                <span className="w-2 h-2 rounded-full bg-blue-500 inline-block shadow-xs shadow-blue-400" />
+                <span className="text-white/95 font-medium">Connecting Values.</span>
               </div>
-              <span className="text-slate-600">|</span>
+              <span className="text-white/20 font-light">|</span>
               <div className="flex items-center gap-1.5 text-slate-300">
                 <MapPin className="w-3.5 h-3.5 text-blue-400" />
                 <span>Rajajinagar, Bangalore - 560010</span>
               </div>
             </div>
 
-            {/* Official 5 Verticals Strip */}
-            <div className="hidden xl:flex items-center gap-2 text-[11px] font-medium text-slate-300">
-              <span className="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30 font-semibold uppercase tracking-wider text-[10px]">
-                Verticals
-              </span>
-              <span>IT</span>
-              <span className="text-rose-400">•</span>
-              <span>Hardware</span>
-              <span className="text-rose-400">•</span>
-              <span>Software</span>
-              <span className="text-rose-400">•</span>
-              <span>Infrastructure</span>
-              <span className="text-rose-400">•</span>
-              <span>Consulting</span>
-            </div>
-
             {/* Direct Phone & Email Channels */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <a
                 href={`tel:${COMPANY_DETAILS.contact.phone}`}
                 className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors"
@@ -107,7 +87,7 @@ export function Navbar() {
                 <Phone className="w-3.5 h-3.5 text-blue-400" />
                 <span className="font-medium">{COMPANY_DETAILS.contact.phoneDisplay}</span>
               </a>
-              <span className="text-slate-600">|</span>
+              <span className="text-white/20 font-light">|</span>
               <a
                 href={`mailto:${COMPANY_DETAILS.contact.email}`}
                 className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors"
@@ -125,10 +105,10 @@ export function Navbar() {
       <nav
         aria-label="Main Navigation"
         className={cn(
-          "w-full bg-white/95 backdrop-blur-md transition-all duration-300 border-b",
+          "w-full bg-white/98 backdrop-blur-md transition-all duration-300 border-b",
           isScrolled
-            ? "border-brand-border shadow-md py-3.5"
-            : "border-slate-200/80 py-4 lg:py-5"
+            ? "border-slate-200 shadow-sm py-3"
+            : "border-slate-100 py-3.5 lg:py-4"
         )}
       >
         <Container size="default">
@@ -137,40 +117,42 @@ export function Navbar() {
             <Logo variant="light" size="md" href="/" />
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-2">
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
               {COMPANY_DETAILS.navLinks.map((item) => {
                 const active = isActiveLink(item.href);
+                const isServices = item.href === "/services";
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative",
+                      "text-sm font-medium transition-all duration-200 relative py-1 flex items-center gap-1",
                       active
-                        ? "text-brand-blue font-semibold bg-brand-blue/8"
-                        : "text-brand-text hover:text-brand-blue hover:bg-slate-50"
+                        ? "text-blue-600 font-semibold"
+                        : "text-slate-700 hover:text-blue-600"
                     )}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {isServices && (
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+                    )}
                     {active && (
-                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-linear-to-r from-blue-600 to-rose-500 rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-blue-600 rounded-full" />
                     )}
                   </Link>
                 );
               })}
             </div>
 
-            {/* Desktop "Get a Quote" Action Button */}
+            {/* Desktop "Get a Quote" Action Button - Pill Style */}
             <div className="hidden md:flex items-center gap-3">
-              <Button
-                variant="primary"
-                size="md"
+              <Link
                 href="/contact#quote"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="bg-linear-to-r from-blue-600 via-blue-600 to-rose-600 hover:from-blue-500 hover:to-rose-500 text-white rounded-xl shadow-md shadow-blue-600/20 hover:shadow-blue-600/35 border-0 font-semibold"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
               >
-                Get a Quote
-              </Button>
+                <span>Get a Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Mobile Hamburger Toggle Button */}

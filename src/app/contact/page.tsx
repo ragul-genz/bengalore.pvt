@@ -7,11 +7,10 @@ import {
   Clock,
   MessageCircle,
   Building2,
-  Sparkles,
   ExternalLink,
   ShieldCheck,
 } from "lucide-react";
-import { Container, ContactForm } from "@/components/common";
+import { Container, ContactForm, PageHero } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -39,32 +38,18 @@ export default function ContactPage() {
     "https://www.google.com/maps/search/?api=1&query=No.+12%2F1%2C+11th+%27B%27+Main+Road%2C+36th+Cross%2C+2nd+Block%2C+Rajajinagar%2C+Bangalore+-+560010";
 
   return (
-    <div className="bg-brand-lightBg">
-      {/* Contact Hero Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 md:pt-24 md:pb-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#3b82f615_1px,transparent_1px),linear-gradient(to_bottom,#3b82f615_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/15 rounded-full blur-[100px] pointer-events-none" />
-
-        <Container size="default" className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/20 text-blue-300 border border-brand-blue/30 mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              <span>Direct Corporate Communication</span>
-              <span className="w-1 h-1 rounded-full bg-blue-400" />
-              <span>Rajajinagar, Bangalore</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              Contact New Link Technologies
-            </h1>
-
-            <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              Connect with our corporate office in Bangalore for turnkey IT project proposals,
-              technical site surveys, structured cabling assessments, and ongoing facility maintenance.
-            </p>
-          </div>
-        </Container>
-      </section>
+    <div className="bg-white">
+      {/* Contact Hero Header matching Home Aesthetic */}
+      <PageHero
+        eyebrow="Direct Corporate Communication • Rajajinagar, Bangalore"
+        title="Contact New Link"
+        highlight="Technologies"
+        description="Connect with our corporate office in Bangalore for turnkey IT project proposals, technical site surveys, structured cabling assessments, and ongoing facility maintenance."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Contact" },
+        ]}
+      />
 
       {/* Main Grid: Form + Contact Cards */}
       <section className="py-16 md:py-24">

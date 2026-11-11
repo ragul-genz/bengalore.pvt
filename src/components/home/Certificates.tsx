@@ -33,7 +33,8 @@ export function Certificates() {
       <Container size="default">
         <SectionHeading
           eyebrow="Government & Institutional Commendations"
-          title="Recognition and Appreciation"
+          title="Recognition and"
+          highlight="Appreciation"
           description="Authentic project completion and performance certificates awarded to New Link Technologies Bangalore Pvt. Ltd. by public sector enterprises and state universities."
           align="center"
           className="mb-14"

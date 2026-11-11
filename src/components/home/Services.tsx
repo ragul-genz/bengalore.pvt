@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Container, Button, SectionHeading, ServiceIcon } from "@/components/common";
+import { Container, SectionHeading, ServiceIcon } from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
 const containerVariants: Variants = {
@@ -38,7 +38,8 @@ export function Services() {
         {/* Section Heading */}
         <SectionHeading
           eyebrow="Our Core Capabilities"
-          title="Complete Technology Solutions"
+          title="Complete Technology"
+          highlight="Solutions"
           description="Integrated enterprise systems engineered for institutional scalability, high uptime, and standards-compliant performance across modern enterprises."
           align="center"
           className="mb-14"
@@ -128,23 +129,31 @@ export function Services() {
           ))}
         </motion.div>
 
-        {/* View All & Consultation CTA Bar */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-brand-navy text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center md:text-left">
-            <h4 className="text-lg sm:text-xl font-bold font-heading text-white">
-              Need a Custom Turnkey Infrastructure Proposal?
+        {/* View All & Consultation CTA Bar matching Light High-Tech Design */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-linear-to-r from-[#EAF2FC] via-[#F4F8FE] to-white border border-blue-200/70 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+          <div className="space-y-1.5 text-center md:text-left">
+            <h4 className="text-lg sm:text-xl font-extrabold font-heading text-[#0A192F]">
+              Need a Custom Turnkey{" "}
+              <span className="text-blue-600">Infrastructure Proposal?</span>
             </h4>
-            <p className="text-xs sm:text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-600">
               Our engineering team conducts site surveys, thermal modeling, and structured cabling assessments.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Button variant="secondary" size="md" href="/contact#quote" rightIcon={<ArrowRight className="w-4 h-4" />}>
-              Request Technical Consultation
-            </Button>
-            <Button variant="white" size="md" href="/services">
-              View All Services
-            </Button>
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <Link
+              href="/contact#quote"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all"
+            >
+              <span>Request Consultation</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs sm:text-sm font-semibold shadow-2xs transition-all"
+            >
+              <span>View All Services</span>
+            </Link>
           </div>
         </div>
       </Container>

@@ -20,7 +20,8 @@ export function Clients() {
       <Container size="default">
         <SectionHeading
           eyebrow="Proven Institutional Reach"
-          title="Institutions and Clients We Serve"
+          title="Institutions and Clients"
+          highlight="We Serve"
           description="Delivering mission-critical digital infrastructure, campus networking, and facility solutions for premier academic institutions, state departments, and public authorities."
           align="center"
           className="mb-12"

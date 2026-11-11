@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/components/layout";
-import { JsonLd } from "@/components/common";
+import { JsonLd, FloatingWhatsApp } from "@/components/common";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -104,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

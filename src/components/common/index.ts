@@ -9,3 +9,5 @@ export * from "./ServiceIcon";
 export * from "./Lightbox";
 export * from "./ContactForm";
 export * from "./JsonLd";
+export * from "./FloatingWhatsApp";
+export * from "./PageHero";

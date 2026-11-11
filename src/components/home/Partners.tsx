@@ -35,7 +35,8 @@ export function Partners() {
       <Container size="default">
         <SectionHeading
           eyebrow="Strategic Collaboration"
-          title="Our Technology Partners"
+          title="Our Technology"
+          highlight="Partners"
           description="Collaborating closely with leading public sector enterprises, government undertakings, and engineering corporations to deliver large-scale infrastructure solutions."
           align="center"
           className="mb-12"

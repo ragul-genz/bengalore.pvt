@@ -14,7 +14,7 @@ import {
   ShieldCheck,
   Download,
 } from "lucide-react";
-import { Container, Button, Badge, ServiceIcon } from "@/components/common";
+import { Container, Button, Badge, ServiceIcon, PageHero } from "@/components/common";
 import { SERVICES_DATA, getServiceBySlug } from "@/data/services";
 import { COMPANY_DETAILS } from "@/data/company";
 
@@ -67,74 +67,35 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <div className="bg-brand-lightBg">
-      {/* Service Hero Header */}
-      <section className="bg-brand-navy text-white pt-12 pb-16 md:pt-20 md:pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#3b82f615_1px,transparent_1px),linear-gradient(to_bottom,#3b82f615_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/15 rounded-full blur-[100px] pointer-events-none" />
-
-        <Container size="default" className="relative z-10">
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 text-xs text-slate-300">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-              </li>
-              <li className="text-blue-300 font-semibold truncate max-w-xs sm:max-w-none">
-                {service.title}
-              </li>
-            </ol>
-          </nav>
-
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/20 text-blue-300 border border-brand-blue/30">
-              <ServiceIcon name={service.iconName} className="w-3.5 h-3.5 text-blue-400" />
-              <span>{service.tag}</span>
-              <span className="w-1 h-1 rounded-full bg-blue-400" />
-              <span>Enterprise Delivery</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              {service.title}
-            </h1>
-
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              {service.shortDescription}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Button
-                variant="secondary"
-                size="md"
-                href="/contact#quote"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-              >
-                Request Technical Quote
-              </Button>
-              <Button
-                variant="white"
-                size="md"
-                href={`tel:${COMPANY_DETAILS.contact.phone}`}
-              >
-                Call: {COMPANY_DETAILS.contact.phoneDisplay}
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+    <div className="bg-white">
+      {/* Service Hero Header matching Home Aesthetic */}
+      <PageHero
+        eyebrow={`${service.tag} • Enterprise Delivery`}
+        title={service.title}
+        description={service.shortDescription}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: service.title },
+        ]}
+      >
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <Link
+            href="/contact#quote"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:shadow-lg transition-all duration-200"
+          >
+            <span>Request Technical Quote</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <a
+            href={`tel:${COMPANY_DETAILS.contact.phone}`}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm shadow-xs transition-all duration-200"
+          >
+            <Phone className="w-4 h-4 text-blue-600" />
+            <span>Call: {COMPANY_DETAILS.contact.phoneDisplay}</span>
+          </a>
+        </div>
+      </PageHero>
 
       {/* Main Content Layout */}
       <section className="py-14 md:py-20">

@@ -15,7 +15,7 @@ import {
   Award,
   Sparkles,
 } from "lucide-react";
-import { Container, Button, Badge } from "@/components/common";
+import { Container, Button, Badge, PageHero } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -44,34 +44,18 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-brand-lightBg">
-      {/* Page Header / Hero Banner */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 md:pt-24 md:pb-28 relative overflow-hidden">
-        {/* Subtle grid and ambient lighting */}
-        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#3b82f615_1px,transparent_1px),linear-gradient(to_bottom,#3b82f615_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/15 rounded-full blur-[100px] pointer-events-none" />
-
-        <Container size="default" className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-blue/20 text-blue-300 border border-brand-blue/30 mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              <span>Connecting Values</span>
-              <span className="w-1 h-1 rounded-full bg-blue-400" />
-              <span>Corporate Profile</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              About New Link Technologies Bangalore Pvt. Ltd.
-            </h1>
-
-            <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              An integrated enterprise technology integrator delivering mission-critical
-              IT systems, computing hardware, business software, digital infrastructure,
-              and strategic consulting across Bangalore and nationwide.
-            </p>
-          </div>
-        </Container>
-      </section>
+    <div className="bg-white">
+      {/* Page Hero Banner matching Home Aesthetic */}
+      <PageHero
+        eyebrow="Connecting Values • Corporate Profile"
+        title="About New Link Technologies"
+        highlight="Bangalore Pvt. Ltd."
+        description="An integrated enterprise technology integrator delivering mission-critical IT systems, computing hardware, business software, digital infrastructure, and strategic consulting across Bangalore and nationwide."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "About Us" },
+        ]}
+      />
 
       {/* Company Philosophy & Overview Section */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">

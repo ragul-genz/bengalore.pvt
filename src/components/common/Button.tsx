@@ -37,19 +37,19 @@ export const Button = React.forwardRef<
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-200 select-none rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none hover:scale-[1.01] active:scale-[0.98]";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 select-none rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none hover:scale-[1.01] active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-brand-navy text-white hover:bg-brand-darkNavy shadow-xs hover:shadow-md border border-transparent font-semibold",
+        "bg-[#0A192F] text-white hover:bg-[#08162B] shadow-xs hover:shadow-md border border-transparent font-semibold",
       secondary:
-        "bg-linear-to-r from-blue-600 via-blue-600 to-rose-600 hover:from-blue-500 hover:to-rose-500 text-white shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/35 border border-transparent font-semibold",
+        "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/35 border border-transparent font-semibold",
       outline:
-        "border border-slate-300 text-brand-navy bg-white hover:bg-slate-50 hover:border-brand-blue/50 shadow-2xs font-medium",
+        "border border-slate-300 text-[#0A192F] bg-white hover:bg-slate-50 hover:border-blue-600 hover:text-blue-600 shadow-2xs font-semibold",
       ghost:
-        "text-brand-navy bg-transparent hover:bg-slate-100/80 border border-transparent font-medium",
+        "text-[#0A192F] bg-transparent hover:bg-slate-100/80 border border-transparent font-medium",
       white:
-        "bg-white text-brand-navy hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md font-semibold",
+        "bg-white text-[#0A192F] hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md font-semibold",
     };
 
     const sizeStyles = {
