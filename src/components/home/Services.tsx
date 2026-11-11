@@ -5,7 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Container, SectionHeading, ServiceIcon } from "@/components/common";
+import {
+  Container,
+  SectionHeading,
+  ServiceIcon,
+  RevealText,
+  FadeIn,
+  CINEMATIC_EASE,
+  VIEWPORT_CONFIG,
+} from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
 const containerVariants: Variants = {
@@ -13,20 +21,20 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
+      staggerChildren: 0.07,
+      delayChildren: 0.08,
     },
   },
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: CINEMATIC_EASE,
     },
   },
 };
@@ -50,16 +58,14 @@ export function Services() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={VIEWPORT_CONFIG}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {SERVICES_DATA.map((service: ServiceItem) => (
             <motion.div
               key={service.slug}
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="group flex flex-col justify-between bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
+              className="group flex flex-col justify-between bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
             >
               <div>
                 {/* Service Image with Aspect Ratio & Subtle Zoom */}
@@ -130,17 +136,34 @@ export function Services() {
         </motion.div>
 
         {/* View All & Consultation CTA Bar matching Light High-Tech Design */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-linear-to-r from-[#EAF2FC] via-[#F4F8FE] to-white border border-blue-200/70 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <FadeIn
+          mode="view"
+          delay={0.08}
+          y={16}
+          className="mt-14 p-6 sm:p-8 rounded-3xl bg-linear-to-r from-[#EAF2FC] via-[#F4F8FE] to-white border border-blue-200/70 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md"
+        >
           <div className="space-y-1.5 text-center md:text-left">
-            <h4 className="text-lg sm:text-xl font-extrabold font-heading text-[#0A192F]">
-              Need a Custom Turnkey{" "}
-              <span className="text-blue-600">Infrastructure Proposal?</span>
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-600">
+            <RevealText
+              as="h4"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.04}
+              text="Need a Custom Turnkey"
+              highlight="Infrastructure Proposal?"
+              highlightClassName="text-blue-600"
+              className="text-lg sm:text-xl font-extrabold font-heading text-[#0A192F]"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={10} className="text-xs sm:text-sm text-slate-600">
               Our engineering team conducts site surveys, thermal modeling, and structured cabling assessments.
-            </p>
+            </FadeIn>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <FadeIn
+            mode="view"
+            delay={0.32}
+            y={10}
+            className="flex flex-wrap items-center justify-center gap-3 shrink-0"
+          >
             <Link
               href="/contact#quote"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all"
@@ -154,8 +177,8 @@ export function Services() {
             >
               <span>View All Services</span>
             </Link>
-          </div>
-        </div>
+          </FadeIn>
+        </FadeIn>
       </Container>
     </section>
   );

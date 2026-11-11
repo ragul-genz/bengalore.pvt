@@ -3,7 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ShieldCheck, Handshake, Cpu, Layers } from "lucide-react";
-import { Container, SectionHeading } from "@/components/common";
+import {
+  Container,
+  SectionHeading,
+  RevealText,
+  FadeIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 import { TECHNOLOGY_PARTNERS, OEM_BRAND_PARTNERS, OEMBrandPartner } from "@/data/partners";
 
 type FilterTag = "all" | "network" | "av" | "security" | "computing";
@@ -43,10 +50,16 @@ export function Partners() {
         />
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerGroup
+          mode="view"
+          stagger={0.07}
+          delay={0.08}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {TECHNOLOGY_PARTNERS.map((partner) => (
-            <div
+            <StaggerItem
               key={partner.name}
+              y={16}
               className="p-6 rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3">
@@ -87,23 +100,42 @@ export function Partners() {
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                 <span>Verified Association</span>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* OEM Brand Ecosystem Showcase */}
         <div className="mt-16 pt-12 border-t border-brand-border">
           <div className="text-center max-w-2xl mx-auto mb-6 space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-blue">
+            <FadeIn
+              mode="view"
+              delay={0.03}
+              y={8}
+              duration={0.42}
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-blue"
+            >
               <Cpu className="w-3.5 h-3.5" />
               <span>OEM Brand Ecosystem</span>
-            </div>
-            <h4 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
-              Certified Technology &amp; Audio-Visual Brands
-            </h4>
-            <p className="text-xs sm:text-sm text-brand-secondary">
+            </FadeIn>
+            <RevealText
+              as="h4"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Certified Technology & Audio-Visual Brands"
+              className="text-xl sm:text-2xl font-bold font-heading text-brand-navy"
+            />
+            <FadeIn
+              as="p"
+              mode="view"
+              delay={0.22}
+              y={12}
+              duration={0.5}
+              className="text-xs sm:text-sm text-brand-secondary"
+            >
               Deploying certified hardware, audio processing consoles, conferencing hardware, and security systems from world-class manufacturers:
-            </p>
+            </FadeIn>
           </div>
 
           {/* Category Filter Pills */}

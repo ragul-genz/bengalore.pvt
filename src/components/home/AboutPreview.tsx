@@ -3,80 +3,83 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import {
   ArrowRight,
   CheckCircle2,
   Building2,
 } from "lucide-react";
-import { Container } from "@/components/common";
+import {
+  Container,
+  RevealText,
+  FadeIn,
+  CINEMATIC_EASE,
+  VIEWPORT_CONFIG,
+} from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
 
 export function AboutPreview() {
   return (
     <section className="py-16 md:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
       <Container size="default">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Eyebrow, Dual-Tone Heading & Description (7 cols) */}
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             {/* Heading Column */}
-            <motion.div variants={itemVariants} className="md:col-span-6 space-y-4">
-              <div className="flex items-center gap-2.5">
-                <span className="w-6 h-[2px] bg-blue-600 rounded-full shrink-0" />
+            <div className="md:col-span-6 space-y-4">
+              <FadeIn
+                mode="view"
+                delay={0.04}
+                y={8}
+                duration={0.42}
+                className="flex items-center gap-2.5"
+              >
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={VIEWPORT_CONFIG}
+                  transition={{ duration: 0.45, delay: 0.04, ease: CINEMATIC_EASE }}
+                  className="w-6 h-[2px] bg-blue-600 rounded-full shrink-0 origin-left"
+                />
                 <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-blue-700">
                   About New Link Technologies
                 </span>
-              </div>
+              </FadeIn>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#0A192F] tracking-tight leading-[1.15]">
-                Technology That{" "}
-                <span className="text-blue-600 block">
-                  Connects Possibilities
-                </span>
-              </h2>
-            </motion.div>
+              <RevealText
+                as="h2"
+                by="word"
+                mode="view"
+                delay={0.08}
+                stagger={0.045}
+                duration={0.52}
+                text="Technology That"
+                highlight="Connects Possibilities"
+                highlightClassName="text-blue-600"
+                highlightOnNewLine
+                className="text-3xl sm:text-4xl font-extrabold font-heading text-[#0A192F] tracking-tight leading-[1.15]"
+              />
+            </div>
 
-            {/* Narrative & Learn More Pill Button Column */}
-            <motion.div variants={itemVariants} className="md:col-span-6 space-y-5 md:pt-7">
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            {/* Narrative & Learn More Pill Button Column (Staggered Heading -> Paragraph -> Button) */}
+            <div className="md:col-span-6 space-y-5 md:pt-7">
+              <FadeIn
+                as="p"
+                mode="view"
+                delay={0.22}
+                y={14}
+                duration={0.55}
+                className="text-sm sm:text-base text-slate-600 leading-relaxed"
+              >
                 <strong className="text-slate-900 font-semibold">
                   {COMPANY_DETAILS.name}
                 </strong>{" "}
                 is a trusted technology partner, delivering integrated IT, hardware,
                 software and infrastructure solutions for government undertakings,
                 universities, and modern enterprises.
-              </p>
+              </FadeIn>
 
-              <div>
+              <FadeIn mode="view" delay={0.34} y={12} duration={0.5}>
                 <Link
                   href="/about"
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:border-blue-600 hover:bg-blue-50/40 text-slate-900 hover:text-blue-600 text-sm font-semibold shadow-2xs transition-all duration-200"
@@ -84,12 +87,15 @@ export function AboutPreview() {
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
-            </motion.div>
+              </FadeIn>
+            </div>
 
             {/* Capabilities Highlights & Director Sign-off Row */}
-            <motion.div
-              variants={itemVariants}
+            <FadeIn
+              mode="view"
+              delay={0.28}
+              y={16}
+              duration={0.55}
               className="md:col-span-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
             >
               <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs sm:text-sm text-slate-700">
@@ -131,11 +137,11 @@ export function AboutPreview() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
 
           {/* Right Column: Corporate Visual Card (5 cols) */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 relative">
+          <FadeIn mode="view" delay={0.2} y={18} duration={0.55} className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/60 bg-slate-50 aspect-16/10">
               <Image
                 src="/about/corporate-glass-building.png"
@@ -162,8 +168,8 @@ export function AboutPreview() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </FadeIn>
+        </div>
       </Container>
     </section>
   );

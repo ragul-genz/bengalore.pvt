@@ -3,7 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Award, Maximize2, ShieldCheck, FileCheck } from "lucide-react";
-import { Container, SectionHeading, Lightbox } from "@/components/common";
+import {
+  Container,
+  SectionHeading,
+  Lightbox,
+  StaggerGroup,
+  StaggerItem,
+  FadeIn,
+} from "@/components/common";
 import { CERTIFICATES_DATA, type CertificateItem } from "@/data/certificates";
 
 export function Certificates() {
@@ -41,10 +48,16 @@ export function Certificates() {
         />
 
         {/* Certificate Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerGroup
+          mode="view"
+          stagger={0.08}
+          delay={0.08}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {CERTIFICATES_DATA.map((cert: CertificateItem) => (
-            <div
+            <StaggerItem
               key={cert.id}
+              y={18}
               className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
               <div>
@@ -105,18 +118,23 @@ export function Certificates() {
                   <span className="truncate">{cert.dateOrRef}</span>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* Credibility Guarantee Banner */}
-        <div className="mt-14 p-6 rounded-2xl bg-brand-lightBg border border-brand-border flex items-center justify-center gap-3 text-center text-xs text-brand-secondary">
+        <FadeIn
+          mode="view"
+          delay={0.12}
+          y={12}
+          className="mt-14 p-6 rounded-2xl bg-brand-lightBg border border-brand-border flex items-center justify-center gap-3 text-center text-xs text-brand-secondary"
+        >
           <ShieldCheck className="w-5 h-5 text-brand-blue shrink-0" />
           <span>
             All certificates presented are un-retouched official documents issued by authorized
             state enterprises and academic registrars.
           </span>
-        </div>
+        </FadeIn>
       </Container>
 
       {/* Lightbox Modal with Zoom */}

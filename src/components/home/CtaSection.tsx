@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
-import { Container } from "@/components/common";
+import { Container, RevealText, FadeIn } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export function CtaSection() {
@@ -15,26 +15,53 @@ export function CtaSection() {
 
       <Container size="default" className="relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/15 backdrop-blur-md">
+          <FadeIn
+            mode="view"
+            delay={0.04}
+            y={8}
+            duration={0.42}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/15 backdrop-blur-md"
+          >
             <span className="w-2 h-2 rounded-full bg-blue-400" />
             <span className="font-semibold tracking-wider uppercase text-[11px] text-blue-200">
               Connecting Values • Enterprise Delivery
             </span>
-          </div>
+          </FadeIn>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.15]">
-            Let&apos;s Build Something{" "}
-            <span className="text-blue-400">Connected.</span>
-          </h2>
+          <RevealText
+            as="h2"
+            by="word"
+            mode="view"
+            delay={0.1}
+            stagger={0.045}
+            duration={0.52}
+            text="Let's Build Something"
+            highlight="Connected."
+            highlightClassName="text-blue-400"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.15]"
+          />
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto">
+          <FadeIn
+            as="p"
+            mode="view"
+            delay={0.26}
+            y={14}
+            duration={0.55}
+            className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto"
+          >
             From turnkey modular data centres to campus optical fiber backbones, boardroom AV systems,
             and enterprise hardware procurement — our engineering team in Rajajinagar, Bangalore is ready
             to assess your infrastructure requirements.
-          </p>
+          </FadeIn>
 
           {/* Action Pill Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
+          <FadeIn
+            mode="view"
+            delay={0.38}
+            y={12}
+            duration={0.5}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3"
+          >
             <Link
               href="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transition-all duration-200"
@@ -50,10 +77,16 @@ export function CtaSection() {
               <Phone className="w-4 h-4 text-blue-600" />
               <span>Call Our Team</span>
             </a>
-          </div>
+          </FadeIn>
 
           {/* Quick Contact Verification Strip */}
-          <div className="pt-7 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300">
+          <FadeIn
+            mode="view"
+            delay={0.46}
+            y={10}
+            duration={0.5}
+            className="pt-7 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300"
+          >
             <a
               href={`tel:${COMPANY_DETAILS.contact.phone}`}
               className="flex items-center gap-2 hover:text-white transition-colors"
@@ -74,7 +107,7 @@ export function CtaSection() {
               <MapPin className="w-3.5 h-3.5 text-blue-400" />
               <span>Rajajinagar, Bangalore - 560010</span>
             </span>
-          </div>
+          </FadeIn>
         </div>
       </Container>
     </section>

@@ -14,7 +14,15 @@ import {
   ShieldCheck,
   Download,
 } from "lucide-react";
-import { Container, Button, Badge, ServiceIcon, PageHero } from "@/components/common";
+import {
+  Container,
+  Button,
+  Badge,
+  ServiceIcon,
+  PageHero,
+  RevealText,
+  FadeIn,
+} from "@/components/common";
 import { SERVICES_DATA, getServiceBySlug } from "@/data/services";
 import { COMPANY_DETAILS } from "@/data/company";
 
@@ -104,7 +112,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Primary Details (8 cols) */}
             <div className="lg:col-span-8 space-y-10">
               {/* Featured Service Image */}
-              <div className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-brand-border bg-white shadow-md">
+              <FadeIn
+                mode="view"
+                delay={0.05}
+                y={16}
+                className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-brand-border bg-white shadow-md"
+              >
                 <Image
                   src={service.image}
                   alt={`${service.title} - New Link Technologies`}
@@ -113,22 +126,45 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   sizes="(max-width: 1024px) 100vw, 65vw"
                   className="object-cover object-center"
                 />
-              </div>
+              </FadeIn>
 
               {/* Comprehensive Description */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-4 shadow-xs">
-                <h2 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
-                  Engineering Overview & Scope
-                </h2>
-                <p className="text-base text-brand-secondary leading-relaxed">
+              <FadeIn
+                mode="view"
+                delay={0.08}
+                y={16}
+                className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-4 shadow-xs"
+              >
+                <RevealText
+                  as="h2"
+                  by="word"
+                  mode="view"
+                  delay={0.06}
+                  stagger={0.04}
+                  text="Engineering Overview & Scope"
+                  className="text-xl sm:text-2xl font-bold font-heading text-brand-navy"
+                />
+                <FadeIn
+                  as="p"
+                  mode="view"
+                  delay={0.18}
+                  y={12}
+                  className="text-base text-brand-secondary leading-relaxed"
+                >
                   {service.fullDescription}
-                </p>
-                <p className="text-sm text-brand-secondary leading-relaxed">
+                </FadeIn>
+                <FadeIn
+                  as="p"
+                  mode="view"
+                  delay={0.26}
+                  y={12}
+                  className="text-sm text-brand-secondary leading-relaxed"
+                >
                   Every solution deployed by New Link Technologies Bangalore Pvt. Ltd.
                   follows structured installation methodologies, strict adherence to site
                   safety protocols, and comprehensive post-commissioning handover procedures.
-                </p>
-              </div>
+                </FadeIn>
+              </FadeIn>
 
               {/* Authorized Technology Brands / OEMs */}
               {service.brands && service.brands.length > 0 && (
@@ -258,7 +294,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
 
             {/* Sidebar (4 cols) */}
-            <div className="lg:col-span-4 space-y-6 sticky top-24">
+            <FadeIn mode="view" delay={0.12} y={16} className="lg:col-span-4 space-y-6 sticky top-24">
               {/* Request Quote Card */}
               <div className="bg-brand-navy text-white rounded-2xl p-6 sm:p-7 shadow-lg space-y-5">
                 <Badge variant="primary" size="sm">
@@ -358,7 +394,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   ))}
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>

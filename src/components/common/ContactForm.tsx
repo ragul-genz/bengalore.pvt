@@ -11,7 +11,8 @@ import {
   RotateCcw,
   ShieldCheck,
 } from "lucide-react";
-import { Button } from "@/components/common";
+import { Button } from "./Button";
+import { RevealText, FadeIn } from "./MotionPrimitives";
 
 const contactFormSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
@@ -136,17 +137,36 @@ export function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">
+          <div className="space-y-1.5">
+            <FadeIn
+              as="span"
+              mode="view"
+              delay={0.04}
+              y={6}
+              duration={0.4}
+              className="inline-block text-xs font-bold text-brand-blue uppercase tracking-wider"
+            >
               Direct Communication Channel
-            </span>
-            <h3 className="text-2xl font-bold font-heading text-brand-navy">
-              Send an Enquiry / Request a Quote
-            </h3>
-            <p className="text-xs sm:text-sm text-brand-secondary">
+            </FadeIn>
+            <RevealText
+              as="h3"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Send an Enquiry / Request a Quote"
+              className="text-2xl font-bold font-heading text-brand-navy"
+            />
+            <FadeIn
+              as="p"
+              mode="view"
+              delay={0.22}
+              y={12}
+              className="text-xs sm:text-sm text-brand-secondary"
+            >
               Fill in your organization details and project scope. Our engineering team will
               review and reply promptly.
-            </p>
+            </FadeIn>
           </div>
 
           {/* Error Banner */}

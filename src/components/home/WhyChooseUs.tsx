@@ -10,7 +10,12 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
-import { Container, SectionHeading } from "@/components/common";
+import {
+  Container,
+  SectionHeading,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 
 const reasons = [
   {
@@ -59,10 +64,16 @@ export function WhyChooseUs() {
         />
 
         {/* 5 Value Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerGroup
+          mode="view"
+          stagger={0.07}
+          delay={0.08}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {reasons.map((item, idx) => (
-            <div
+            <StaggerItem
               key={item.title}
+              y={18}
               className="group bg-white p-7 rounded-2xl border border-brand-border shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
@@ -88,11 +99,14 @@ export function WhyChooseUs() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                 <span>Verified Core Standard</span>
               </div>
-            </div>
+            </StaggerItem>
           ))}
 
           {/* Sixth Card: Corporate Commitment */}
-          <div className="bg-linear-to-br from-[#0B1F3A] via-[#102544] to-[#0A1A30] text-white p-7 rounded-2xl border border-blue-900/60 shadow-xl flex flex-col justify-between relative overflow-hidden group">
+          <StaggerItem
+            y={18}
+            className="bg-linear-to-br from-[#0B1F3A] via-[#102544] to-[#0A1A30] text-white p-7 rounded-2xl border border-blue-900/60 shadow-xl flex flex-col justify-between relative overflow-hidden group"
+          >
             <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center text-blue-300 shadow-sm">
@@ -119,8 +133,8 @@ export function WhyChooseUs() {
               <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
               <span>Full Project Transparency & SLA</span>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerGroup>
       </Container>
     </section>
   );

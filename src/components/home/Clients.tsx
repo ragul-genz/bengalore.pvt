@@ -3,7 +3,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Building2, GraduationCap, Hospital, Landmark, Maximize2 } from "lucide-react";
-import { Container, SectionHeading, Lightbox } from "@/components/common";
+import {
+  Container,
+  SectionHeading,
+  Lightbox,
+  RevealText,
+  FadeIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 import { CLIENT_INSTITUTIONS } from "@/data/partners";
 
 const typeIcons: Record<string, React.ReactNode> = {
@@ -28,10 +36,16 @@ export function Clients() {
         />
 
         {/* Client Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <StaggerGroup
+          mode="view"
+          stagger={0.04}
+          delay={0.06}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
           {CLIENT_INSTITUTIONS.map((client) => (
-            <div
+            <StaggerItem
               key={client.name}
+              y={14}
               className="bg-white p-5 rounded-xl border border-brand-border shadow-2xs hover:border-brand-blue/40 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
             >
               <div className="space-y-2">
@@ -56,23 +70,47 @@ export function Clients() {
                   {client.scopeOfWork}
                 </p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* Authentic Client Roster Presentation Card from Company Profile */}
-        <div className="mt-12 bg-white rounded-2xl border border-brand-border p-6 sm:p-8 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-8">
+        <FadeIn
+          mode="view"
+          delay={0.08}
+          y={16}
+          className="mt-12 bg-white rounded-2xl border border-brand-border p-6 sm:p-8 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-8"
+        >
           <div className="space-y-2 max-w-xl text-center lg:text-left">
-            <span className="text-[11px] font-bold text-brand-blue uppercase tracking-wider">
+            <FadeIn
+              as="span"
+              mode="view"
+              delay={0.04}
+              y={6}
+              duration={0.4}
+              className="inline-block text-[11px] font-bold text-brand-blue uppercase tracking-wider"
+            >
               Company Portfolio Archive
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
-              Official Client & Partner Roster
-            </h3>
-            <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed">
+            </FadeIn>
+            <RevealText
+              as="h3"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Official Client & Partner Roster"
+              className="text-xl sm:text-2xl font-bold font-heading text-brand-navy"
+            />
+            <FadeIn
+              as="p"
+              mode="view"
+              delay={0.22}
+              y={12}
+              className="text-xs sm:text-sm text-brand-secondary leading-relaxed"
+            >
               Archived client emblem sheet published in the official New Link Technologies
               corporate documentation validating active institutional associations.
-            </p>
+            </FadeIn>
           </div>
 
           <div className="relative group cursor-pointer shrink-0" onClick={() => setLightboxOpen(true)}>
@@ -92,7 +130,7 @@ export function Clients() {
               </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </Container>
 
       {/* Lightbox for Emblem Sheet */}

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import {
   ArrowRight,
   Play,
@@ -13,31 +13,13 @@ import {
   CloudUpload,
   Users,
 } from "lucide-react";
-import { Container } from "@/components/common";
+import {
+  Container,
+  RevealText,
+  FadeIn,
+  CINEMATIC_EASE,
+} from "@/components/common";
 import { cn } from "@/lib/utils";
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
 
 const VERTICAL_PILLARS = [
   {
@@ -110,34 +92,48 @@ export function Hero() {
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy & Actions (7 cols) */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="lg:col-span-7 flex flex-col space-y-5 lg:space-y-6 text-left"
-            >
+            <div className="lg:col-span-7 flex flex-col space-y-5 lg:space-y-6 text-left">
               {/* Eyebrow with Horizontal Line */}
-              <motion.div variants={itemVariants} className="flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-slate-500 rounded-full shrink-0" />
+              <FadeIn
+                mode="mount"
+                delay={0.04}
+                y={6}
+                duration={0.42}
+                className="flex items-center gap-3"
+              >
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.45, delay: 0.05, ease: CINEMATIC_EASE }}
+                  className="w-8 h-[2px] bg-slate-500 rounded-full shrink-0 origin-left"
+                />
                 <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] text-slate-600">
                   IT | HARDWARE | SOFTWARE | INFRASTRUCTURE | CONSULTING
                 </span>
-              </motion.div>
+              </FadeIn>
 
-              {/* Main Bold Dual-Tone Heading */}
-              <motion.h1
-                variants={itemVariants}
+              {/* Main Bold Dual-Tone Heading (Word-by-Word Reveal) */}
+              <RevealText
+                as="h1"
+                by="word"
+                mode="mount"
+                delay={0.12}
+                stagger={0.055}
+                duration={0.55}
+                text="Connecting Technology."
+                highlight="Empowering Businesses."
+                highlightClassName="text-blue-600"
+                highlightOnNewLine
                 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#0A192F] leading-[1.1]"
-              >
-                <span className="block">Connecting Technology.</span>
-                <span className="text-blue-600 block mt-1">
-                  Empowering Businesses.
-                </span>
-              </motion.h1>
+              />
 
-              {/* Description */}
-              <motion.p
-                variants={itemVariants}
+              {/* Description (Staggered Smooth Fade & Upward Motion) */}
+              <FadeIn
+                as="p"
+                mode="mount"
+                delay={0.36}
+                y={14}
+                duration={0.55}
                 className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed"
               >
                 Integrated IT, Hardware, Software and{" "}
@@ -145,11 +141,14 @@ export function Hero() {
                   Infrastructure
                 </span>{" "}
                 Solutions for Modern Enterprises.
-              </motion.p>
+              </FadeIn>
 
-              {/* Action Pill Buttons */}
-              <motion.div
-                variants={itemVariants}
+              {/* Action Pill Buttons (Staggered After Paragraph) */}
+              <FadeIn
+                mode="mount"
+                delay={0.48}
+                y={12}
+                duration={0.5}
                 className="flex flex-wrap items-center gap-4 pt-2"
               >
                 <Link
@@ -171,8 +170,8 @@ export function Hero() {
                   </span>
                   <span>Watch Our Profile</span>
                 </Link>
-              </motion.div>
-            </motion.div>
+              </FadeIn>
+            </div>
 
             {/* Mobile/Tablet Server Image (visible below lg) */}
             <motion.div
@@ -195,7 +194,13 @@ export function Hero() {
       </section>
 
       {/* Floating 5 Verticals Pill Strip Overlapping Hero Bottom */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 relative z-20 mb-4">
+      <FadeIn
+        mode="mount"
+        delay={0.54}
+        y={16}
+        duration={0.55}
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 relative z-20 mb-4"
+      >
         <div className="bg-white rounded-2xl lg:rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-100 px-4 py-4 sm:px-6 sm:py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-0">
           {VERTICAL_PILLARS.map((item, idx) => (
             <Link
@@ -220,7 +225,7 @@ export function Hero() {
             </Link>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </div>
   );
 }

@@ -2,7 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
-import { Container, Button, Badge, ServiceIcon, PageHero } from "@/components/common";
+import {
+  Container,
+  Button,
+  Badge,
+  ServiceIcon,
+  PageHero,
+  RevealText,
+  FadeIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -39,10 +49,16 @@ export default function ServicesPage() {
       {/* Services Grid Section */}
       <section className="py-16 md:py-24">
         <Container size="default">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGroup
+            mode="view"
+            stagger={0.06}
+            delay={0.05}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {SERVICES_DATA.map((service: ServiceItem) => (
-              <div
+              <StaggerItem
                 key={service.slug}
+                y={18}
                 className="group flex flex-col justify-between bg-white rounded-xl border border-brand-border overflow-hidden shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
               >
                 <div>
@@ -117,12 +133,17 @@ export default function ServicesPage() {
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                   </Link>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
 
           {/* Standards & Compliance Assurance Card */}
-          <div className="mt-16 p-8 rounded-2xl bg-white border border-brand-border shadow-xs grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FadeIn
+            mode="view"
+            delay={0.08}
+            y={16}
+            className="mt-16 p-8 rounded-2xl bg-white border border-brand-border shadow-xs grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue">
                 <ShieldCheck className="w-5 h-5" />
@@ -158,7 +179,7 @@ export default function ServicesPage() {
                 From initial site survey and architectural design to equipment installation, commissioning, and long-term SLA maintenance contracts.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
@@ -166,24 +187,45 @@ export default function ServicesPage() {
       <section className="py-16 bg-brand-navy text-white">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge variant="primary" size="md">
-              Connecting Values
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
-              Ready to Discuss Your Project Requirements?
-            </h2>
-            <p className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <FadeIn mode="view" delay={0.04} y={8} duration={0.42}>
+              <Badge variant="primary" size="md">
+                Connecting Values
+              </Badge>
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Ready to Discuss Your"
+              highlight="Project Requirements?"
+              highlightClassName="text-blue-400"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight"
+            />
+            <FadeIn
+              as="p"
+              mode="view"
+              delay={0.22}
+              y={14}
+              className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            >
               Contact New Link Technologies Bangalore Pvt. Ltd. for technical proposals,
               BOM formulation, and site survey appointments.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            </FadeIn>
+            <FadeIn
+              mode="view"
+              delay={0.32}
+              y={12}
+              className="flex flex-wrap items-center justify-center gap-4 pt-2"
+            >
               <Button variant="secondary" size="lg" href="/contact#quote" rightIcon={<ArrowRight className="w-4 h-4" />}>
                 Request a Quote
               </Button>
               <Button variant="white" size="lg" href="/contact">
                 Contact Office
               </Button>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>

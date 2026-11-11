@@ -10,7 +10,14 @@ import {
   ExternalLink,
   ShieldCheck,
 } from "lucide-react";
-import { Container, ContactForm, PageHero } from "@/components/common";
+import {
+  Container,
+  ContactForm,
+  PageHero,
+  FadeIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -56,14 +63,14 @@ export default function ContactPage() {
         <Container size="default">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Form Column (7 cols) */}
-            <div className="lg:col-span-7">
+            <FadeIn mode="view" delay={0.06} y={16} className="lg:col-span-7">
               <ContactForm />
-            </div>
+            </FadeIn>
 
             {/* Direct Contact Details & Action Cards (5 cols) */}
-            <div className="lg:col-span-5 space-y-6">
+            <StaggerGroup mode="view" stagger={0.09} delay={0.1} className="lg:col-span-5 space-y-6">
               {/* Official Corporate Office Card */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-7 shadow-xs space-y-5">
+              <StaggerItem y={16} className="bg-white rounded-2xl border border-brand-border p-6 sm:p-7 shadow-xs space-y-5">
                 <div className="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider">
                   <Building2 className="w-4 h-4" />
                   <span>Headquarters</span>
@@ -154,10 +161,10 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
 
               {/* Direct WhatsApp Action Card */}
-              <div className="bg-emerald-950 text-white rounded-2xl p-6 border border-emerald-800 shadow-md flex items-center justify-between gap-4">
+              <StaggerItem y={16} className="bg-emerald-950 text-white rounded-2xl p-6 border border-emerald-800 shadow-md flex items-center justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
                     <MessageCircle className="w-4 h-4" />
@@ -180,10 +187,10 @@ export default function ContactPage() {
                   <MessageCircle className="w-4 h-4 text-emerald-950" />
                   <span>Chat on WhatsApp</span>
                 </a>
-              </div>
+              </StaggerItem>
 
               {/* Official Corporate Contact Presentation Card */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-3">
+              <StaggerItem y={16} className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-3">
                 <div className="flex items-center gap-2 text-xs font-bold text-brand-navy">
                   <ShieldCheck className="w-4 h-4 text-brand-blue" />
                   <span>Verified Corporate Credentials</span>
@@ -196,10 +203,10 @@ export default function ContactPage() {
                     className="object-contain"
                   />
                 </div>
-              </div>
+              </StaggerItem>
 
               {/* Directions & Map Card */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-4">
+              <StaggerItem y={16} className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-4">
                 <div className="flex items-center justify-between">
                   <h4 className="text-sm font-bold font-heading text-brand-navy">
                     Office Location Map
@@ -229,8 +236,8 @@ export default function ContactPage() {
                     className="w-full h-full"
                   />
                 </div>
-              </div>
-            </div>
+              </StaggerItem>
+            </StaggerGroup>
           </div>
         </Container>
       </section>

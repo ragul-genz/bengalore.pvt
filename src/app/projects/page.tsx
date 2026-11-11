@@ -8,7 +8,14 @@ import {
   Building2,
   ShieldCheck,
 } from "lucide-react";
-import { Container, Button, Lightbox, PageHero } from "@/components/common";
+import {
+  Container,
+  Button,
+  Lightbox,
+  PageHero,
+  RevealText,
+  FadeIn,
+} from "@/components/common";
 import {
   PROJECTS_DATA,
   INSTALLATION_GALLERY,
@@ -67,22 +74,33 @@ export default function ProjectsPage() {
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <Container size="default">
           <div className="max-w-2xl mb-12">
-            <span className="eyebrow-badge mb-3">Key Project Deliveries</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-              Major Verified Installations
-            </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Key Project Deliveries
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Major Verified Installations"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
               Directly documented in official project handover certificates, public sector
               contracts, and partner records.
-            </p>
+            </FadeIn>
           </div>
 
           <div className="space-y-12">
             {PROJECTS_DATA.map((project: ProjectItem, index: number) => {
               const isEven = index % 2 === 1;
               return (
-                <div
+                <FadeIn
                   key={project.id}
+                  mode="view"
+                  delay={0.06}
+                  y={18}
                   className="rounded-2xl border border-brand-border bg-white shadow-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-8"
                 >
                   {/* Image Column (6 cols) */}
@@ -162,7 +180,7 @@ export default function ProjectsPage() {
                       <span>{project.verifiedHighlights}</span>
                     </div>
                   </div>
-                </div>
+                </FadeIn>
               );
             })}
           </div>
@@ -173,17 +191,25 @@ export default function ProjectsPage() {
       <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="eyebrow-badge mb-3">Field Engineering Showcase</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-              Professional Work & Installation Gallery
-            </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Field Engineering Showcase
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Professional Work & Installation Gallery"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
               Authentic on-site photographs documenting standards-compliant structured cabling,
               modular data centres, server rack dressing, and campus networking.
-            </p>
+            </FadeIn>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            <FadeIn mode="view" delay={0.3} y={10} className="flex flex-wrap items-center justify-center gap-2 mt-8">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -198,7 +224,7 @@ export default function ProjectsPage() {
                   {cat === "all" ? "All Photographs" : cat}
                 </button>
               ))}
-            </div>
+            </FadeIn>
           </div>
 
           {/* Gallery Grid */}
@@ -256,18 +282,26 @@ export default function ProjectsPage() {
       <section className="py-16 bg-brand-navy text-white">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-5">
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
-              Planning a Similar Enterprise Deployment?
-            </h3>
-            <p className="text-sm sm:text-base text-slate-300">
+            <RevealText
+              as="h3"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Planning a Similar"
+              highlight="Enterprise Deployment?"
+              highlightClassName="text-blue-400"
+              className="text-2xl sm:text-3xl font-bold font-heading text-white"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-slate-300">
               Speak with our project engineering specialists for site surveys, bill of materials,
               and turnkey installation contracts.
-            </p>
-            <div className="pt-2">
+            </FadeIn>
+            <FadeIn mode="view" delay={0.32} y={12} className="pt-2">
               <Button variant="secondary" size="lg" href="/contact#quote" rightIcon={<ArrowRight className="w-4 h-4" />}>
                 Discuss Your Installation Requirements
               </Button>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>

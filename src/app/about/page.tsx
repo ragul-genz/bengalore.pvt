@@ -15,7 +15,16 @@ import {
   Award,
   Sparkles,
 } from "lucide-react";
-import { Container, Button, Badge, PageHero } from "@/components/common";
+import {
+  Container,
+  Button,
+  Badge,
+  PageHero,
+  RevealText,
+  FadeIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -63,21 +72,41 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="eyebrow-badge">Our Corporate Identity</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-                Engineering Dependable Connections for Enterprise Growth
-              </h2>
+              <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
+                Our Corporate Identity
+              </FadeIn>
+              <RevealText
+                as="h2"
+                by="word"
+                mode="view"
+                delay={0.08}
+                stagger={0.045}
+                text="Engineering Dependable Connections for Enterprise Growth"
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              />
 
-              <p className="text-base text-brand-secondary leading-relaxed">
+              <FadeIn
+                as="p"
+                mode="view"
+                delay={0.22}
+                y={14}
+                className="text-base text-brand-secondary leading-relaxed"
+              >
                 <strong className="text-brand-text font-semibold">
                   New Link Technologies Bangalore Pvt. Ltd.
                 </strong>{" "}
                 was established with a definitive focus: to serve as a reliable, single-window
                 technology partner for organizations seeking world-class digital and physical
                 infrastructure.
-              </p>
+              </FadeIn>
 
-              <p className="text-base text-brand-secondary leading-relaxed">
+              <FadeIn
+                as="p"
+                mode="view"
+                delay={0.3}
+                y={14}
+                className="text-base text-brand-secondary leading-relaxed"
+              >
                 Operating under the corporate motto{" "}
                 <em className="text-brand-blue font-semibold not-italic">
                   &ldquo;Connecting Values,&rdquo;
@@ -86,10 +115,15 @@ export default function AboutPage() {
                 uncompromising quality standards. From complex multi-building academic campuses
                 to high-availability modular data centres, our team designs and executes
                 turnkey technology solutions that endure.
-              </p>
+              </FadeIn>
 
               {/* Verified Leadership */}
-              <div className="p-4 rounded-2xl border border-brand-border bg-brand-lightBg flex items-center gap-4">
+              <FadeIn
+                mode="view"
+                delay={0.38}
+                y={14}
+                className="p-4 rounded-2xl border border-brand-border bg-brand-lightBg flex items-center gap-4"
+              >
                 <div className="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-white shadow-md shrink-0">
                   <Image
                     src="/leadership/director-mg-girish.jpg"
@@ -109,11 +143,11 @@ export default function AboutPage() {
                     {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.shortName}
                   </p>
                 </div>
-              </div>
+              </FadeIn>
             </div>
 
             {/* Right Image: Structured Cabling Showcase */}
-            <div className="lg:col-span-5">
+            <FadeIn mode="view" delay={0.18} y={16} className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-lightBg shadow-lg aspect-4/3 sm:aspect-16/10">
                 <Image
                   src="/projects/project-cable-patching.png"
@@ -132,7 +166,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>
@@ -141,20 +175,34 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="eyebrow-badge mb-3">Our Scope of Operations</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-              Five Integrated Business Verticals
-            </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Our Scope of Operations
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Five Integrated Business Verticals"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
               New Link Technologies delivers end-to-end capabilities spanning IT, Hardware,
               Software, Infrastructure, and Consulting.
-            </p>
+            </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup
+            mode="view"
+            stagger={0.07}
+            delay={0.08}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {COMPANY_DETAILS.categories.map((cat) => (
-              <div
+              <StaggerItem
                 key={cat.title}
+                y={16}
                 className="corporate-card flex flex-col justify-between"
               >
                 <div className="space-y-4">
@@ -177,11 +225,11 @@ export default function AboutPage() {
                   <CheckCircle2 className="w-4 h-4 text-brand-blue" />
                   <span>Enterprise SLA Supported</span>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
 
             {/* Sixth highlight card: End-to-End Integration */}
-            <div className="corporate-card bg-brand-navy text-white flex flex-col justify-between border-brand-darkNavy">
+            <StaggerItem y={16} className="corporate-card bg-brand-navy text-white flex flex-col justify-between border-brand-darkNavy">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-blue-300">
                   <Sparkles className="w-6 h-6" />
@@ -203,8 +251,8 @@ export default function AboutPage() {
                 <ShieldCheck className="w-4 h-4" />
                 <span>Seamless Turnkey Delivery</span>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerGroup>
         </Container>
       </section>
 
@@ -212,14 +260,22 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="eyebrow-badge mb-3">Verified Experience</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-              Demonstrated Technical Capabilities
-            </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Verified Experience
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Demonstrated Technical Capabilities"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
               Real projects delivered across data centres, optical networking, structured
               cabling, and digital boardrooms.
-            </p>
+            </FadeIn>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -320,14 +376,22 @@ export default function AboutPage() {
               </div>
 
               <div className="md:col-span-7 space-y-4 text-center md:text-left">
-                <span className="eyebrow-badge">Leadership Commitment</span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug">
-                  Driven by Precision, Value, and Enduring Integrity
-                </h3>
-                <p className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
+                  Leadership Commitment
+                </FadeIn>
+                <RevealText
+                  as="h3"
+                  by="word"
+                  mode="view"
+                  delay={0.08}
+                  stagger={0.042}
+                  text="Driven by Precision, Value, and Enduring Integrity"
+                  className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
+                />
+                <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
                   &ldquo;At New Link Technologies Bangalore Pvt. Ltd., our core mission is simple yet uncompromising: to provide enterprises, government bodies, and institutions with technology infrastructure that performs reliably 24/7/365. When you partner with us, you deal directly with dedicated engineers and an accountable leadership team.&rdquo;
-                </p>
-                <div className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                </FadeIn>
+                <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-brand-blue" />
                     Director-Led Quality Oversight
@@ -336,7 +400,7 @@ export default function AboutPage() {
                     <CheckCircle2 className="w-4 h-4 text-brand-blue" />
                     Connecting Values Across Karnataka
                   </span>
-                </div>
+                </FadeIn>
               </div>
             </div>
           </div>
@@ -347,14 +411,22 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="eyebrow-badge mb-3">Trusted Partnerships</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-              Verified Client & Partner Network
-            </h2>
-            <p className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Trusted Partnerships
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Verified Client & Partner Network"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
               Proud to have executed prestigious infrastructure and technology projects with
               prominent public sector entities, universities, and government bodies.
-            </p>
+            </FadeIn>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -414,15 +486,34 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-brand-navy text-white">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
-              Ready to Upgrade Your Enterprise Infrastructure?
-            </h2>
-            <p className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Ready to Upgrade Your"
+              highlight="Enterprise Infrastructure?"
+              highlightClassName="text-blue-400"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight"
+            />
+            <FadeIn
+              as="p"
+              mode="view"
+              delay={0.22}
+              y={14}
+              className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            >
               Connect directly with our engineering and consulting team in Rajajinagar,
               Bangalore for technical proposals and enterprise quotes.
-            </p>
+            </FadeIn>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <FadeIn
+              mode="view"
+              delay={0.34}
+              y={12}
+              className="flex flex-wrap items-center justify-center gap-4 pt-2"
+            >
               <Button
                 variant="secondary"
                 size="lg"
@@ -440,9 +531,14 @@ export default function AboutPage() {
               >
                 Call: {COMPANY_DETAILS.contact.phoneDisplay}
               </Button>
-            </div>
+            </FadeIn>
 
-            <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+            <FadeIn
+              mode="view"
+              delay={0.42}
+              y={10}
+              className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400"
+            >
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-blue-400" />
                 Rajajinagar, Bangalore - 560010
@@ -452,7 +548,7 @@ export default function AboutPage() {
                 <Mail className="w-3.5 h-3.5 text-blue-400" />
                 {COMPANY_DETAILS.contact.email}
               </span>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>

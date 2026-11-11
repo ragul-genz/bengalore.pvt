@@ -11,3 +11,4 @@ export * from "./ContactForm";
 export * from "./JsonLd";
 export * from "./FloatingWhatsApp";
 export * from "./PageHero";
+export * from "./MotionPrimitives";
