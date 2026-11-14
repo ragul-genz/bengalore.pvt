@@ -464,7 +464,7 @@ export default function ClientsPage() {
                 <div>
                   {/* Photo Container */}
                   <div
-                    className="relative aspect-16/10 w-full overflow-hidden bg-slate-900 cursor-pointer"
+                    className="relative aspect-16/10 w-full overflow-hidden bg-slate-950 cursor-pointer"
                     onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
                   >
                     <ImageReveal className="w-full h-full relative" duration={0.6}>
@@ -476,25 +476,9 @@ export default function ClientsPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </ImageReveal>
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none" />
-
-                    {/* Top badging */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-white/95 text-brand-navy px-2.5 py-1 rounded-full shadow-md backdrop-blur-xs flex items-center gap-1">
-                        {photo.sectorTag === "solar" && <Sun className="w-3 h-3 text-amber-500" />}
-                        {photo.sectorTag === "datacenter" && <Server className="w-3 h-3 text-blue-600" />}
-                        {photo.sectorTag === "campus" && <Network className="w-3 h-3 text-emerald-600" />}
-                        {photo.sectorTag === "auditorium" && <Tv className="w-3 h-3 text-purple-600" />}
-                        {photo.sectorTag === "healthcare" && <Hospital className="w-3 h-3 text-rose-600" />}
-                        <span>{photo.category}</span>
-                      </span>
-                      <span className="text-[10px] font-medium bg-black/60 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-xs">
-                        {photo.location}
-                      </span>
-                    </div>
 
                     {/* Expand overlay */}
-                    <div className="absolute inset-0 bg-brand-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="absolute inset-0 bg-brand-navy/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                       <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 text-xs font-bold text-brand-navy shadow-lg transform -translate-y-1 group-hover:translate-y-0 transition-transform">
                         <Maximize2 className="w-3.5 h-3.5 text-brand-blue" />
                         <span>Click to Enlarge Photo</span>
@@ -503,19 +487,37 @@ export default function ClientsPage() {
                   </div>
 
                   {/* Photo Body */}
-                  <div className="p-5 space-y-2.5">
-                    <p className="text-[11px] font-bold text-brand-blue uppercase tracking-wider">
-                      {photo.client}
-                    </p>
-                    <h3 className="text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
-                      {photo.title}
-                    </h3>
+                  <div className="p-5 space-y-3">
+                    {/* Category & Location Badges */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-navy/90 flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
+                        {photo.sectorTag === "solar" && <Sun className="w-3.5 h-3.5 text-amber-500" />}
+                        {photo.sectorTag === "datacenter" && <Server className="w-3.5 h-3.5 text-blue-600" />}
+                        {photo.sectorTag === "campus" && <Network className="w-3.5 h-3.5 text-emerald-600" />}
+                        {photo.sectorTag === "auditorium" && <Tv className="w-3.5 h-3.5 text-purple-600" />}
+                        {photo.sectorTag === "healthcare" && <Hospital className="w-3.5 h-3.5 text-rose-600" />}
+                        <span>{photo.category}</span>
+                      </span>
+                      <span className="text-[10px] font-medium text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/80">
+                        {photo.location}
+                      </span>
+                    </div>
+
+                    <div>
+                      <p className="text-[11px] font-extrabold text-brand-blue uppercase tracking-wider">
+                        {photo.client}
+                      </p>
+                      <h3 className="text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors mt-0.5">
+                        {photo.title}
+                      </h3>
+                    </div>
+
                     <p className="text-xs text-brand-secondary leading-relaxed line-clamp-3">
                       {photo.caption}
                     </p>
 
                     {/* Highlights Tags */}
-                    <div className="pt-2 flex flex-wrap gap-1.5">
+                    <div className="pt-1 flex flex-wrap gap-1.5">
                       {photo.highlights.map((h, i) => (
                         <span
                           key={i}

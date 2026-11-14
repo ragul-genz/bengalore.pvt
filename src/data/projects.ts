@@ -55,7 +55,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: "Networking & Infrastructure",
     client: "University of Agricultural Sciences (UAS), Raichur Campus",
     executedThrough: "KEONICS (Karnataka State Electronics Development Corporation Ltd.)",
-    image: "/projects/project-campus-fiber-handover.png",
+    image: "/clients/photos/uas-raichur-noc-monitoring.jpg",
     secondaryImage: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
     description:
       "Supply, installation, and multi-year maintenance contract for campus-wide optical fiber networking, managed switching matrices, high-density Wi-Fi solutions, and integrated CCTV surveillance connecting 14 academic and administrative buildings.",
@@ -151,10 +151,10 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
   },
   {
     id: "gal-5",
-    title: "Campus Optical Fiber Network Handover",
+    title: "Tumkur University Academic Computing Laboratory",
     category: "Campus Network",
-    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
-    caption: "Handover ceremony for the 14-building optical fiber and Wi-Fi campus infrastructure.",
+    image: "/clients/photos/tumkur-computer-lab.jpg",
+    caption: "High-density institutional computer laboratory deployment with structured Cat6 cabling and gigabit switching backbone.",
   },
   {
     id: "gal-6",
