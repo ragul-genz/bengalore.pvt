@@ -52,7 +52,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1 group"
+                      className="text-sm text-slate-300 hover:text-white transition-all duration-200 flex items-center gap-1 group hover:translate-x-1"
                     >
                       <span>{item.label}</span>
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue" />
@@ -72,7 +72,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1 group"
+                      className="text-sm text-slate-300 hover:text-white transition-all duration-200 flex items-center gap-1 group hover:translate-x-1"
                     >
                       <span className="line-clamp-1">{item.label}</span>
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue shrink-0" />

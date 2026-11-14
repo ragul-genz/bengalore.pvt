@@ -126,7 +126,7 @@ export function Navbar() {
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "text-sm font-medium transition-all duration-200 relative py-1 flex items-center gap-1",
+                      "text-sm font-medium transition-all duration-300 relative py-1 flex items-center gap-1 hover:-translate-y-0.5",
                       active
                         ? "text-blue-600 font-semibold"
                         : "text-slate-700 hover:text-blue-600"
@@ -148,7 +148,7 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/contact#quote"
-                className="inline-flex items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30 text-white text-sm font-semibold shadow-sm transition-all duration-300"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4" />

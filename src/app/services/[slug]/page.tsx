@@ -235,7 +235,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-3.5 rounded-xl border border-brand-border/80 bg-brand-lightBg/50 hover:bg-brand-lightBg transition-colors"
+                      className="flex items-start gap-3 p-3.5 rounded-xl border border-brand-border/80 bg-brand-lightBg/50 hover:bg-brand-lightBg hover:-translate-y-0.5 hover:shadow-sm transition-all duration-300"
                     >
                       <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm text-brand-text font-medium leading-relaxed">

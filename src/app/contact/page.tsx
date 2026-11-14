@@ -85,7 +85,7 @@ export default function ContactPage() {
                     {COMPANY_DETAILS.leadership.directors.map((dir) => (
                       <div
                         key={dir.name}
-                        className="p-3 rounded-xl border border-brand-border bg-brand-lightBg flex items-center gap-3"
+                        className="p-3 rounded-xl border border-brand-border bg-brand-lightBg flex items-center gap-3 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-blue/40 transition-all duration-300"
                       >
                         <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-white shadow-xs shrink-0 bg-slate-200">
                           <Image

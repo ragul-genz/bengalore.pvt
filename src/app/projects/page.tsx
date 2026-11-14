@@ -15,6 +15,10 @@ import {
   PageHero,
   RevealText,
   FadeIn,
+  StaggerGroup,
+  StaggerItem,
+  SectionReveal,
+  ImageReveal,
 } from "@/components/common";
 import {
   PROJECTS_DATA,
@@ -71,7 +75,7 @@ export default function ProjectsPage() {
       />
 
       {/* Primary Project Case Studies */}
-      <section className="py-16 md:py-24 bg-white/70 backdrop-blur-xs border-b border-brand-border">
+      <SectionReveal className="py-16 md:py-24 bg-white/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="max-w-2xl mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -109,14 +113,16 @@ export default function ProjectsPage() {
                       isEven ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-40" />
+                    <ImageReveal className="w-full h-full relative" duration={0.6}>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </ImageReveal>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-40 pointer-events-none" />
 
                     {/* Expand button */}
                     <button
@@ -185,10 +191,10 @@ export default function ProjectsPage() {
             })}
           </div>
         </Container>
-      </section>
+      </SectionReveal>
 
       {/* Installation Gallery (Authentic Company Work Photographs) */}
-      <section className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
+      <SectionReveal className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -228,24 +234,33 @@ export default function ProjectsPage() {
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup
+            key={activeTab}
+            mode="view"
+            stagger={0.06}
+            delay={0.05}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {filteredGallery.map((item: GalleryItem) => (
-              <div
+              <StaggerItem
                 key={item.id}
-                className="group relative rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:shadow-xl transition-all duration-300"
+                y={18}
+                className="group relative rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <ImageReveal className="w-full h-full relative" duration={0.55}>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </ImageReveal>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none" />
 
                   {/* Category Pill */}
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute top-3 left-3 z-10">
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-navy/90 text-white backdrop-blur-xs">
                       {item.category}
                     </span>
@@ -255,7 +270,7 @@ export default function ProjectsPage() {
                   <button
                     type="button"
                     onClick={() => openLightbox(item.image, item.title, item.caption)}
-                    className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs hover:bg-white text-brand-navy flex items-center justify-center shadow-md transition-transform group-hover:scale-110"
+                    className="absolute top-3 right-3 z-10 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs hover:bg-white text-brand-navy flex items-center justify-center shadow-md transition-transform group-hover:scale-110"
                     title="Expand photograph"
                     aria-label={`Expand ${item.title}`}
                   >
@@ -263,7 +278,7 @@ export default function ProjectsPage() {
                   </button>
 
                   {/* Caption & Title overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 text-white space-y-1">
+                  <div className="absolute bottom-3 left-3 right-3 text-white space-y-1 z-10 pointer-events-none">
                     <h4 className="text-sm font-bold font-heading text-white leading-tight">
                       {item.title}
                     </h4>
@@ -272,14 +287,14 @@ export default function ProjectsPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </Container>
-      </section>
+      </SectionReveal>
 
       {/* CTA Strip */}
-      <section className="py-16 bg-brand-navy text-white">
+      <SectionReveal className="py-16 bg-brand-navy text-white">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-5">
             <RevealText
@@ -304,7 +319,7 @@ export default function ProjectsPage() {
             </FadeIn>
           </div>
         </Container>
-      </section>
+      </SectionReveal>
 
       {/* Lightbox Modal */}
       <Lightbox

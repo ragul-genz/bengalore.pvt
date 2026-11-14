@@ -46,7 +46,7 @@ export function Clients() {
             <StaggerItem
               key={client.name}
               y={14}
-              className="bg-white p-5 rounded-2xl border border-brand-border shadow-2xs hover:border-brand-blue/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white p-5 rounded-2xl border border-brand-border shadow-2xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3.5">
                 {/* Official Client Photo / Crest Showcase Container */}

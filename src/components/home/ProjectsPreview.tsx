@@ -12,6 +12,7 @@ import {
   FadeIn,
   StaggerGroup,
   StaggerItem,
+  ImageReveal,
   CINEMATIC_EASE,
   VIEWPORT_CONFIG,
 } from "@/components/common";
@@ -117,14 +118,16 @@ export function ProjectsPreview() {
               <div>
                 {/* Project Image with Lightbox Button */}
                 <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 border-b border-brand-border">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                  <ImageReveal className="w-full h-full relative" duration={0.6}>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </ImageReveal>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                   {/* Category Pill */}
                   <div className="absolute top-3 left-3">

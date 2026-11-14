@@ -58,7 +58,7 @@ export function Certificates() {
             <StaggerItem
               key={cert.id}
               y={18}
-              className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
               <div>
                 {/* Certificate Scan Container */}

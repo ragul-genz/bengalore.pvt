@@ -74,7 +74,7 @@ export function WhyChooseUs() {
             <StaggerItem
               key={item.title}
               y={18}
-              className="group bg-white p-7 rounded-2xl border border-brand-border shadow-2xs hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white p-7 rounded-2xl border border-brand-border shadow-2xs hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
@@ -105,7 +105,7 @@ export function WhyChooseUs() {
           {/* Sixth Card: Corporate Commitment */}
           <StaggerItem
             y={18}
-            className="bg-linear-to-br from-[#0B1F3A] via-[#102544] to-[#0A1A30] text-white p-7 rounded-2xl border border-blue-900/60 shadow-xl flex flex-col justify-between relative overflow-hidden group"
+            className="bg-linear-to-br from-[#0B1F3A] via-[#102544] to-[#0A1A30] text-white p-7 rounded-2xl border border-blue-900/60 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300"
           >
             <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="space-y-4 relative z-10">

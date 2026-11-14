@@ -60,7 +60,7 @@ export function Partners() {
             <StaggerItem
               key={partner.name}
               y={16}
-              className="p-6 rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 rounded-2xl border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3">
                 {partner.logo ? (
@@ -170,7 +170,7 @@ export function Partners() {
             {filteredBrands.map((brand) => (
               <div
                 key={brand.name}
-                className="p-3 rounded-xl border border-brand-border bg-white hover:border-brand-blue/50 hover:shadow-md transition-all duration-200 text-center flex flex-col justify-between items-center group"
+                className="p-3 rounded-xl border border-brand-border bg-white hover:border-brand-blue/50 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 text-center flex flex-col justify-between items-center group"
               >
                 {/* Brand Logo Container */}
                 <div className="w-full h-14 rounded-lg bg-slate-50/70 border border-slate-100/90 flex items-center justify-center p-2 group-hover:bg-white group-hover:border-slate-200 transition-colors">

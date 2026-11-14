@@ -11,6 +11,7 @@ import {
   ServiceIcon,
   RevealText,
   FadeIn,
+  ImageReveal,
   CINEMATIC_EASE,
   VIEWPORT_CONFIG,
 } from "@/components/common";
@@ -70,14 +71,16 @@ export function Services() {
               <div>
                 {/* Service Image with Aspect Ratio & Subtle Zoom */}
                 <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 border-b border-brand-border">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/60 via-transparent to-transparent opacity-70" />
+                  <ImageReveal className="w-full h-full relative" duration={0.6}>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </ImageReveal>
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/60 via-transparent to-transparent opacity-70 pointer-events-none" />
 
                   {/* Icon Badge Overlay */}
                   <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md border border-white/50 flex items-center justify-center shadow-md">

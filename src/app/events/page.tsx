@@ -286,7 +286,7 @@ export default function EventsPage() {
               <StaggerItem
                 key={slot.id}
                 y={16}
-                className="group bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:shadow-lg hover:border-brand-blue/50 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/50 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Photo Frame Container */}

@@ -367,3 +367,103 @@ export function StaggerItem({
     </motion.div>
   );
 }
+
+interface SectionRevealProps {
+  children: React.ReactNode;
+  as?: "section" | "div";
+  delay?: number;
+  y?: number;
+  duration?: number;
+  className?: string;
+  id?: string;
+}
+
+/**
+ * Section-level viewport entrance reveal. Animates smoothly once on scroll.
+ */
+export function SectionReveal({
+  children,
+  as = "section",
+  delay = 0,
+  y = 20,
+  duration = 0.55,
+  className,
+  id,
+}: SectionRevealProps) {
+  const Component = as === "div" ? motion.div : motion.section;
+  return (
+    <Component
+      id={id}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={VIEWPORT_CONFIG}
+      transition={{
+        duration,
+        delay,
+        ease: CINEMATIC_EASE,
+      }}
+      className={className}
+    >
+      {children}
+    </Component>
+  );
+}
+
+interface ImageRevealProps {
+  children: React.ReactNode;
+  delay?: number;
+  duration?: number;
+  scaleFrom?: number;
+  className?: string;
+}
+
+/**
+ * Smooth image entrance transition with gentle zoom settle and opacity reveal.
+ */
+export function ImageReveal({
+  children,
+  delay = 0.05,
+  duration = 0.65,
+  scaleFrom = 1.05,
+  className,
+}: ImageRevealProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: scaleFrom }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={VIEWPORT_CONFIG}
+      transition={{
+        duration,
+        delay,
+        ease: CINEMATIC_EASE,
+      }}
+      className={cn("overflow-hidden will-change-transform", className)}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+interface HoverCardProps {
+  children: React.ReactNode;
+  hoverY?: number;
+  className?: string;
+}
+
+/**
+ * Interactive card with subtle elevation on hover.
+ */
+export function HoverCard({
+  children,
+  hoverY = -4,
+  className,
+}: HoverCardProps) {
+  return (
+    <motion.div
+      whileHover={{ y: hoverY, transition: { duration: 0.25, ease: CINEMATIC_EASE } }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}

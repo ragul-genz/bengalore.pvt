@@ -25,6 +25,7 @@ import {
   FadeIn,
   StaggerGroup,
   StaggerItem,
+  ImageReveal,
 } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
 
@@ -291,16 +292,26 @@ export default function AboutPage() {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerGroup
+            mode="view"
+            stagger={0.08}
+            delay={0.06}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {/* Project 1: Modular Data Centre */}
-            <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
+            <StaggerItem
+              y={18}
+              className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 group"
+            >
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
-                <Image
-                  src="/projects/project-modular-datacenter.png"
-                  alt="Modular Data Centre Execution by New Link Technologies"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <ImageReveal className="w-full h-full relative" duration={0.6}>
+                  <Image
+                    src="/projects/project-modular-datacenter.png"
+                    alt="Modular Data Centre Execution by New Link Technologies"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </ImageReveal>
               </div>
               <div className="p-6 space-y-2">
                 <Badge variant="primary" size="sm">
@@ -314,17 +325,22 @@ export default function AboutPage() {
                   power distribution, and operational handover.
                 </p>
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Project 2: High-Density Structured Cabling */}
-            <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
+            <StaggerItem
+              y={18}
+              className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 group"
+            >
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
-                <Image
-                  src="/projects/project-structured-cabling.png"
-                  alt="Professional Structured Cabling by New Link Technologies"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <ImageReveal className="w-full h-full relative" duration={0.6}>
+                  <Image
+                    src="/projects/project-structured-cabling.png"
+                    alt="Professional Structured Cabling by New Link Technologies"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </ImageReveal>
               </div>
               <div className="p-6 space-y-2">
                 <Badge variant="primary" size="sm">
@@ -338,17 +354,22 @@ export default function AboutPage() {
                   and labelled network terminations.
                 </p>
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Project 3: Boardroom & Video Conferencing */}
-            <div className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs group">
+            <StaggerItem
+              y={18}
+              className="rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 group"
+            >
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100">
-                <Image
-                  src="/services/boardroom-solutions.png"
-                  alt="Boardroom and Video Conferencing Solutions by New Link Technologies"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <ImageReveal className="w-full h-full relative" duration={0.6}>
+                  <Image
+                    src="/services/boardroom-solutions.png"
+                    alt="Boardroom and Video Conferencing Solutions by New Link Technologies"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </ImageReveal>
               </div>
               <div className="p-6 space-y-2">
                 <Badge variant="primary" size="sm">
@@ -362,8 +383,8 @@ export default function AboutPage() {
                   and integrated video conferencing.
                 </p>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerGroup>
         </Container>
       </section>
 

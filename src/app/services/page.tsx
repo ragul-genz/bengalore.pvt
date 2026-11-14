@@ -12,6 +12,8 @@ import {
   FadeIn,
   StaggerGroup,
   StaggerItem,
+  ImageReveal,
+  SectionReveal,
 } from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
 
@@ -47,7 +49,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid Section */}
-      <section className="py-16 md:py-24">
+      <SectionReveal className="py-16 md:py-24">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -77,19 +79,21 @@ export default function ServicesPage() {
               <StaggerItem
                 key={service.slug}
                 y={18}
-                className="group flex flex-col justify-between bg-white rounded-xl border border-brand-border overflow-hidden shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
+                className="group flex flex-col justify-between bg-white rounded-xl border border-brand-border overflow-hidden shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-2xl hover:shadow-brand-blue/10 transition-all duration-300"
               >
                 <div>
                   {/* Image */}
                   <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 border-b border-brand-border">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                    <ImageReveal className="w-full h-full relative" duration={0.6}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </ImageReveal>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     <div className="absolute top-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-xs border border-white/40 flex items-center justify-center text-brand-navy shadow-md">
                       <ServiceIcon name={service.iconName} className="w-5 h-5 text-brand-blue" />
@@ -199,10 +203,10 @@ export default function ServicesPage() {
             </div>
           </FadeIn>
         </Container>
-      </section>
+      </SectionReveal>
 
       {/* Bottom Consultation CTA */}
-      <section className="py-16 bg-brand-navy text-white">
+      <SectionReveal className="py-16 bg-brand-navy text-white">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <FadeIn mode="view" delay={0.04} y={8} duration={0.42}>
@@ -246,7 +250,7 @@ export default function ServicesPage() {
             </FadeIn>
           </div>
         </Container>
-      </section>
+      </SectionReveal>
     </div>
   );
 }

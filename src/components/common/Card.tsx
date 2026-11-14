@@ -24,14 +24,14 @@ export function Card({
 
   const hoverStyle = hoverable
     ? variant === "navy"
-      ? "hover:border-brand-blue/50 hover:shadow-[0_12px_30px_-5px_rgba(0,0,0,0.3)] hover:-translate-y-0.5"
-      : "hover:border-brand-blue/30 hover:shadow-[0_10px_24px_-4px_rgba(11,31,58,0.08)] hover:-translate-y-0.5"
+      ? "hover:border-brand-blue/60 hover:shadow-[0_16px_36px_-6px_rgba(0,0,0,0.35)] hover:-translate-y-1"
+      : "hover:border-brand-blue/40 hover:shadow-[0_14px_30px_-4px_rgba(11,31,58,0.1)] hover:-translate-y-1"
     : "";
 
   return (
     <div
       className={cn(
-        "rounded-xl p-6 sm:p-7 transition-all duration-200",
+        "rounded-xl p-6 sm:p-7 transition-all duration-300 ease-out",
         variantStyles[variant],
         hoverStyle,
         className

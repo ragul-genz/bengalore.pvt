@@ -30,6 +30,7 @@ import {
   FadeIn,
   StaggerGroup,
   StaggerItem,
+  ImageReveal,
 } from "@/components/common";
 import {
   CLIENT_INSTITUTIONS,
@@ -466,14 +467,16 @@ export default function ClientsPage() {
                     className="relative aspect-16/10 w-full overflow-hidden bg-slate-900 cursor-pointer"
                     onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
                   >
-                    <Image
-                      src={photo.image}
-                      alt={photo.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                    <ImageReveal className="w-full h-full relative" duration={0.6}>
+                      <Image
+                        src={photo.image}
+                        alt={photo.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </ImageReveal>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none" />
 
                     {/* Top badging */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">

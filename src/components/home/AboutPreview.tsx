@@ -13,6 +13,7 @@ import {
   Container,
   RevealText,
   FadeIn,
+  ImageReveal,
   CINEMATIC_EASE,
   VIEWPORT_CONFIG,
 } from "@/components/common";
@@ -153,15 +154,17 @@ export function AboutPreview() {
 
           {/* Right Column: Corporate Visual Card (5 cols) */}
           <FadeIn mode="view" delay={0.2} y={18} duration={0.55} className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/60 bg-slate-50 aspect-16/10">
-              <Image
-                src="/about/corporate-glass-building.png"
-                alt="New Link Technologies Bangalore Corporate Operations"
-                fill
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover object-center transition-transform duration-500 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/65 via-transparent to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/60 bg-slate-50 aspect-16/10 group">
+              <ImageReveal className="w-full h-full relative" duration={0.65}>
+                <Image
+                  src="/about/corporate-glass-building.png"
+                  alt="New Link Technologies Bangalore Corporate Operations"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+              </ImageReveal>
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/65 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                 <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-md text-slate-900 px-3.5 py-2 rounded-xl shadow-md">
