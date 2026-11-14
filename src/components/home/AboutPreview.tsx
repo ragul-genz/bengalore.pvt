@@ -20,7 +20,7 @@ import { COMPANY_DETAILS } from "@/data/company";
 
 export function AboutPreview() {
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white/80 backdrop-blur-xs border-b border-slate-100 relative overflow-hidden">
       <Container size="default">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Eyebrow, Dual-Tone Heading & Description (7 cols) */}

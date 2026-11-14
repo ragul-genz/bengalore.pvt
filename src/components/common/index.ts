@@ -12,3 +12,4 @@ export * from "./JsonLd";
 export * from "./FloatingWhatsApp";
 export * from "./PageHero";
 export * from "./MotionPrimitives";
+export * from "./PremiumBackground";

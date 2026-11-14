@@ -54,7 +54,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Page Hero Banner matching Home Aesthetic */}
       <PageHero
         eyebrow="Connecting Values • Corporate Profile"
@@ -68,7 +68,7 @@ export default function AboutPage() {
       />
 
       {/* Company Philosophy & Overview Section */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-white/75 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
@@ -185,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* The 5 Business Categories Section */}
-      <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -270,7 +270,7 @@ export default function AboutPage() {
       </section>
 
       {/* Verified Capabilities & Photographic Showcase */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-white/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -368,7 +368,7 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Leadership Section */}
-      <section id="executive-leadership" className="py-16 md:py-24 bg-white border-b border-brand-border scroll-mt-24">
+      <section id="executive-leadership" className="py-16 md:py-24 bg-white/80 backdrop-blur-xs border-b border-brand-border scroll-mt-24">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -551,7 +551,7 @@ export default function AboutPage() {
       </section>
 
       {/* Verified Clients & Public Sector Track Record */}
-      <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">

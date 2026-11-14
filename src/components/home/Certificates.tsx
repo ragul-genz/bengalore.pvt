@@ -36,7 +36,7 @@ export function Certificates() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-brand-border relative">
+    <section className="py-20 md:py-28 bg-white/80 backdrop-blur-xs border-b border-brand-border relative">
       <Container size="default">
         <SectionHeading
           eyebrow="Government & Institutional Commendations"

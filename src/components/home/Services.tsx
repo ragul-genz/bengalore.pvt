@@ -41,7 +41,7 @@ const cardVariants: Variants = {
 
 export function Services() {
   return (
-    <section className="py-20 md:py-28 bg-brand-lightBg border-b border-brand-border relative">
+    <section className="py-20 md:py-28 bg-brand-lightBg/75 backdrop-blur-xs border-b border-brand-border relative">
       <Container size="default">
         {/* Section Heading */}
         <SectionHeading

@@ -57,7 +57,7 @@ export default function ProjectsPage() {
       : INSTALLATION_GALLERY.filter((g) => g.category === activeTab);
 
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Projects Hero Banner matching Home Aesthetic */}
       <PageHero
         eyebrow="Demonstrated Engineering Track Record"
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
       />
 
       {/* Primary Project Case Studies */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-white/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="max-w-2xl mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Installation Gallery (Authentic Company Work Photographs) */}
-      <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">

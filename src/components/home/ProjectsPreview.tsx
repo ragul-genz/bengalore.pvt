@@ -40,7 +40,7 @@ export function ProjectsPreview() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-brand-border relative">
+    <section className="py-20 md:py-28 bg-white/80 backdrop-blur-xs border-b border-brand-border relative">
       <Container size="default">
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

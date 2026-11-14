@@ -38,7 +38,7 @@ export function Partners() {
       : OEM_BRAND_PARTNERS.filter((brand) => brand.tag === activeFilter);
 
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-brand-border relative">
+    <section className="py-16 md:py-24 bg-brand-lightBg/75 backdrop-blur-xs border-b border-brand-border relative">
       <Container size="default">
         <SectionHeading
           eyebrow="Strategic Collaboration"

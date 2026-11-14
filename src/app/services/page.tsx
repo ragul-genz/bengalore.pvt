@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Services Hero Banner matching Home Aesthetic */}
       <PageHero
         eyebrow="Full Lifecycle Engineering • Bangalore, India"

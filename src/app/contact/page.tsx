@@ -45,7 +45,7 @@ export default function ContactPage() {
     "https://www.google.com/maps/search/?api=1&query=No.+12%2F1%2C+11th+%27B%27+Main+Road%2C+36th+Cross%2C+2nd+Block%2C+Rajajinagar%2C+Bangalore+-+560010";
 
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Contact Hero Header matching Home Aesthetic */}
       <PageHero
         eyebrow="Direct Corporate Communication • Rajajinagar, Bangalore"

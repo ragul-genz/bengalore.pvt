@@ -50,7 +50,7 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Page Hero Banner */}
       <PageHero
         eyebrow="Official Cultural Initiative • Karnataka Heritage"

@@ -75,7 +75,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Service Hero Header matching Home Aesthetic */}
       <PageHero
         eyebrow={`${service.tag} • Enterprise Delivery`}

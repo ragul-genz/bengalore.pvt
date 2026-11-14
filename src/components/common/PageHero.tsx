@@ -35,7 +35,7 @@ export function PageHero({
   const descDelay = Math.min(0.42, 0.2 + totalWords * 0.032);
 
   return (
-    <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC] via-[#F4F8FE] to-[#FFFFFF] pt-10 pb-14 sm:pt-14 sm:pb-18 border-b border-slate-200/70">
+    <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC]/75 via-[#F4F8FE]/50 to-white/40 backdrop-blur-xs pt-10 pb-14 sm:pt-14 sm:pb-18 border-b border-slate-200/70">
       {/* Subtle Geometric Angular Light Ribbons matching Home Hero */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
         <div className="absolute -left-24 top-0 w-96 h-full bg-linear-to-br from-blue-200/35 via-blue-100/20 to-transparent -skew-x-12 transform" />

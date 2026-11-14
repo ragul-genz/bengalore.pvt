@@ -384,6 +384,82 @@
   }
 }
 
+/* ==========================================================================
+   Premium Animated Background Ambient Drift Loops (GPU Compositor)
+   ========================================================================== */
+@keyframes ambientDrift1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(55px, -32px, 0) scale(1.07);
+  }
+  66% {
+    transform: translate3d(-38px, 42px, 0) scale(0.95);
+  }
+}
+
+@keyframes ambientDrift2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(-65px, 35px, 0) scale(1.09);
+  }
+  80% {
+    transform: translate3d(32px, -45px, 0) scale(0.93);
+  }
+}
+
+@keyframes ambientDrift3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(45px, 55px, 0) scale(1.08);
+  }
+}
+
+@keyframes ambientPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.animate-ambient-drift-1 {
+  animation: ambientDrift1 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ambient-drift-2 {
+  animation: ambientDrift2 32s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ambient-drift-3 {
+  animation: ambientDrift3 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ambient-pulse {
+  animation: ambientPulse 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-drift-1,
+  .animate-ambient-drift-2,
+  .animate-ambient-drift-3,
+  .animate-ambient-pulse {
+    animation: none !important;
+  }
+}
+
 /* Accessible focus ring */
 :focus-visible {
   outline: 2px solid var(--color-brand-blue);

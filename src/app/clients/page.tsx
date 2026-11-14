@@ -96,7 +96,7 @@ export default function ClientsPage() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="bg-white">
+    <div className="relative bg-transparent">
       {/* Page Hero Banner */}
       <PageHero
         eyebrow="Trusted Partnerships • Public Sector & Institutional Reach"

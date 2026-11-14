@@ -56,9 +56,9 @@ const VERTICAL_PILLARS = [
 
 export function Hero() {
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-transparent">
       {/* Main Light High-Tech Hero Section */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC] via-[#F4F8FE] to-[#FFFFFF] pt-10 pb-24 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC]/80 via-[#F4F8FE]/60 to-white/40 backdrop-blur-xs pt-10 pb-24 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32">
         {/* Geometric Angular Light Ribbons (Subtle Modern Backdrop) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
           <div className="absolute -left-24 top-0 w-96 h-full bg-linear-to-br from-blue-200/35 via-blue-100/20 to-transparent -skew-x-12 transform" />
