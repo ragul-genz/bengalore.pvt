@@ -117,23 +117,34 @@ export function AboutPreview() {
                 </div>
               </div>
 
-              {/* Director Sign-off */}
-              <div className="flex items-center gap-3 shrink-0 bg-slate-50/90 px-4 py-2.5 rounded-2xl border border-slate-200/70">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-blue-600 shadow-2xs shrink-0">
-                  <Image
-                    src="/leadership/director-mg-girish.jpg"
-                    alt={`${COMPANY_DETAILS.leadership.director} - ${COMPANY_DETAILS.leadership.role}`}
-                    fill
-                    sizes="40px"
-                    className="object-cover object-top"
-                  />
+              {/* Executive Directors Sign-off */}
+              <div className="flex items-center gap-3.5 shrink-0 bg-slate-50/90 px-4 py-2.5 rounded-2xl border border-slate-200/70">
+                <div className="flex -space-x-2 shrink-0">
+                  <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-2xs z-10">
+                    <Image
+                      src="/leadership/director-mg-girish.jpg"
+                      alt="M.G. Girish - Director"
+                      fill
+                      sizes="36px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-2xs z-0">
+                    <Image
+                      src="/leadership/director-divya-dk.jpg"
+                      alt="Divya D K - Director"
+                      fill
+                      sizes="36px"
+                      className="object-cover object-top"
+                    />
+                  </div>
                 </div>
                 <div className="text-xs">
                   <p className="font-heading font-bold text-[#0A192F]">
-                    {COMPANY_DETAILS.leadership.director}
+                    Executive Leadership
                   </p>
                   <p className="text-slate-500 text-[11px] font-medium">
-                    {COMPANY_DETAILS.leadership.role}
+                    M.G. Girish &amp; Divya D K
                   </p>
                 </div>
               </div>

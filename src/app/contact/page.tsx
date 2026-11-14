@@ -77,25 +77,40 @@ export default function ContactPage() {
                 </div>
 
                 {/* Executive Leadership Spotlight */}
-                <div className="p-4 rounded-xl border border-brand-border bg-brand-lightBg flex items-center gap-3.5">
-                  <div className="relative w-14 h-14 rounded-lg overflow-hidden border border-white shadow-xs shrink-0">
-                    <Image
-                      src="/leadership/director-mg-girish.jpg"
-                      alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
-                      fill
-                      className="object-cover object-top"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">
-                      Executive Leadership
-                    </p>
-                    <p className="text-sm font-bold text-brand-navy font-heading">
-                      {COMPANY_DETAILS.leadership.director}
-                    </p>
-                    <p className="text-[11px] text-brand-secondary">
-                      {COMPANY_DETAILS.leadership.role}, New Link Technologies Bangalore Pvt. Ltd.
-                    </p>
+                <div className="space-y-2.5">
+                  <p className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">
+                    Executive Leadership
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {COMPANY_DETAILS.leadership.directors.map((dir) => (
+                      <div
+                        key={dir.name}
+                        className="p-3 rounded-xl border border-brand-border bg-brand-lightBg flex items-center gap-3"
+                      >
+                        <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-white shadow-xs shrink-0 bg-slate-200">
+                          <Image
+                            src={dir.image}
+                            alt={`${dir.name} - ${dir.role}, New Link Technologies Bangalore Pvt. Ltd.`}
+                            fill
+                            className="object-cover object-top"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-bold text-brand-navy font-heading truncate">
+                            {dir.name}
+                          </p>
+                          <p className="text-[10px] text-blue-700 font-semibold">
+                            {dir.role}
+                          </p>
+                          <a
+                            href={`tel:${dir.phoneRaw}`}
+                            className="text-[10px] text-slate-500 hover:text-blue-600 block truncate"
+                          >
+                            {dir.phone}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

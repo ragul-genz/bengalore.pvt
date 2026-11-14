@@ -16,6 +16,28 @@ export const COMPANY_DETAILS = {
   leadership: {
     director: "M.G. Girish",
     role: "Director",
+    directors: [
+      {
+        name: "M.G. Girish",
+        role: "Director",
+        company: "New Link Technologies Bangalore Pvt. Ltd.",
+        phone: "+91 95353 14141",
+        phoneRaw: "+919535314141",
+        email: "girish.mg@newlinktec.com",
+        image: "/leadership/director-mg-girish.jpg",
+        designation: "Director - Enterprise Solutions & Strategic Operations",
+      },
+      {
+        name: "Divya D K",
+        role: "Director",
+        company: "New Link Technologies Bangalore Pvt. Ltd.",
+        phone: "+91 96118 54426",
+        phoneRaw: "+919611854426",
+        email: "divya.dk@newlinktec.com",
+        image: "/leadership/director-divya-dk.jpg",
+        designation: "Director - Corporate Governance & Client Relationships",
+      },
+    ],
   },
   description:
     "New Link Technologies Bangalore Pvt. Ltd. is an integrated technology solutions provider delivering enterprise IT systems, hardware, software, digital infrastructure, and technology consulting for modern businesses, universities, and government bodies.",
