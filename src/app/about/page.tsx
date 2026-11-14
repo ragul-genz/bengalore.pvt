@@ -374,164 +374,139 @@ export default function AboutPage() {
       {/* Executive Leadership Section */}
       <section className="py-16 md:py-24 bg-white border-b border-brand-border">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Leadership Commitment
-            </FadeIn>
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.045}
-              text="Executive Leadership"
-              highlight="Board of Directors"
-              highlightClassName="text-blue-600"
-              className="text-3xl sm:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
-            />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary leading-relaxed">
-              Guided by dedicated executive governance, hands-on operational leadership, and technical precision across every enterprise deployment at New Link Technologies Bangalore Pvt. Ltd.
-            </FadeIn>
-          </div>
-
-          {/* 2 Director Showcase Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
+          <div className="space-y-12">
             {/* Director 1: M.G. Girish */}
-            <FadeIn
-              mode="view"
-              delay={0.1}
-              y={18}
-              className="bg-white rounded-3xl border border-brand-border shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group"
-            >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div className="relative w-36 h-44 sm:w-40 sm:h-48 rounded-2xl overflow-hidden border-4 border-slate-50 shadow-md shrink-0 bg-slate-100">
-                  <Image
-                    src="/leadership/director-mg-girish.jpg"
-                    alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+            <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-5 flex justify-center">
+                  <div className="relative w-60 h-76 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-200">
+                    <Image
+                      src="/leadership/director-mg-girish.jpg"
+                      alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      fill
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 text-white text-center">
+                      <p className="font-heading font-bold text-base">M.G. Girish</p>
+                      <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-3 text-center sm:text-left min-w-0 flex-1">
-                  <div>
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100 mb-1.5">
-                      Director
+                <div className="md:col-span-7 space-y-4 text-center md:text-left">
+                  <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
+                    Leadership Commitment
+                  </FadeIn>
+                  <RevealText
+                    as="h3"
+                    by="word"
+                    mode="view"
+                    delay={0.08}
+                    stagger={0.042}
+                    text="Driven by Precision, Value, and Enduring Integrity"
+                    className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
+                  />
+                  <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                    &ldquo;At New Link Technologies Bangalore Pvt. Ltd., our core mission is simple yet uncompromising: to provide enterprises, government bodies, and institutions with technology infrastructure that performs reliably 24/7/365. When you partner with us, you deal directly with dedicated engineers and an accountable leadership team.&rdquo;
+                  </FadeIn>
+                  <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                      Director-Led Quality Oversight
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
-                      M.G. Girish
-                    </h3>
-                    <p className="text-xs text-blue-600 font-medium">
-                      Director, New Link Technologies Bangalore Pvt. Ltd.
-                    </p>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Spearheads strategic execution, OEM technology partnerships, turnkey IT infrastructure delivery, and large-scale public sector project governance.
-                  </p>
-
-                  <div className="pt-2 space-y-1.5 text-xs text-slate-700">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                      Connecting Values Across Karnataka
+                    </span>
+                  </FadeIn>
+                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs">
                     <a
                       href="tel:+919535314141"
-                      className="flex items-center justify-center sm:justify-start gap-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
                     >
-                      <Phone className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <Phone className="w-3.5 h-3.5 text-brand-blue" />
                       <span>+91 95353 14141</span>
                     </a>
+                    <span className="text-slate-300">|</span>
                     <a
                       href="mailto:girish.mg@newlinktec.com"
-                      className="flex items-center justify-center sm:justify-start gap-2 text-slate-600 hover:text-blue-600 transition-colors font-medium break-all"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
                     >
-                      <Mail className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <Mail className="w-3.5 h-3.5 text-brand-blue" />
                       <span>girish.mg@newlinktec.com</span>
                     </a>
                   </div>
                 </div>
               </div>
-            </FadeIn>
+            </div>
 
             {/* Director 2: Divya D K */}
-            <FadeIn
-              mode="view"
-              delay={0.18}
-              y={18}
-              className="bg-white rounded-3xl border border-brand-border shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group"
-            >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div className="relative w-36 h-44 sm:w-40 sm:h-48 rounded-2xl overflow-hidden border-4 border-slate-50 shadow-md shrink-0 bg-slate-100">
-                  <Image
-                    src="/leadership/director-divya-dk.jpg"
-                    alt="Divya D K - Director, New Link Technologies Bangalore Pvt. Ltd."
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-navy/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+            <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-5 flex justify-center">
+                  <div className="relative w-60 h-76 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-200">
+                    <Image
+                      src="/leadership/director-divya-dk.jpg"
+                      alt="Divya D K - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      fill
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 text-white text-center">
+                      <p className="font-heading font-bold text-base">Divya D K</p>
+                      <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-3 text-center sm:text-left min-w-0 flex-1">
-                  <div>
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100 mb-1.5">
-                      Director
+                <div className="md:col-span-7 space-y-4 text-center md:text-left">
+                  <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
+                    Leadership Commitment
+                  </FadeIn>
+                  <RevealText
+                    as="h3"
+                    by="word"
+                    mode="view"
+                    delay={0.08}
+                    stagger={0.042}
+                    text="Excellence in Governance, Trust, and Lasting Value"
+                    className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
+                  />
+                  <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                    &ldquo;At New Link Technologies Bangalore Pvt. Ltd., we ensure every institutional partnership is grounded in transparent administration, prompt responsiveness, and dependable quality governance. We are dedicated to delivering technology infrastructure that empowers our clients and endures.&rdquo;
+                  </FadeIn>
+                  <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                      Corporate Governance &amp; Quality Standards
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
-                      Divya D K
-                    </h3>
-                    <p className="text-xs text-blue-600 font-medium">
-                      Director, New Link Technologies Bangalore Pvt. Ltd.
-                    </p>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Oversees corporate management, institutional client relations, organizational operations, financial administration, and service quality governance.
-                  </p>
-
-                  <div className="pt-2 space-y-1.5 text-xs text-slate-700">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                      Connecting Values Across Karnataka
+                    </span>
+                  </FadeIn>
+                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs">
                     <a
                       href="tel:+919611854426"
-                      className="flex items-center justify-center sm:justify-start gap-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
                     >
-                      <Phone className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <Phone className="w-3.5 h-3.5 text-brand-blue" />
                       <span>+91 96118 54426</span>
                     </a>
+                    <span className="text-slate-300">|</span>
                     <a
                       href="mailto:divya.dk@newlinktec.com"
-                      className="flex items-center justify-center sm:justify-start gap-2 text-slate-600 hover:text-blue-600 transition-colors font-medium break-all"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
                     >
-                      <Mail className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <Mail className="w-3.5 h-3.5 text-brand-blue" />
                       <span>divya.dk@newlinktec.com</span>
                     </a>
                   </div>
                 </div>
               </div>
-            </FadeIn>
-          </div>
-
-          {/* Joint Leadership Commitment Banner */}
-          <FadeIn
-            mode="view"
-            delay={0.24}
-            y={14}
-            className="max-w-5xl mx-auto rounded-2xl border border-brand-border bg-slate-50/80 p-6 sm:p-8 text-center"
-          >
-            <p className="text-sm sm:text-base text-slate-700 italic leading-relaxed max-w-3xl mx-auto">
-              &ldquo;At New Link Technologies Bangalore Pvt. Ltd., our core mission is simple yet uncompromising: to provide enterprises, government bodies, and institutions with technology infrastructure that performs reliably 24/7/365. When you partner with us, you deal directly with dedicated engineers and an accountable leadership team.&rdquo;
-            </p>
-            <div className="pt-4 mt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-6 text-xs text-brand-navy font-semibold">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-brand-blue" />
-                Director-Led Quality Oversight
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-blue" />
-                Connecting Values Across Karnataka
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-brand-blue" />
-                Direct Executive Accountability
-              </span>
             </div>
-          </FadeIn>
+          </div>
         </Container>
       </section>
 
