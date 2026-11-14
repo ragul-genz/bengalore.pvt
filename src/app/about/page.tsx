@@ -441,20 +441,20 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Director 2: Divya D K */}
+            {/* Director 2: D.K. Divya */}
             <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-5 flex justify-center">
                   <div className="relative w-60 h-76 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-200">
                     <Image
                       src="/leadership/director-divya-dk.jpg"
-                      alt="Divya D K - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      alt="D.K. Divya - Director, New Link Technologies Bangalore Pvt. Ltd."
                       fill
                       className="object-cover object-top"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-brand-navy/70 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3 text-white text-center">
-                      <p className="font-heading font-bold text-base">Divya D K</p>
+                      <p className="font-heading font-bold text-base">D.K. Divya</p>
                       <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
                     </div>
                   </div>
@@ -470,20 +470,23 @@ export default function AboutPage() {
                     mode="view"
                     delay={0.08}
                     stagger={0.042}
-                    text="Excellence in Governance, Trust, and Lasting Value"
+                    text="Operations &amp; Organizational Leadership"
                     className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
                   />
                   <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
-                    &ldquo;At New Link Technologies Bangalore Pvt. Ltd., we ensure every institutional partnership is grounded in transparent administration, prompt responsiveness, and dependable quality governance. We are dedicated to delivering technology infrastructure that empowers our clients and endures.&rdquo;
+                    D.K. Divya brings more than 9 years of experience in administration, human resource support, organizational operations and business coordination.
+                  </FadeIn>
+                  <FadeIn as="p" mode="view" delay={0.26} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                    As a key member of the company&apos;s leadership team, she has contributed to the development of the organization&apos;s business framework and operational processes.
                   </FadeIn>
                   <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-brand-blue" />
-                      Corporate Governance &amp; Quality Standards
+                      9+ Years Operations &amp; HR Experience
                     </span>
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-brand-blue" />
-                      Connecting Values Across Karnataka
+                      Business Framework &amp; Process Governance
                     </span>
                   </FadeIn>
                   <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs">
