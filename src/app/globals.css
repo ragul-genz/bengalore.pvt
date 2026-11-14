@@ -460,6 +460,77 @@
   }
 }
 
+/* ==========================================================================
+   Hero Moving Visual - Cinematic Camera Dolly & Optical Shimmer
+   Silky 60/120fps GPU-composited movement simulating a high-end video
+   ========================================================================== */
+@keyframes heroCameraDolly {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  35% {
+    transform: scale(1.07) translate3d(-10px, -6px, 0);
+  }
+  70% {
+    transform: scale(1.035) translate3d(8px, 6px, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroOpticalSweep {
+  0%, 15% {
+    transform: translateX(-150%) rotate(25deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(250%) rotate(25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroCorridorGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.12);
+  }
+}
+
+.animate-hero-camera {
+  animation: heroCameraDolly 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-sweep {
+  animation: heroOpticalSweep 14s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-hero-glow {
+  animation: heroCorridorGlow 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-camera,
+  .animate-hero-sweep,
+  .animate-hero-glow {
+    animation: none !important;
+  }
+}
+
 /* Accessible focus ring */
 :focus-visible {
   outline: 2px solid var(--color-brand-blue);

@@ -1,4 +1,5 @@
 export * from "./Hero";
+export * from "./HeroMovingVisual";
 export * from "./AboutPreview";
 export * from "./Services";
 export * from "./ProjectsPreview";

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import {
@@ -19,6 +18,7 @@ import {
   FadeIn,
   CINEMATIC_EASE,
 } from "@/components/common";
+import { HeroMovingVisual } from "./HeroMovingVisual";
 import { cn } from "@/lib/utils";
 
 const VERTICAL_PILLARS = [
@@ -64,27 +64,18 @@ export function Hero() {
           <div className="absolute -left-24 top-0 w-96 h-full bg-linear-to-br from-blue-200/35 via-blue-100/20 to-transparent -skew-x-12 transform" />
           <div className="absolute left-1/3 bottom-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
 
-          {/* Right Side Diagonal Server Corridor Mask (Desktop) */}
+          {/* Right Side Diagonal Server Corridor Mask (Desktop) with Cinematic Moving Visual */}
           <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[48%] xl:w-[46%] overflow-hidden">
             {/* Diagonal Cut Accent Ribbon */}
             <div
-              className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-[#F4F8FE] via-blue-100/60 to-transparent z-10"
+              className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-[#F4F8FE] via-blue-100/60 to-transparent z-10 pointer-events-none"
               style={{ clipPath: "polygon(0 0, 100% 0, 35% 100%, 0% 100%)" }}
             />
             <div
               className="relative w-full h-full"
               style={{ clipPath: "polygon(18% 0, 100% 0, 100% 100%, 0% 100%)" }}
             >
-              <Image
-                src="/hero/server-datacenter-hero-hd.png"
-                alt="High-tech Data Centre Server Corridor - New Link Technologies Bangalore Pvt. Ltd."
-                fill
-                priority
-                sizes="50vw"
-                className="object-cover object-center"
-              />
-              {/* Soft Left Blue Glow Blend */}
-              <div className="absolute inset-0 bg-linear-to-r from-blue-900/25 via-transparent to-blue-950/20" />
+              <HeroMovingVisual variant="desktop" className="w-full h-full" />
             </div>
           </div>
         </div>
@@ -173,21 +164,14 @@ export function Hero() {
               </FadeIn>
             </div>
 
-            {/* Mobile/Tablet Server Image (visible below lg) */}
+            {/* Mobile/Tablet Server Moving Visual (visible below lg) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:hidden relative rounded-2xl overflow-hidden shadow-lg border border-blue-100 aspect-16/9"
+              className="lg:hidden relative rounded-2xl overflow-hidden shadow-2xl border border-blue-200/60 aspect-16/10 sm:aspect-16/9"
             >
-              <Image
-                src="/hero/server-datacenter-hero-hd.png"
-                alt="High-tech Data Centre Server Corridor - New Link Technologies Bangalore Pvt. Ltd."
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover object-center"
-              />
+              <HeroMovingVisual variant="mobile" className="w-full h-full" />
             </motion.div>
           </div>
         </Container>
