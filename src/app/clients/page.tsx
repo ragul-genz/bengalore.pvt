@@ -270,7 +270,7 @@ export default function ClientsPage() {
                 >
                   <div className="space-y-4">
                     {/* Official Client Photo / Logo Container */}
-                    <div className="relative w-full h-28 rounded-xl bg-slate-50/90 border border-slate-100 p-3 flex items-center justify-center overflow-hidden group-hover:bg-blue-50/30 group-hover:border-blue-100 transition-colors">
+                    <div className="relative w-full h-32 rounded-xl bg-white border border-slate-100 p-3.5 flex items-center justify-center overflow-hidden group-hover:border-blue-200 group-hover:shadow-xs transition-all">
                       {client.logo ? (
                         <Image
                           src={client.logo}
