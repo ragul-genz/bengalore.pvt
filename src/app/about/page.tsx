@@ -575,18 +575,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {COMPANY_DETAILS.verifiedClientsAndPartners.map((client) => {
               const logoMap: Record<string, string> = {
+                "Rural Development & Panchayat Raj (RDPR)": "/partners/clients/rdpr.png",
                 "ITI Limited (Govt. of India Undertaking)": "/partners/clients/iti-limited.png",
-                "KEONICS (Karnataka State Electronics Development Corporation Limited)": "/partners/clients/keonics.png",
-                "National Assessment and Accreditation Council (NAAC)": "/partners/clients/naac.png",
-                "University of Agricultural Sciences (UAS), Raichur": "/partners/clients/uas-raichur.png",
-                "Tumkur University": "/partners/clients/tumkur-university.png",
-                "SJB Institute of Technology": "/partners/clients/sjbit.png",
-                "Department of Cooperation, Govt. of Karnataka (Sahakara Sindhu)": "/partners/clients/sahakara-sindhu.png",
-                "Bangalore Development Authority (BDA)": "/partners/clients/bda.png",
-                "Centre for e-Governance (CeG), Govt. of Karnataka": "/partners/clients/ceg.png",
-                "National Health Mission": "/partners/clients/nhm.png",
                 "Broadcast Engineering Consultants India Limited (BECIL)": "/partners/clients/becil.png",
-                "Indira Gandhi Institute of Child Health": "/partners/clients/igich.png",
+                "KEONICS (Karnataka State Electronics Development Corporation Limited)": "/partners/clients/keonics.png",
+                "University of Agricultural Sciences (UAS), Raichur": "/partners/clients/uas-raichur.png",
+                "Krishna Bhagya Jala Nigam Ltd (KBJNL)": "/partners/clients/kbjnl.png",
+                "National Health Mission (NHM)": "/partners/clients/nhm.png",
+                "Indira Gandhi Institute of Child Health (IGICH)": "/partners/clients/igich.png",
+                "Science Gallery Bengaluru": "/partners/clients/science-gallery.png",
+                "Department of Cooperation, Govt. of Karnataka (Sahakara Sindhu)": "/partners/clients/sahakara-sindhu.png",
+                "Tumkur University": "/partners/clients/tumkur-university.png",
+                "Bangalore Development Authority (BDA)": "/partners/clients/bda.png",
+                "Koppal Institute of Medical Sciences (KIMS Koppal)": "/partners/clients/kims-koppal.png",
+                "Centre for e-Governance (CeG), Govt. of Karnataka": "/partners/clients/ceg.png",
+                "SJB Institute of Technology (SJBIT)": "/partners/clients/sjbit.png",
+                "National Assessment and Accreditation Council (NAAC)": "/partners/clients/naac.png",
               };
               const logo = logoMap[client];
 

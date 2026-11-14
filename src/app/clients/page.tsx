@@ -15,6 +15,11 @@ import {
   ArrowRight,
   Sparkles,
   Phone,
+  Camera,
+  Sun,
+  Server,
+  Network,
+  Tv,
 } from "lucide-react";
 import {
   Container,
@@ -26,7 +31,13 @@ import {
   StaggerGroup,
   StaggerItem,
 } from "@/components/common";
-import { CLIENT_INSTITUTIONS, OEM_BRAND_PARTNERS, PartnerEntity } from "@/data/partners";
+import {
+  CLIENT_INSTITUTIONS,
+  OEM_BRAND_PARTNERS,
+  CLIENT_PROJECT_PHOTOS,
+  PartnerEntity,
+  ClientProjectPhoto,
+} from "@/data/partners";
 import { CERTIFICATES_DATA, type CertificateItem } from "@/data/certificates";
 import { COMPANY_DETAILS } from "@/data/company";
 
@@ -41,6 +52,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 export default function ClientsPage() {
   const [activeCategory, setActiveCategory] = useState<ClientCategory>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [photoCategory, setPhotoCategory] = useState<string>("all");
   const [lightbox, setLightbox] = useState<{
     isOpen: boolean;
     image: string;
@@ -61,6 +73,40 @@ export default function ClientsPage() {
       caption,
     });
   };
+
+  const photoCategories = [
+    { id: "all", label: "All Photographic Records", count: CLIENT_PROJECT_PHOTOS.length },
+    {
+      id: "solar",
+      label: "Solar Clean Energy (NAAC)",
+      count: CLIENT_PROJECT_PHOTOS.filter((p) => p.sectorTag === "solar").length,
+    },
+    {
+      id: "datacenter",
+      label: "Modular Data Centre (UAS Raichur)",
+      count: CLIENT_PROJECT_PHOTOS.filter((p) => p.sectorTag === "datacenter").length,
+    },
+    {
+      id: "campus",
+      label: "Campus Fiber Network (SJBIT & Tumkur)",
+      count: CLIENT_PROJECT_PHOTOS.filter((p) => p.sectorTag === "campus").length,
+    },
+    {
+      id: "auditorium",
+      label: "Auditoriums & AV (Tumkur Univ)",
+      count: CLIENT_PROJECT_PHOTOS.filter((p) => p.sectorTag === "auditorium").length,
+    },
+    {
+      id: "healthcare",
+      label: "Healthcare Infrastructure (IGICH)",
+      count: CLIENT_PROJECT_PHOTOS.filter((p) => p.sectorTag === "healthcare").length,
+    },
+  ];
+
+  const filteredPhotos = useMemo(() => {
+    if (photoCategory === "all") return CLIENT_PROJECT_PHOTOS;
+    return CLIENT_PROJECT_PHOTOS.filter((photo) => photo.sectorTag === photoCategory);
+  }, [photoCategory]);
 
   const categories: { id: ClientCategory; label: string; count: number }[] = [
     { id: "all", label: "All Clients & Institutions", count: CLIENT_INSTITUTIONS.length },
@@ -349,6 +395,156 @@ export default function ClientsPage() {
               </p>
             </div>
           </FadeIn>
+        </Container>
+      </section>
+
+      {/* Client On-Site Delivery & Handover Photographic Showcase */}
+      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+        <Container size="default">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Photographic Evidence • Field Deployments
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="On-Site Client Installation & Handover Showcase"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.2} y={12} className="mt-3 text-sm sm:text-base text-brand-secondary">
+              Authentic field photographs documenting turnkey project execution, dignitary inaugurations, campus optical fiber handovers, 220 kWp solar array inspections, and institutional facility launches.
+            </FadeIn>
+          </div>
+
+          {/* Photo Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {photoCategories.map((cat) => {
+              const isActive = photoCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setPhotoCategory(cat.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
+                    isActive
+                      ? "bg-brand-blue text-white shadow-sm"
+                      : "bg-slate-100 text-slate-700 border border-slate-200 hover:border-brand-blue/40 hover:text-brand-navy hover:bg-slate-200/70"
+                  }`}
+                >
+                  <span>{cat.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                      isActive ? "bg-white/20 text-white" : "bg-white text-slate-600 shadow-2xs"
+                    }`}
+                  >
+                    {cat.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Photos Grid */}
+          <StaggerGroup
+            key={photoCategory}
+            mode="view"
+            stagger={0.05}
+            delay={0.06}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {filteredPhotos.map((photo: ClientProjectPhoto) => (
+              <StaggerItem
+                key={photo.id}
+                y={18}
+                className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                <div>
+                  {/* Photo Container */}
+                  <div
+                    className="relative aspect-16/10 w-full overflow-hidden bg-slate-900 cursor-pointer"
+                    onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
+                  >
+                    <Image
+                      src={photo.image}
+                      alt={photo.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                    {/* Top badging */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-white/95 text-brand-navy px-2.5 py-1 rounded-full shadow-md backdrop-blur-xs flex items-center gap-1">
+                        {photo.sectorTag === "solar" && <Sun className="w-3 h-3 text-amber-500" />}
+                        {photo.sectorTag === "datacenter" && <Server className="w-3 h-3 text-blue-600" />}
+                        {photo.sectorTag === "campus" && <Network className="w-3 h-3 text-emerald-600" />}
+                        {photo.sectorTag === "auditorium" && <Tv className="w-3 h-3 text-purple-600" />}
+                        {photo.sectorTag === "healthcare" && <Hospital className="w-3 h-3 text-rose-600" />}
+                        <span>{photo.category}</span>
+                      </span>
+                      <span className="text-[10px] font-medium bg-black/60 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-xs">
+                        {photo.location}
+                      </span>
+                    </div>
+
+                    {/* Expand overlay */}
+                    <div className="absolute inset-0 bg-brand-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 text-xs font-bold text-brand-navy shadow-lg transform -translate-y-1 group-hover:translate-y-0 transition-transform">
+                        <Maximize2 className="w-3.5 h-3.5 text-brand-blue" />
+                        <span>Click to Enlarge Photo</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Photo Body */}
+                  <div className="p-5 space-y-2.5">
+                    <p className="text-[11px] font-bold text-brand-blue uppercase tracking-wider">
+                      {photo.client}
+                    </p>
+                    <h3 className="text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
+                      {photo.title}
+                    </h3>
+                    <p className="text-xs text-brand-secondary leading-relaxed line-clamp-3">
+                      {photo.caption}
+                    </p>
+
+                    {/* Highlights Tags */}
+                    <div className="pt-2 flex flex-wrap gap-1.5">
+                      {photo.highlights.map((h, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] font-medium bg-slate-50 text-slate-600 border border-slate-200/80 px-2 py-0.5 rounded-md"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Action Footer */}
+                <div className="p-5 pt-0">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Authentic Site Record</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-brand-blue hover:text-blue-800 transition-colors"
+                    >
+                      <Camera className="w-3 h-3" />
+                      <span>Full View</span>
+                    </button>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </Container>
       </section>
 

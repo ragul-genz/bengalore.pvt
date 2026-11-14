@@ -26,7 +26,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: "Solar & Clean Energy",
     client: "National Assessment and Accreditation Council (NAAC), Bengaluru",
     executedThrough: "ITI Limited (MSP-KTK / Regional Office)",
-    image: "/projects/project-solar-naac.png",
+    image: "/clients/photos/naac-solar-rooftop.jpg",
+    secondaryImage: "/clients/photos/naac-solar-leadership.jpg",
     description:
       "Supplying, installing, testing, commissioning, and operations & maintenance of a 220 kWp grid-tied Rooftop Solar Power Plant at NAAC Bengaluru. The project adhered strictly to safety protocols and was completed ahead of the scheduled timeline.",
     scope:
@@ -39,8 +40,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     title: "Modular Data Centre (MDC) Implementation",
     category: "Data Centre Solutions",
     client: "Institutional & Enterprise Computing Facility",
-    image: "/projects/project-modular-datacenter.png",
-    secondaryImage: "/projects/project-datacenter-inauguration.png",
+    image: "/clients/photos/uas-raichur-server-farm.jpg",
+    secondaryImage: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
     description:
       "Turnkey establishment and commissioning of an institutional Modular Data Centre. Encompasses hot/cold aisle containment, precision climate control, server racks with intelligent PDUs, and environmental monitoring.",
     scope:
@@ -55,7 +56,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     client: "University of Agricultural Sciences (UAS), Raichur Campus",
     executedThrough: "KEONICS (Karnataka State Electronics Development Corporation Ltd.)",
     image: "/projects/project-campus-fiber-handover.png",
-    secondaryImage: "/projects/project-cable-patching.png",
+    secondaryImage: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
     description:
       "Supply, installation, and multi-year maintenance contract for campus-wide optical fiber networking, managed switching matrices, high-density Wi-Fi solutions, and integrated CCTV surveillance connecting 14 academic and administrative buildings.",
     scope:
@@ -68,7 +69,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     title: "Auditorium Acoustic Paneling, AV & False Ceiling",
     category: "Auditorium Solutions",
     client: "Tumkur University",
-    image: "/projects/project-tumkur-auditorium.png",
+    image: "/clients/photos/tumkur-auditorium.jpg",
+    secondaryImage: "/clients/photos/tumkur-inauguration.jpg",
     description:
       "Complete establishment of university auditorium facility encompassing specialized acoustic wall paneling, false ceilings, pro audio sound systems, and video conference infrastructure.",
     scope:
@@ -108,7 +110,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     title: "14-Building Campus Fiber Networking, Switching & Wi-Fi at SJBIT",
     category: "Campus Network & Switching",
     client: "SJB Institute of Technology (SJBIT) - Sri Adichunchanagiri Shikshana Trust",
-    image: "/projects/project-sjbit-campus-fiber.png",
+    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
     description:
       "Turnkey supply, termination, and multi-building commissioning of campus-wide optical fiber networking, managed switching matrices, and high-density Wi-Fi solutions providing seamless connectivity across 14 academic and administrative buildings.",
     scope:
@@ -137,35 +139,35 @@ export const INSTALLATION_GALLERY: GalleryItem[] = [
     id: "gal-3",
     title: "Modular Data Centre Server Rack Inspection",
     category: "Data Centre",
-    image: "/projects/project-modular-datacenter.png",
+    image: "/clients/photos/uas-raichur-server-farm.jpg",
     caption: "Technical inspection of modular server enclosures and power distribution units.",
   },
   {
     id: "gal-4",
     title: "Modular Data Centre Commissioning at UAS Raichur",
     category: "Data Centre",
-    image: "/projects/project-uas-raichur-datacenter-inauguration.png",
+    image: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
     caption: "Inauguration and client handover of turnkey modular data centre and Wi-Fi facility at UAS Raichur.",
   },
   {
     id: "gal-5",
     title: "Campus Optical Fiber Network Handover",
     category: "Campus Network",
-    image: "/projects/project-campus-fiber-handover.png",
+    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
     caption: "Handover ceremony for the 14-building optical fiber and Wi-Fi campus infrastructure.",
   },
   {
     id: "gal-6",
     title: "Tumkur University Auditorium & Facility",
     category: "Auditorium",
-    image: "/projects/project-tumkur-auditorium-inauguration.png",
+    image: "/clients/photos/tumkur-auditorium.jpg",
     caption: "Establishment of auditorium acoustics, wall paneling, and computer lab infrastructure.",
   },
   {
     id: "gal-7",
     title: "220 kWp Solar Rooftop Array at NAAC",
     category: "Clean Energy",
-    image: "/projects/project-solar-naac.png",
+    image: "/clients/photos/naac-solar-rooftop.jpg",
     caption: "High-capacity rooftop solar photovoltaic installation executed through ITI Limited for NAAC.",
   },
   {
