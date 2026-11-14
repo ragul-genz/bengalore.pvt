@@ -140,7 +140,7 @@ export default function AboutPage() {
                     {COMPANY_DETAILS.leadership.director}
                   </p>
                   <p className="text-xs text-brand-secondary font-medium">
-                    {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.shortName}
+                    {COMPANY_DETAILS.leadership.role}, {COMPANY_DETAILS.name}
                   </p>
                 </div>
               </FadeIn>
@@ -188,7 +188,7 @@ export default function AboutPage() {
               className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
             />
             <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
-              New Link Technologies delivers end-to-end capabilities spanning IT, Hardware,
+              New Link Technologies Bangalore Pvt. Ltd. delivers end-to-end capabilities spanning IT, Hardware,
               Software, Infrastructure, and Consulting.
             </FadeIn>
           </div>
@@ -370,7 +370,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-linear-to-t from-brand-navy/70 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 text-white text-center">
                     <p className="font-heading font-bold text-base">M.G. Girish</p>
-                    <p className="text-xs text-blue-200">Director, New Link Technologies</p>
+                    <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
                   </div>
                 </div>
               </div>
@@ -430,19 +430,49 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {COMPANY_DETAILS.verifiedClientsAndPartners.map((client) => (
-              <div
-                key={client}
-                className="bg-white p-4 rounded-xl border border-brand-border shadow-2xs flex items-center gap-3 hover:border-brand-blue/30 transition-colors"
-              >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue shrink-0">
-                  <Building2 className="w-4 h-4" />
+            {COMPANY_DETAILS.verifiedClientsAndPartners.map((client) => {
+              const logoMap: Record<string, string> = {
+                "ITI Limited (Govt. of India Undertaking)": "/partners/clients/iti-limited.png",
+                "KEONICS (Karnataka State Electronics Development Corporation Limited)": "/partners/clients/keonics.png",
+                "National Assessment and Accreditation Council (NAAC)": "/partners/clients/naac.png",
+                "University of Agricultural Sciences (UAS), Raichur": "/partners/clients/uas-raichur.png",
+                "Tumkur University": "/partners/clients/tumkur-university.png",
+                "SJB Institute of Technology": "/partners/clients/sjbit.png",
+                "Department of Cooperation, Govt. of Karnataka (Sahakara Sindhu)": "/partners/clients/sahakara-sindhu.png",
+                "Bangalore Development Authority (BDA)": "/partners/clients/bda.png",
+                "Centre for e-Governance (CeG), Govt. of Karnataka": "/partners/clients/ceg.png",
+                "National Health Mission": "/partners/clients/nhm.png",
+                "Broadcast Engineering Consultants India Limited (BECIL)": "/partners/clients/becil.png",
+                "Indira Gandhi Institute of Child Health": "/partners/clients/igich.png",
+              };
+              const logo = logoMap[client];
+
+              return (
+                <div
+                  key={client}
+                  className="bg-white p-4 rounded-2xl border border-brand-border shadow-2xs flex flex-col justify-between hover:border-brand-blue/50 hover:shadow-md transition-all duration-300 group"
+                >
+                  <div className="relative w-full h-16 rounded-xl bg-slate-50/90 border border-slate-100 p-2 flex items-center justify-center overflow-hidden mb-3 group-hover:bg-blue-50/30 group-hover:border-blue-100 transition-colors">
+                    {logo ? (
+                      <Image
+                        src={logo}
+                        alt={`${client} official emblem`}
+                        width={150}
+                        height={55}
+                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                        <Building2 className="w-4 h-4" />
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-xs font-semibold text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
+                    {client}
+                  </p>
                 </div>
-                <p className="text-xs font-semibold text-brand-text leading-snug">
-                  {client}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Official Appreciation Quotes directly from certificates */}

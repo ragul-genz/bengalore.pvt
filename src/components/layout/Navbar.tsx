@@ -82,7 +82,7 @@ export function Navbar() {
               <a
                 href={`tel:${COMPANY_DETAILS.contact.phone}`}
                 className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors"
-                title="Call New Link Technologies"
+                title="Call New Link Technologies Bangalore Pvt. Ltd."
               >
                 <Phone className="w-3.5 h-3.5 text-blue-400" />
                 <span className="font-medium">{COMPANY_DETAILS.contact.phoneDisplay}</span>
@@ -91,7 +91,7 @@ export function Navbar() {
               <a
                 href={`mailto:${COMPANY_DETAILS.contact.email}`}
                 className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors"
-                title="Email New Link Technologies"
+                title="Email New Link Technologies Bangalore Pvt. Ltd."
               >
                 <Mail className="w-3.5 h-3.5 text-blue-400" />
                 <span className="font-medium">{COMPANY_DETAILS.contact.email}</span>

@@ -205,7 +205,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                         Solution Architecture &amp; Features
                       </h3>
                       <p className="text-xs text-brand-secondary">
-                        Official technical integration topology from New Link Technologies profile
+                        Official technical integration topology from New Link Technologies Bangalore Pvt. Ltd. profile
                       </p>
                     </div>
                   </div>

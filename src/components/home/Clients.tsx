@@ -46,29 +46,45 @@ export function Clients() {
             <StaggerItem
               key={client.name}
               y={14}
-              className="bg-white p-5 rounded-xl border border-brand-border shadow-2xs hover:border-brand-blue/40 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              className="bg-white p-5 rounded-2xl border border-brand-border shadow-2xs hover:border-brand-blue/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="w-7 h-7 rounded-md bg-blue-50 border border-blue-100 flex items-center justify-center">
-                    {typeIcons[client.type] || <Building2 className="w-4 h-4 text-brand-blue" />}
-                  </div>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-                    {client.type.split(" ")[0]}
-                  </span>
+              <div className="space-y-3.5">
+                {/* Official Client Photo / Crest Showcase Container */}
+                <div className="relative w-full h-24 rounded-xl bg-slate-50/90 border border-slate-100 p-2.5 flex items-center justify-center overflow-hidden group-hover:bg-blue-50/30 group-hover:border-blue-100 transition-colors">
+                  {client.logo ? (
+                    <Image
+                      src={client.logo}
+                      alt={`${client.name} official emblem`}
+                      width={220}
+                      height={80}
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
+                      {typeIcons[client.type] || <Building2 className="w-5 h-5 text-brand-blue" />}
+                    </div>
+                  )}
                 </div>
 
-                <h4 className="text-sm font-bold font-heading text-brand-navy leading-snug">
-                  {client.name}
-                </h4>
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50/90 px-2.5 py-0.5 rounded-full border border-blue-100/80">
+                      {client.type}
+                    </span>
+                  </div>
 
-                <p className="text-[11px] text-slate-500 font-medium">
-                  {client.location}
-                </p>
+                  <h4 className="text-sm font-bold font-heading text-brand-navy leading-snug pt-1 group-hover:text-blue-600 transition-colors">
+                    {client.name}
+                  </h4>
 
-                <p className="text-xs text-brand-secondary line-clamp-2 leading-relaxed pt-1">
-                  {client.scopeOfWork}
-                </p>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    {client.location}
+                  </p>
+
+                  <p className="text-xs text-brand-secondary line-clamp-2 leading-relaxed pt-1">
+                    {client.scopeOfWork}
+                  </p>
+                </div>
               </div>
             </StaggerItem>
           ))}
@@ -108,7 +124,7 @@ export function Clients() {
               y={12}
               className="text-xs sm:text-sm text-brand-secondary leading-relaxed"
             >
-              Archived client emblem sheet published in the official New Link Technologies
+              Archived client emblem sheet published in the official New Link Technologies Bangalore Pvt. Ltd.
               corporate documentation validating active institutional associations.
             </FadeIn>
           </div>

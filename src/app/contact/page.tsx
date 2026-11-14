@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const whatsappUrl = `https://wa.me/919535314141?text=${encodeURIComponent(
-    "Hello New Link Technologies, I would like to enquire about your enterprise IT and infrastructure services."
+    "Hello New Link Technologies Bangalore Pvt. Ltd., I would like to enquire about your enterprise IT and infrastructure services."
   )}`;
 
   const mapsSearchUrl =
@@ -94,7 +94,7 @@ export default function ContactPage() {
                       {COMPANY_DETAILS.leadership.director}
                     </p>
                     <p className="text-[11px] text-brand-secondary">
-                      {COMPANY_DETAILS.leadership.role}, New Link Technologies
+                      {COMPANY_DETAILS.leadership.role}, New Link Technologies Bangalore Pvt. Ltd.
                     </p>
                   </div>
                 </div>

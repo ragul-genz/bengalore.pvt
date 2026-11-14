@@ -40,7 +40,7 @@ export default function NotFound() {
             y={14}
             className="text-base text-slate-600 leading-relaxed max-w-lg mx-auto"
           >
-            The page you requested could not be located on the New Link Technologies corporate portal.
+            The page you requested could not be located on the New Link Technologies Bangalore Pvt. Ltd. corporate portal.
             Please navigate back to our home page or explore our enterprise technology solutions.
           </FadeIn>
 

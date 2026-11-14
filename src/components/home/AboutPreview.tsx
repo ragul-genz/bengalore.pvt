@@ -42,7 +42,7 @@ export function AboutPreview() {
                   className="w-6 h-[2px] bg-blue-600 rounded-full shrink-0 origin-left"
                 />
                 <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-blue-700">
-                  About New Link Technologies
+                  About New Link Technologies Bangalore Pvt. Ltd.
                 </span>
               </FadeIn>
 

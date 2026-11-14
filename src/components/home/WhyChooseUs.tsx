@@ -57,7 +57,7 @@ export function WhyChooseUs() {
         <SectionHeading
           eyebrow="Our Engineering Differentiators"
           title="Why Choose"
-          highlight="New Link Technologies?"
+          highlight="New Link Technologies Bangalore Pvt. Ltd.?"
           description="We deliver dependability, technical precision, and comprehensive accountability across every physical and digital technology layer."
           align="center"
           className="mb-14"

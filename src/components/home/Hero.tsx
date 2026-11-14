@@ -77,7 +77,7 @@ export function Hero() {
             >
               <Image
                 src="/hero/server-datacenter-hero-hd.png"
-                alt="High-tech Data Centre Server Corridor - New Link Technologies"
+                alt="High-tech Data Centre Server Corridor - New Link Technologies Bangalore Pvt. Ltd."
                 fill
                 priority
                 sizes="50vw"
@@ -182,7 +182,7 @@ export function Hero() {
             >
               <Image
                 src="/hero/server-datacenter-hero-hd.png"
-                alt="High-tech Data Centre Server Corridor - New Link Technologies"
+                alt="High-tech Data Centre Server Corridor - New Link Technologies Bangalore Pvt. Ltd."
                 fill
                 priority
                 sizes="100vw"
