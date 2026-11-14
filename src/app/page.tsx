@@ -4,7 +4,6 @@ import {
   Services,
   ProjectsPreview,
   Partners,
-  Clients,
   Certificates,
   WhyChooseUs,
   CtaSection,
@@ -18,7 +17,6 @@ export default function Home() {
       <Services />
       <ProjectsPreview />
       <Partners />
-      <Clients />
       <Certificates />
       <WhyChooseUs />
       <CtaSection />
