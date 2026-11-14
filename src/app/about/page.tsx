@@ -118,44 +118,60 @@ export default function AboutPage() {
                 turnkey technology solutions that endure.
               </FadeIn>
 
-              {/* Verified Leadership */}
+              {/* Executive Board of Directors with Prominent Portrait Cards */}
               <FadeIn
                 mode="view"
                 delay={0.38}
                 y={14}
-                className="p-4 rounded-2xl border border-brand-border bg-brand-lightBg space-y-2.5"
+                className="p-5 sm:p-6 rounded-3xl border border-brand-border bg-slate-50/80 shadow-xs space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <p className="text-[11px] uppercase font-bold tracking-wider text-brand-blue flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5" />
+                  <p className="text-xs uppercase font-bold tracking-wider text-brand-blue flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-brand-blue" />
                     <span>Executive Board of Directors</span>
                   </p>
-                  <span className="text-[10px] text-slate-500 font-medium">New Link Technologies</span>
+                  <span className="text-xs text-slate-500 font-medium">New Link Technologies</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   {COMPANY_DETAILS.leadership.directors.map((director) => (
                     <div
                       key={director.name}
-                      className="flex items-center gap-3 bg-white p-2.5 rounded-xl border border-slate-100 shadow-2xs"
+                      className="group relative rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4 flex flex-col justify-end"
                     >
-                      <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-200 shrink-0 bg-slate-100">
-                        <Image
-                          src={director.image}
-                          alt={`${director.name} - ${director.role}, ${COMPANY_DETAILS.name}`}
-                          fill
-                          className="object-cover object-top"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-sm font-bold text-brand-navy font-heading truncate">
-                          {director.name}
-                        </p>
-                        <p className="text-[11px] text-blue-600 font-semibold">
+                      <Image
+                        src={director.image}
+                        alt={`${director.name} - ${director.role}, ${COMPANY_DETAILS.name}`}
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                      <div className="relative z-10 p-4 text-white">
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-300 bg-blue-900/70 backdrop-blur-xs px-2.5 py-0.5 rounded-full border border-blue-400/30 mb-1.5">
                           {director.role}
+                        </span>
+                        <h4 className="font-heading font-bold text-lg text-white leading-tight">
+                          {director.name}
+                        </h4>
+                        <p className="text-xs text-blue-200 leading-tight pt-0.5 font-medium">
+                          Director, New Link Technologies Bangalore Pvt. Ltd.
                         </p>
-                        <p className="text-[10px] text-slate-500 truncate">
-                          {director.email}
-                        </p>
+                        <div className="pt-2 flex flex-col gap-1 text-[11px] text-slate-300 border-t border-white/15 mt-2">
+                          <a
+                            href={`tel:${director.phoneRaw}`}
+                            className="hover:text-blue-300 transition-colors flex items-center gap-1.5 font-medium"
+                          >
+                            <Phone className="w-3 h-3 text-blue-400 shrink-0" />
+                            <span>{director.phone}</span>
+                          </a>
+                          <a
+                            href={`mailto:${director.email}`}
+                            className="hover:text-blue-300 transition-colors flex items-center gap-1.5 font-medium truncate"
+                          >
+                            <Mail className="w-3 h-3 text-blue-400 shrink-0" />
+                            <span className="truncate">{director.email}</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   ))}
