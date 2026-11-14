@@ -164,6 +164,7 @@ export const COMPANY_DETAILS = {
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Clients", href: "/clients" },
+    { label: "Events", href: "/events" },
     { label: "Contact", href: "/contact" },
   ] as NavItem[],
   serviceLinks: [
@@ -180,6 +181,7 @@ export const COMPANY_DETAILS = {
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Clients", href: "/clients" },
+    { label: "Events", href: "/events" },
     { label: "Contact Us", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy" },
   ] as NavItem[],

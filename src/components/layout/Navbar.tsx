@@ -117,7 +117,7 @@ export function Navbar() {
             <Logo variant="light" size="md" href="/" />
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-7">
               {COMPANY_DETAILS.navLinks.map((item) => {
                 const active = isActiveLink(item.href);
                 const isServices = item.href === "/services";
@@ -145,10 +145,10 @@ export function Navbar() {
             </div>
 
             {/* Desktop "Get a Quote" Action Button - Pill Style */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/contact#quote"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4" />
@@ -159,7 +159,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-brand-navy hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+              className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-brand-navy hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
@@ -178,13 +178,13 @@ export function Navbar() {
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-brand-navy/60 backdrop-blur-xs z-40 md:hidden transition-opacity"
+            className="fixed inset-0 bg-brand-navy/60 backdrop-blur-xs z-40 lg:hidden transition-opacity"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
 
           {/* Drawer Panel */}
-          <div className="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-white z-50 shadow-2xl flex flex-col md:hidden animate-in slide-in-from-right duration-300">
+          <div className="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-white z-50 shadow-2xl flex flex-col lg:hidden animate-in slide-in-from-right duration-300">
             {/* Drawer Header */}
             <div className="p-5 border-b border-brand-border flex items-center justify-between">
               <Logo variant="light" size="sm" href="/" />
