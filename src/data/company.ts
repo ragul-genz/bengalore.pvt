@@ -51,7 +51,7 @@ export const COMPANY_DETAILS = {
         ],
       },
       {
-        name: "D.K. Divya",
+        name: "Divya D K",
         role: "Director",
         company: "New Link Technologies Bangalore Pvt. Ltd.",
         phone: "+91 96118 54426",

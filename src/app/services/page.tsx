@@ -49,6 +49,24 @@ export default function ServicesPage() {
       {/* Services Grid Section */}
       <section className="py-16 md:py-24">
         <Container size="default">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
+              Specialized Infrastructure
+            </FadeIn>
+            <RevealText
+              as="h2"
+              by="word"
+              mode="view"
+              delay={0.08}
+              stagger={0.045}
+              text="Our Specialized Service Capabilities"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+            />
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
+              End-to-end design, deployment, testing, and lifecycle maintenance delivered across Karnataka and nationwide.
+            </FadeIn>
+          </div>
+
           <StaggerGroup
             mode="view"
             stagger={0.06}

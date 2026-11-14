@@ -118,66 +118,43 @@ export default function AboutPage() {
                 turnkey technology solutions that endure.
               </FadeIn>
 
-              {/* Executive Board of Directors with Prominent Portrait Cards */}
+              {/* Executive Credentials Callout */}
               <FadeIn
                 mode="view"
-                delay={0.38}
+                delay={0.36}
                 y={14}
-                className="p-5 sm:p-6 rounded-3xl border border-brand-border bg-slate-50/80 shadow-xs space-y-4"
+                className="p-5 sm:p-6 rounded-3xl border border-brand-border bg-slate-50/80 shadow-xs space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <p className="text-xs uppercase font-bold tracking-wider text-brand-blue flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-brand-blue" />
-                    <span>Executive Board of Directors</span>
+                    <span>Executive Leadership &amp; Governance</span>
                   </p>
-                  <span className="text-xs text-slate-500 font-medium">New Link Technologies Bangalore Pvt. Ltd.</span>
+                  <span className="text-xs text-slate-500 font-medium">Headquartered in Bangalore</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                  {COMPANY_DETAILS.leadership.directors.map((director) => (
-                    <div
-                      key={director.name}
-                      className="group relative rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4 flex flex-col justify-end"
-                    >
-                      <Image
-                        src={director.image}
-                        alt={`${director.name} - ${director.role}, ${COMPANY_DETAILS.name}`}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-950/95 via-slate-950/40 to-transparent" />
-                      <div className="relative z-10 p-4 text-white">
-                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-300 bg-blue-900/70 backdrop-blur-xs px-2.5 py-0.5 rounded-full border border-blue-400/30 mb-1.5">
-                          {director.role}
-                        </span>
-                        <h4 className="font-heading font-bold text-lg text-white leading-tight">
-                          {director.name}
-                        </h4>
-                        <p className="text-xs text-blue-200 leading-tight pt-0.5 font-medium">
-                          Director, New Link Technologies Bangalore Pvt. Ltd.
-                        </p>
-                        <p className="text-[11px] text-blue-300/90 font-medium pt-1">
-                          {director.badges[0]}
-                        </p>
-                        <div className="pt-2 flex flex-col gap-1 text-[11px] text-slate-300 border-t border-white/15 mt-2">
-                          <a
-                            href={`tel:${director.phoneRaw}`}
-                            className="hover:text-blue-300 transition-colors flex items-center gap-1.5 font-medium"
-                          >
-                            <Phone className="w-3 h-3 text-blue-400 shrink-0" />
-                            <span>{director.phone}</span>
-                          </a>
-                          <a
-                            href={`mailto:${director.email}`}
-                            className="hover:text-blue-300 transition-colors flex items-center gap-1.5 font-medium truncate"
-                          >
-                            <Mail className="w-3 h-3 text-blue-400 shrink-0" />
-                            <span className="truncate">{director.email}</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-brand-navy font-semibold">
+                  <div className="flex items-center gap-2 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
+                    <span>Director-Led Quality Oversight</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
+                    <span>24/7 Enterprise SLAs &amp; Field Support</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs border-t border-slate-200/60">
+                  <span className="text-slate-600 font-medium">
+                    Executive Board of Directors: <strong>M.G. Girish</strong> &amp; <strong>Divya D K</strong>
+                  </span>
+                  <a
+                    href="#executive-leadership"
+                    className="inline-flex items-center gap-1 font-bold text-brand-blue hover:text-blue-700 transition-colors"
+                  >
+                    <span>View Leadership Profiles</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </FadeIn>
             </div>
@@ -391,7 +368,7 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Leadership Section */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section id="executive-leadership" className="py-16 md:py-24 bg-white border-b border-brand-border scroll-mt-24">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
@@ -407,71 +384,81 @@ export default function AboutPage() {
               className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
             />
             <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
-              Official professional profiles of the executive leadership guiding New Link Technologies Bangalore Pvt. Ltd. across Karnataka and nationwide.
+              Official leadership profiles of the directors guiding New Link Technologies Bangalore Pvt. Ltd. with technical precision, operational excellence, and enduring commitment.
             </FadeIn>
           </div>
 
           <div className="space-y-12">
             {/* Director 1: M.G. Girish */}
-            <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
+            <FadeIn
+              mode="view"
+              delay={0.12}
+              y={20}
+              className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-6 sm:p-10 md:p-12 shadow-sm hover:shadow-md transition-shadow"
+            >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-5 flex justify-center">
-                  <div className="relative w-64 h-84 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4">
+                  <div className="relative w-64 h-84 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4">
                     <Image
                       src="/leadership/director-mg-girish.jpg"
-                      alt="M.G. Girish - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      alt="M.G. Girish - Director, New Link Technologies"
                       fill
+                      priority
                       className="object-cover object-top"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/85 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 text-white text-center">
-                      <p className="font-heading font-bold text-base">M.G. Girish</p>
-                      <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3.5 left-3 right-3 text-white text-center">
+                      <p className="font-heading font-bold text-lg">M.G. Girish</p>
+                      <p className="text-xs text-blue-200 font-medium">Director, New Link Technologies</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="md:col-span-7 space-y-4 text-center md:text-left">
-                  <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
-                    Executive Profile
-                  </FadeIn>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-blue">
+                    <span className="w-5 h-0.5 bg-brand-blue" />
+                    <span>LEADERSHIP COMMITMENT</span>
+                  </div>
                   <RevealText
                     as="h3"
                     by="word"
                     mode="view"
                     delay={0.08}
-                    stagger={0.042}
-                    text="Enterprise Technology Strategy &amp; Infrastructure Leadership"
+                    stagger={0.04}
+                    text="Driven by Precision, Value, and Enduring Integrity"
                     className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
                   />
-                  <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                  <FadeIn as="p" mode="view" delay={0.2} y={12} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                    &ldquo;At New Link Technologies Bangalore Pvt. Ltd., our core mission is simple yet uncompromising: to provide enterprises, government bodies, and institutions with technology infrastructure that performs reliably 24/7/365. When you partner with us, you deal directly with dedicated engineers and an accountable leadership team.&rdquo;
+                  </FadeIn>
+                  <FadeIn as="p" mode="view" delay={0.24} y={12} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
                     M.G. Girish brings more than 15 years of industry leadership and hands-on engineering expertise in enterprise IT systems, modular data centre integration, campus optical fiber networks, and public-sector EPC execution.
                   </FadeIn>
-                  <FadeIn as="p" mode="view" delay={0.26} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
-                    As the founding Director of New Link Technologies Bangalore Pvt. Ltd., he leads technological strategy, strategic OEM partnerships, and end-to-end turnkey project delivery across Karnataka and nationwide.
-                  </FadeIn>
-                  <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                  <FadeIn mode="view" delay={0.28} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-brand-navy font-semibold">
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-brand-blue" />
-                      15+ Years Enterprise IT &amp; EPC Leadership
+                      Director-Led Quality Oversight
                     </span>
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-brand-blue" />
-                      Modular Data Centres &amp; Turnkey Infrastructure
+                      Connecting Values Across Karnataka
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="w-4 h-4 text-brand-blue" />
+                      15+ Years Enterprise IT &amp; EPC Leadership
                     </span>
                   </FadeIn>
-                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs">
+                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs">
                     <a
                       href="tel:+919535314141"
-                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs"
                     >
                       <Phone className="w-3.5 h-3.5 text-brand-blue" />
                       <span>+91 95353 14141</span>
                     </a>
-                    <span className="text-slate-300">|</span>
                     <a
                       href="mailto:girish.mg@newlinktec.com"
-                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs"
                     >
                       <Mail className="w-3.5 h-3.5 text-brand-blue" />
                       <span>girish.mg@newlinktec.com</span>
@@ -479,47 +466,54 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
-            {/* Director 2: D.K. Divya */}
-            <div className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-8 sm:p-12 shadow-sm">
+            {/* Director 2: Divya D K */}
+            <FadeIn
+              mode="view"
+              delay={0.16}
+              y={20}
+              className="max-w-4xl mx-auto rounded-3xl border border-brand-border bg-slate-50/70 p-6 sm:p-10 md:p-12 shadow-sm hover:shadow-md transition-shadow"
+            >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-5 flex justify-center">
-                  <div className="relative w-64 h-84 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4">
+                  <div className="relative w-64 h-84 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-900 aspect-3/4">
                     <Image
                       src="/leadership/director-divya-dk.jpg"
-                      alt="D.K. Divya - Director, New Link Technologies Bangalore Pvt. Ltd."
+                      alt="Divya D K - Director, New Link Technologies"
                       fill
+                      priority
                       className="object-cover object-top"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/85 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 text-white text-center">
-                      <p className="font-heading font-bold text-base">D.K. Divya</p>
-                      <p className="text-xs text-blue-200">Director, New Link Technologies Bangalore Pvt. Ltd.</p>
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3.5 left-3 right-3 text-white text-center">
+                      <p className="font-heading font-bold text-lg">Divya D K</p>
+                      <p className="text-xs text-blue-200 font-medium">Director, New Link Technologies</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="md:col-span-7 space-y-4 text-center md:text-left">
-                  <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge">
-                    Executive Profile
-                  </FadeIn>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-blue">
+                    <span className="w-5 h-0.5 bg-brand-blue" />
+                    <span>LEADERSHIP COMMITMENT</span>
+                  </div>
                   <RevealText
                     as="h3"
                     by="word"
                     mode="view"
                     delay={0.08}
-                    stagger={0.042}
-                    text="Operations, Administration &amp; Organizational Leadership"
+                    stagger={0.04}
+                    text="Strategic Operations, Administration & Organizational Excellence"
                     className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy leading-snug"
                   />
-                  <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                  <FadeIn as="p" mode="view" delay={0.2} y={12} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
                     D.K. Divya brings more than 9 years of experience in administration, human resource support, organizational operations and business coordination.
                   </FadeIn>
-                  <FadeIn as="p" mode="view" delay={0.26} y={14} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                  <FadeIn as="p" mode="view" delay={0.24} y={12} className="text-sm sm:text-base text-brand-secondary leading-relaxed">
                     As a key member of the company&apos;s leadership team, she has contributed to the development of the organization&apos;s business framework and operational processes.
                   </FadeIn>
-                  <FadeIn mode="view" delay={0.32} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs text-brand-navy font-semibold">
+                  <FadeIn mode="view" delay={0.28} y={10} className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-brand-navy font-semibold">
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-brand-blue" />
                       9+ Years Operations &amp; HR Experience
@@ -528,19 +522,22 @@ export default function AboutPage() {
                       <CheckCircle2 className="w-4 h-4 text-brand-blue" />
                       Business Framework &amp; Process Governance
                     </span>
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="w-4 h-4 text-brand-blue" />
+                      Director-Led Quality Oversight
+                    </span>
                   </FadeIn>
-                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs">
+                  <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs">
                     <a
                       href="tel:+919611854426"
-                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs"
                     >
                       <Phone className="w-3.5 h-3.5 text-brand-blue" />
                       <span>+91 96118 54426</span>
                     </a>
-                    <span className="text-slate-300">|</span>
                     <a
                       href="mailto:divya.dk@newlinktec.com"
-                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 font-semibold text-brand-navy hover:text-brand-blue transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs"
                     >
                       <Mail className="w-3.5 h-3.5 text-brand-blue" />
                       <span>divya.dk@newlinktec.com</span>
@@ -548,7 +545,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>
