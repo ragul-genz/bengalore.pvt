@@ -99,8 +99,8 @@ export default function ContactPage() {
                           <p className="text-xs font-bold text-brand-navy font-heading truncate">
                             {dir.name}
                           </p>
-                          <p className="text-[10px] text-blue-700 font-semibold">
-                            {dir.role}
+                          <p className="text-[10px] text-blue-700 font-semibold truncate">
+                            Director, New Link Technologies Bangalore Pvt. Ltd.
                           </p>
                           <a
                             href={`tel:${dir.phoneRaw}`}

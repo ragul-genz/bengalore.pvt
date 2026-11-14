@@ -9,6 +9,20 @@ export interface BusinessCategory {
   description: string;
 }
 
+export interface DirectorProfile {
+  name: string;
+  role: string;
+  company: string;
+  phone: string;
+  phoneRaw: string;
+  email: string;
+  image: string;
+  designation: string;
+  headline: string;
+  bio: string[];
+  badges: string[];
+}
+
 export const COMPANY_DETAILS = {
   name: "New Link Technologies Bangalore Pvt. Ltd.",
   shortName: "New Link Technologies",
@@ -26,6 +40,15 @@ export const COMPANY_DETAILS = {
         email: "girish.mg@newlinktec.com",
         image: "/leadership/director-mg-girish.jpg",
         designation: "Director - Enterprise Solutions & Strategic Operations",
+        headline: "Driven by Precision, Value, and Enduring Integrity",
+        bio: [
+          "M.G. Girish brings more than 15 years of industry leadership and hands-on engineering expertise in enterprise IT systems, modular data centre integration, campus optical fiber networks, and public-sector EPC execution.",
+          "As the founding Director of New Link Technologies Bangalore Pvt. Ltd., he leads technological strategy, strategic OEM partnerships, and end-to-end turnkey project delivery across Karnataka and nationwide.",
+        ],
+        badges: [
+          "15+ Years Enterprise IT & EPC Leadership",
+          "Modular Data Centres & Turnkey Infrastructure",
+        ],
       },
       {
         name: "D.K. Divya",
@@ -36,9 +59,17 @@ export const COMPANY_DETAILS = {
         email: "divya.dk@newlinktec.com",
         image: "/leadership/director-divya-dk.jpg",
         designation: "Director - Administration, HR & Operational Governance",
-        bio: "D.K. Divya brings more than 9 years of experience in administration, human resource support, organizational operations and business coordination. As a key member of the company's leadership team, she has contributed to the development of the organization's business framework and operational processes.",
+        headline: "Operations, Governance & Organizational Leadership",
+        bio: [
+          "D.K. Divya brings more than 9 years of experience in administration, human resource support, organizational operations and business coordination.",
+          "As a key member of the company's leadership team, she has contributed to the development of the organization's business framework and operational processes.",
+        ],
+        badges: [
+          "9+ Years Operations & HR Experience",
+          "Business Framework & Process Governance",
+        ],
       },
-    ],
+    ] as DirectorProfile[],
   },
   description:
     "New Link Technologies Bangalore Pvt. Ltd. is an integrated technology solutions provider delivering enterprise IT systems, hardware, software, digital infrastructure, and technology consulting for modern businesses, universities, and government bodies.",
