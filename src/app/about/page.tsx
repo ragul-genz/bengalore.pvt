@@ -620,14 +620,14 @@ export default function AboutPage() {
                   key={client}
                   className="bg-white p-4 rounded-2xl border border-brand-border shadow-2xs flex flex-col justify-between hover:border-brand-blue/50 hover:shadow-md transition-all duration-300 group"
                 >
-                  <div className="relative w-full h-16 rounded-xl bg-slate-50/90 border border-slate-100 p-2 flex items-center justify-center overflow-hidden mb-3 group-hover:bg-blue-50/30 group-hover:border-blue-100 transition-colors">
+                  <div className="relative w-full h-16 rounded-xl bg-white border border-slate-100 p-2.5 flex items-center justify-center overflow-hidden mb-3 group-hover:border-blue-200 group-hover:shadow-xs transition-colors">
                     {logo ? (
                       <Image
                         src={logo}
                         alt={`${client} official emblem`}
-                        width={150}
-                        height={55}
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        width={160}
+                        height={80}
+                        className="max-h-11 max-w-[85%] w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
                       <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">

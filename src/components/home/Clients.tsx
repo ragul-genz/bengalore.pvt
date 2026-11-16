@@ -50,14 +50,14 @@ export function Clients() {
             >
               <div className="space-y-3.5">
                 {/* Official Client Photo / Crest Showcase Container */}
-                <div className="relative w-full h-28 rounded-xl bg-white border border-slate-100 p-3 flex items-center justify-center overflow-hidden group-hover:border-blue-200 group-hover:shadow-xs transition-all">
+                <div className="relative w-full h-28 rounded-xl bg-white border border-slate-100 p-3.5 flex items-center justify-center overflow-hidden group-hover:border-blue-200 group-hover:shadow-xs transition-all">
                   {client.logo ? (
                     <Image
                       src={client.logo}
                       alt={`${client.name} official emblem`}
-                      width={220}
-                      height={80}
-                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      width={240}
+                      height={120}
+                      className="max-h-16 max-w-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   ) : (
                     <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
