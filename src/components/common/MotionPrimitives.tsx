@@ -176,7 +176,10 @@ export function RevealText({
               >
                 <motion.span
                   variants={tokenVariants}
-                  className="inline-block will-change-transform"
+                  className={cn(
+                    "inline-block will-change-transform",
+                    token.isHighlight && highlightClassName
+                  )}
                 >
                   {token.value}
                 </motion.span>

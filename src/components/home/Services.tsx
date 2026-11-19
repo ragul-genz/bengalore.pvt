@@ -102,7 +102,7 @@ export function Services() {
               duration={0.52}
               text="End-to-End Mission-Critical"
               highlight="Technology Infrastructure"
-              highlightClassName="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300"
+              highlightClassName="text-sky-400 font-extrabold"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.12]"
             />
 
