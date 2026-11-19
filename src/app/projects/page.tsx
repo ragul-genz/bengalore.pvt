@@ -2,15 +2,16 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Maximize2,
   Building2,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import {
   Container,
-  Button,
   Lightbox,
   PageHero,
   RevealText,
@@ -18,7 +19,6 @@ import {
   StaggerGroup,
   StaggerItem,
   SectionReveal,
-  ImageReveal,
 } from "@/components/common";
 import {
   PROJECTS_DATA,
@@ -61,25 +61,53 @@ export default function ProjectsPage() {
       : INSTALLATION_GALLERY.filter((g) => g.category === activeTab);
 
   return (
-    <div className="relative bg-transparent">
-      {/* Projects Hero Banner matching Home Aesthetic */}
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+      {/* Projects Hero Banner */}
       <PageHero
-        eyebrow="Demonstrated Engineering Track Record"
-        title="Our Successful"
-        highlight="Installations"
-        description="A curated portfolio of verified enterprise projects, institutional campus networks, modular data centres, and sustainable energy facilities executed by New Link Technologies Bangalore Pvt. Ltd."
+        eyebrow="Demonstrated Engineering Track Record • Turnkey EPC"
+        title="Our Flagship Projects &"
+        highlight="Turnkey Installations"
+        description="A curated portfolio of verified enterprise projects, institutional campus networks, modular data centres, and sustainable clean energy facilities executed by New Link Technologies Bangalore Pvt. Ltd."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Projects" },
         ]}
       />
 
-      {/* Primary Project Case Studies */}
-      <SectionReveal className="py-16 md:py-24 bg-white/70 backdrop-blur-xs border-b border-brand-border">
+      {/* Proof Metrics & Credibility Bar */}
+      <section className="bg-[#081120] text-white py-12 border-b border-white/10 relative overflow-hidden">
         <Container size="default">
-          <div className="max-w-2xl mb-12">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Key Project Deliveries
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">100%</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Turnkey SLA Handover</p>
+            </FadeIn>
+            <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">Tier-3</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Modular Data Center Architecture</p>
+            </FadeIn>
+            <FadeIn mode="view" delay={0.15} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">10 Gbps</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Campus Optical Fiber Rings</p>
+            </FadeIn>
+            <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-emerald-400">220 kWp</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Clean Rooftop Solar Deployed</p>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* Primary Project Case Studies */}
+      <SectionReveal className="py-16 md:py-24 relative overflow-hidden">
+        {/* Ambient Glow */}
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <Container size="default" className="relative z-10">
+          <div className="max-w-3xl mb-14 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+              <span>Key Project Deliveries</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -88,9 +116,9 @@ export default function ProjectsPage() {
               delay={0.08}
               stagger={0.045}
               text="Major Verified Installations"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-base text-slate-300 font-light leading-relaxed">
               Directly documented in official project handover certificates, public sector
               contracts, and partner records.
             </FadeIn>
@@ -105,24 +133,22 @@ export default function ProjectsPage() {
                   mode="view"
                   delay={0.06}
                   y={18}
-                  className="rounded-2xl border border-brand-border bg-white shadow-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-8"
+                  className="rounded-3xl border border-white/10 bg-[#0A1220] shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 hover:border-sky-400/40 transition-all duration-300"
                 >
                   {/* Image Column (6 cols) */}
                   <div
-                    className={`lg:col-span-6 relative aspect-16/10 w-full rounded-xl overflow-hidden border border-brand-border bg-slate-100 group ${
+                    className={`lg:col-span-6 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/10 bg-black/60 group ${
                       isEven ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <ImageReveal className="w-full h-full relative" duration={0.6}>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </ImageReveal>
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-40 pointer-events-none" />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     {/* Expand button */}
                     <button
@@ -134,15 +160,15 @@ export default function ProjectsPage() {
                           `Client: ${project.client}`
                         )
                       }
-                      className="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-white/90 backdrop-blur-xs hover:bg-white text-brand-navy flex items-center justify-center shadow-md transition-transform group-hover:scale-110"
+                      className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-black/60 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 cursor-pointer"
                       title="View full-size photograph"
                       aria-label={`View full-size photograph of ${project.title}`}
                     >
-                      <Maximize2 className="w-4 h-4 text-brand-blue" />
+                      <Maximize2 className="w-4 h-4 text-sky-400" />
                     </button>
 
                     <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-brand-navy/90 text-white backdrop-blur-xs">
+                      <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-black/80 text-sky-400 border border-sky-400/30 backdrop-blur-md">
                         {project.category}
                       </span>
                     </div>
@@ -154,35 +180,35 @@ export default function ProjectsPage() {
                       isEven ? "lg:order-1" : "lg:order-2"
                     }`}
                   >
-                    <div className="flex items-center gap-2 text-xs font-semibold text-brand-blue uppercase tracking-wider">
-                      <Building2 className="w-4 h-4" />
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
+                      <Building2 className="w-4 h-4 text-sky-400" />
                       <span>{project.client}</span>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-bold font-heading text-brand-navy leading-snug">
+                    <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white leading-snug">
                       {project.title}
                     </h3>
 
                     {project.executedThrough && (
-                      <p className="text-xs font-medium text-slate-500">
+                      <p className="text-xs font-mono text-slate-400">
                         Executed in technical association with:{" "}
-                        <strong className="text-brand-navy">{project.executedThrough}</strong>
+                        <strong className="text-sky-400">{project.executedThrough}</strong>
                       </p>
                     )}
 
-                    <p className="text-sm sm:text-base text-brand-secondary leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="p-4 rounded-xl bg-brand-lightBg border border-brand-border/80 space-y-1.5 text-xs text-brand-text">
-                      <p className="font-bold text-brand-navy uppercase tracking-wider text-[11px]">
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1.5 text-xs">
+                      <p className="font-mono font-bold text-white uppercase tracking-wider text-[11px]">
                         Scope of Implementation
                       </p>
-                      <p className="text-brand-secondary leading-relaxed">{project.scope}</p>
+                      <p className="text-slate-300 font-light leading-relaxed">{project.scope}</p>
                     </div>
 
-                    <div className="flex items-start gap-2 pt-2 text-xs text-emerald-800 font-medium">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-2 pt-2 text-xs text-emerald-400 font-mono">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{project.verifiedHighlights}</span>
                     </div>
                   </div>
@@ -194,11 +220,12 @@ export default function ProjectsPage() {
       </SectionReveal>
 
       {/* Installation Gallery (Authentic Company Work Photographs) */}
-      <SectionReveal className="py-16 md:py-24 bg-brand-lightBg/70 backdrop-blur-xs border-b border-brand-border">
+      <SectionReveal className="py-16 md:py-24 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Field Engineering Showcase
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+              <span>Field Engineering Showcase</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -207,24 +234,24 @@ export default function ProjectsPage() {
               delay={0.08}
               stagger={0.045}
               text="Professional Work & Installation Gallery"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-base text-slate-300 font-light leading-relaxed">
               Authentic on-site photographs documenting standards-compliant structured cabling,
               modular data centres, server rack dressing, and campus networking.
             </FadeIn>
 
             {/* Filter Tabs */}
-            <FadeIn mode="view" delay={0.3} y={10} className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            <FadeIn mode="view" delay={0.3} y={10} className="flex flex-wrap items-center justify-center gap-2.5 pt-4">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   type="button"
                   onClick={() => setActiveTab(cat)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold capitalize transition-all select-none ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
                     activeTab === cat
-                      ? "bg-brand-navy text-white shadow-xs"
-                      : "bg-white text-brand-secondary hover:text-brand-navy border border-brand-border"
+                      ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-600/30 font-bold"
+                      : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10 font-medium"
                   }`}
                 >
                   {cat === "all" ? "All Photographs" : cat}
@@ -245,23 +272,21 @@ export default function ProjectsPage() {
               <StaggerItem
                 key={item.id}
                 y={18}
-                className="group relative rounded-xl overflow-hidden border border-brand-border bg-white shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300"
+                className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300"
               >
-                <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
-                  <ImageReveal className="w-full h-full relative" duration={0.55}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </ImageReveal>
-                  <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none" />
+                <div className="relative aspect-4/3 w-full overflow-hidden bg-black/60">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity pointer-events-none" />
 
                   {/* Category Pill */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-navy/90 text-white backdrop-blur-xs">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/80 text-sky-400 border border-sky-400/30 backdrop-blur-md">
                       {item.category}
                     </span>
                   </div>
@@ -270,19 +295,19 @@ export default function ProjectsPage() {
                   <button
                     type="button"
                     onClick={() => openLightbox(item.image, item.title, item.caption)}
-                    className="absolute top-3 right-3 z-10 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs hover:bg-white text-brand-navy flex items-center justify-center shadow-md transition-transform group-hover:scale-110"
+                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-xl bg-black/60 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white flex items-center justify-center shadow-md transition-transform group-hover:scale-110 cursor-pointer"
                     title="Expand photograph"
                     aria-label={`Expand ${item.title}`}
                   >
-                    <Maximize2 className="w-4 h-4 text-brand-blue" />
+                    <Maximize2 className="w-4 h-4 text-sky-400" />
                   </button>
 
                   {/* Caption & Title overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 text-white space-y-1 z-10 pointer-events-none">
-                    <h4 className="text-sm font-bold font-heading text-white leading-tight">
+                  <div className="absolute bottom-3 left-4 right-4 text-white space-y-1 z-10 pointer-events-none">
+                    <h4 className="text-base font-bold font-heading text-white leading-tight">
                       {item.title}
                     </h4>
-                    <p className="text-[11px] text-slate-300 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-300 font-light line-clamp-2 leading-relaxed">
                       {item.caption}
                     </p>
                   </div>
@@ -294,9 +319,12 @@ export default function ProjectsPage() {
       </SectionReveal>
 
       {/* CTA Strip */}
-      <SectionReveal className="py-16 bg-brand-navy text-white">
+      <SectionReveal className="py-20 bg-[#050B14] text-white">
         <Container size="default">
-          <div className="max-w-3xl mx-auto text-center space-y-5">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              CONNECTING VALUES
+            </span>
             <RevealText
               as="h3"
               by="word"
@@ -305,17 +333,21 @@ export default function ProjectsPage() {
               stagger={0.045}
               text="Planning a Similar"
               highlight="Enterprise Deployment?"
-              highlightClassName="text-blue-400"
-              className="text-2xl sm:text-3xl font-bold font-heading text-white"
+              highlightClassName="text-sky-400"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-slate-300">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-base text-slate-300 font-light leading-relaxed">
               Speak with our project engineering specialists for site surveys, bill of materials,
-              and turnkey installation contracts.
+              and turnkey installation contracts under Director M.G. Girish.
             </FadeIn>
             <FadeIn mode="view" delay={0.32} y={12} className="pt-2">
-              <Button variant="secondary" size="lg" href="/contact#quote" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Discuss Your Installation Requirements
-              </Button>
+              <Link
+                href="/contact#quote"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+              >
+                <span>Discuss Your Installation Requirements</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </FadeIn>
           </div>
         </Container>

@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Building2,
   GraduationCap,
@@ -23,14 +24,12 @@ import {
 } from "lucide-react";
 import {
   Container,
-  Button,
   Lightbox,
   PageHero,
   RevealText,
   FadeIn,
   StaggerGroup,
   StaggerItem,
-  ImageReveal,
 } from "@/components/common";
 import {
   CLIENT_INSTITUTIONS,
@@ -45,9 +44,9 @@ import { COMPANY_DETAILS } from "@/data/company";
 type ClientCategory = "all" | "Government & PSU" | "Academic Institution" | "Healthcare & Research";
 
 const categoryIcons: Record<string, React.ReactNode> = {
-  "Government & PSU": <Landmark className="w-4 h-4 text-brand-blue" />,
-  "Academic Institution": <GraduationCap className="w-4 h-4 text-brand-blue" />,
-  "Healthcare & Research": <Hospital className="w-4 h-4 text-brand-blue" />,
+  "Government & PSU": <Landmark className="w-4 h-4 text-sky-400" />,
+  "Academic Institution": <GraduationCap className="w-4 h-4 text-sky-400" />,
+  "Healthcare & Research": <Hospital className="w-4 h-4 text-sky-400" />,
 };
 
 export default function ClientsPage() {
@@ -143,7 +142,7 @@ export default function ClientsPage() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="relative bg-transparent">
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
       {/* Page Hero Banner */}
       <PageHero
         eyebrow="Trusted Partnerships • Public Sector & Institutional Reach"
@@ -157,37 +156,41 @@ export default function ClientsPage() {
       />
 
       {/* Proof Metrics & Credibility Bar */}
-      <section className="bg-slate-900 text-white py-10 border-b border-slate-800">
+      <section className="bg-[#081120] text-white py-12 border-b border-white/10 relative overflow-hidden">
         <Container size="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <FadeIn mode="view" delay={0.05} y={10} className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-heading text-blue-400">16+</p>
-              <p className="text-xs sm:text-sm text-slate-300 font-medium">Verified Institutional Clients</p>
+            <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">16+</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Verified Institutional Clients</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.1} y={10} className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-heading text-blue-400">100%</p>
-              <p className="text-xs sm:text-sm text-slate-300 font-medium">Government &amp; PSU SLA Compliance</p>
+            <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-emerald-400">100%</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Government &amp; PSU SLA Compliance</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.15} y={10} className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-heading text-blue-400">14+</p>
-              <p className="text-xs sm:text-sm text-slate-300 font-medium">Buildings Campus Optical Fiber</p>
+            <FadeIn mode="view" delay={0.15} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">14+</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Buildings Campus Optical Fiber</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.2} y={10} className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-heading text-blue-400">220 kWp</p>
-              <p className="text-xs sm:text-sm text-slate-300 font-medium">Clean Solar Generation Delivered</p>
+            <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">220 kWp</p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light">Clean Solar Generation Delivered</p>
             </FadeIn>
           </div>
         </Container>
       </section>
 
       {/* Main Clients Directory Section */}
-      <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
-        <Container size="default">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        {/* Ambient Glow */}
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <Container size="default" className="relative z-10">
           {/* Header & Search */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <FadeIn as="span" mode="view" delay={0.04} y={6} className="eyebrow-badge mb-3">
-                Client Directory
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <span>Client Directory</span>
               </FadeIn>
               <RevealText
                 as="h2"
@@ -196,9 +199,9 @@ export default function ClientsPage() {
                 delay={0.08}
                 stagger={0.04}
                 text="Verified Public Sector & Institutional Clientele"
-                className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+                className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
               />
-              <FadeIn as="p" mode="view" delay={0.2} y={10} className="mt-2 text-sm sm:text-base text-brand-secondary max-w-2xl">
+              <FadeIn as="p" mode="view" delay={0.2} y={10} className="text-sm sm:text-base text-slate-300 font-light max-w-2xl leading-relaxed">
                 Browse through our long-standing relationships with government entities, universities, and healthcare organizations across Karnataka.
               </FadeIn>
             </div>
@@ -212,12 +215,12 @@ export default function ClientsPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search client, sector or scope..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm text-brand-navy placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue shadow-2xs transition-all"
+                  className="w-full pl-10 pr-12 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 shadow-lg transition-all"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 font-semibold"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono text-slate-400 hover:text-white"
                   >
                     Clear
                   </button>
@@ -227,23 +230,23 @@ export default function ClientsPage() {
           </div>
 
           {/* Interactive Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 mb-8">
+          <div className="flex flex-wrap items-center gap-2.5 mb-10">
             {categories.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                     isActive
-                      ? "bg-brand-blue text-white shadow-sm"
-                      : "bg-white text-slate-600 border border-slate-200 hover:border-brand-blue/40 hover:text-brand-navy"
+                      ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold shadow-lg shadow-blue-600/30"
+                      : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
                   }`}
                 >
                   <span>{cat.label}</span>
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                      isActive ? "bg-white/20 text-white" : "bg-white/10 text-slate-300"
                     }`}
                   >
                     {cat.count}
@@ -260,17 +263,17 @@ export default function ClientsPage() {
               mode="view"
               stagger={0.04}
               delay={0.06}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
             >
               {filteredClients.map((client: PartnerEntity) => (
                 <StaggerItem
                   key={client.name}
                   y={16}
-                  className="bg-white p-5 rounded-2xl border border-brand-border shadow-2xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-[#0A1220] p-6 rounded-3xl border border-white/10 shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
-                    {/* Official Client Photo / Logo Container */}
-                    <div className="relative w-full h-32 rounded-xl bg-white border border-slate-100 p-4 flex items-center justify-center overflow-hidden group-hover:border-blue-200 group-hover:shadow-xs transition-all">
+                    {/* Official Client Photo / Logo Container (White Capsule for Perfect Contrast) */}
+                    <div className="relative w-full h-32 rounded-2xl bg-white/95 border border-white/20 p-4 flex items-center justify-center overflow-hidden shadow-md group-hover:scale-[1.02] transition-all">
                       {client.logo ? (
                         <Image
                           src={client.logo}
@@ -280,40 +283,40 @@ export default function ClientsPage() {
                           className="max-h-20 max-w-[85%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
-                          {categoryIcons[client.type] || <Building2 className="w-6 h-6 text-brand-blue" />}
+                        <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center">
+                          {categoryIcons[client.type] || <Building2 className="w-6 h-6 text-blue-600" />}
                         </div>
                       )}
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center gap-1.5">
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50/90 px-2.5 py-0.5 rounded-full border border-blue-100/80">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-2.5 py-0.5 rounded-full border border-sky-500/30">
                           {categoryIcons[client.type]}
                           <span>{client.type}</span>
                         </span>
                       </div>
 
-                      <h3 className="text-sm sm:text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
+                      <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors">
                         {client.name}
                       </h3>
 
-                      <p className="text-[11px] text-slate-500 font-medium">
+                      <p className="text-xs text-slate-400 font-mono">
                         {client.location}
                       </p>
 
-                      <p className="text-xs text-brand-secondary leading-relaxed pt-1 line-clamp-3">
+                      <p className="text-xs text-slate-300 font-light leading-relaxed pt-1 line-clamp-3">
                         {client.scopeOfWork}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px] text-brand-navy font-semibold">
-                    <span className="flex items-center gap-1 text-slate-600">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0" />
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                    <span className="flex items-center gap-1 text-slate-400">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                       <span>Turnkey Delivery</span>
                     </span>
-                    <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
+                    <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
                       Verified
                     </span>
                   </div>
@@ -321,16 +324,16 @@ export default function ClientsPage() {
               ))}
             </StaggerGroup>
           ) : (
-            <div className="text-center py-16 bg-white rounded-2xl border border-brand-border p-8">
-              <Building2 className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-brand-navy font-heading">No clients found matching &ldquo;{searchQuery}&rdquo;</h3>
-              <p className="text-xs text-slate-500 mt-1">Try clearing your search query or selecting a different category filter.</p>
+            <div className="text-center py-16 bg-[#0A1220] rounded-3xl border border-white/10 p-8">
+              <Building2 className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-white font-heading">No clients found matching &ldquo;{searchQuery}&rdquo;</h3>
+              <p className="text-xs text-slate-400 mt-1">Try clearing your search query or selecting a different category filter.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");
                   setActiveCategory("all");
                 }}
-                className="mt-4 px-4 py-2 rounded-xl bg-brand-blue text-white text-xs font-semibold hover:bg-blue-700 transition-colors"
+                className="mt-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-sky-400 text-white text-xs font-mono uppercase tracking-wider font-bold transition-all cursor-pointer"
               >
                 Reset Filters
               </button>
@@ -342,25 +345,25 @@ export default function ClientsPage() {
             mode="view"
             delay={0.12}
             y={18}
-            className="mt-14 bg-white rounded-3xl border border-brand-border p-6 sm:p-10 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-8"
+            className="mt-16 bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8"
           >
             <div className="space-y-3 max-w-xl text-center lg:text-left">
-              <span className="inline-block text-[11px] font-bold text-brand-blue uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-mono font-bold text-sky-400 uppercase tracking-wider">
                 Corporate Portfolio Archive
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy">
+              <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
                 Official Client &amp; Partner Roster Sheet
               </h3>
-              <p className="text-sm text-brand-secondary leading-relaxed">
+              <p className="text-sm text-slate-300 font-light leading-relaxed">
                 Archived master client emblem sheet published in official New Link Technologies Bangalore Pvt. Ltd. corporate documentation validating authorized associations across government bodies, state universities, and technical directorates.
               </p>
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-brand-navy">
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   Official Documentation (Page 23)
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-brand-blue" />
+                  <Sparkles className="w-4 h-4 text-sky-400" />
                   State &amp; Central Undertakings
                 </span>
               </div>
@@ -376,7 +379,7 @@ export default function ClientsPage() {
                 )
               }
             >
-              <div className="relative w-80 sm:w-96 h-52 rounded-2xl overflow-hidden border-2 border-brand-border bg-slate-50 shadow-md group-hover:border-brand-blue transition-colors">
+              <div className="relative w-80 sm:w-96 h-52 rounded-2xl overflow-hidden border border-white/20 bg-black/60 shadow-xl group-hover:border-sky-400 transition-colors">
                 <Image
                   src="/clients/client-partners-grid.png"
                   alt="New Link Technologies Official Client and Partner Emblem Sheet"
@@ -384,14 +387,14 @@ export default function ClientsPage() {
                   sizes="384px"
                   className="object-contain p-2.5 group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/95 text-xs font-bold text-brand-navy shadow-lg">
-                    <Maximize2 className="w-4 h-4 text-brand-blue" />
-                    <span>Click to Expand Emblem Sheet</span>
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/95 text-xs font-bold font-mono text-slate-900 shadow-lg">
+                    <Maximize2 className="w-4 h-4 text-blue-600" />
+                    <span>Expand Emblem Sheet</span>
                   </span>
                 </div>
               </div>
-              <p className="text-[11px] text-center text-slate-500 font-medium mt-2">
+              <p className="text-[11px] text-center text-slate-400 font-mono mt-2">
                 Click to view full resolution archive sheet
               </p>
             </div>
@@ -400,11 +403,12 @@ export default function ClientsPage() {
       </section>
 
       {/* Client On-Site Delivery & Handover Photographic Showcase */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section className="py-16 md:py-24 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Photographic Evidence • Field Deployments
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Camera className="w-3.5 h-3.5 text-sky-400" />
+              <span>Photographic Evidence • Field Deployments</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -413,31 +417,31 @@ export default function ClientsPage() {
               delay={0.08}
               stagger={0.045}
               text="On-Site Client Installation & Handover Showcase"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.2} y={12} className="mt-3 text-sm sm:text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.2} y={12} className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
               Authentic field photographs documenting turnkey project execution, dignitary inaugurations, campus optical fiber handovers, 220 kWp solar array inspections, and institutional facility launches.
             </FadeIn>
           </div>
 
           {/* Photo Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
             {photoCategories.map((cat) => {
               const isActive = photoCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setPhotoCategory(cat.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                     isActive
-                      ? "bg-brand-blue text-white shadow-sm"
-                      : "bg-slate-100 text-slate-700 border border-slate-200 hover:border-brand-blue/40 hover:text-brand-navy hover:bg-slate-200/70"
+                      ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold shadow-lg shadow-blue-600/30"
+                      : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
                   }`}
                 >
                   <span>{cat.label}</span>
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      isActive ? "bg-white/20 text-white" : "bg-white text-slate-600 shadow-2xs"
+                      isActive ? "bg-white/20 text-white" : "bg-white/10 text-slate-300"
                     }`}
                   >
                     {cat.count}
@@ -459,60 +463,59 @@ export default function ClientsPage() {
               <StaggerItem
                 key={photo.id}
                 y={18}
-                className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 overflow-hidden"
               >
                 <div>
                   {/* Photo Container */}
                   <div
-                    className="relative aspect-16/10 w-full overflow-hidden bg-slate-950 cursor-pointer"
+                    className="relative aspect-16/10 w-full overflow-hidden bg-black/60 cursor-pointer"
                     onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
                   >
-                    <ImageReveal className="w-full h-full relative" duration={0.6}>
-                      <Image
-                        src={photo.image}
-                        alt={photo.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </ImageReveal>
+                    <Image
+                      src={photo.image}
+                      alt={photo.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     {/* Expand overlay */}
-                    <div className="absolute inset-0 bg-brand-navy/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 text-xs font-bold text-brand-navy shadow-lg transform -translate-y-1 group-hover:translate-y-0 transition-transform">
-                        <Maximize2 className="w-3.5 h-3.5 text-brand-blue" />
-                        <span>Click to Enlarge Photo</span>
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/95 text-xs font-mono font-bold text-slate-900 shadow-lg">
+                        <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
+                        <span>Enlarge Photo</span>
                       </span>
                     </div>
                   </div>
 
                   {/* Photo Body */}
-                  <div className="p-5 space-y-3">
+                  <div className="p-5 sm:p-6 space-y-3">
                     {/* Category & Location Badges */}
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-navy/90 flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
-                        {photo.sectorTag === "solar" && <Sun className="w-3.5 h-3.5 text-amber-500" />}
-                        {photo.sectorTag === "datacenter" && <Server className="w-3.5 h-3.5 text-blue-600" />}
-                        {photo.sectorTag === "campus" && <Network className="w-3.5 h-3.5 text-emerald-600" />}
-                        {photo.sectorTag === "auditorium" && <Tv className="w-3.5 h-3.5 text-purple-600" />}
-                        {photo.sectorTag === "healthcare" && <Hospital className="w-3.5 h-3.5 text-rose-600" />}
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5 bg-sky-950/60 px-2.5 py-1 rounded-md border border-sky-500/30">
+                        {photo.sectorTag === "solar" && <Sun className="w-3.5 h-3.5 text-amber-400" />}
+                        {photo.sectorTag === "datacenter" && <Server className="w-3.5 h-3.5 text-sky-400" />}
+                        {photo.sectorTag === "campus" && <Network className="w-3.5 h-3.5 text-emerald-400" />}
+                        {photo.sectorTag === "auditorium" && <Tv className="w-3.5 h-3.5 text-sky-300" />}
+                        {photo.sectorTag === "healthcare" && <Hospital className="w-3.5 h-3.5 text-sky-400" />}
                         <span>{photo.category}</span>
                       </span>
-                      <span className="text-[10px] font-medium text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/80">
+                      <span className="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded-md border border-white/10">
                         {photo.location}
                       </span>
                     </div>
 
                     <div>
-                      <p className="text-[11px] font-extrabold text-brand-blue uppercase tracking-wider">
+                      <p className="text-[11px] font-mono font-bold text-sky-400 uppercase tracking-wider">
                         {photo.client}
                       </p>
-                      <h3 className="text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors mt-0.5">
+                      <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors mt-0.5">
                         {photo.title}
                       </h3>
                     </div>
 
-                    <p className="text-xs text-brand-secondary leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-300 font-light leading-relaxed line-clamp-3">
                       {photo.caption}
                     </p>
 
@@ -521,7 +524,7 @@ export default function ClientsPage() {
                       {photo.highlights.map((h, i) => (
                         <span
                           key={i}
-                          className="text-[10px] font-medium bg-slate-50 text-slate-600 border border-slate-200/80 px-2 py-0.5 rounded-md"
+                          className="text-[10px] font-mono text-slate-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded-md"
                         >
                           {h}
                         </span>
@@ -531,16 +534,16 @@ export default function ClientsPage() {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="p-5 pt-0">
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="p-5 sm:p-6 pt-0">
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Authentic Site Record</span>
                     </span>
                     <button
                       type="button"
                       onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-brand-blue hover:text-blue-800 transition-colors"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-sky-400 hover:text-white transition-colors cursor-pointer"
                     >
                       <Camera className="w-3 h-3" />
                       <span>Full View</span>
@@ -554,11 +557,12 @@ export default function ClientsPage() {
       </section>
 
       {/* Verified Government Appreciation & Completion Certificates Section */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
+      <section className="py-16 md:py-24 relative overflow-hidden">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Government &amp; Institutional Commendations
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Award className="w-3.5 h-3.5 text-sky-400" />
+              <span>Government &amp; Institutional Commendations</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -567,9 +571,9 @@ export default function ClientsPage() {
               delay={0.08}
               stagger={0.045}
               text="Verified Completion & Appreciation Certificates"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-base text-slate-300 font-light leading-relaxed">
               Authentic project completion and performance certificates awarded to New Link Technologies Bangalore Pvt. Ltd. by public sector enterprises, state universities, and autonomous government bodies.
             </FadeIn>
           </div>
@@ -585,18 +589,18 @@ export default function ClientsPage() {
               <StaggerItem
                 key={cert.id}
                 y={18}
-                className="group flex flex-col justify-between rounded-2xl border border-brand-border bg-white shadow-xs hover:border-brand-blue/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 overflow-hidden"
               >
                 <div>
                   {/* Certificate Scan Container */}
-                  <div className="relative aspect-3/4 w-full overflow-hidden bg-slate-50 border-b border-brand-border p-4">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden border border-slate-200 shadow-inner bg-white">
+                  <div className="relative aspect-3/4 w-full overflow-hidden bg-black/40 border-b border-white/10 p-4">
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/15 shadow-inner bg-white">
                       <Image
                         src={cert.image}
                         alt={cert.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-contain p-2 group-hover:scale-102 transition-transform duration-300"
+                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
 
@@ -606,47 +610,47 @@ export default function ClientsPage() {
                       onClick={() =>
                         openLightbox(cert.image, cert.title, cert.dateOrRef)
                       }
-                      className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center m-4 rounded-lg"
+                      className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center m-4 rounded-2xl cursor-pointer"
                       title="Click to view full certificate and zoom"
                       aria-label={`View certificate for ${cert.title}`}
                     >
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/95 text-xs font-bold text-brand-navy shadow-lg">
-                        <Maximize2 className="w-4 h-4 text-brand-blue" />
-                        <span>View Original Certificate</span>
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/95 text-xs font-mono font-bold text-slate-900 shadow-lg">
+                        <Maximize2 className="w-4 h-4 text-blue-600" />
+                        <span>View Original</span>
                       </span>
                     </button>
                   </div>
 
                   {/* Details */}
-                  <div className="p-6 space-y-3">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-brand-blue uppercase tracking-wider">
+                  <div className="p-5 sm:p-6 space-y-3">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
                       <Award className="w-4 h-4 shrink-0" />
                       <span className="truncate">{cert.category}</span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-bold font-heading text-brand-navy leading-snug">
+                    <h3 className="text-base sm:text-lg font-bold font-heading text-white leading-snug">
                       {cert.title}
                     </h3>
 
-                    <p className="text-xs font-semibold text-slate-500">
+                    <p className="text-xs font-mono text-slate-400">
                       {cert.issuingBody}
                     </p>
 
-                    <p className="text-xs text-brand-secondary leading-relaxed pt-1">
+                    <p className="text-xs text-slate-300 font-light leading-relaxed pt-1">
                       {cert.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 space-y-3">
-                  <div className="rounded-lg bg-slate-50 p-3 border border-slate-100 text-[11px] text-slate-600">
-                    <strong className="text-brand-navy block mb-0.5 font-semibold">Scope Executed:</strong>
+                <div className="p-5 sm:p-6 pt-0 space-y-3">
+                  <div className="rounded-xl bg-white/[0.03] p-3 border border-white/10 text-[11px] text-slate-300 font-light">
+                    <strong className="text-white font-mono block mb-0.5">Scope Executed:</strong>
                     {cert.workDetails}
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-brand-border/60">
-                    <span className="font-mono truncate">{cert.dateOrRef}</span>
-                    <span className="text-brand-blue font-semibold shrink-0 flex items-center gap-1">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-2 border-t border-white/10">
+                    <span className="truncate">{cert.dateOrRef}</span>
+                    <span className="text-emerald-400 font-semibold shrink-0 flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       Verified
                     </span>
@@ -659,14 +663,16 @@ export default function ClientsPage() {
       </section>
 
       {/* Strategic OEM Technology Partners Alliance */}
-      <section className="py-16 md:py-20 bg-brand-lightBg border-b border-brand-border">
+      <section className="py-16 md:py-20 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="eyebrow-badge mb-3">Enterprise Standards</span>
-            <h3 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              Enterprise Standards
+            </span>
+            <h3 className="text-xl sm:text-3xl font-bold font-heading text-white">
               Certified OEM Brands Deployed Across Client Facilities
             </h3>
-            <p className="text-xs sm:text-sm text-brand-secondary mt-2">
+            <p className="text-xs sm:text-sm text-slate-300 font-light">
               We deploy genuine, certified enterprise equipment partnering with global market leaders in networking, computing, audio-visual, and physical security.
             </p>
           </div>
@@ -675,14 +681,14 @@ export default function ClientsPage() {
             {OEM_BRAND_PARTNERS.slice(0, 12).map((brand) => (
               <div
                 key={brand.name}
-                className="bg-white p-3 rounded-xl border border-brand-border/80 shadow-2xs flex items-center justify-center h-16 group hover:border-brand-blue/40 transition-colors"
+                className="bg-white/95 p-3 rounded-2xl border border-white/20 shadow-md flex items-center justify-center h-16 group hover:scale-105 transition-all"
               >
                 <div className="relative w-full h-10">
                   <Image
                     src={brand.logo}
                     alt={`${brand.name} OEM Partner`}
                     fill
-                    className="object-contain p-1 grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="object-contain p-1"
                   />
                 </div>
               </div>
@@ -692,54 +698,49 @@ export default function ClientsPage() {
       </section>
 
       {/* Call to Action for Enterprise & Government Inquiries */}
-      <section className="py-16 md:py-20 bg-brand-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+      <section className="py-20 bg-[#050B14] text-white relative overflow-hidden">
         <Container size="default" className="relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-blue-300 bg-blue-900/60 px-3 py-1 rounded-full border border-blue-400/30">
+            <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-3 py-1 rounded-full border border-sky-500/30">
               Partner with New Link Technologies Bangalore Pvt. Ltd.
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
               Ready to Deliver Dependable Infrastructure for Your Organization?
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Connect directly with our Executive Directors — M.G. Girish and D.K. Divya — to explore turnkey institutional IT execution, campus optical networking, modular data centres, or government tender participation.
+            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+              Connect directly with our Executive Directors — M.G. Girish and Divya D K — to explore turnkey institutional IT execution, campus optical networking, modular data centres, or government tender participation.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-              <Button
-                variant="primary"
-                size="lg"
+              <Link
                 href="/contact"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
               >
-                Initiate Project Discussion
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
+                <span>Initiate Project Discussion</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
                 href="/projects"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
-                Explore Successful Installations
-              </Button>
+                <span>Explore Installations</span>
+              </Link>
             </div>
 
-            <div className="pt-6 border-t border-slate-700/60 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300">
+            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[0].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-blue-300 transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-sky-400" />
                 <span>{COMPANY_DETAILS.leadership.directors[0].name}: {COMPANY_DETAILS.leadership.directors[0].phone}</span>
               </a>
-              <span className="text-slate-600">•</span>
+              <span className="text-white/20">•</span>
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[1].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-blue-300 transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-sky-400" />
                 <span>{COMPANY_DETAILS.leadership.directors[1].name}: {COMPANY_DETAILS.leadership.directors[1].phone}</span>
               </a>
             </div>

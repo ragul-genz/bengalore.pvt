@@ -35,34 +35,31 @@ export function PageHero({
   const descDelay = Math.min(0.42, 0.2 + totalWords * 0.032);
 
   return (
-    <section className="relative overflow-hidden bg-linear-to-br from-[#EAF2FC]/75 via-[#F4F8FE]/50 to-white/40 backdrop-blur-xs pt-10 pb-14 sm:pt-14 sm:pb-18 border-b border-slate-200/70">
-      {/* Subtle Geometric Angular Light Ribbons matching Home Hero */}
+    <section className="relative overflow-hidden bg-[#050B14] text-white pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-white/10">
+      {/* Ambient Cybernetic Spotlight Ribbons */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-        <div className="absolute -left-24 top-0 w-96 h-full bg-linear-to-br from-blue-200/35 via-blue-100/20 to-transparent -skew-x-12 transform" />
-        <div className="absolute right-0 -top-20 w-[450px] h-[450px] bg-blue-100/40 rounded-full blur-3xl" />
-        <div
-          className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/3 bg-linear-to-l from-blue-100/40 to-transparent"
-          style={{ clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)" }}
-        />
+        <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px]" />
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
       </div>
 
       <Container size="default" className="relative z-10">
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <FadeIn mode="mount" delay={0.02} y={5} duration={0.4} className="mb-5">
+          <FadeIn mode="mount" delay={0.02} y={5} duration={0.4} className="mb-6">
             <nav aria-label="Breadcrumb">
-              <ol className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200/80 text-xs text-slate-600 shadow-2xs">
+              <ol className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-xs text-slate-400 shadow-lg">
                 {breadcrumbs.map((crumb, idx) => (
                   <React.Fragment key={crumb.label}>
-                    {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400" />}
+                    {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-500" />}
                     {crumb.href ? (
                       <Link
                         href={crumb.href}
-                        className="hover:text-blue-600 font-medium transition-colors"
+                        className="hover:text-sky-400 font-medium transition-colors"
                       >
                         {crumb.label}
                       </Link>
                     ) : (
-                      <span className="text-blue-600 font-semibold">{crumb.label}</span>
+                      <span className="text-sky-400 font-semibold">{crumb.label}</span>
                     )}
                   </React.Fragment>
                 ))}
@@ -71,7 +68,7 @@ export function PageHero({
           </FadeIn>
         )}
 
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-5">
           {/* Eyebrow with Subtle Accent Line */}
           <FadeIn
             mode="mount"
@@ -84,9 +81,9 @@ export function PageHero({
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.45, delay: 0.08, ease: CINEMATIC_EASE }}
-              className="w-7 h-[2px] bg-blue-600 rounded-full shrink-0 origin-left"
+              className="w-7 h-[2px] bg-sky-400 rounded-full shrink-0 origin-left"
             />
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-blue-700">
+            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.16em] text-sky-400">
               {eyebrow}
             </span>
           </FadeIn>
@@ -101,8 +98,8 @@ export function PageHero({
             duration={0.52}
             text={title}
             highlight={highlight}
-            highlightClassName="text-blue-600"
-            className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-[#0A192F] leading-[1.15]"
+            highlightClassName="text-sky-400"
+            className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08]"
           />
 
           {/* Smooth Upward Fade-in Paragraph */}
@@ -112,7 +109,7 @@ export function PageHero({
             delay={descDelay}
             y={14}
             duration={0.55}
-            className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl"
+            className="text-base sm:text-lg text-slate-300 leading-relaxed font-light max-w-2xl"
           >
             {description}
           </FadeIn>

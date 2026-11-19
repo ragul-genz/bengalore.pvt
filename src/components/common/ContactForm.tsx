@@ -10,8 +10,8 @@ import {
   Send,
   RotateCcw,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
-import { Button } from "./Button";
 import { RevealText, FadeIn } from "./MotionPrimitives";
 
 const contactFormSchema = z.object({
@@ -102,79 +102,79 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-10 shadow-xs" id="quote">
+    <div
+      className="bg-[#0A1220]/95 backdrop-blur-xl rounded-3xl border border-white/15 p-6 sm:p-10 shadow-2xl text-white relative overflow-hidden"
+      id="quote"
+    >
+      {/* Ambient Radial Mesh */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
       {/* Success Notification */}
       {submissionState.status === "success" ? (
-        <div className="text-center py-8 space-y-5 animate-in fade-in duration-300">
-          <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto">
+        <div className="text-center py-8 space-y-5 animate-in fade-in duration-300 relative z-10">
+          <div className="w-16 h-16 rounded-2xl bg-emerald-950/70 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto shadow-xl shadow-emerald-950/50">
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
           <div className="space-y-2 max-w-md mx-auto">
-            <h3 className="text-2xl font-bold font-heading text-brand-navy">
+            <h3 className="text-2xl font-bold font-heading text-white">
               Enquiry Received Successfully!
             </h3>
-            <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
               {submissionState.message}
             </p>
             {submissionState.referenceId && (
-              <p className="text-xs font-mono font-semibold text-brand-navy bg-slate-100 py-1.5 px-3 rounded-lg inline-block">
+              <p className="text-xs font-mono font-semibold text-sky-400 bg-sky-950/60 border border-sky-500/30 py-1.5 px-3.5 rounded-full inline-block">
                 Reference ID: {submissionState.referenceId}
               </p>
             )}
           </div>
 
           <div className="pt-4">
-            <Button
-              variant="outline"
-              size="md"
+            <button
+              type="button"
               onClick={handleReset}
-              leftIcon={<RotateCcw className="w-4 h-4" />}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/15 transition-all cursor-pointer"
             >
-              Submit Another Inquiry
-            </Button>
+              <RotateCcw className="w-4 h-4 text-sky-400" />
+              <span>Submit Another Inquiry</span>
+            </button>
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-1.5">
-            <FadeIn
-              as="span"
-              mode="view"
-              delay={0.04}
-              y={6}
-              duration={0.4}
-              className="inline-block text-xs font-bold text-brand-blue uppercase tracking-wider"
-            >
-              Direct Communication Channel
-            </FadeIn>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-[11px] font-mono uppercase tracking-wider">
+              <Sparkles className="w-3 h-3 text-sky-400" />
+              <span>Direct Communication Channel</span>
+            </div>
             <RevealText
               as="h3"
               by="word"
               mode="view"
               delay={0.08}
               stagger={0.045}
-              text="Send an Enquiry / Request a Quote"
-              className="text-2xl font-bold font-heading text-brand-navy"
+              text="Send an Enquiry / Request a Turnkey Quote"
+              className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight"
             />
             <FadeIn
               as="p"
               mode="view"
               delay={0.22}
               y={12}
-              className="text-xs sm:text-sm text-brand-secondary"
+              className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed"
             >
-              Fill in your organization details and project scope. Our engineering team will
-              review and reply promptly.
+              Fill in your organization details and project scope. Our engineering team under Director
+              M.G. Girish will review technical specifications and reply promptly.
             </FadeIn>
           </div>
 
-          {/* Error Banner */}
+          {/* Error Banner (Gold/Amber Accent - No Red) */}
           {submissionState.status === "error" && (
-            <div className="p-4 rounded-xl border border-red-200 bg-red-50 text-red-800 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
-              <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+            <div className="p-4 rounded-2xl border border-amber-500/40 bg-amber-950/40 text-amber-200 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
+              <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
-                <p className="font-semibold">Submission Failed</p>
+                <p className="font-semibold text-white">Submission Notice</p>
                 <p>{submissionState.message}</p>
               </div>
             </div>
@@ -186,22 +186,22 @@ export function ContactForm() {
             <div className="space-y-1.5">
               <label
                 htmlFor="fullName"
-                className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
               >
-                Full Name <span className="text-red-500">*</span>
+                Full Name <span className="text-sky-400">*</span>
               </label>
               <input
                 id="fullName"
                 type="text"
                 placeholder="e.g. Rajesh Kumar"
                 {...register("fullName")}
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                  errors.fullName ? "border-red-400 bg-red-50/20" : "border-brand-border"
+                className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-white/[0.04] placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                  errors.fullName ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
                 }`}
                 disabled={isSubmitting}
               />
               {errors.fullName && (
-                <p className="text-[11px] text-red-600 font-medium">
+                <p className="text-[11px] text-amber-300 font-mono">
                   {errors.fullName.message}
                 </p>
               )}
@@ -211,22 +211,22 @@ export function ContactForm() {
             <div className="space-y-1.5">
               <label
                 htmlFor="companyName"
-                className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
               >
-                Company / Institution <span className="text-red-500">*</span>
+                Company / Institution <span className="text-sky-400">*</span>
               </label>
               <input
                 id="companyName"
                 type="text"
-                placeholder="e.g. Karnataka University / Enterprise Ltd."
+                placeholder="e.g. Karnataka University / PSU Enterprise"
                 {...register("companyName")}
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                  errors.companyName ? "border-red-400 bg-red-50/20" : "border-brand-border"
+                className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-white/[0.04] placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                  errors.companyName ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
                 }`}
                 disabled={isSubmitting}
               />
               {errors.companyName && (
-                <p className="text-[11px] text-red-600 font-medium">
+                <p className="text-[11px] text-amber-300 font-mono">
                   {errors.companyName.message}
                 </p>
               )}
@@ -236,22 +236,22 @@ export function ContactForm() {
             <div className="space-y-1.5">
               <label
                 htmlFor="email"
-                className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
               >
-                Business Email <span className="text-red-500">*</span>
+                Business Email <span className="text-sky-400">*</span>
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder="e.g. name@company.com"
                 {...register("email")}
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                  errors.email ? "border-red-400 bg-red-50/20" : "border-brand-border"
+                className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-white/[0.04] placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                  errors.email ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
                 }`}
                 disabled={isSubmitting}
               />
               {errors.email && (
-                <p className="text-[11px] text-red-600 font-medium">
+                <p className="text-[11px] text-amber-300 font-mono">
                   {errors.email.message}
                 </p>
               )}
@@ -261,22 +261,22 @@ export function ContactForm() {
             <div className="space-y-1.5">
               <label
                 htmlFor="phone"
-                className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
               >
-                Phone Number <span className="text-red-500">*</span>
+                Phone Number <span className="text-sky-400">*</span>
               </label>
               <input
                 id="phone"
                 type="tel"
                 placeholder="e.g. +91 98765 43210"
                 {...register("phone")}
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                  errors.phone ? "border-red-400 bg-red-50/20" : "border-brand-border"
+                className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-white/[0.04] placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                  errors.phone ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
                 }`}
                 disabled={isSubmitting}
               />
               {errors.phone && (
-                <p className="text-[11px] text-red-600 font-medium">
+                <p className="text-[11px] text-amber-300 font-mono">
                   {errors.phone.message}
                 </p>
               )}
@@ -287,31 +287,31 @@ export function ContactForm() {
           <div className="space-y-1.5">
             <label
               htmlFor="interestedService"
-              className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+              className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
             >
-              Interested Service Category <span className="text-red-500">*</span>
+              Interested Service Category <span className="text-sky-400">*</span>
             </label>
             <select
               id="interestedService"
               {...register("interestedService")}
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                errors.interestedService ? "border-red-400 bg-red-50/20" : "border-brand-border"
+              className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-[#0D1829] focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                errors.interestedService ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
               }`}
               disabled={isSubmitting}
             >
-              <option value="">Select a service category...</option>
-              <option value="Audio Solutions">Audio Solutions & Acoustics</option>
-              <option value="Auditorium Solutions">Auditorium False Ceiling & Paneling</option>
-              <option value="Boardroom Solutions">Smart Boardroom & Touch Displays</option>
-              <option value="Video Conferencing Solutions">Video Conferencing PTZ Systems</option>
-              <option value="CCTV and Surveillance">CCTV & IP Perimeter Surveillance</option>
-              <option value="Networking and Cabling">Networking & Structured Cabling</option>
-              <option value="Data Centre Solutions">Modular Data Centre (MDC)</option>
-              <option value="Solar and Fire Safety Solutions">Rooftop Solar & Fire Safety</option>
-              <option value="Enterprise IT Consulting">Turnkey IT Consulting & SLA</option>
+              <option value="" className="bg-[#0A1220] text-slate-400">Select a service category...</option>
+              <option value="Audio Solutions" className="bg-[#0A1220] text-white">Audio Solutions & Acoustics</option>
+              <option value="Auditorium Solutions" className="bg-[#0A1220] text-white">Auditorium False Ceiling & Paneling</option>
+              <option value="Boardroom Solutions" className="bg-[#0A1220] text-white">Smart Boardroom & Touch Displays</option>
+              <option value="Video Conferencing Solutions" className="bg-[#0A1220] text-white">Video Conferencing PTZ Systems</option>
+              <option value="CCTV and Surveillance" className="bg-[#0A1220] text-white">CCTV & IP Perimeter Surveillance</option>
+              <option value="Networking and Cabling" className="bg-[#0A1220] text-white">Networking & Structured Cabling</option>
+              <option value="Data Centre Solutions" className="bg-[#0A1220] text-white">Modular Data Centre (MDC)</option>
+              <option value="Solar and Fire Safety Solutions" className="bg-[#0A1220] text-white">Rooftop Solar & Fire Safety</option>
+              <option value="Enterprise IT Consulting" className="bg-[#0A1220] text-white">Turnkey IT Consulting & SLA</option>
             </select>
             {errors.interestedService && (
-              <p className="text-[11px] text-red-600 font-medium">
+              <p className="text-[11px] text-amber-300 font-mono">
                 {errors.interestedService.message}
               </p>
             )}
@@ -321,22 +321,22 @@ export function ContactForm() {
           <div className="space-y-1.5">
             <label
               htmlFor="projectDetails"
-              className="text-xs font-bold uppercase tracking-wider text-brand-navy"
+              className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300"
             >
-              Project Scope & Requirements <span className="text-red-500">*</span>
+              Project Scope & Requirements <span className="text-sky-400">*</span>
             </label>
             <textarea
               id="projectDetails"
               rows={4}
-              placeholder="Please provide details about the project location, building size, timelines, or equipment requirements..."
+              placeholder="Please provide details about project location, campus size, delivery timelines, or technical specifications..."
               {...register("projectDetails")}
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-text bg-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all ${
-                errors.projectDetails ? "border-red-400 bg-red-50/20" : "border-brand-border"
+              className={`w-full px-4 py-3 rounded-xl border text-sm text-white bg-white/[0.04] placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all ${
+                errors.projectDetails ? "border-amber-400/80 bg-amber-950/20" : "border-white/15"
               }`}
               disabled={isSubmitting}
             />
             {errors.projectDetails && (
-              <p className="text-[11px] text-red-600 font-medium">
+              <p className="text-[11px] text-amber-300 font-mono">
                 {errors.projectDetails.message}
               </p>
             )}
@@ -348,38 +348,35 @@ export function ContactForm() {
               <input
                 type="checkbox"
                 {...register("privacyConsent")}
-                className="mt-1 h-4 w-4 rounded border-brand-border text-brand-blue focus:ring-brand-blue"
+                className="mt-1 h-4 w-4 rounded border-white/20 bg-white/10 text-sky-400 focus:ring-sky-400 accent-sky-400"
                 disabled={isSubmitting}
               />
-              <span className="text-xs text-brand-secondary leading-relaxed">
+              <span className="text-xs text-slate-400 leading-relaxed font-light">
                 I consent to New Link Technologies Bangalore Pvt. Ltd. processing my contact
-                details to respond to this enquiry in accordance with the corporate privacy policy.
+                details to respond to this turnkey tender or engineering enquiry.
               </span>
             </label>
             {errors.privacyConsent && (
-              <p className="text-[11px] text-red-600 font-medium pl-7">
+              <p className="text-[11px] text-amber-300 font-mono pl-7">
                 {errors.privacyConsent.message}
               </p>
             )}
           </div>
 
           {/* Submit Action Button */}
-          <div className="pt-2 flex items-center justify-between gap-4">
-            <Button
-              variant="primary"
-              size="lg"
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button
               type="submit"
               disabled={isSubmitting}
-              isLoading={isSubmitting}
-              rightIcon={<Send className="w-4 h-4" />}
-              className="w-full sm:w-auto font-semibold px-8 shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer disabled:opacity-50"
             >
-              {isSubmitting ? "Submitting Enquiry..." : "Submit Enquiry"}
-            </Button>
+              <span>{isSubmitting ? "Submitting Enquiry..." : "Submit Turnkey Enquiry"}</span>
+              <Send className="w-4 h-4" />
+            </button>
 
-            <span className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Direct Executive Routing</span>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>DIRECT EXECUTIVE ROUTING</span>
             </span>
           </div>
         </form>

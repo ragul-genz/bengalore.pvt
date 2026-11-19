@@ -13,11 +13,10 @@ import {
   Building2,
   ShieldCheck,
   Download,
+  Sparkles,
 } from "lucide-react";
 import {
   Container,
-  Button,
-  Badge,
   ServiceIcon,
   PageHero,
   RevealText,
@@ -75,8 +74,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <div className="relative bg-transparent">
-      {/* Service Hero Header matching Home Aesthetic */}
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+      {/* Service Hero Header */}
       <PageHero
         eyebrow={`${service.tag} • Enterprise Delivery`}
         title={service.title}
@@ -90,24 +89,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <Link
             href="/contact#quote"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:shadow-lg transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
           >
             <span>Request Technical Quote</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href={`tel:${COMPANY_DETAILS.contact.phone}`}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm shadow-xs transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-xs uppercase tracking-wider transition-all"
           >
-            <Phone className="w-4 h-4 text-blue-600" />
+            <Phone className="w-4 h-4 text-sky-400" />
             <span>Call: {COMPANY_DETAILS.contact.phoneDisplay}</span>
           </a>
         </div>
       </PageHero>
 
       {/* Main Content Layout */}
-      <section className="py-14 md:py-20">
-        <Container size="default">
+      <section className="py-14 md:py-20 relative overflow-hidden">
+        {/* Ambient Glow */}
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Primary Details (8 cols) */}
             <div className="lg:col-span-8 space-y-10">
@@ -116,7 +118,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 mode="view"
                 delay={0.05}
                 y={16}
-                className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-brand-border bg-white shadow-md"
+                className="relative aspect-16/10 w-full rounded-3xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl"
               >
                 <Image
                   src={service.image}
@@ -126,6 +128,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   sizes="(max-width: 1024px) 100vw, 65vw"
                   className="object-cover object-center"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 via-transparent to-transparent pointer-events-none" />
               </FadeIn>
 
               {/* Comprehensive Description */}
@@ -133,23 +136,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 mode="view"
                 delay={0.08}
                 y={16}
-                className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-4 shadow-xs"
+                className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-4 shadow-2xl"
               >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                  <span>Engineering Architecture</span>
+                </div>
                 <RevealText
                   as="h2"
                   by="word"
                   mode="view"
                   delay={0.06}
                   stagger={0.04}
-                  text="Engineering Overview & Scope"
-                  className="text-xl sm:text-2xl font-bold font-heading text-brand-navy"
+                  text="Engineering Overview & Delivery Scope"
+                  className="text-xl sm:text-2xl font-bold font-heading text-white"
                 />
                 <FadeIn
                   as="p"
                   mode="view"
                   delay={0.18}
                   y={12}
-                  className="text-base text-brand-secondary leading-relaxed"
+                  className="text-base text-slate-300 font-light leading-relaxed"
                 >
                   {service.fullDescription}
                 </FadeIn>
@@ -158,33 +165,33 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   mode="view"
                   delay={0.26}
                   y={12}
-                  className="text-sm text-brand-secondary leading-relaxed"
+                  className="text-sm text-slate-400 font-light leading-relaxed pt-2 border-t border-white/10"
                 >
                   Every solution deployed by New Link Technologies Bangalore Pvt. Ltd.
                   follows structured installation methodologies, strict adherence to site
-                  safety protocols, and comprehensive post-commissioning handover procedures.
+                  safety protocols, and comprehensive post-commissioning handover procedures under Director M.G. Girish.
                 </FadeIn>
               </FadeIn>
 
               {/* Authorized Technology Brands / OEMs */}
               {service.brands && service.brands.length > 0 && (
-                <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-4 shadow-xs">
+                <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-4 shadow-2xl">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold font-heading text-brand-navy">
+                    <h3 className="text-xl font-bold font-heading text-white">
                       Authorized Technology Brands &amp; OEMs
                     </h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-brand-secondary">
+                  <p className="text-xs sm:text-sm text-slate-300 font-light">
                     Installed and integrated using genuine equipment from certified enterprise manufacturers:
                   </p>
                   <div className="flex flex-wrap gap-2.5 pt-1">
                     {service.brands.map((brand) => (
                       <span
                         key={brand}
-                        className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold hover:border-brand-blue/60 hover:bg-blue-50/50 transition-colors"
+                        className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-xs sm:text-sm font-mono font-medium hover:border-sky-400/60 hover:text-sky-300 transition-colors"
                       >
                         {brand}
                       </span>
@@ -195,21 +202,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Solution Architecture / Features Diagram */}
               {service.diagramImage && (
-                <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-5 shadow-xs">
+                <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-5 shadow-2xl">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
                       <Building2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold font-heading text-brand-navy">
+                      <h3 className="text-xl font-bold font-heading text-white">
                         Solution Architecture &amp; Features
                       </h3>
-                      <p className="text-xs text-brand-secondary">
+                      <p className="text-xs text-slate-400 font-mono">
                         Official technical integration topology from New Link Technologies Bangalore Pvt. Ltd. profile
                       </p>
                     </div>
                   </div>
-                  <div className="relative aspect-16/10 w-full rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                  <div className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/10 bg-black/60 p-4">
                     <Image
                       src={service.diagramImage}
                       alt={`${service.title} Architecture Diagram`}
@@ -221,12 +228,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               )}
 
               {/* Key Features & Architecture Specifications */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-6 shadow-xs">
+              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-6 shadow-2xl">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-brand-navy">
+                  <h3 className="text-xl font-bold font-heading text-white">
                     Key Solution Capabilities
                   </h3>
                 </div>
@@ -235,10 +242,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-3.5 rounded-xl border border-brand-border/80 bg-brand-lightBg/50 hover:bg-brand-lightBg hover:-translate-y-0.5 hover:shadow-sm transition-all duration-300"
+                      className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/40 transition-all duration-300"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-brand-text font-medium leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
                         {feature}
                       </span>
                     </div>
@@ -247,12 +254,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* Scope of Deliverables */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 space-y-6 shadow-xs">
+              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-6 shadow-2xl">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue">
+                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
                     <FileText className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-brand-navy">
+                  <h3 className="text-xl font-bold font-heading text-white">
                     Scope of Deliverables
                   </h3>
                 </div>
@@ -261,12 +268,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.deliverables.map((deliv, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 text-xs sm:text-sm text-brand-secondary"
+                      className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 font-light"
                     >
-                      <span className="w-6 h-6 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue text-xs font-bold shrink-0">
-                        {idx + 1}
+                      <span className="w-6 h-6 rounded-lg bg-sky-950/60 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xs font-mono font-bold shrink-0">
+                        0{idx + 1}
                       </span>
-                      <span className="pt-0.5 leading-relaxed text-brand-text">{deliv}</span>
+                      <span className="pt-0.5 leading-relaxed">{deliv}</span>
                     </div>
                   ))}
                 </div>
@@ -274,18 +281,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Verified Institutional Reference Highlight */}
               {service.referenceHighlights && (
-                <div className="p-6 rounded-2xl border border-blue-200 bg-blue-50/50 flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-brand-blue text-white flex items-center justify-center shrink-0">
+                <div className="p-6 rounded-3xl border border-sky-500/30 bg-[#06152B] flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs uppercase font-bold text-brand-blue tracking-wider">
-                      Verified Portfolio Project
+                    <p className="text-xs font-mono uppercase font-bold text-sky-400 tracking-wider">
+                      Verified Portfolio Deployment
                     </p>
-                    <p className="text-sm font-semibold text-brand-navy font-heading">
+                    <p className="text-sm font-semibold text-white font-heading">
                       {service.referenceHighlights}
                     </p>
-                    <p className="text-xs text-brand-secondary">
+                    <p className="text-xs text-slate-400 font-light">
                       Validated in official company records and customer appreciation certificates.
                     </p>
                   </div>
@@ -296,63 +303,62 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Sidebar (4 cols) */}
             <FadeIn mode="view" delay={0.12} y={16} className="lg:col-span-4 space-y-6 sticky top-24">
               {/* Request Quote Card */}
-              <div className="bg-brand-navy text-white rounded-2xl p-6 sm:p-7 shadow-lg space-y-5">
-                <Badge variant="primary" size="sm">
-                  Connecting Values
-                </Badge>
+              <div className="bg-[#0A1220] text-white rounded-3xl p-6 sm:p-7 border border-white/10 shadow-2xl space-y-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-[11px] font-mono uppercase tracking-wider">
+                  <Sparkles className="w-3 h-3 text-sky-400" />
+                  <span>Turnkey Project Inquiry</span>
+                </span>
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold font-heading text-white">
                     Request a Technical Proposal
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-300 font-light leading-relaxed">
                     Need turnkey supply, cabling, or equipment maintenance for {service.title}?
                     Contact our Rajajinagar office.
                   </p>
                 </div>
 
-                <Button
-                  variant="secondary"
-                  size="lg"
+                <Link
                   href="/contact#quote"
-                  className="w-full justify-center"
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
                 >
-                  Get Proposal & Quote
-                </Button>
+                  <span>Get Proposal &amp; Quote</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
 
-                <div className="pt-4 border-t border-brand-darkNavy space-y-3 text-xs text-slate-300">
+                <div className="pt-4 border-t border-white/10 space-y-3 text-xs text-slate-300 font-mono">
                   <a
                     href={`tel:${COMPANY_DETAILS.contact.phone}`}
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
                   >
-                    <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                    <Phone className="w-4 h-4 text-sky-400 shrink-0" />
                     <span>{COMPANY_DETAILS.contact.phoneDisplay}</span>
                   </a>
                   <a
                     href={`mailto:${COMPANY_DETAILS.contact.email}`}
                     className="flex items-center gap-2.5 hover:text-white transition-colors break-all"
                   >
-                    <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
                     <span>{COMPANY_DETAILS.contact.email}</span>
                   </a>
-                  <div className="flex items-start gap-2.5 text-slate-400">
-                    <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-slate-400 font-sans text-xs">
+                    <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>Rajajinagar, Bangalore - 560010</span>
                   </div>
                 </div>
               </div>
 
               {/* Download Company Profile PDF Card */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-3">
+              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 text-sky-400 flex items-center justify-center shrink-0">
                     <Download className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold font-heading text-brand-navy">
+                    <h4 className="text-sm font-bold font-heading text-white">
                       Official Company Profile
                     </h4>
-                    <p className="text-xs text-brand-secondary">
+                    <p className="text-xs text-slate-400 font-mono">
                       Comprehensive portfolio document
                     </p>
                   </div>
@@ -362,16 +368,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   href="/documents/New-Link-Company-Profile.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold text-brand-navy bg-brand-lightBg hover:bg-slate-200 transition-colors border border-brand-border"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-mono font-bold text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/10"
                 >
-                  <FileText className="w-4 h-4 text-brand-blue" />
+                  <FileText className="w-4 h-4 text-sky-400" />
                   <span>Download Profile PDF (10 MB)</span>
                 </a>
               </div>
 
               {/* Navigation List to Other Services */}
-              <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-xs space-y-4">
-                <h4 className="text-sm font-bold font-heading text-brand-navy uppercase tracking-wider">
+              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-4">
+                <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
                   Other Specialized Services
                 </h4>
 
@@ -380,16 +386,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     <Link
                       key={other.slug}
                       href={`/services/${other.slug}`}
-                      className="flex items-center justify-between p-2.5 rounded-lg text-xs font-medium text-brand-text hover:bg-brand-lightBg hover:text-brand-blue transition-colors group"
+                      className="flex items-center justify-between p-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-sky-300 transition-colors group"
                     >
                       <div className="flex items-center gap-2 truncate">
                         <ServiceIcon
                           name={other.iconName}
-                          className="w-3.5 h-3.5 text-brand-secondary group-hover:text-brand-blue shrink-0"
+                          className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 shrink-0"
                         />
                         <span className="truncate">{other.title}</span>
                       </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition-colors shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400 transition-colors shrink-0" />
                     </Link>
                   ))}
                 </div>
@@ -401,4 +407,3 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     </div>
   );
 }
-

@@ -4,15 +4,12 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 import {
   Container,
-  Button,
-  Badge,
   ServiceIcon,
   PageHero,
   RevealText,
   FadeIn,
   StaggerGroup,
   StaggerItem,
-  ImageReveal,
   SectionReveal,
 } from "@/components/common";
 import { SERVICES_DATA, type ServiceItem } from "@/data/services";
@@ -35,12 +32,12 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="relative bg-transparent">
-      {/* Services Hero Banner matching Home Aesthetic */}
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+      {/* Services Hero Header */}
       <PageHero
         eyebrow="Full Lifecycle Engineering • Bangalore, India"
         title="Complete Technology"
-        highlight="Solutions"
+        highlight="Solutions & Systems"
         description="From mission-critical modular data centres and campus fiber networks to smart conference facilities and institutional solar energy systems, we deliver turnkey engineering tailored for reliability and performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -49,11 +46,15 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid Section */}
-      <SectionReveal className="py-16 md:py-24">
-        <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="eyebrow-badge mb-3">
-              Specialized Infrastructure
+      <SectionReveal className="py-16 md:py-24 relative overflow-hidden">
+        {/* Ambient background glow */}
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <Container size="default" className="relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+              <span>Specialized Infrastructure Disciplines</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -62,9 +63,9 @@ export default function ServicesPage() {
               delay={0.08}
               stagger={0.045}
               text="Our Specialized Service Capabilities"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="mt-3 text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
               End-to-end design, deployment, testing, and lifecycle maintenance delivered across Karnataka and nationwide.
             </FadeIn>
           </div>
@@ -79,28 +80,26 @@ export default function ServicesPage() {
               <StaggerItem
                 key={service.slug}
                 y={18}
-                className="group flex flex-col justify-between bg-white rounded-xl border border-brand-border overflow-hidden shadow-xs hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-2xl hover:shadow-brand-blue/10 transition-all duration-300"
+                className="group flex flex-col justify-between bg-[#0A1220] rounded-3xl border border-white/10 overflow-hidden shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_35px_rgba(56,189,248,0.18)] transition-all duration-300"
               >
                 <div>
                   {/* Image */}
-                  <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 border-b border-brand-border">
-                    <ImageReveal className="w-full h-full relative" duration={0.6}>
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </ImageReveal>
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  <div className="relative aspect-16/10 w-full overflow-hidden bg-black/60 border-b border-white/10">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1220] via-transparent to-transparent opacity-90 pointer-events-none" />
 
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-xs border border-white/40 flex items-center justify-center text-brand-navy shadow-md">
-                      <ServiceIcon name={service.iconName} className="w-5 h-5 text-brand-blue" />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-sky-400 border border-white/20 flex items-center justify-center text-white shadow-lg">
+                      <ServiceIcon name={service.iconName} className="w-5 h-5 text-white" />
                     </div>
 
                     <div className="absolute bottom-2.5 right-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-brand-navy/90 text-white backdrop-blur-xs">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wide bg-black/80 text-sky-400 border border-sky-400/30 backdrop-blur-md">
                         {service.tag}
                       </span>
                     </div>
@@ -108,20 +107,20 @@ export default function ServicesPage() {
 
                   {/* Body */}
                   <div className="p-5 sm:p-6 space-y-3">
-                    <h2 className="text-lg font-bold font-heading text-brand-navy group-hover:text-brand-blue transition-colors leading-snug">
+                    <h3 className="text-lg font-bold font-heading text-white group-hover:text-sky-300 transition-colors leading-snug">
                       <Link href={`/services/${service.slug}`} className="focus-visible:outline-none focus-visible:underline">
                         {service.title}
                       </Link>
-                    </h2>
-                    <p className="text-xs sm:text-sm text-brand-secondary line-clamp-3 leading-relaxed">
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 font-light line-clamp-3 leading-relaxed">
                       {service.shortDescription}
                     </p>
 
                     {/* Feature snippets */}
-                    <div className="pt-2 space-y-1.5 border-t border-brand-border/60">
+                    <div className="pt-2 space-y-1.5 border-t border-white/10">
                       {service.features.slice(0, 2).map((feat, idx) => (
-                        <div key={idx} className="flex items-start gap-1.5 text-[11px] text-brand-text">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0 mt-0.5" />
+                        <div key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
                           <span className="line-clamp-1">{feat}</span>
                         </div>
                       ))}
@@ -131,12 +130,12 @@ export default function ServicesPage() {
                     {service.brands && (
                       <div className="flex flex-wrap gap-1 pt-1">
                         {service.brands.slice(0, 4).map((b) => (
-                          <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium border border-slate-200">
+                          <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-white/5 text-slate-300 font-mono border border-white/10">
                             {b}
                           </span>
                         ))}
                         {service.brands.length > 4 && (
-                          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-500 font-medium border border-slate-200">
+                          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/5 text-sky-400 font-mono border border-sky-400/20">
                             +{service.brands.length - 4}
                           </span>
                         )}
@@ -149,7 +148,7 @@ export default function ServicesPage() {
                 <div className="p-5 sm:p-6 pt-0">
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-darkNavy transition-colors group/link pt-3 border-t border-brand-border/60 w-full justify-between"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-sky-400 hover:text-white transition-colors group/link pt-3 border-t border-white/10 w-full justify-between"
                   >
                     <span>View Specifications</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -164,40 +163,40 @@ export default function ServicesPage() {
             mode="view"
             delay={0.08}
             y={16}
-            className="mt-16 p-8 rounded-2xl bg-white border border-brand-border shadow-xs grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="mt-16 p-8 sm:p-10 rounded-3xl bg-[#0A1220] border border-white/10 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            <div className="space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
+                <ShieldCheck className="w-5 h-5 text-sky-400" />
               </div>
-              <h3 className="text-base font-bold font-heading text-brand-navy">
-                Government & Institutional Rigor
+              <h3 className="text-base font-bold font-heading text-white">
+                Government &amp; Institutional Rigor
               </h3>
-              <p className="text-xs text-brand-secondary leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                 Proven contract delivery for Karnataka State Electronics Development Corporation Limited (KEONICS), ITI Limited, and State Universities.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue">
-                <CheckCircle2 className="w-5 h-5" />
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
+                <CheckCircle2 className="w-5 h-5 text-sky-400" />
               </div>
-              <h3 className="text-base font-bold font-heading text-brand-navy">
+              <h3 className="text-base font-bold font-heading text-white">
                 Standards-Compliant Execution
               </h3>
-              <p className="text-xs text-brand-secondary leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                 ISO-aligned structured cabling, proper vertical/horizontal cable organizers, certified terminations, and comprehensive documentation.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue">
-                <Sparkles className="w-5 h-5" />
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
+                <Sparkles className="w-5 h-5 text-sky-400" />
               </div>
-              <h3 className="text-base font-bold font-heading text-brand-navy">
+              <h3 className="text-base font-bold font-heading text-white">
                 Turnkey Accountability
               </h3>
-              <p className="text-xs text-brand-secondary leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                 From initial site survey and architectural design to equipment installation, commissioning, and long-term SLA maintenance contracts.
               </p>
             </div>
@@ -206,13 +205,13 @@ export default function ServicesPage() {
       </SectionReveal>
 
       {/* Bottom Consultation CTA */}
-      <SectionReveal className="py-16 bg-brand-navy text-white">
+      <SectionReveal className="py-20 bg-[#070E1A] text-white border-t border-white/10">
         <Container size="default">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <FadeIn mode="view" delay={0.04} y={8} duration={0.42}>
-              <Badge variant="primary" size="md">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
                 Connecting Values
-              </Badge>
+              </span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -221,16 +220,16 @@ export default function ServicesPage() {
               delay={0.08}
               stagger={0.045}
               text="Ready to Discuss Your"
-              highlight="Project Requirements?"
-              highlightClassName="text-blue-400"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight"
+              highlight="Turnkey Infrastructure?"
+              highlightClassName="text-sky-400"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
             <FadeIn
               as="p"
               mode="view"
               delay={0.22}
               y={14}
-              className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto"
+              className="text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto"
             >
               Contact New Link Technologies Bangalore Pvt. Ltd. for technical proposals,
               BOM formulation, and site survey appointments.
@@ -241,12 +240,19 @@ export default function ServicesPage() {
               y={12}
               className="flex flex-wrap items-center justify-center gap-4 pt-2"
             >
-              <Button variant="secondary" size="lg" href="/contact#quote" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Request a Quote
-              </Button>
-              <Button variant="white" size="lg" href="/contact">
-                Contact Office
-              </Button>
+              <Link
+                href="/contact#quote"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+              >
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider border border-white/15 transition-all cursor-pointer"
+              >
+                <span>Contact Office</span>
+              </Link>
             </FadeIn>
           </div>
         </Container>
@@ -254,4 +260,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-

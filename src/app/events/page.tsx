@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ExternalLink,
   Globe,
@@ -16,7 +17,6 @@ import {
 } from "lucide-react";
 import {
   Container,
-  Button,
   Lightbox,
   PageHero,
   RevealText,
@@ -50,7 +50,7 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="relative bg-transparent">
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
       {/* Page Hero Banner */}
       <PageHero
         eyebrow="Official Cultural Initiative • Karnataka Heritage"
@@ -64,13 +64,13 @@ export default function EventsPage() {
       />
 
       {/* Official Web Portal Highlight Ribbon */}
-      <section className="bg-linear-to-r from-slate-950 via-slate-900 to-brand-navy text-white py-8 border-b border-slate-800">
+      <section className="bg-[#081120] text-white py-10 border-b border-white/10 relative overflow-hidden">
         <Container size="default">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Official Event Website</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>Official Cultural Web Portal</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold font-heading text-white">
                 Discover Kannadotsava at{" "}
@@ -78,7 +78,7 @@ export default function EventsPage() {
                   www.kannadotsava.com
                 </span>
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300">
+              <p className="text-xs sm:text-sm text-slate-300 font-light">
                 Official online destination for festival announcements, cultural schedules, and event gallery.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function EventsPage() {
                 href={KANNADOTSAVA_EVENT.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
               >
                 <Globe className="w-4 h-4 text-slate-950 group-hover:rotate-12 transition-transform" />
                 <span>Visit www.kannadotsava.com</span>
@@ -100,14 +100,17 @@ export default function EventsPage() {
       </section>
 
       {/* Main Kannadotsava Overview Section */}
-      <section className="py-16 md:py-24 bg-white border-b border-brand-border">
-        <Container size="default">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="space-y-2">
-                <FadeIn as="span" mode="view" delay={0.04} y={6} className="eyebrow-badge">
-                  Cultural Excellence &amp; Community Spirit
+                <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                  <span>Cultural Excellence &amp; Community Spirit</span>
                 </FadeIn>
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <RevealText
@@ -117,18 +120,18 @@ export default function EventsPage() {
                     delay={0.08}
                     stagger={0.04}
                     text="Kannadotsava"
-                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-brand-navy tracking-tight"
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
                   />
-                  <span className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-heading">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-heading">
                     ({KANNADOTSAVA_EVENT.nativeTitle})
                   </span>
                 </div>
-                <p className="text-base sm:text-lg font-semibold text-blue-800">
+                <p className="text-base sm:text-lg font-mono font-semibold text-sky-400">
                   {KANNADOTSAVA_EVENT.tagline}
                 </p>
               </div>
 
-              <div className="space-y-4 text-brand-secondary text-sm sm:text-base leading-relaxed">
+              <div className="space-y-4 text-slate-300 text-sm sm:text-base font-light leading-relaxed">
                 {KANNADOTSAVA_EVENT.aboutText.map((paragraph, idx) => (
                   <FadeIn key={idx} as="p" mode="view" delay={0.15 + idx * 0.08} y={10}>
                     {paragraph}
@@ -141,13 +144,13 @@ export default function EventsPage() {
                 {KANNADOTSAVA_EVENT.keyHighlights.map((highlight) => (
                   <div
                     key={highlight.title}
-                    className="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-1.5"
+                    className="p-4 rounded-2xl border border-white/10 bg-[#0A1220] space-y-1.5"
                   >
-                    <div className="flex items-center gap-2 text-xs font-bold text-brand-navy">
-                      <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
+                    <div className="flex items-center gap-2 text-xs font-bold text-white">
+                      <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
                       <span>{highlight.title}</span>
                     </div>
-                    <p className="text-xs text-brand-secondary leading-relaxed pl-6">
+                    <p className="text-xs text-slate-300 font-light leading-relaxed pl-6">
                       {highlight.description}
                     </p>
                   </div>
@@ -160,14 +163,14 @@ export default function EventsPage() {
                   href={KANNADOTSAVA_EVENT.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-navy hover:bg-brand-blue text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider font-bold border border-white/15 transition-all"
                 >
-                  <Globe className="w-4 h-4 text-blue-400" />
+                  <Globe className="w-4 h-4 text-sky-400" />
                   <span>Explore www.kannadotsava.com</span>
-                  <ExternalLink className="w-4 h-4 text-slate-300" />
+                  <ExternalLink className="w-4 h-4 text-slate-400" />
                 </a>
-                <span className="text-xs text-slate-500 font-medium flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+                <span className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                  <Heart className="w-4 h-4 text-sky-400 fill-sky-400" />
                   <span>Proudly Supported by New Link Technologies</span>
                 </span>
               </div>
@@ -175,56 +178,56 @@ export default function EventsPage() {
 
             {/* Right Card: Feature Showcase Card */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200 bg-linear-to-b from-slate-900 via-brand-navy to-slate-950 p-8 text-white shadow-2xl space-y-6">
+              <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#0A1220] p-8 text-white shadow-2xl space-y-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-amber-400" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-300">
                       Community &amp; Culture
                     </span>
                   </div>
-                  <span className="text-xs text-slate-400 font-medium">Annual Tradition</span>
+                  <span className="text-xs text-slate-400 font-mono">Annual Tradition</span>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white leading-tight">
+                  <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-white leading-tight">
                     ಕನ್ನಡೋತ್ಸವ
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                     Celebrating unity, Kannada literature, state heritage, classical arts, and youth cultural empowerment in Bangalore and throughout Karnataka.
                   </p>
                 </div>
 
                 {/* Key Event Metadata */}
                 <div className="space-y-3 pt-2 text-xs">
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
                     <Globe className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-white">Official Web Portal</p>
+                      <p className="font-bold text-white font-mono">Official Web Portal</p>
                       <a
                         href={KANNADOTSAVA_EVENT.websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-amber-300 hover:underline font-mono text-[11px]"
+                        className="text-amber-300 hover:underline font-mono text-xs"
                       >
                         www.kannadotsava.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                    <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-white">Event Hub</p>
-                      <p className="text-slate-300 text-[11px]">Bangalore &amp; Across Karnataka</p>
+                      <p className="font-bold text-white font-mono">Event Hub</p>
+                      <p className="text-slate-300 text-xs font-light">Bangalore &amp; Across Karnataka</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                    <Calendar className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <Calendar className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-white">Organized &amp; Supported By</p>
-                      <p className="text-slate-300 text-[11px]">
+                      <p className="font-bold text-white font-mono">Organized &amp; Supported By</p>
+                      <p className="text-slate-300 text-xs font-light">
                         New Link Technologies Bangalore Pvt. Ltd.
                       </p>
                     </div>
@@ -236,7 +239,7 @@ export default function EventsPage() {
                     href={KANNADOTSAVA_EVENT.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
                   >
                     <span>Launch Portal: www.kannadotsava.com</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -248,12 +251,13 @@ export default function EventsPage() {
         </Container>
       </section>
 
-      {/* Dedicated Photo Gallery Section (Ready for user's photos) */}
-      <section className="py-16 md:py-24 bg-brand-lightBg border-b border-brand-border">
+      {/* Dedicated Photo Gallery Section */}
+      <section className="py-16 md:py-24 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <FadeIn as="span" mode="view" delay={0.04} y={6} className="eyebrow-badge mb-3">
-              Event Photographs &amp; Glimpses
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <Camera className="w-3.5 h-3.5 text-sky-400" />
+              <span>Event Photographs &amp; Glimpses</span>
             </FadeIn>
             <RevealText
               as="h2"
@@ -262,15 +266,15 @@ export default function EventsPage() {
               delay={0.08}
               stagger={0.04}
               text="Kannadotsava Photo Gallery"
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-navy tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.2} y={10} className="mt-3 text-sm sm:text-base text-brand-secondary">
+            <FadeIn as="p" mode="view" delay={0.2} y={10} className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
               A curated photographic gallery capturing ceremonial inaugurations, cultural recitals, audience gatherings, and patron honors at Kannadotsava.
             </FadeIn>
 
             {/* Note badge */}
-            <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-semibold">
-              <Camera className="w-4 h-4 text-blue-600" />
+            <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-mono">
+              <Camera className="w-4 h-4 text-sky-400" />
               <span>Official high-resolution event photographs will be displayed here</span>
             </div>
           </div>
@@ -286,11 +290,11 @@ export default function EventsPage() {
               <StaggerItem
                 key={slot.id}
                 y={16}
-                className="group bg-white rounded-2xl border border-brand-border overflow-hidden shadow-2xs hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/50 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-[#0A1220] rounded-3xl border border-white/10 overflow-hidden shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Photo Frame Container */}
-                  <div className="relative aspect-4/3 w-full bg-linear-to-br from-slate-100 via-slate-50 to-blue-50/30 flex items-center justify-center p-6 border-b border-slate-100 overflow-hidden">
+                  <div className="relative aspect-4/3 w-full bg-black/60 flex items-center justify-center p-6 border-b border-white/10 overflow-hidden">
                     {slot.image ? (
                       <div
                         className="relative w-full h-full cursor-pointer"
@@ -300,25 +304,25 @@ export default function EventsPage() {
                           src={slot.image}
                           alt={slot.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/95 text-xs font-bold text-brand-navy shadow-md">
-                            <Maximize2 className="w-3.5 h-3.5 text-brand-blue" />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 text-xs font-mono font-bold text-slate-900 shadow-md">
+                            <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
                             <span>View Photo</span>
                           </span>
                         </div>
                       </div>
                     ) : (
                       <div className="text-center space-y-3 p-4">
-                        <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center mx-auto text-brand-blue group-hover:scale-110 group-hover:bg-blue-50 transition-all">
-                          <Camera className="w-7 h-7 text-brand-blue/70" />
+                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 shadow-xs flex items-center justify-center mx-auto text-sky-400 group-hover:scale-110 transition-all">
+                          <Camera className="w-7 h-7 text-sky-400" />
                         </div>
                         <div className="space-y-1">
-                          <p className="text-xs font-bold text-brand-navy">
+                          <p className="text-xs font-bold text-white font-heading">
                             {slot.title}
                           </p>
-                          <p className="text-[11px] text-slate-400 font-medium">
+                          <p className="text-[11px] text-slate-400 font-mono">
                             Photo Updating Shortly
                           </p>
                         </div>
@@ -327,26 +331,26 @@ export default function EventsPage() {
                   </div>
 
                   {/* Slot Details */}
-                  <div className="p-5 space-y-2">
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+                  <div className="p-5 sm:p-6 space-y-2">
+                    <span className="inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-2.5 py-0.5 rounded-full border border-sky-500/30">
                       {slot.category}
                     </span>
-                    <h3 className="text-base font-bold font-heading text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
+                    <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors">
                       {slot.title}
                     </h3>
-                    <p className="text-xs text-brand-secondary leading-relaxed">
+                    <p className="text-xs text-slate-300 font-light leading-relaxed">
                       {slot.caption}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                  <span className="font-medium text-slate-600">Kannadotsava Archive</span>
+                <div className="px-5 pb-5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <span>Kannadotsava Archive</span>
                   <a
                     href={KANNADOTSAVA_EVENT.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-blue hover:underline font-semibold flex items-center gap-1"
+                    className="text-sky-400 hover:text-white transition-colors flex items-center gap-1"
                   >
                     <span>kannadotsava.com</span>
                     <ExternalLink className="w-3 h-3" />
@@ -359,18 +363,17 @@ export default function EventsPage() {
       </section>
 
       {/* Call to Action for Kannadotsava Portal */}
-      <section className="py-16 md:py-20 bg-brand-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+      <section className="py-20 bg-[#050B14] text-white relative overflow-hidden">
         <Container size="default" className="relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30">
+            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30">
               <Globe className="w-3.5 h-3.5" />
               <span>Official Event Website: www.kannadotsava.com</span>
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
               Join the Celebration of Karnataka&apos;s Rich Heritage
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
               Visit the official web portal to learn more about upcoming cultural events, artist lineups, and participation opportunities at Kannadotsava.
             </p>
 
@@ -379,39 +382,37 @@ export default function EventsPage() {
                 href={KANNADOTSAVA_EVENT.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 <Globe className="w-4 h-4 text-slate-950" />
                 <span>Visit www.kannadotsava.com</span>
                 <ExternalLink className="w-4 h-4 text-slate-950" />
               </a>
-              <Button
-                variant="outline"
-                size="lg"
+              <Link
                 href="/contact"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
-                Contact New Link Technologies
-              </Button>
+                <span>Contact New Link Technologies</span>
+              </Link>
             </div>
 
-            <div className="pt-6 border-t border-slate-700/60 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300">
+            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[0].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-blue-300 transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-sky-400" />
                 <span>
                   {COMPANY_DETAILS.leadership.directors[0].name}:{" "}
                   {COMPANY_DETAILS.leadership.directors[0].phone}
                 </span>
               </a>
-              <span className="text-slate-600">•</span>
+              <span className="text-white/20">•</span>
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[1].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-blue-300 transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-sky-400" />
                 <span>
                   {COMPANY_DETAILS.leadership.directors[1].name}:{" "}
                   {COMPANY_DETAILS.leadership.directors[1].phone}
