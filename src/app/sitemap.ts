@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SERVICES_DATA } from "@/data/services";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.newlinktec.com";
   const now = new Date();
