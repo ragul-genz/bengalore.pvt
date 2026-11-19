@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   X,
@@ -75,7 +76,7 @@ export function Hero() {
     const introTimer = setTimeout(() => {
       setShowIntroLogo(false);
       triggerRapidMontage();
-    }, 1400);
+    }, 1600);
 
     return () => clearTimeout(introTimer);
   }, []);
@@ -176,57 +177,39 @@ export function Hero() {
             <div className="absolute w-[300px] h-[300px] rounded-full bg-sky-500/15 blur-[90px]" />
 
             <motion.div
-              initial={{ scale: 0.85, opacity: 0, y: 15 }}
+              initial={{ scale: 0.9, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex flex-col items-center text-center space-y-4 z-10"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative flex flex-col items-center text-center space-y-6 z-10 px-4"
             >
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#0B1F3A] to-[#1E3A8A] border border-blue-400/40 p-3 shadow-2xl shadow-blue-500/30 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 60 60"
-                  className="w-14 h-14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18 36 L42 20"
-                    stroke="#2563EB"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M18 20 L42 36"
-                    stroke="#FFFFFF"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeDasharray="1 5"
-                  />
-                  <circle cx="18" cy="36" r="6" fill="#2563EB" />
-                  <circle cx="18" cy="36" r="3" fill="#FFFFFF" />
-                  <circle cx="42" cy="20" r="6" fill="#38BDF8" />
-                  <circle cx="42" cy="20" r="3" fill="#FFFFFF" />
-                  <circle cx="18" cy="20" r="5" fill="#FFFFFF" />
-                  <circle cx="42" cy="36" r="5" fill="#38BDF8" />
-                </svg>
+              {/* Official Authentic New Link Technologies Logo in White Glass Capsule */}
+              <div className="relative px-8 py-5 sm:px-12 sm:py-6 rounded-3xl bg-white shadow-[0_0_60px_rgba(56,189,248,0.35)] border border-white/60 flex items-center justify-center">
+                <Image
+                  src="/logo/company-logo.png"
+                  alt="New Link Technologies Official Logo"
+                  width={280}
+                  height={80}
+                  priority
+                  className="h-12 sm:h-16 md:h-20 w-auto object-contain select-none"
+                />
               </div>
 
-              <div className="space-y-1">
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading text-white">
-                  NEW LINK <span className="text-blue-500">TECHNOLOGIES</span>
-                </h2>
-                <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest text-slate-400 uppercase">
+              {/* Sub-Brand Metadata */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono tracking-[0.25em] text-slate-300 uppercase font-semibold">
                   <span>Bangalore</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
                   <span>Connecting Values</span>
                 </div>
               </div>
 
-              <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mt-4">
+              {/* Sleek Progress Indicator Bar */}
+              <div className="w-56 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-2">
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="w-full h-full bg-gradient-to-r from-blue-500 via-sky-400 to-blue-600 origin-left"
+                  transition={{ duration: 1.4, ease: "easeInOut" }}
+                  className="w-full h-full bg-gradient-to-r from-blue-600 via-sky-400 to-blue-500 origin-left"
                 />
               </div>
             </motion.div>
