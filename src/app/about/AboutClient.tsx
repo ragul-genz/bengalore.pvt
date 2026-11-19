@@ -39,7 +39,7 @@ export function AboutClient() {
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-slate-300 text-xs font-mono uppercase tracking-[0.18em]"
               >
                 <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-                <span>ABOUT NEW LINK TECHNOLOGIES</span>
+                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
               </motion.div>
 
               <motion.h1
@@ -281,7 +281,7 @@ export function AboutClient() {
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 font-light max-w-2xl mx-auto leading-relaxed">
-              The Turnkey Collective, an enterprise engineering initiative by New Link, is our dedicated vertical focusing exclusively on mission-critical public sector and institutional deployments across Karnataka and nationwide.
+              The Turnkey Collective, an enterprise engineering initiative by New Link Technologies Bangalore Pvt. Ltd., is our dedicated vertical focusing exclusively on mission-critical public sector and institutional deployments across Karnataka and nationwide.
             </p>
           </div>
 
@@ -340,8 +340,8 @@ export function AboutClient() {
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] text-slate-300 font-bold">
-                ENGINEERED INFRASTRUCTURE • CONNECTING VALUES
+              <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-slate-300 font-bold">
+                ENGINEERED INFRASTRUCTURE • NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto font-light pt-2 leading-relaxed">

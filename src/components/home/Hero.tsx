@@ -186,7 +186,7 @@ export function Hero() {
               <div className="relative px-8 py-5 sm:px-12 sm:py-6 rounded-3xl bg-white shadow-[0_0_60px_rgba(56,189,248,0.35)] border border-white/60 flex items-center justify-center">
                 <Image
                   src="/logo/company-logo.png"
-                  alt="New Link Technologies Official Logo"
+                  alt="New Link Technologies Bangalore Pvt. Ltd."
                   width={280}
                   height={80}
                   priority
@@ -194,12 +194,15 @@ export function Hero() {
                 />
               </div>
 
-              {/* Sub-Brand Metadata */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono tracking-[0.25em] text-slate-300 uppercase font-semibold">
-                  <span>Bangalore</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              {/* Full Company Name */}
+              <div className="space-y-1.5 text-center">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white tracking-wide">
+                  New Link Technologies Bangalore Pvt. Ltd.
+                </h1>
+                <div className="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-sky-400 uppercase font-semibold">
                   <span>Connecting Values</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                  <span>Est. 2011</span>
                 </div>
               </div>
 

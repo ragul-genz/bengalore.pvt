@@ -175,16 +175,21 @@ export function Navbar() {
                   <div className="flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider font-bold text-sky-400">
                       <Sparkles className="w-3 h-3 text-sky-400" />
-                      <span>About New Link Technologies</span>
+                      <span>About Our Organization</span>
                     </span>
                     <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full">
                       EST. 2011
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Premier turnkey IT infrastructure integrator headquartered in Rajajinagar, Bangalore under Director M.G. Girish. We engineer modular data centres, 10Gbps campus optical fiber rings, and 220 kWp clean energy power plants for Karnataka&apos;s leading universities, PSUs, and defense establishments.
-                  </p>
+                  <div className="space-y-1">
+                    <h3 className="text-base sm:text-lg font-bold font-heading text-white tracking-tight">
+                      New Link Technologies Bangalore Pvt. Ltd.
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                      Premier turnkey IT infrastructure integrator headquartered in Rajajinagar, Bangalore under Director M.G. Girish. We engineer modular data centres, 10Gbps campus optical fiber rings, and 220 kWp clean energy power plants for Karnataka&apos;s leading universities, PSUs, and defense establishments.
+                    </p>
+                  </div>
 
                   {/* 3 Metric Pills */}
                   <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-xs">

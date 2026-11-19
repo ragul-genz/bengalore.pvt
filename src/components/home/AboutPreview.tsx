@@ -292,6 +292,16 @@ export function AboutPreview() {
                 <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
                 <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
               </div>
+
+              {/* Full Company Name Attestation */}
+              <div className="pt-2 text-center border-t border-slate-100 w-full mt-2">
+                <p className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-blue-700 font-bold">
+                  New Link Technologies Bangalore Pvt. Ltd.
+                </p>
+                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
+                  Connecting Values • Rajajinagar, Bangalore
+                </p>
+              </div>
             </motion.div>
 
             {/* ======================================================== */}

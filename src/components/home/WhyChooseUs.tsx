@@ -93,7 +93,7 @@ export function WhyChooseUs() {
             stagger={0.045}
             duration={0.52}
             text="Why Choose"
-            highlight="New Link Technologies?"
+            highlight="New Link Technologies Bangalore Pvt. Ltd.?"
             highlightClassName="text-sky-400 font-extrabold"
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.12]"
           />
