@@ -1,16 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ArrowRight,
-  Play,
-  Sparkles,
-  RotateCcw,
-  Volume2,
-  VolumeX,
-  Minimize2,
+  X,
 } from "lucide-react";
 import { Container, CINEMATIC_EASE } from "@/components/common";
 import { HeroCinemaReel, AUTHENTIC_PROJECT_REELS } from "./HeroCinemaReel";
@@ -20,33 +13,28 @@ import { cinematicAudio } from "@/lib/cinematicAudio";
 const ROTATING_HIGHLIGHT_WORDS = [
   {
     word: "DELIVER",
-    color: "#E2F13C", // High-voltage Lime/Yellow (exact match to screenshot highlight)
+    color: "#E2F13C", // High-voltage Lime/Yellow (exact match to reference screenshot)
     sublabel: "Tier-3 Modular Data Centres & Mission-Critical Infrastructure",
-    accent: "from-lime-300 to-yellow-400",
   },
   {
     word: "CONNECT",
     color: "#38BDF8", // Cyber Cyan
     sublabel: "10Gbps Multi-Building Inter-Campus Optical Fiber Rings",
-    accent: "from-cyan-300 to-sky-400",
   },
   {
     word: "EMPOWER",
     color: "#34D399", // Clean Energy Emerald
     sublabel: "220 kWp Institutional Rooftop Solar Photovoltaic Plants",
-    accent: "from-emerald-300 to-teal-400",
   },
   {
     word: "PROTECT",
     color: "#FB7185", // Brand Crimson Red
     sublabel: "24/7 Command & Control Room Surveillance Video Walls",
-    accent: "from-rose-400 to-red-500",
   },
   {
     word: "SCALE",
     color: "#60A5FA", // Electric Royal Blue
     sublabel: "High-Density Structured Cabling & Switching Matrices",
-    accent: "from-blue-400 to-indigo-400",
   },
 ];
 
@@ -63,7 +51,7 @@ export function Hero() {
   const wordCycleTimerRef = useRef<NodeJS.Timeout | null>(null);
   const montageTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 1. Rapid-Cut Kinetic Montage Engine ("apro images la fast ah vara matri pogtutha")
+  // 1. Rapid-Cut Kinetic Montage Engine
   const triggerRapidMontage = () => {
     if (montageTimerRef.current) clearInterval(montageTimerRef.current);
     setIsRapidMontage(true);
@@ -79,12 +67,11 @@ export function Hero() {
         if (montageTimerRef.current) clearInterval(montageTimerRef.current);
         setIsRapidMontage(false);
       }
-    }, 380); // Fast 380ms per authentic image strobe
+    }, 380);
   };
 
   // 2. Initial Brand Logo Reveal Intro Sequence ("avanga logo style ah vandhu")
   useEffect(() => {
-    // Show stylish logo reveal for 1.4s, then automatically run initial rapid-cut montage
     const introTimer = setTimeout(() => {
       setShowIntroLogo(false);
       triggerRapidMontage();
@@ -103,11 +90,11 @@ export function Hero() {
     return () => clearInterval(timer);
   }, [isRapidMontage, isHolding]);
 
-  // 4. Kinetic Word Cycle ("apro letter uh inta matri varutula")
+  // 4. Kinetic Word Cycle (Frames 00:00 - 00:05 in reference video)
   useEffect(() => {
     wordCycleTimerRef.current = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ROTATING_HIGHLIGHT_WORDS.length);
-    }, 2800); // 2.8s smooth flip matching Eventurox kinetic rhythm
+    }, 2400);
 
     return () => {
       if (wordCycleTimerRef.current) clearInterval(wordCycleTimerRef.current);
@@ -119,14 +106,14 @@ export function Hero() {
     setIsRapidMontage(false);
   };
 
-  // 5. Interactive "Tap & Hold to Play" Controller Engine (With Music & Video Cinema Mode)
+  // 5. Interactive "Tap & Hold to Play" Engine with Music (Frames 00:06 - 00:13)
   const startHold = () => {
     if (holdIntervalRef.current) clearInterval(holdIntervalRef.current);
     setIsHolding(true);
-    cinematicAudio.play(); // Start rich cinematic audio immediately on hold!
+    cinematicAudio.play();
 
     const startTime = Date.now();
-    const duration = 750; // 750ms hold to trigger full locked cinema mode
+    const duration = 700; // 700ms smooth hold
 
     holdIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -145,38 +132,35 @@ export function Hero() {
     if (holdIntervalRef.current) clearInterval(holdIntervalRef.current);
     setIsHolding(false);
 
-    // If released before 100% and not already in locked cinema mode, stop audio
     if (holdProgress < 100 && !isCinemaMode) {
       cinematicAudio.stop();
       setHoldProgress(0);
     }
   };
 
-  const toggleCinemaMode = (targetState?: boolean) => {
-    const nextState = targetState !== undefined ? targetState : !isCinemaMode;
-    setIsCinemaMode(nextState);
+  const exitCinemaMode = () => {
+    setIsCinemaMode(false);
+    setIsHolding(false);
+    setHoldProgress(0);
+    cinematicAudio.stop();
+  };
 
-    if (nextState) {
+  const toggleCinemaMode = () => {
+    if (isCinemaMode) {
+      exitCinemaMode();
+    } else {
+      setIsCinemaMode(true);
       cinematicAudio.play();
       setHoldProgress(100);
       triggerRapidMontage();
-    } else {
-      cinematicAudio.stop();
-      setHoldProgress(0);
-      setIsHolding(false);
     }
   };
-
-  // Circular progress SVG values
-  const radius = 18;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (holdProgress / 100) * circumference;
 
   const currentWord = ROTATING_HIGHLIGHT_WORDS[wordIndex];
   const isCinemaActive = isCinemaMode || isHolding;
 
   return (
-    <div className="relative bg-[#050B14] text-white overflow-hidden">
+    <div className="relative bg-black text-white overflow-hidden min-h-screen">
       {/* ======================================================== */}
       {/* BRAND INTRO REVEAL OVERLAY ("avanga logo style ah vandhu") */}
       {/* ======================================================== */}
@@ -188,7 +172,6 @@ export function Hero() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-50 bg-[#050B14] flex flex-col items-center justify-center pointer-events-none select-none"
           >
-            {/* Ambient Background Glow */}
             <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px]" />
             <div className="absolute w-[300px] h-[300px] rounded-full bg-rose-600/15 blur-[90px]" />
 
@@ -198,7 +181,6 @@ export function Hero() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative flex flex-col items-center text-center space-y-4 z-10"
             >
-              {/* Logo Emblem with 3 Connected Nodes */}
               <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#0B1F3A] to-[#1E3A8A] border border-blue-400/40 p-3 shadow-2xl shadow-blue-500/30 flex items-center justify-center">
                 <svg
                   viewBox="0 0 60 60"
@@ -228,7 +210,6 @@ export function Hero() {
                 </svg>
               </div>
 
-              {/* Brand Typography */}
               <div className="space-y-1">
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading text-white">
                   NEW LINK <span className="text-blue-500">TECHNOLOGIES</span>
@@ -240,7 +221,6 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Soundless Cinema Stinger Progress Indicator */}
               <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mt-4">
                 <motion.div
                   initial={{ scaleX: 0 }}
@@ -255,10 +235,10 @@ export function Hero() {
       </AnimatePresence>
 
       {/* ======================================================== */}
-      {/* 1. MAIN VIEWPORT CINEMA SECTION (HERO) */}
+      {/* MAIN VIEWPORT CINEMA SECTION (100% REPLICA OF REFERENCE) */}
       {/* ======================================================== */}
-      <section className="relative min-h-[92vh] lg:min-h-screen w-full flex flex-col justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-36 overflow-hidden">
-        {/* Background Cinema Showreel Engine (With Ken Burns, Rapid-Cut Strobe & Cinema Mode) */}
+      <section className="relative h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* Background Fullscreen Cinema Showreel */}
         <HeroCinemaReel
           currentIndex={currentSlide}
           onSelectIndex={handleSelectSlide}
@@ -269,239 +249,116 @@ export function Hero() {
         />
 
         {/* ======================================================== */}
-        {/* FLOATING "TAP & HOLD TO PLAY" CONTROLLER (MATCHES REFERENCE) */}
+        {/* "TAP & HOLD TO PLAY" CONTROLLER / MORPHS TO "X" IN CINEMA */}
+        {/* (Exact match to frames 00:00 - 00:13 of reference video) */}
         {/* ======================================================== */}
-        <div className="absolute top-20 sm:top-24 left-4 sm:left-8 lg:left-12 z-30 pointer-events-auto">
-          <div
-            onMouseDown={startHold}
-            onMouseUp={endHold}
-            onMouseLeave={endHold}
-            onTouchStart={startHold}
-            onTouchEnd={endHold}
-            onClick={() => toggleCinemaMode()}
-            role="button"
-            tabIndex={0}
-            className="group relative inline-flex items-center gap-3.5 px-4 py-2.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/25 hover:border-yellow-300 text-white shadow-2xl transition-all duration-300 cursor-pointer select-none"
-            title="Click or Tap & Hold to play cinematic showreel with audio"
-          >
-            {/* SVG Circular Progress Ring with Center Dot */}
-            <div className="relative w-9 h-9 flex items-center justify-center shrink-0">
-              <svg className="w-9 h-9 transform -rotate-90">
-                {/* Background Ring */}
-                <circle
-                  cx="18"
-                  cy="18"
-                  r={radius}
-                  stroke="rgba(255, 255, 255, 0.2)"
-                  strokeWidth="2.5"
-                  fill="rgba(0, 0, 0, 0.4)"
-                />
-                {/* Active Progress Ring */}
-                <circle
-                  cx="18"
-                  cy="18"
-                  r={radius}
-                  stroke="#E2F13C" // High-voltage Lime/Yellow
-                  strokeWidth="2.5"
-                  fill="transparent"
-                  strokeDasharray={circumference}
-                  strokeDashoffset={strokeDashoffset}
-                  strokeLinecap="round"
-                  className="transition-all duration-75"
-                />
-              </svg>
-
-              {/* Center Dot / Audio Icon (exact replica of Eventurox dot) */}
-              {isCinemaActive ? (
-                <Volume2 className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
-              ) : (
-                <span className="absolute w-2.5 h-2.5 rounded-full bg-white group-hover:scale-125 transition-transform shadow-xs shadow-white" />
-              )}
-            </div>
-
-            {/* Label */}
-            <div className="flex flex-col text-left pr-1">
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-white group-hover:text-yellow-200 transition-colors flex items-center gap-1.5">
-                {isCinemaMode
-                  ? "Playing Cinema with Sound"
-                  : isHolding
-                  ? `Holding Reel (${holdProgress}%)`
-                  : "Tap & Hold to Play"}
-                {isCinemaActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />}
-              </span>
-              <span className="text-[10px] text-slate-300 font-mono tracking-tight hidden sm:inline-block">
-                {isCinemaActive ? "Sound & 5 Authentic Sites Active" : "Hold for Music & Full Video"}
-              </span>
-            </div>
-
-            {/* Quick Replay Icon */}
-            <button
+        <div className="absolute top-20 sm:top-24 left-6 sm:left-10 lg:left-14 z-40 pointer-events-auto">
+          {isCinemaActive ? (
+            /* Close/Exit Circular Button with 'X' (Matches Frame 00:06-00:13) */
+            <motion.button
               type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleCinemaMode();
-              }}
-              className="p-1.5 rounded-full hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
-              title="Toggle Cinema Mode with Audio"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={exitCinemaMode}
+              className="w-12 h-12 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/40 hover:border-white text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
+              title="Exit Cinema Mode"
             >
-              {isCinemaActive ? (
-                <VolumeX className="w-3.5 h-3.5 text-rose-400" />
-              ) : (
-                <RotateCcw className="w-3.5 h-3.5 text-slate-300" />
-              )}
-            </button>
-          </div>
+              <X className="w-5 h-5 text-white" />
+            </motion.button>
+          ) : (
+            /* "Tap & Hold to Play" with white dot & progress ring (Frame 00:00-00:05) */
+            <div
+              onMouseDown={startHold}
+              onMouseUp={endHold}
+              onMouseLeave={endHold}
+              onTouchStart={startHold}
+              onTouchEnd={endHold}
+              onClick={toggleCinemaMode}
+              role="button"
+              tabIndex={0}
+              className="group relative inline-flex items-center gap-3.5 px-3 py-2 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 hover:border-white text-white shadow-2xl transition-all duration-300 cursor-pointer select-none"
+              title="Hold to play full video with music"
+            >
+              {/* SVG Circular Progress Ring */}
+              <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
+                <svg className="w-8 h-8 transform -rotate-90">
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r={14}
+                    stroke="rgba(255, 255, 255, 0.25)"
+                    strokeWidth="2"
+                    fill="rgba(0, 0, 0, 0.5)"
+                  />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r={14}
+                    stroke="#FFFFFF"
+                    strokeWidth="2"
+                    fill="transparent"
+                    strokeDasharray={2 * Math.PI * 14}
+                    strokeDashoffset={2 * Math.PI * 14 - (holdProgress / 100) * (2 * Math.PI * 14)}
+                    strokeLinecap="round"
+                    className="transition-all duration-75"
+                  />
+                </svg>
+
+                {/* White Center Dot */}
+                <span className="absolute w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform" />
+              </div>
+
+              {/* Label */}
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-white pr-2 whitespace-nowrap">
+                {holdProgress > 0 ? `Holding (${holdProgress}%)` : "Tap & Hold to Play"}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* ======================================================== */}
-        {/* FOREGROUND HERO TYPOGRAPHY (DISSOLVES IN CINEMA MODE) */}
+        {/* CENTER HERO TYPOGRAPHY (EXACT MATCH TO FRAMES 00:00 - 00:05) */}
+        {/* "COMMITED TO DREAM" -> "ENGINEERED TO DELIVER" */}
         {/* ======================================================== */}
-        <Container size="default" className="relative z-20">
+        <Container size="default" className="relative z-20 pointer-events-none">
           <motion.div
             animate={{
               opacity: isCinemaActive ? 0 : 1,
               y: isCinemaActive ? 40 : 0,
-              scale: isCinemaActive ? 0.96 : 1,
-              filter: isCinemaActive ? "blur(12px)" : "blur(0px)",
-              pointerEvents: isCinemaActive ? "none" : "auto",
+              scale: isCinemaActive ? 0.95 : 1,
+              filter: isCinemaActive ? "blur(14px)" : "blur(0px)",
             }}
             transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-            className="max-w-4xl flex flex-col space-y-6 sm:space-y-7 text-left"
+            className="flex flex-col items-center text-center space-y-3 sm:space-y-4 max-w-5xl mx-auto"
           >
-            {/* Eyebrow Pill with Dual Color Brand Accents */}
-            <motion.div
-              initial={{ opacity: 0, x: -20, filter: "blur(6px)" }}
-              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 w-fit shadow-xl"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-slate-200">
-                GOVERNMENT &amp; PSU COMPLIANT • TURNKEY IT &amp; ENGINEERING
-              </span>
-              <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-slate-500" />
-              <span className="hidden sm:inline-block text-[11px] font-semibold text-sky-400">
-                ISO 9001:2015 CERTIFIED
-              </span>
-            </motion.div>
+            {/* Big Main Title */}
+            <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-black tracking-tight text-white leading-none uppercase select-none drop-shadow-xl">
+              <span>ENGINEERED TO </span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWord.word}
+                  initial={{ opacity: 0, y: 30, rotateX: -60 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  exit={{ opacity: 0, y: -30, rotateX: 60 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block"
+                  style={{
+                    color: currentWord.color,
+                    textShadow: `0 0 40px ${currentWord.color}88, 0 0 80px ${currentWord.color}44`,
+                  }}
+                >
+                  {currentWord.word}
+                </motion.span>
+              </AnimatePresence>
+            </h1>
 
-            {/* Kinetic Main Heading (Exact Format: "ENGINEERED TO [WORD]") */}
-            <div className="space-y-3">
-              <motion.h1
-                initial={{ opacity: 0, y: 25, filter: "blur(12px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, delay: 0.2, ease: CINEMATIC_EASE }}
-                className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight text-white leading-[1.02] uppercase"
-              >
-                <span>ENGINEERED TO </span>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentWord.word}
-                    initial={{ opacity: 0, y: 35, rotateX: -60, filter: "blur(6px)" }}
-                    animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -35, rotateX: 60, filter: "blur(6px)" }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="inline-block transition-colors"
-                    style={{
-                      color: currentWord.color,
-                      textShadow: `0 0 40px ${currentWord.color}66, 0 0 80px ${currentWord.color}33`,
-                    }}
-                  >
-                    {currentWord.word}
-                  </motion.span>
-                </AnimatePresence>
-              </motion.h1>
-
-              {/* Sub-Tagline (Exact style of "Beyond experiences. Into impact") */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35, ease: CINEMATIC_EASE }}
-                className="text-lg sm:text-2xl md:text-3xl font-medium text-slate-100 tracking-tight"
-              >
-                Beyond infrastructure. <span className="text-white font-semibold">Into performance.</span>
-              </motion.p>
-            </div>
-
-            {/* Detailed Value Proposition Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.42, ease: CINEMATIC_EASE }}
-              className="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed"
-            >
-              Premier turnkey IT infrastructure integrator specializing in{" "}
-              <strong className="text-white font-semibold">modular data centres</strong>,{" "}
-              <strong className="text-white font-semibold">campus optical fiber networks</strong>,{" "}
-              <strong className="text-white font-semibold">220 kWp solar clean energy</strong>, and command room video walls for premier universities, PSUs, and modern enterprises.
-            </motion.p>
-
-            {/* Action Buttons & Fast Reel Controls */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: CINEMATIC_EASE }}
-              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2"
-            >
-              {/* Primary CTA Button (Electric Blue with Brand Glow) */}
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
-              >
-                <span>Explore Turnkey Solutions</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              {/* Secondary Profile Link (Glassmorphic) */}
-              <Link
-                href="/documents/New-Link-Company-Profile.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm backdrop-blur-md hover:border-white/40 transition-all duration-200"
-              >
-                <span className="w-5 h-5 rounded-full bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                </span>
-                <span>Corporate Profile</span>
-              </Link>
-
-              {/* Quick Cinema Mode Trigger Button */}
-              <button
-                type="button"
-                onClick={() => toggleCinemaMode()}
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 font-semibold text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer"
-                title="Play Cinema Showreel with Music"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-                <span>Play Cinema Reel</span>
-              </button>
-            </motion.div>
+            {/* Subtitle matching "Beyond experiences. Into impact" */}
+            <p className="text-lg sm:text-2xl md:text-3xl font-medium text-white/95 tracking-tight drop-shadow-md select-none">
+              Beyond infrastructure. <span className="font-bold text-white">Into performance</span>
+            </p>
           </motion.div>
         </Container>
-
-        {/* ======================================================== */}
-        {/* FLOATING "EXIT CINEMA" BUTTON (VISIBLE IN LOCKED CINEMA MODE) */}
-        {/* ======================================================== */}
-        <AnimatePresence>
-          {isCinemaMode && (
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 25 }}
-              transition={{ duration: 0.35 }}
-              className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
-            >
-              <button
-                type="button"
-                onClick={() => toggleCinemaMode(false)}
-                className="flex items-center gap-2.5 px-6 py-3 rounded-full bg-black/85 hover:bg-black backdrop-blur-md border border-white/30 hover:border-white text-white font-mono text-xs uppercase tracking-wider shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
-              >
-                <Minimize2 className="w-4 h-4 text-rose-400" />
-                <span>Exit Fullscreen Cinema Mode</span>
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </section>
     </div>
   );
