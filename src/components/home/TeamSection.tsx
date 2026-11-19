@@ -52,9 +52,9 @@ export function TeamSection() {
         <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] [background-size:24px_24px]" />
       </div>
 
-      <Container size="default" className="relative z-10 space-y-16">
+      <Container size="default" className="relative z-10 space-y-20">
         {/* ======================================================== */}
-        {/* SECTION HEADER MATCHING "Humans of EUR" EXACT STYLE */}
+        {/* 1. SECTION HEADER MATCHING "Humans of EUR" EXACT STYLE */}
         {/* ======================================================== */}
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <motion.h2
@@ -79,7 +79,7 @@ export function TeamSection() {
         </div>
 
         {/* ======================================================== */}
-        {/* 2-COLUMN LEADERSHIP CARDS (EVENTUROX STYLE) */}
+        {/* 2. 2-COLUMN LEADERSHIP CARDS (EVENTUROX STYLE) */}
         {/* Grayscale on Normal -> Crimson Red Accent on Hover */}
         {/* ======================================================== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
@@ -117,6 +117,52 @@ export function TeamSection() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* ======================================================== */}
+        {/* 3. "THE EVENT U ROX TRIBE" -> "THE NEW LINK ENGINEERING TRIBE" */}
+        {/* Full-Width Interactive Photo: Grayscale -> Color on Hover */}
+        {/* (Exact match to frames 00:01, 00:04, 00:08 in reference video) */}
+        {/* ======================================================== */}
+        <div className="space-y-6 pt-6">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <h3 className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight">
+              The New Link Engineering Tribe
+            </h3>
+            <p className="text-sm sm:text-base text-slate-600 font-light max-w-xl mx-auto">
+              15+ years. 100+ deployments. A precision-led powerhouse who ensures every turnkey project runs smoother than clockwork.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.7, ease: CINEMATIC_EASE }}
+            className="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 h-[360px] sm:h-[480px] lg:h-[560px] cursor-pointer"
+          >
+            {/* Authentic Team Handover Photo (Grayscale -> Full Color on Hover) */}
+            <Image
+              src="/clients/photos/naac-solar-leadership.jpg"
+              alt="The New Link Engineering Team on-site"
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+            />
+
+            {/* Subtle Gradient Vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
+
+            {/* Bottom Caption Pill */}
+            <div className="absolute bottom-6 left-6 right-6 z-20 flex items-center justify-between text-white">
+              <span className="text-xs sm:text-sm font-mono uppercase tracking-wider font-bold bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                Turnkey Engineering Directorate • Bengaluru
+              </span>
+              <span className="text-xs font-mono text-white/80 hidden sm:inline-block">
+                Hover to see full color
+              </span>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

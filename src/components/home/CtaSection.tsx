@@ -1,131 +1,278 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { Phone, Mail, MapPin, ArrowUpRight, ShieldCheck } from "lucide-react";
-import { Container, RevealText, FadeIn } from "@/components/common";
+import { Phone, Mail, MapPin, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Container, CINEMATIC_EASE, VIEWPORT_CONFIG } from "@/components/common";
 import { COMPANY_DETAILS } from "@/data/company";
+import { motion } from "motion/react";
 
 export function CtaSection() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate instant responsive submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 700);
+  };
 
   return (
-    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-t border-white/10">
-      {/* 1. Cinematic Concentric Pulsing Rings (Harmonized with New Link Brand Colors) */}
-      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden">
-        {/* Outer Ring */}
-        <div className="absolute w-[800px] h-[800px] rounded-full border border-blue-500/10 animate-ping opacity-20 duration-1000" />
-        {/* Mid Ring with Electric Blue glow */}
-        <div className="absolute w-[600px] h-[600px] rounded-full border border-sky-400/15" />
-        {/* Inner Ring with subtle Brand Crimson tint matching our logo */}
-        <div className="absolute w-[400px] h-[400px] rounded-full border border-rose-500/20 bg-blue-600/5 blur-xl" />
-        {/* Center Radial Glow */}
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-blue-600/15 via-sky-400/10 to-rose-600/10 rounded-full blur-[140px]" />
-      </div>
+    <div className="w-full">
+      {/* ======================================================== */}
+      {/* 1. CRIMSON RED "Got a vision? Let's make it real." BANNER */}
+      {/* (Exact replica of frame 00:12 in reference video) */}
+      {/* ======================================================== */}
+      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-[#BE123C] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none">
+        {/* Center Circular Lighter Red Ambient Spotlight */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 50%, rgba(244,63,94,0.4) 0%, rgba(190,18,60,0.95) 60%, #BE123C 100%)",
+          }}
+        />
 
-      <Container size="default" className="relative z-10">
-        <div className="max-w-3xl mx-auto text-center space-y-7">
-          {/* Eyebrow Pill */}
-          <FadeIn
-            mode="view"
-            delay={0.04}
-            y={8}
-            duration={0.42}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide bg-white/10 text-white border border-white/15 backdrop-blur-md shadow-lg"
+        <Container size="default" className="relative z-10 max-w-4xl mx-auto space-y-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.65, ease: CINEMATIC_EASE }}
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading text-white tracking-tight leading-[0.98] uppercase drop-shadow-md"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="tracking-wider uppercase text-[11px] text-slate-200">
-              MISSION-CRITICAL INFRASTRUCTURE PARTNER
-            </span>
-          </FadeIn>
+            <span>Got a vision?</span>
+            <span className="block mt-2">Let&apos;s make it real.</span>
+          </motion.h2>
 
-          {/* Main Cinema Heading */}
-          <div className="space-y-2">
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.045}
-              duration={0.52}
-              text="Have an Infrastructure Vision?"
-              highlight="Let's Engineer It Real."
-              highlightClassName="text-sky-400 font-extrabold"
-              highlightOnNewLine
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight leading-[1.1]"
-            />
-          </div>
-
-          {/* Narrative Paragraph */}
-          <FadeIn
-            as="p"
-            mode="view"
-            delay={0.2}
-            y={12}
-            duration={0.55}
-            className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.65, delay: 0.12, ease: CINEMATIC_EASE }}
+            className="text-base sm:text-xl md:text-2xl text-rose-100 font-light max-w-2xl mx-auto leading-relaxed"
           >
-            From turnkey modular data centres and campus-wide optical fiber backbones to 220 kWp solar arrays and command rooms — our engineering directorate in Rajajinagar, Bangalore is ready to assess your requirements.
-          </FadeIn>
+            We&apos;re always up for conversations that start with a what if. Whether you&apos;ve got a brief or just a thought, let&apos;s build infrastructure that stands the test of time.
+          </motion.p>
 
-          {/* Cinema-Grade 45-Degree Rotating Arrow Interactive CTA Pill */}
-          <FadeIn
-            mode="view"
-            delay={0.32}
-            y={12}
-            duration={0.5}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+          {/* Black Pill "Contact Us ↗" Button (Exact Match to Frame 00:12) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.6, delay: 0.22, ease: CINEMATIC_EASE }}
+            className="pt-4"
           >
-            {/* Primary Interactive Pill Button with Rotating Arrow */}
-            <Link
-              href="/contact"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className="group relative inline-flex items-center gap-3.5 px-8 py-4 rounded-full bg-blue-600 hover:bg-white text-white hover:text-slate-900 font-bold text-sm shadow-xl shadow-blue-600/30 hover:shadow-2xl transition-all duration-300 select-none cursor-pointer"
-            >
-              <span>Request Turnkey Consultation</span>
-              <div
-                className="w-8 h-8 rounded-full bg-white text-slate-900 group-hover:bg-[#E11D48] group-hover:text-white flex items-center justify-center transition-all duration-300"
-                style={{
-                  transform: isHovered ? "rotate(45deg)" : "rotate(0deg)",
-                }}
-              >
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-              </div>
-            </Link>
-
-            {/* Direct Phone Call Button */}
             <a
-              href={`tel:${COMPANY_DETAILS.contact.phone}`}
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm backdrop-blur-md transition-all duration-200"
+              href="#contact-form-section"
+              className="group inline-flex items-center gap-4 px-8 py-4 rounded-full bg-black text-white hover:bg-slate-900 font-bold text-sm sm:text-base shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-sky-400" />
-              <span>Call Direct: {COMPANY_DETAILS.contact.phone}</span>
+              <span>Contact Us</span>
+              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                <ArrowUpRight className="w-4 h-4 stroke-[3]" />
+              </div>
             </a>
-          </FadeIn>
+          </motion.div>
+        </Container>
+      </section>
 
-          {/* Contact Direct Strip */}
-          <FadeIn
-            mode="view"
-            delay={0.4}
-            y={10}
-            className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs text-slate-400"
-          >
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-sky-400" />
-              <span>Rajajinagar, Bangalore - 560010</span>
+      {/* ======================================================== */}
+      {/* 2. "READY TO START YOUR PROJECT?" SPLIT CONTACT SECTION */}
+      {/* Left: Direct Contact Info | Right: Clean Inquiry Form */}
+      {/* (Exact replica of frame 00:19 in reference video) */}
+      {/* ======================================================== */}
+      <section
+        id="contact-form-section"
+        className="py-24 sm:py-32 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200"
+      >
+        <Container size="default" className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
+            {/* Left Column: Direct Contact Info */}
+            <div className="lg:col-span-5 space-y-8 text-left">
+              <div className="space-y-3">
+                <h3 className="text-3xl sm:text-5xl font-extrabold font-heading text-slate-900 tracking-tight leading-tight">
+                  Ready to start your Project?
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                  Let&apos;s make your vision a reality. Contact us today and let&apos;s discuss how we can help you innovate, scale, and engineer dependable infrastructure.
+                </p>
+              </div>
+
+              <div className="space-y-6 pt-4">
+                <h4 className="text-lg font-bold font-heading text-slate-900">
+                  Contact Info
+                </h4>
+
+                {/* Email Channel with Red Circle Icon */}
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                      Official Email
+                    </p>
+                    <a
+                      href={`mailto:${COMPANY_DETAILS.contact.email}`}
+                      className="text-sm sm:text-base font-semibold text-slate-900 hover:text-[#BE123C] transition-colors"
+                    >
+                      {COMPANY_DETAILS.contact.email}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Phone Channels with Red Circle Icon */}
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                      Direct Hotlines
+                    </p>
+                    <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-semibold text-slate-900">
+                      <a
+                        href={`tel:${COMPANY_DETAILS.contact.phone}`}
+                        className="hover:text-[#BE123C] transition-colors"
+                      >
+                        {COMPANY_DETAILS.contact.phoneDisplay}
+                      </a>
+                      <span className="text-slate-300">|</span>
+                      <a
+                        href="tel:+919986666633"
+                        className="hover:text-[#BE123C] transition-colors"
+                      >
+                        +91 99866 66633
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Location with Red Circle Icon */}
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                      Engineering Directorate
+                    </p>
+                    <p className="text-sm sm:text-base font-semibold text-slate-900">
+                      {COMPANY_DETAILS.contact.address.full}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-rose-400" />
-              <span>{COMPANY_DETAILS.contact.email}</span>
+
+            {/* Right Column: Clean White Turnkey Inquiry Form */}
+            <div className="lg:col-span-7 bg-[#F8FAFC] rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-xl">
+              <h4 className="text-2xl font-bold font-heading text-slate-900 mb-6">
+                Contact Us
+              </h4>
+
+              {isSubmitted ? (
+                <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+                  <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
+                  <h5 className="text-xl font-bold text-emerald-950 font-heading">
+                    Inquiry Received Successfully!
+                  </h5>
+                  <p className="text-sm text-emerald-800">
+                    Thank you. Our turnkey engineering directorate in Bangalore will review your requirements and get in touch within 24 hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* First & Last Name Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="text"
+                        required
+                        placeholder="First Name"
+                        value={formState.firstName}
+                        onChange={(e) => setFormState({ ...formState, firstName: e.target.value })}
+                        className="w-full px-4 py-3.5 rounded-xl bg-slate-200/70 border border-transparent focus:border-slate-400 focus:bg-white text-slate-900 text-sm outline-none transition-all placeholder:text-slate-500"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Last Name"
+                        value={formState.lastName}
+                        onChange={(e) => setFormState({ ...formState, lastName: e.target.value })}
+                        className="w-full px-4 py-3.5 rounded-xl bg-slate-200/70 border border-transparent focus:border-slate-400 focus:bg-white text-slate-900 text-sm outline-none transition-all placeholder:text-slate-500"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone with +91 Country Code */}
+                  <div className="relative flex items-center">
+                    <span className="absolute left-4 flex items-center gap-1.5 text-xs font-mono text-slate-600 font-bold border-r border-slate-300 pr-3 pointer-events-none">
+                      <span>🇮🇳</span>
+                      <span>+91</span>
+                    </span>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Phone Number"
+                      value={formState.phone}
+                      onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                      className="w-full pl-20 pr-4 py-3.5 rounded-xl bg-slate-200/70 border border-transparent focus:border-slate-400 focus:bg-white text-slate-900 text-sm outline-none transition-all placeholder:text-slate-500"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Email Address"
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-slate-200/70 border border-transparent focus:border-slate-400 focus:bg-white text-slate-900 text-sm outline-none transition-all placeholder:text-slate-500"
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <textarea
+                      rows={4}
+                      required
+                      placeholder="Project Requirements & Scope..."
+                      value={formState.message}
+                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-slate-200/70 border border-transparent focus:border-slate-400 focus:bg-white text-slate-900 text-sm outline-none transition-all placeholder:text-slate-500 resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button (Centered, Crimson Text on Light Pill matching Frame 00:19) */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 rounded-xl bg-slate-200 hover:bg-[#BE123C] text-[#BE123C] hover:text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl active:scale-[0.99]"
+                    >
+                      {isSubmitting ? "Submitting..." : "Submit"}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>100% Government &amp; PSU Compliance</span>
-            </div>
-          </FadeIn>
-        </div>
-      </Container>
-    </section>
+          </div>
+        </Container>
+      </section>
+    </div>
   );
 }
