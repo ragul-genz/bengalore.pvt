@@ -102,7 +102,7 @@ export function Services() {
       {/* Background Ambient Spotlights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute right-1/4 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute left-10 bottom-10 w-[450px] h-[450px] bg-[#DC2626]/10 rounded-full blur-[130px]" />
+        <div className="absolute left-10 bottom-10 w-[450px] h-[450px] bg-sky-500/10 rounded-full blur-[130px]" />
       </div>
 
       <Container size="default" className="relative z-10 space-y-14 sm:space-y-16">
@@ -161,7 +161,7 @@ export function Services() {
                           {service.title}
                         </h3>
                         <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                          isActive ? "translate-x-1 text-[#DC2626]" : "opacity-0 group-hover:opacity-100 text-slate-400"
+                          isActive ? "translate-x-1 text-sky-400" : "opacity-0 group-hover:opacity-100 text-slate-400"
                         }`} />
                       </div>
 
@@ -237,7 +237,7 @@ export function Services() {
                   <div className="pt-1">
                     <Link
                       href={`/services/${activeService.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs sm:text-sm font-semibold shadow-lg shadow-red-950/40 transition-all duration-200 group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-950/40 transition-all duration-200 group/btn"
                     >
                       <span>Explore Technical Architecture</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

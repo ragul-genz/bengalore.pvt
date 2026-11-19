@@ -173,7 +173,7 @@ export function Hero() {
             className="fixed inset-0 z-50 bg-[#050B14] flex flex-col items-center justify-center pointer-events-none select-none"
           >
             <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px]" />
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-[#DC2626]/15 blur-[90px]" />
+            <div className="absolute w-[300px] h-[300px] rounded-full bg-sky-500/15 blur-[90px]" />
 
             <motion.div
               initial={{ scale: 0.85, opacity: 0, y: 15 }}
@@ -206,7 +206,7 @@ export function Hero() {
                   <circle cx="42" cy="20" r="6" fill="#38BDF8" />
                   <circle cx="42" cy="20" r="3" fill="#FFFFFF" />
                   <circle cx="18" cy="20" r="5" fill="#FFFFFF" />
-                  <circle cx="42" cy="36" r="5" fill="#DC2626" />
+                  <circle cx="42" cy="36" r="5" fill="#38BDF8" />
                 </svg>
               </div>
 
@@ -226,7 +226,7 @@ export function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="w-full h-full bg-gradient-to-r from-blue-500 via-sky-400 to-[#DC2626] origin-left"
+                  className="w-full h-full bg-gradient-to-r from-blue-500 via-sky-400 to-blue-600 origin-left"
                 />
               </div>
             </motion.div>

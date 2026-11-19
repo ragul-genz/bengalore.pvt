@@ -48,7 +48,7 @@ export const AUTHENTIC_PROJECT_REELS: ProjectReelItem[] = [
     metrics: "Ultra-Narrow Bezel • 24/7 Mission-Critical Monitoring",
     image: "/projects/project-command-room-video-wall.png",
     icon: Monitor,
-    accentColor: "#DC2626", // Brand Red
+    accentColor: "#2563EB", // Corporate Blue
   },
   {
     id: "cabling",

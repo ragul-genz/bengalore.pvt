@@ -16,7 +16,7 @@ import { COMPANY_DETAILS } from "@/data/company";
 
 export function AboutClient() {
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-[#DC2626] selection:text-white">
+    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white">
       {/* ======================================================== */}
       {/* 1. HERO & PURPOSE SECTION (EVENTUROX 1:1 REPLICA) */}
       {/* Frames 00:00 - 00:02: Purpose on Left, Photo Mosaic on Right */}
@@ -24,8 +24,8 @@ export function AboutClient() {
       <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-white/10">
         {/* Ambient Cyber Spotlight */}
         <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-[#DC2626]/10 rounded-full blur-[160px]" />
-          <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px]" />
+          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px]" />
+          <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px]" />
         </div>
 
         <Container size="default" className="relative z-10">
@@ -38,7 +38,7 @@ export function AboutClient() {
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-slate-300 text-xs font-mono uppercase tracking-[0.18em]"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
                 <span>ABOUT NEW LINK TECHNOLOGIES</span>
               </motion.div>
 
@@ -49,7 +49,7 @@ export function AboutClient() {
                 className="text-3xl sm:text-5xl md:text-6xl font-black font-heading text-white tracking-tight leading-[1.08]"
               >
                 Engineered with Purpose.{" "}
-                <span className="text-[#DC2626]">Driven by Values.</span>
+                <span className="text-sky-400">Driven by Values.</span>
               </motion.h1>
 
               <motion.div
@@ -77,7 +77,7 @@ export function AboutClient() {
                   <span>ISO 9001:2015 CERTIFIED</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-[#DC2626]" />
+                  <span className="w-2 h-2 rounded-full bg-sky-400" />
                   <span>FOUNDED IN 2011 • BANGALORE</span>
                 </div>
               </motion.div>
@@ -201,7 +201,7 @@ export function AboutClient() {
                 <h4 className="text-xl sm:text-2xl font-black font-heading text-slate-900">
                   M.G. Girish
                 </h4>
-                <p className="text-xs sm:text-sm font-mono font-bold text-[#DC2626] uppercase tracking-wider">
+                <p className="text-xs sm:text-sm font-mono font-bold text-blue-600 uppercase tracking-wider">
                   Founder &amp; Managing Director
                 </p>
                 <p className="text-xs text-slate-500 font-mono">
@@ -224,7 +224,7 @@ export function AboutClient() {
                   className="absolute inset-0 opacity-40 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(circle at center, rgba(220,38,38,0.15) 0%, transparent 70%), repeating-conic-gradient(from 0deg, rgba(255,255,255,0.03) 0deg 15deg, transparent 15deg 30deg)",
+                      "radial-gradient(circle at center, rgba(37,99,235,0.15) 0%, transparent 70%), repeating-conic-gradient(from 0deg, rgba(255,255,255,0.03) 0deg 15deg, transparent 15deg 30deg)",
                   }}
                 />
 
@@ -246,7 +246,7 @@ export function AboutClient() {
                   <p className="font-heading font-black text-xl sm:text-2xl tracking-tight text-white">
                     M.G. Girish
                   </p>
-                  <p className="text-xs font-mono uppercase tracking-widest text-[#DC2626] font-bold">
+                  <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
                     Founder &amp; Managing Director
                   </p>
                   <p className="text-[11px] text-slate-400 font-mono">
@@ -276,7 +276,7 @@ export function AboutClient() {
               The Turnkey Collective
             </motion.h2>
 
-            <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-[#DC2626] font-bold">
+            <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-blue-600 font-bold">
               DATA CENTRES | OPTICAL FIBER | ACTIVE NETWORKING | CLEAN SOLAR ENERGY
             </p>
 
@@ -295,7 +295,7 @@ export function AboutClient() {
           >
             {/* Ambient High-Tech Cyber Grid & Laser Beams */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-48 bg-[#DC2626]/15 rounded-full blur-[100px]" />
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-48 bg-blue-600/15 rounded-full blur-[100px]" />
               <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
 
               {/* High-Speed Optical Fiber Light Beam Animation (Matching Plane Zoom) */}
@@ -303,7 +303,7 @@ export function AboutClient() {
                 <svg viewBox="0 0 800 300" className="w-full h-full" fill="none">
                   <path
                     d="M 50 250 L 350 150 L 750 50"
-                    stroke="rgba(220, 38, 38, 0.4)"
+                    stroke="rgba(37, 99, 235, 0.4)"
                     strokeWidth="2"
                     strokeDasharray="8 8"
                   />
@@ -313,7 +313,7 @@ export function AboutClient() {
                     strokeWidth="2"
                     strokeDasharray="8 8"
                   />
-                  <circle cx="400" cy="150" r="80" stroke="rgba(220, 38, 38, 0.2)" strokeWidth="1" />
+                  <circle cx="400" cy="150" r="80" stroke="rgba(37, 99, 235, 0.2)" strokeWidth="1" />
                   <circle cx="400" cy="150" r="130" stroke="rgba(56, 189, 248, 0.15)" strokeWidth="1" strokeDasharray="4 4" />
                 </svg>
               </div>
@@ -325,17 +325,17 @@ export function AboutClient() {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>STATEWIDE MISSION-CRITICAL DEPLOYMENTS</span>
               </span>
-              <span className="text-[#DC2626] font-bold">EPC GRADE</span>
+              <span className="text-sky-400 font-bold">EPC GRADE</span>
             </div>
 
             {/* Central Iconic Badge */}
             <div className="relative z-10 my-auto py-8 flex flex-col items-center space-y-4">
               <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
                 <span className="font-heading font-black text-3xl sm:text-6xl md:text-7xl tracking-tighter text-white uppercase drop-shadow-xl">
-                  NEW<span className="text-[#DC2626]">LINK</span>
+                  NEW<span className="text-sky-400">LINK</span>
                 </span>
                 <span className="text-white/30 text-2xl sm:text-5xl font-light">|</span>
-                <span className="font-heading font-black text-2xl sm:text-5xl md:text-6xl tracking-tight text-[#DC2626] uppercase drop-shadow-xl">
+                <span className="font-heading font-black text-2xl sm:text-5xl md:text-6xl tracking-tight text-blue-500 uppercase drop-shadow-xl">
                   COLLECTIVE
                 </span>
               </div>
@@ -395,9 +395,9 @@ export function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: CINEMATIC_EASE }}
-                className="group bg-[#0A1220] rounded-3xl p-6 sm:p-7 border border-white/10 shadow-xl hover:border-red-500/40 transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
+                className="group bg-[#0A1220] rounded-3xl p-6 sm:p-7 border border-white/10 shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
               >
-                <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-900 group-hover:bg-[#DC2626] transition-colors duration-500 shadow-md">
+                <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-900 group-hover:bg-blue-600 transition-colors duration-500 shadow-md">
                   <Image
                     src={director.image}
                     alt={director.name}
@@ -408,7 +408,7 @@ export function AboutClient() {
                 </div>
 
                 <div className="flex-1 text-center sm:text-left space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-[#DC2626] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-sky-400 transition-colors">
                     {director.name}
                   </h3>
                   <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">
@@ -466,9 +466,9 @@ export function AboutClient() {
       {/* 6. CORPORATE CTA BANNER & INQUIRY */}
       {/* ======================================================== */}
       <section className="relative overflow-hidden">
-        {/* Full-Bleed Corporate Navy & Red Accent Banner */}
+        {/* Full-Bleed Corporate Navy Banner */}
         <div className="w-full bg-gradient-to-br from-[#08162B] via-[#0B254E] to-[#0A192F] text-white py-20 sm:py-28 px-6 sm:px-12 text-center relative overflow-hidden border-t border-white/10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.18)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.18)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight leading-tight">
@@ -480,7 +480,7 @@ export function AboutClient() {
             <div className="pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm uppercase tracking-wider shadow-2xl shadow-red-950/50 transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm uppercase tracking-wider shadow-2xl shadow-blue-950/50 transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
@@ -494,7 +494,7 @@ export function AboutClient() {
           <Container size="default">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center sm:text-left">
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-[#0A1220] border border-white/10">
-                <div className="w-11 h-11 rounded-full bg-[#DC2626] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -506,7 +506,7 @@ export function AboutClient() {
               </div>
 
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-[#0A1220] border border-white/10">
-                <div className="w-11 h-11 rounded-full bg-[#DC2626] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -518,7 +518,7 @@ export function AboutClient() {
               </div>
 
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-[#0A1220] border border-white/10">
-                <div className="w-11 h-11 rounded-full bg-[#DC2626] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>

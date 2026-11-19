@@ -109,7 +109,7 @@ export function ProjectsPreview() {
       {/* Background Ambient Spotlight */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute left-1/2 -top-24 -translate-x-1/2 w-[700px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute right-10 bottom-10 w-96 h-96 bg-[#DC2626]/10 rounded-full blur-[120px]" />
+        <div className="absolute right-10 bottom-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px]" />
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:28px_28px] opacity-40" />
       </div>
 
@@ -298,7 +298,7 @@ export function ProjectsPreview() {
               onClick={() => setActiveIndex(idx)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 idx === activeIndex
-                  ? "w-8 bg-[#DC2626]"
+                  ? "w-8 bg-blue-500"
                   : "w-2 bg-white/30 hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${idx + 1}`}

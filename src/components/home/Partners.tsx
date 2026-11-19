@@ -95,7 +95,7 @@ export function Partners() {
                 className="p-6 rounded-2xl border border-white/15 bg-slate-900/80 backdrop-blur-md shadow-xl hover:-translate-y-1.5 hover:border-sky-400 hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Top Subtle Brand Ribbon */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-[#DC2626] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div className="space-y-4">
                   {partner.logo ? (

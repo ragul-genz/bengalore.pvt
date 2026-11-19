@@ -28,15 +28,15 @@ const BULB_COLOR_THEMES = [
     badgeBg: "bg-white/20 text-white",
   },
   {
-    id: "newlink-red",
-    name: "New Link Brand Red",
-    bgClass: "bg-[#DC2626]", // New Link Official Rich Red
-    accentColor: "#F87171",
-    glowColor: "rgba(220, 38, 38, 0.5)",
-    taglineColor: "text-red-100",
-    cardBg: "bg-[#DC2626]",
-    cardBorder: "border-[#B91C1C]",
-    badgeBg: "bg-black/20 text-white",
+    id: "sapphire-blue",
+    name: "Enterprise Sapphire Blue",
+    bgClass: "bg-[#0F2C59]", // Deep enterprise sapphire
+    accentColor: "#60A5FA",
+    glowColor: "rgba(59, 130, 246, 0.5)",
+    taglineColor: "text-blue-100",
+    cardBg: "bg-[#0F2C59]",
+    cardBorder: "border-[#1D4ED8]",
+    badgeBg: "bg-white/20 text-white",
   },
   {
     id: "cyber-cyan",
@@ -188,7 +188,7 @@ export function AboutPreview() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-6xl mx-auto">
             {/* ======================================================== */}
-            {/* LEFT COLUMN: 2 Stacked Red Cards (4 cols) */}
+            {/* LEFT COLUMN: 2 Stacked Corporate Navy Cards (4 cols) */}
             {/* ======================================================== */}
             <div className="lg:col-span-4 flex flex-col gap-6">
               {/* Card 1: 15+ Years of Engineering Heritage */}
@@ -197,7 +197,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frame 00:02) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -211,7 +211,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
                   15+
                 </div>
                 <div className="relative z-10 space-y-1">
@@ -230,7 +230,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05 - 00:06) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -244,7 +244,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
                   75+
                 </div>
                 <div className="relative z-10 space-y-1">
@@ -269,10 +269,10 @@ export function AboutPreview() {
               transition={{ duration: 0.6, delay: 0.12, ease: CINEMATIC_EASE }}
               className="lg:col-span-4 rounded-3xl p-6 sm:p-12 bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl flex flex-col justify-between items-center text-center relative overflow-hidden"
             >
-              {/* Top Quotation Mark (Two Slanted Red Marks matching video) */}
-              <div className="flex gap-1.5 justify-center text-[#DC2626] select-none pt-2">
-                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
-                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
+              {/* Top Quotation Mark (Two Slanted Blue Marks matching clean corporate style) */}
+              <div className="flex gap-1.5 justify-center text-blue-600 select-none pt-2">
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
               </div>
 
               {/* Center Text (Clean & spacious matching video) */}
@@ -287,15 +287,15 @@ export function AboutPreview() {
                 </p>
               </div>
 
-              {/* Bottom Quotation Mark (Two Slanted Red Marks matching video) */}
-              <div className="flex gap-1.5 justify-center text-[#DC2626] select-none pb-2">
-                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
-                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
+              {/* Bottom Quotation Mark (Two Slanted Blue Marks matching clean corporate style) */}
+              <div className="flex gap-1.5 justify-center text-blue-600 select-none pb-2">
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-blue-600 rounded-xs -skew-x-12 inline-block" />
               </div>
             </motion.div>
 
             {/* ======================================================== */}
-            {/* RIGHT COLUMN: 2 Stacked Red Cards (4 cols) */}
+            {/* RIGHT COLUMN: 2 Stacked Corporate Navy Cards (4 cols) */}
             {/* ======================================================== */}
             <div className="lg:col-span-4 flex flex-col gap-6">
               {/* Card 3: 220 kWp Clean Solar Energy Deployed */}
@@ -304,7 +304,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:03 - 00:04) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -318,9 +318,9 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight flex items-baseline">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight flex items-baseline text-white group-hover:text-sky-300 transition-colors">
                   <span>220</span>
-                  <span className="text-2xl sm:text-3xl ml-1 font-mono font-bold opacity-90">kWp</span>
+                  <span className="text-2xl sm:text-3xl ml-1 font-mono font-bold text-sky-400">kWp</span>
                 </div>
                 <div className="relative z-10 space-y-1">
                   <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
@@ -338,7 +338,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -352,7 +352,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
                   99.98%
                 </div>
                 <div className="relative z-10 space-y-1">
@@ -371,7 +371,7 @@ export function AboutPreview() {
           <div className="flex justify-center pt-12">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-semibold text-xs sm:text-sm shadow-xl shadow-red-900/25 transition-all duration-200 group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-blue-900/30 transition-all duration-200 group hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>Explore Comprehensive Corporate Profile</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

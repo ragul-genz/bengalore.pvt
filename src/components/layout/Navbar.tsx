@@ -94,7 +94,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="group relative p-[2px] rounded-full bg-gradient-to-tr from-blue-600 via-sky-400 to-[#DC2626] shadow-xl hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
+            className="group relative p-[2px] rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 shadow-xl hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
             aria-expanded={isOpen}
             aria-label="Toggle executive navigation and company details"
           >
@@ -102,11 +102,11 @@ export function Navbar() {
               {isOpen ? (
                 <X className="w-5 h-5 text-white" />
               ) : (
-                /* 3 Distinct Dots in Blue, White & Red */
+                /* 3 Distinct Dots in Sapphire, White & Sky */
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-blue-500 group-hover:scale-125 transition-transform" />
                   <span className="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform delay-75" />
-                  <span className="w-2 h-2 rounded-full bg-[#DC2626] group-hover:scale-125 transition-transform delay-150" />
+                  <span className="w-2 h-2 rounded-full bg-sky-400 group-hover:scale-125 transition-transform delay-150" />
                 </div>
               )}
             </div>
@@ -174,7 +174,7 @@ export function Navbar() {
                 <div className="rounded-2xl bg-[#0A1220] border border-white/15 p-5 space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider font-bold text-sky-400">
-                      <Sparkles className="w-3 h-3 text-[#DC2626]" />
+                      <Sparkles className="w-3 h-3 text-sky-400" />
                       <span>About New Link Technologies</span>
                     </span>
                     <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full">
@@ -193,11 +193,11 @@ export function Navbar() {
                       <p className="text-[9px] text-slate-400 uppercase">Years Heritage</p>
                     </div>
                     <div className="bg-white/5 p-2 rounded-xl border border-white/10">
-                      <p className="text-[#DC2626] font-black text-sm">220 kWp</p>
+                      <p className="text-sky-400 font-black text-sm">220 kWp</p>
                       <p className="text-[9px] text-slate-400 uppercase">Solar Yield</p>
                     </div>
                     <div className="bg-white/5 p-2 rounded-xl border border-white/10">
-                      <p className="text-sky-400 font-black text-sm">100%</p>
+                      <p className="text-emerald-400 font-black text-sm">100%</p>
                       <p className="text-[9px] text-slate-400 uppercase">SLA Uptime</p>
                     </div>
                   </div>
@@ -224,12 +224,12 @@ export function Navbar() {
                           className={cn(
                             "flex items-center justify-between py-3 px-3.5 rounded-xl font-heading text-lg sm:text-xl font-bold tracking-tight transition-all group",
                             active
-                              ? "bg-gradient-to-r from-blue-600/30 to-[#DC2626]/30 text-white border-l-4 border-[#DC2626]"
+                              ? "bg-gradient-to-r from-blue-600/30 to-sky-500/20 text-white border-l-4 border-sky-400"
                               : "text-slate-300 hover:text-white hover:bg-white/5"
                           )}
                         >
                           <div className="flex items-center gap-3">
-                            <span className="font-mono text-xs text-[#DC2626]">
+                            <span className="font-mono text-xs text-sky-400">
                               0{idx + 1}
                             </span>
                             <span>{item.label}</span>
@@ -252,7 +252,7 @@ export function Navbar() {
                 <Link
                   href="/contact#quote"
                   onClick={() => setIsOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-[#DC2626] hover:brightness-110 text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-500 hover:brightness-110 text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
                 >
                   <span>Request Turnkey Quote</span>
                   <ArrowRight className="w-4 h-4" />
@@ -271,7 +271,7 @@ export function Navbar() {
                     href={`mailto:${COMPANY_DETAILS.contact.email}`}
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-[#DC2626]" />
+                    <Mail className="w-4 h-4 text-sky-400" />
                     <span>{COMPANY_DETAILS.contact.email}</span>
                   </a>
                   <div className="flex items-start gap-2.5 pt-0.5">
