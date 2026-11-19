@@ -161,7 +161,7 @@ export function Services() {
                           {service.title}
                         </h3>
                         <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                          isActive ? "translate-x-1 text-[#BE123C]" : "opacity-0 group-hover:opacity-100 text-slate-400"
+                          isActive ? "translate-x-1 text-[#DC2626]" : "opacity-0 group-hover:opacity-100 text-slate-400"
                         }`} />
                       </div>
 
@@ -237,7 +237,7 @@ export function Services() {
                   <div className="pt-1">
                     <Link
                       href={`/services/${activeService.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#BE123C] hover:bg-[#9F1239] text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs sm:text-sm font-semibold shadow-lg shadow-red-950/40 transition-all duration-200 group/btn"
                     >
                       <span>Explore Technical Architecture</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

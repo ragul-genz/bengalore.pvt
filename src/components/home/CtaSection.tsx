@@ -30,16 +30,15 @@ export function CtaSection() {
   return (
     <div className="w-full">
       {/* ======================================================== */}
-      {/* 1. CRIMSON RED "Got a vision? Let's make it real." BANNER */}
-      {/* (Exact replica of frame 00:12 in reference video) */}
+      {/* 1. BRAND RED "Got a vision? Let's make it real." BANNER */}
       {/* ======================================================== */}
-      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-[#BE123C] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none">
+      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-[#DC2626] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none">
         {/* Center Circular Lighter Red Ambient Spotlight */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(244,63,94,0.4) 0%, rgba(190,18,60,0.95) 60%, #BE123C 100%)",
+              "radial-gradient(circle at 50% 50%, rgba(239,68,68,0.4) 0%, rgba(185,28,28,0.95) 60%, #DC2626 100%)",
           }}
         />
 
@@ -115,7 +114,7 @@ export function CtaSection() {
 
                 {/* Email Channel with Red Circle Icon */}
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <div className="w-11 h-11 rounded-full bg-[#DC2626] text-white flex items-center justify-center shrink-0 shadow-md">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -124,7 +123,7 @@ export function CtaSection() {
                     </p>
                     <a
                       href={`mailto:${COMPANY_DETAILS.contact.email}`}
-                      className="text-sm sm:text-base font-semibold text-slate-900 hover:text-[#BE123C] transition-colors"
+                      className="text-sm sm:text-base font-semibold text-slate-900 hover:text-[#DC2626] transition-colors"
                     >
                       {COMPANY_DETAILS.contact.email}
                     </a>
@@ -133,7 +132,7 @@ export function CtaSection() {
 
                 {/* Phone Channels with Red Circle Icon */}
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <div className="w-11 h-11 rounded-full bg-[#DC2626] text-white flex items-center justify-center shrink-0 shadow-md">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -143,14 +142,14 @@ export function CtaSection() {
                     <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-semibold text-slate-900">
                       <a
                         href={`tel:${COMPANY_DETAILS.contact.phone}`}
-                        className="hover:text-[#BE123C] transition-colors"
+                        className="hover:text-[#DC2626] transition-colors"
                       >
                         {COMPANY_DETAILS.contact.phoneDisplay}
                       </a>
                       <span className="text-slate-300">|</span>
                       <a
                         href="tel:+919986666633"
-                        className="hover:text-[#BE123C] transition-colors"
+                        className="hover:text-[#DC2626] transition-colors"
                       >
                         +91 99866 66633
                       </a>
@@ -160,7 +159,7 @@ export function CtaSection() {
 
                 {/* Location with Red Circle Icon */}
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-[#BE123C] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <div className="w-11 h-11 rounded-full bg-[#DC2626] text-white flex items-center justify-center shrink-0 shadow-md">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -262,7 +261,7 @@ export function CtaSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-slate-200 hover:bg-[#BE123C] text-[#BE123C] hover:text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl active:scale-[0.99]"
+                      className="w-full py-4 rounded-xl bg-slate-200 hover:bg-[#DC2626] text-[#DC2626] hover:text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl active:scale-[0.99]"
                     >
                       {isSubmitting ? "Submitting..." : "Submit"}
                     </button>

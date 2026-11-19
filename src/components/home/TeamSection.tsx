@@ -78,8 +78,8 @@ export function TeamSection() {
               transition={{ duration: 0.5, delay: i * 0.1, ease: CINEMATIC_EASE }}
               className="group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
             >
-              {/* Portrait Container with Grayscale-to-Crimson Morph on Hover */}
-              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-100 group-hover:bg-[#BE123C] transition-colors duration-500 shadow-md">
+              {/* Portrait Container with Grayscale-to-Red Morph on Hover */}
+              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-100 group-hover:bg-[#DC2626] transition-colors duration-500 shadow-md">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -91,7 +91,7 @@ export function TeamSection() {
 
               {/* Text Info */}
               <div className="flex-1 text-center sm:text-left space-y-2">
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-slate-900 group-hover:text-[#BE123C] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold font-heading text-slate-900 group-hover:text-[#DC2626] transition-colors">
                   {member.name}
                 </h3>
                 <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">

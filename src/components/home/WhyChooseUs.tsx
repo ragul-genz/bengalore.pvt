@@ -49,7 +49,7 @@ const reasons = [
     description:
       "Architectures engineered specifically for large-footprint enterprises, universities, state departments, and mission-critical public infrastructure.",
     badge: "PUBLIC SECTOR GRADE",
-    accent: "#E11D48", // Brand Crimson Red
+    accent: "#DC2626", // Brand Red
   },
   {
     icon: TrendingUp,

@@ -298,7 +298,7 @@ export function ProjectsPreview() {
               onClick={() => setActiveIndex(idx)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 idx === activeIndex
-                  ? "w-8 bg-[#BE123C]"
+                  ? "w-8 bg-[#DC2626]"
                   : "w-2 bg-white/30 hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${idx + 1}`}

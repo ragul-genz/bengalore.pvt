@@ -206,7 +206,7 @@ export function Hero() {
                   <circle cx="42" cy="20" r="6" fill="#38BDF8" />
                   <circle cx="42" cy="20" r="3" fill="#FFFFFF" />
                   <circle cx="18" cy="20" r="5" fill="#FFFFFF" />
-                  <circle cx="42" cy="36" r="5" fill="#E11D48" />
+                  <circle cx="42" cy="36" r="5" fill="#DC2626" />
                 </svg>
               </div>
 
@@ -226,7 +226,7 @@ export function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="w-full h-full bg-gradient-to-r from-blue-500 via-sky-400 to-rose-500 origin-left"
+                  className="w-full h-full bg-gradient-to-r from-blue-500 via-sky-400 to-[#DC2626] origin-left"
                 />
               </div>
             </motion.div>

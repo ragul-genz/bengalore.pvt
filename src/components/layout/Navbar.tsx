@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   X,
@@ -11,6 +12,7 @@ import {
   ArrowRight,
   ChevronRight,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import { COMPANY_DETAILS } from "@/data/company";
 import { cn } from "@/lib/utils";
@@ -60,56 +62,61 @@ export function Navbar() {
   return (
     <>
       {/* ======================================================== */}
-      {/* FLOATING TRANSPARENT CINEMA HEADER (EVENTUROX REPLICA) */}
-      {/* Left: Sleek Logo | Right: Signature Circular Crimson "☰" */}
+      {/* FLOATING TRANSPARENT CINEMA HEADER ACROSS ALL PAGES */}
+      {/* Left: Authentic New Link Logo | Right: Distinctive 3-Dot Button */}
       {/* ======================================================== */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out py-4 sm:py-5 px-6 sm:px-10 lg:px-14",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out py-3.5 sm:py-4 px-6 sm:px-10 lg:px-14",
           isScrolled
-            ? "bg-[#050B14]/80 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3.5 sm:py-4"
+            ? "bg-[#050B14]/85 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3 sm:py-3.5"
             : "bg-transparent"
         )}
       >
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Sleek Minimalist Logo (Matches "EUR" Clean Aesthetic) */}
+          {/* Authentic New Link Technologies Logo (With Crisp White Glass Capsule) */}
           <Link
             href="/"
-            className="flex items-center gap-2 group select-none focus-visible:outline-none"
-            aria-label="New Link Technologies Home"
+            className="inline-flex items-center bg-white/95 hover:bg-white backdrop-blur-md px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-white/40 shadow-lg shadow-black/20 hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus-visible:outline-none select-none"
+            aria-label="New Link Technologies Bangalore Pvt. Ltd. Home - Connecting Values"
           >
-            <span className="font-heading font-black text-2xl sm:text-3xl tracking-tighter text-white uppercase group-hover:scale-105 transition-transform">
-              NEW<span className="text-[#E11D48]">LINK</span>
-            </span>
-            <div className="flex flex-col gap-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48] animate-pulse" />
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-            </div>
+            <Image
+              src="/logo/company-logo-transparent.png"
+              alt="New Link Technologies Bangalore Pvt. Ltd. - Connecting Values"
+              width={145}
+              height={44}
+              priority
+              className="h-7 sm:h-8 w-auto object-contain"
+            />
           </Link>
 
-          {/* Right: Signature Eventurox Circular Crimson Menu Button ("3 dot / ☰") */}
+          {/* Right: Distinctive New Link 3-Dot Executive Button ("3 dot konjam different ah vachiru") */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#E11D48] hover:bg-[#BE123C] text-white flex items-center justify-center shadow-xl shadow-rose-950/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
+            className="group relative p-[2px] rounded-full bg-gradient-to-tr from-blue-600 via-sky-400 to-[#DC2626] shadow-xl hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
             aria-expanded={isOpen}
-            aria-label="Toggle navigation menu"
+            aria-label="Toggle executive navigation and company details"
           >
-            {isOpen ? (
-              <X className="w-5 h-5 text-white" />
-            ) : (
-              <div className="flex flex-col gap-1 items-center justify-center">
-                <span className="w-5 h-[2px] bg-white rounded-full" />
-                <span className="w-5 h-[2px] bg-white rounded-full" />
-                <span className="w-5 h-[2px] bg-white rounded-full" />
-              </div>
-            )}
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#050B14]/95 backdrop-blur-md flex items-center justify-center transition-colors group-hover:bg-[#08162B]">
+              {isOpen ? (
+                <X className="w-5 h-5 text-white" />
+              ) : (
+                /* 3 Distinct Dots in Blue, White & Red */
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 group-hover:scale-125 transition-transform" />
+                  <span className="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform delay-75" />
+                  <span className="w-2 h-2 rounded-full bg-[#DC2626] group-hover:scale-125 transition-transform delay-150" />
+                </div>
+              )}
+            </div>
           </button>
         </div>
       </header>
 
       {/* ======================================================== */}
-      {/* LUXURY FULLSCREEN SLIDE-OVER NAVIGATION DRAWER */}
+      {/* LUXURY SLIDE-OVER NAVIGATION & "ABOUT NEW LINK" DRAWER */}
+      {/* ("click pana thaa about itula teriyanum") */}
       {/* ======================================================== */}
       <AnimatePresence>
         {isOpen && (
@@ -131,84 +138,128 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-md sm:max-w-lg bg-[#050B14] border-l border-white/15 z-50 shadow-2xl flex flex-col justify-between overflow-y-auto p-6 sm:p-10 select-none"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-md sm:max-w-xl bg-[#050B14] border-l border-white/15 z-50 shadow-2xl flex flex-col justify-between overflow-y-auto p-6 sm:p-10 select-none"
             >
-              {/* Drawer Top Bar */}
-              <div className="flex items-center justify-between pb-8 border-b border-white/10">
-                <Link
-                  href="/"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 group"
-                >
-                  <span className="font-heading font-black text-2xl sm:text-3xl tracking-tighter text-white uppercase">
-                    NEW<span className="text-[#E11D48]">LINK</span>
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48]" />
-                </Link>
+              <div className="space-y-8">
+                {/* Drawer Top Header: Logo + Close */}
+                <div className="flex items-center justify-between pb-6 border-b border-white/10">
+                  <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center bg-white px-3 py-1.5 rounded-xl shadow-md"
+                  >
+                    <Image
+                      src="/logo/company-logo-transparent.png"
+                      alt="New Link Technologies"
+                      width={130}
+                      height={38}
+                      className="h-7 w-auto object-contain"
+                    />
+                  </Link>
 
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                  aria-label="Close menu"
-                >
-                  <X className="w-5 h-5 text-white" />
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-5 h-5 text-white" />
+                  </button>
+                </div>
 
-              {/* Navigation Links List */}
-              <div className="py-8 space-y-3">
-                <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500 font-bold mb-4">
-                  NAVIGATION DIRECTORY
-                </p>
-                {COMPANY_DETAILS.navLinks.map((item, idx) => {
-                  const active = isActiveLink(item.href);
-                  return (
-                    <motion.div
-                      key={item.label}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.05 * idx }}
-                    >
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "flex items-center justify-between py-3 px-4 rounded-2xl transition-all duration-200 group text-lg sm:text-xl font-heading font-bold",
-                          active
-                            ? "bg-[#BE123C] text-white shadow-lg shadow-rose-900/30"
-                            : "text-slate-300 hover:text-white hover:bg-white/5"
-                        )}
+                {/* ======================================================== */}
+                {/* EXECUTIVE "ABOUT NEW LINK" SPOTLIGHT INSIDE DRAWER */}
+                {/* ("click pana thaa about itula teriyanum") */}
+                {/* ======================================================== */}
+                <div className="rounded-2xl bg-[#0A1220] border border-white/15 p-5 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider font-bold text-sky-400">
+                      <Sparkles className="w-3 h-3 text-[#DC2626]" />
+                      <span>About New Link Technologies</span>
+                    </span>
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                      EST. 2011
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                    Premier turnkey IT infrastructure integrator headquartered in Rajajinagar, Bangalore under Director M.G. Girish. We engineer modular data centres, 10Gbps campus optical fiber rings, and 220 kWp clean energy power plants for Karnataka&apos;s leading universities, PSUs, and defense establishments.
+                  </p>
+
+                  {/* 3 Metric Pills */}
+                  <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-xs">
+                    <div className="bg-white/5 p-2 rounded-xl border border-white/10">
+                      <p className="text-white font-black text-sm">15+</p>
+                      <p className="text-[9px] text-slate-400 uppercase">Years Heritage</p>
+                    </div>
+                    <div className="bg-white/5 p-2 rounded-xl border border-white/10">
+                      <p className="text-[#DC2626] font-black text-sm">220 kWp</p>
+                      <p className="text-[9px] text-slate-400 uppercase">Solar Yield</p>
+                    </div>
+                    <div className="bg-white/5 p-2 rounded-xl border border-white/10">
+                      <p className="text-sky-400 font-black text-sm">100%</p>
+                      <p className="text-[9px] text-slate-400 uppercase">SLA Uptime</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Navigation Links Directory */}
+                <div className="space-y-1">
+                  <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-500 pb-2">
+                    Directory Navigation
+                  </p>
+
+                  {COMPANY_DETAILS.navLinks.map((item, idx) => {
+                    const active = isActiveLink(item.href);
+                    return (
+                      <motion.div
+                        key={item.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.04 }}
                       >
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs font-mono opacity-50">
-                            0{idx + 1}
-                          </span>
-                          <span>{item.label}</span>
-                        </div>
-                        <ChevronRight className={cn(
-                          "w-5 h-5 transition-transform group-hover:translate-x-1",
-                          active ? "text-white" : "text-slate-500"
-                        )} />
-                      </Link>
-                    </motion.div>
-                  );
-                })}
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={cn(
+                            "flex items-center justify-between py-3 px-3.5 rounded-xl font-heading text-lg sm:text-xl font-bold tracking-tight transition-all group",
+                            active
+                              ? "bg-gradient-to-r from-blue-600/30 to-[#DC2626]/30 text-white border-l-4 border-[#DC2626]"
+                              : "text-slate-300 hover:text-white hover:bg-white/5"
+                          )}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs text-[#DC2626]">
+                              0{idx + 1}
+                            </span>
+                            <span>{item.label}</span>
+                          </div>
+                          <ChevronRight
+                            className={cn(
+                              "w-5 h-5 transition-transform group-hover:translate-x-1",
+                              active ? "text-white" : "text-slate-500"
+                            )}
+                          />
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Direct Turnkey CTA Button */}
+              {/* Drawer Footer Actions & Direct Channels */}
               <div className="space-y-6 pt-6 border-t border-white/10">
                 <Link
                   href="/contact#quote"
                   onClick={() => setIsOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 hover:brightness-110 text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-[#DC2626] hover:brightness-110 text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
                 >
                   <span>Request Turnkey Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 {/* Direct Contact Channels */}
-                <div className="space-y-3 text-xs sm:text-sm text-slate-400">
+                <div className="space-y-2.5 text-xs text-slate-400 font-mono">
                   <a
                     href={`tel:${COMPANY_DETAILS.contact.phone}`}
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
@@ -220,19 +271,19 @@ export function Navbar() {
                     href={`mailto:${COMPANY_DETAILS.contact.email}`}
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-[#BE123C]" />
+                    <Mail className="w-4 h-4 text-[#DC2626]" />
                     <span>{COMPANY_DETAILS.contact.email}</span>
                   </a>
-                  <div className="flex items-start gap-2.5 pt-1">
+                  <div className="flex items-start gap-2.5 pt-0.5">
                     <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{COMPANY_DETAILS.contact.address.full}</span>
+                    <span className="font-sans text-xs">{COMPANY_DETAILS.contact.address.full}</span>
                   </div>
                 </div>
 
                 {/* Compliance Pill */}
-                <div className="flex items-center gap-2 pt-2 text-[11px] font-mono text-slate-500">
+                <div className="flex items-center gap-2 pt-1 text-[11px] font-mono text-slate-500">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>ISO 9001:2015 CERTIFIED • GOVERNMENT COMPLIANT</span>
+                  <span>ISO 9001:2015 CERTIFIED • GOVERNMENT &amp; PSU COMPLIANT</span>
                 </div>
               </div>
             </motion.div>

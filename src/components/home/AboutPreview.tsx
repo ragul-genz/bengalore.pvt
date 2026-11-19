@@ -14,22 +14,11 @@ import {
   VIEWPORT_CONFIG,
 } from "@/components/common";
 
-// Ambient Theme Color Palette for the Interactive Bulb Switcher
+// Ambient Theme Color Palette for the Interactive Bulb Switcher (Authentic New Link Palette)
 const BULB_COLOR_THEMES = [
   {
-    id: "crimson",
-    name: "Brand Link Crimson",
-    bgClass: "bg-[#BE123C]", // Deep rich crimson (matches user reference screenshot)
-    accentColor: "#FB7185",
-    glowColor: "rgba(225, 29, 72, 0.5)",
-    taglineColor: "text-rose-100",
-    cardBg: "bg-[#BE123C]",
-    cardBorder: "border-[#9F1239]",
-    badgeBg: "bg-black/20 text-white",
-  },
-  {
     id: "royal-navy",
-    name: "Electric Royal Navy",
+    name: "Corporate Royal Navy",
     bgClass: "bg-[#0B254E]", // Deep royal space navy
     accentColor: "#38BDF8",
     glowColor: "rgba(37, 99, 235, 0.5)",
@@ -37,6 +26,17 @@ const BULB_COLOR_THEMES = [
     cardBg: "bg-[#0B254E]",
     cardBorder: "border-[#1E3A8A]",
     badgeBg: "bg-white/20 text-white",
+  },
+  {
+    id: "newlink-red",
+    name: "New Link Brand Red",
+    bgClass: "bg-[#DC2626]", // New Link Official Rich Red
+    accentColor: "#F87171",
+    glowColor: "rgba(220, 38, 38, 0.5)",
+    taglineColor: "text-red-100",
+    cardBg: "bg-[#DC2626]",
+    cardBorder: "border-[#B91C1C]",
+    badgeBg: "bg-black/20 text-white",
   },
   {
     id: "cyber-cyan",
@@ -243,7 +243,7 @@ export function AboutPreview() {
               transition={{ duration: 0.6, delay: 0.12, ease: CINEMATIC_EASE }}
               className="lg:col-span-4 rounded-3xl p-8 sm:p-10 bg-white border border-slate-200/90 shadow-xl hover:shadow-2xl flex flex-col justify-between text-center relative overflow-hidden"
             >
-              <div className="text-[#BE123C] text-5xl sm:text-6xl font-serif font-black leading-none text-left select-none">
+              <div className="text-[#DC2626] text-5xl sm:text-6xl font-serif font-black leading-none text-left select-none">
                 “
               </div>
 
@@ -253,7 +253,7 @@ export function AboutPreview() {
                 </blockquote>
 
                 <div className="pt-2">
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#BE123C] font-bold">
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#DC2626] font-bold">
                     NEW LINK TECHNOLOGIES
                   </span>
                   <p className="text-[11px] text-slate-500 font-mono">
@@ -264,7 +264,7 @@ export function AboutPreview() {
 
               {/* Leadership Sign-Off */}
               <div className="pt-4 border-t border-slate-150 flex items-center justify-between">
-                <div className="text-[#BE123C] text-5xl sm:text-6xl font-serif font-black leading-none select-none">
+                <div className="text-[#DC2626] text-5xl sm:text-6xl font-serif font-black leading-none select-none">
                   ”
                 </div>
                 <div className="flex items-center gap-2.5 text-right">
@@ -349,7 +349,7 @@ export function AboutPreview() {
           <div className="flex justify-center pt-12">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#BE123C] hover:bg-[#9F1239] text-white font-semibold text-xs sm:text-sm shadow-xl shadow-rose-900/20 transition-all duration-200 group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-semibold text-xs sm:text-sm shadow-xl shadow-red-900/25 transition-all duration-200 group hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>Explore Comprehensive Corporate Profile</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
