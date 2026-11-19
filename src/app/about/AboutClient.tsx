@@ -38,6 +38,16 @@ const JOURNEY_MILESTONES: Milestone[] = [
     badge: "FOUNDATION",
   },
   {
+    year: "2013",
+    shortYear: "13",
+    title: "Enterprise Computing & OEM Alliances",
+    subtitle: "Direct Tier-1 Partnerships",
+    description:
+      "Established strategic supply agreements with global OEM leaders (HP, Cisco, Dell, Schneider Electric) for institutional servers, active switches, and commercial workstations.",
+    image: "/projects/project-color-patching-dressing.png",
+    badge: "OEM EXPANSION",
+  },
+  {
     year: "2015",
     shortYear: "15",
     title: "Structured Cabling & Network Operations",
@@ -48,8 +58,18 @@ const JOURNEY_MILESTONES: Milestone[] = [
     badge: "ENTERPRISE NETWORKING",
   },
   {
-    year: "2018",
-    shortYear: "18",
+    year: "2017",
+    shortYear: "17",
+    title: "State Technical Directorate Deployments",
+    subtitle: "Public Sector IT Infrastructure",
+    description:
+      "Designed and deployed turnkey network distribution racks, gigabit switching matrices, and high-security enterprise surveillance for state departments across Karnataka.",
+    image: "/projects/project-modular-datacenter.png",
+    badge: "PUBLIC SECTOR GRADE",
+  },
+  {
+    year: "2019",
+    shortYear: "19",
     title: "10Gbps Inter-Campus Optical Fiber Ring",
     subtitle: "Flagship 14-Building Backbone at SJBIT",
     description:
@@ -286,25 +306,32 @@ export function AboutClient() {
         </div>
 
         {/* Interactive Timeline Center Stage */}
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 pt-12 sm:pt-16 relative z-20">
-          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Horizontal Scrubber Line (Desktop) */}
-            <div className="hidden lg:block lg:col-span-2">
-              <div className="relative w-full h-[2px] bg-white/20 flex items-center">
-                <motion.div
-                  animate={{
-                    left: `${(activeMilestoneIndex / (JOURNEY_MILESTONES.length - 1)) * 80}%`,
-                  }}
-                  transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-                  className="absolute w-8 h-4 rounded-full bg-white flex items-center justify-center shadow-lg shadow-white/20"
-                >
-                  <span className="w-2 h-2 rounded-full bg-[#050B14]" />
-                </motion.div>
-              </div>
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-12 sm:pt-16 relative z-20">
+          {/* Continuous Horizontal Scrubber Line Across Viewport (Exact Match to Frames 00:04 & 00:08) */}
+          <div className="hidden sm:block absolute top-[44%] left-10 right-28 pointer-events-none z-10">
+            <div className="relative w-full h-[1px] bg-white/20">
+              {/* Slider Pill Thumb */}
+              <motion.div
+                animate={{
+                  left: `${(activeMilestoneIndex / (JOURNEY_MILESTONES.length - 1)) * 92}%`,
+                }}
+                transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
+                className="absolute top-1/2 -translate-y-1/2 w-10 h-6 rounded-full bg-white flex items-center justify-center shadow-2xl pointer-events-auto cursor-pointer border border-slate-300 select-none"
+                title={`Year ${activeMilestone.year}`}
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-black" />
+              </motion.div>
+              {/* Right End Dot */}
+              <span className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/60" />
             </div>
+          </div>
+
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Spacer for Timeline Scrubber balance */}
+            <div className="hidden lg:block lg:col-span-1" />
 
             {/* Center Stage: Photo Card + Details */}
-            <div className="lg:col-span-8 flex flex-col items-center text-center space-y-6">
+            <div className="lg:col-span-9 flex flex-col items-center text-center space-y-6 relative z-20">
               {/* Year Pill Badge */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -320,7 +347,7 @@ export function AboutClient() {
               </AnimatePresence>
 
               {/* Curved Photo Card */}
-              <div className="relative w-full max-w-xl h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+              <div className="relative w-full max-w-xl h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeMilestone.year}
@@ -365,20 +392,20 @@ export function AboutClient() {
               </AnimatePresence>
             </div>
 
-            {/* Right: Vertical Year Selector (Exact Match to Frame 00:04) */}
-            <div className="lg:col-span-2 flex flex-row lg:flex-col items-center justify-center gap-2 sm:gap-3 pt-6 lg:pt-0">
+            {/* Right: Vertical Year Selector (Exact Match to Frame 00:04 & 00:08) */}
+            <div className="lg:col-span-2 flex flex-row lg:flex-col items-center justify-center gap-2 sm:gap-3 pt-6 lg:pt-0 relative z-20">
               {/* Up Arrow */}
               <button
                 type="button"
                 onClick={handlePrevYear}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white text-white hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-md"
                 aria-label="Previous milestone"
               >
                 <ChevronUp className="w-5 h-5" />
               </button>
 
               {/* Vertical Stack of Years */}
-              <div className="flex flex-row lg:flex-col items-center gap-2 sm:gap-2.5">
+              <div className="flex flex-row lg:flex-col items-center gap-1.5 sm:gap-2">
                 {JOURNEY_MILESTONES.map((m, idx) => {
                   const isActive = idx === activeMilestoneIndex;
                   return (
@@ -386,10 +413,10 @@ export function AboutClient() {
                       key={m.year}
                       type="button"
                       onClick={() => setActiveMilestoneIndex(idx)}
-                      className={`font-mono text-sm sm:text-base transition-all duration-200 cursor-pointer px-2 py-0.5 rounded-lg ${
+                      className={`font-mono text-sm sm:text-base transition-all duration-200 cursor-pointer px-2.5 py-0.5 rounded-lg ${
                         isActive
                           ? "text-[#E11D48] font-black text-lg sm:text-xl scale-110"
-                          : "text-slate-500 hover:text-slate-300 font-medium"
+                          : "text-slate-500 hover:text-slate-200 font-medium"
                       }`}
                     >
                       {m.year}
@@ -402,7 +429,7 @@ export function AboutClient() {
               <button
                 type="button"
                 onClick={handleNextYear}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white text-white hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-md"
                 aria-label="Next milestone"
               >
                 <ChevronDown className="w-5 h-5" />
