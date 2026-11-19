@@ -5,7 +5,6 @@ import {
   Certificates,
   Services,
   Partners,
-  WhyChooseUs,
   TeamSection,
   CtaSection,
 } from "@/components/home";
@@ -16,7 +15,7 @@ export default function Home() {
       {/* 1. Pure Minimalist Cinema Hero (With Audio & Morphing Exit Controller) */}
       <Hero />
 
-      {/* 2. Scroll Transition Banner (Elevate + Theme Lightbulb) & Milestone HUD */}
+      {/* 2. Scroll Transition Banner (Elevate + Theme Lightbulb) & 3-Column Milestone HUD */}
       <AboutPreview />
 
       {/* 3. Flagship Creations (3D Coverflow Project Carousel) */}
@@ -31,13 +30,10 @@ export default function Home() {
       {/* 6. Strategic Government & OEM Brand Alliances */}
       <Partners />
 
-      {/* 7. Engineering Differentiators */}
-      <WhyChooseUs />
-
-      {/* 8. Humans of New Link (Leadership Board) */}
+      {/* 7. Humans of New Link & Engineering Tribe */}
       <TeamSection />
 
-      {/* 9. Final Turnkey Consultation CTA */}
+      {/* 8. Final Turnkey Consultation CTA */}
       <CtaSection />
     </>
   );
