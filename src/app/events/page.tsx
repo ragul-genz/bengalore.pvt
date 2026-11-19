@@ -54,7 +54,7 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
     title: "KANNADOTSAVA MARATHON 2026",
     nativeTitle: "ಕನ್ನಡೋತ್ಸವ ಮ್ಯಾರಥಾನ್ 2026",
     tagline: "3 KM Walk & 5 KM Run • Saturday, 19 December 2026 • Bangalore University Campus",
-    mainImage: "/events/kannadotsava/hero-1.jpg",
+    mainImage: "/events/kannadotsava/hero-group.webp",
     yearTag: "19 DEC 2026",
     description:
       "KANNADOTSAVA MARATHON 2026 IS MORE THAN A WALK OR RUN; IT IS A MASS COMMUNITY MOVEMENT (ಜನಾಂದೋಲನ) TO CELEBRATE, PROTECT, AND PROMOTE THE KANNADA LANGUAGE AND CULTURE. OPEN TO FAMILIES, STUDENTS, ATHLETES, AND CITIZENS OF ALL AGES. ನಮ್ಮ ಭಾಷೆ ನಮ್ಮ ಹೆಮ್ಮೆ, ನಮ್ಮ ಸಂಸ್ಕೃತಿ ನಮ್ಮ ಶಕ್ತಿ! ಎಲ್ಲರೂ ಕನ್ನಡವನ್ನೇ ಬಳಸಿ · ಕನ್ನಡ ಉಳಿಸಿ, ಬೆಳೆಸಿ, ಕಲಿಸಿ.",
@@ -78,14 +78,14 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
         image: "/events/kannadotsava/marathon-logo.png",
       },
       {
-        title: "Marathon Course & Campus Grounds",
-        caption: "Participants pacing through the scenic Jnana Bharathi campus avenues.",
-        image: "/events/kannadotsava/hero-2.jpg",
+        title: "Finisher Honors & Medal Keepsake",
+        caption: "Double-sided cast metal finisher medal with Karnataka state map and Kannada calligraphy.",
+        image: "/events/kannadotsava/medal-front-back.jpg",
       },
       {
         title: "Cultural Movement in Action",
-        caption: "Promoting physical fitness alongside mothertongue pride and community solidarity.",
-        image: "/events/kannadotsava/hero-1.jpg",
+        caption: "Promoting physical fitness alongside Kannada mothertongue pride and heritage at Bangalore University.",
+        image: "/events/kannadotsava/hero-vidhana-soudha.jpg",
       },
     ],
   },
@@ -146,7 +146,7 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
     title: "MISSION, IDENTITY & PARTNERSHIP",
     nativeTitle: "ನಮ್ಮ ದೃಷ್ಟಿಕೋನ · Our Vision",
     tagline: "Concept by Raksana Foundation • Strategic Partner: New Link Technologies",
-    mainImage: "/events/kannadotsava/marathon-logo.png",
+    mainImage: "/events/kannadotsava/marathon-logo-trimmed.png",
     yearTag: "CONNECTING VALUES",
     description:
       "“ಕನ್ನಡ ಕೇವಲ ನಾವು ಮಾತನಾಡುವ ಭಾಷೆಯಲ್ಲ; ಅದು ನಮ್ಮ ಅಸ್ಮಿತೆ, ನಮ್ಮ ಹೆಮ್ಮೆ ಮತ್ತು ನಮ್ಮ ಪರಂಪರೆ. ಅದನ್ನು ಉಳಿಸಿ, ಬೆಳೆಸಿ, ಮುಂದಿನ ಪೀಳಿಗೆಗೆ ಹೆಮ್ಮೆಯಿಂದ ಹಸ್ತಾಂತರಿಸುವುದು ನಮ್ಮೆಲ್ಲರ ಜವಾಬ್ದಾರಿ.” (KANNADA IS AN IDENTITY WE MUST PRESERVE, PRACTISE AND PASS ON). NEW LINK TECHNOLOGIES BANGALORE PVT. LTD. PROUDLY SERVES AS OFFICIAL STRATEGIC BUSINESS PARTNER UNDER OUR MOTTO 'CONNECTING VALUES'.",
@@ -162,7 +162,7 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
       {
         title: "Kannadotsava Marathon Insignia",
         caption: "Symbol of athletic perseverance, community solidarity, and Kannada linguistic heritage.",
-        image: "/events/kannadotsava/marathon-logo.png",
+        image: "/events/kannadotsava/emblem-icon.png",
       },
       {
         title: "Community Heritage Walk & Run",
@@ -170,12 +170,12 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
         image: "/events/kannadotsava/hero-group.webp",
       },
       {
-        title: "Fitness & Cultural Harmony",
-        caption: "Encouraging a healthy lifestyle while championing mother-tongue education.",
-        image: "/events/kannadotsava/hero-2.jpg",
+        title: "Campus Grounds & Scenic Course",
+        caption: "Bangalore University Jnana Bharathi campus course amidst lush greenery.",
+        image: "/events/kannadotsava/hero-vidhana-soudha.jpg",
       },
       {
-        title: "Next Generation Empowerment",
+        title: "Official Finisher Certification",
         caption: "Passing on Kannada literature, history, and linguistic pride to youth and children.",
         image: "/events/kannadotsava/certificate.jpg",
       },
@@ -344,28 +344,46 @@ export default function EventsPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[280px] sm:h-[420px] md:h-[540px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex flex-col justify-between overflow-hidden group select-none"
+                className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[320px] sm:h-[440px] md:h-[540px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex flex-col justify-between overflow-hidden group select-none"
               >
+                {/* Subtle atmospheric authentic event background */}
+                <div className="absolute inset-0 pointer-events-none opacity-20">
+                  <Image
+                    src="/events/kannadotsava/hero-group.webp"
+                    alt="Kannadotsava community atmosphere"
+                    fill
+                    sizes="400px"
+                    className="object-cover object-center filter saturate-150"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/85 to-[#0B1F3A]/90" />
+                </div>
+
                 {/* Top Badge */}
-                <div className="flex items-center justify-between w-full">
-                  <span className="text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                <div className="relative z-10 flex items-center justify-between w-full">
+                  <span className="text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur-md">
                     KANNADA HERITAGE
                   </span>
-                  <span className="text-[10px] font-mono text-white/70 font-bold">
+                  <span className="text-[10px] font-mono text-white/80 font-bold bg-black/40 px-2.5 py-1 rounded-full border border-white/10">
                     DEC 2026
                   </span>
                 </div>
 
-                {/* Center Graphic: Official Kannadotsava Emblem in glowing circular container */}
-                <div className="relative my-auto flex flex-col items-center justify-center">
-                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-3 shadow-inner flex items-center justify-center">
-                    <Image
-                      src="/events/kannadotsava/marathon-logo.png"
-                      alt="Official Kannadotsava Marathon 2026 Emblem"
-                      width={130}
-                      height={130}
-                      className="object-contain drop-shadow-md"
-                    />
+                {/* Center Graphic: Prominently framed authentic Kannadotsava Brand Emblem Container */}
+                <div className="relative z-10 my-auto w-full flex flex-col items-center justify-center py-2 sm:py-3">
+                  <div className="relative w-full rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/20 p-4 sm:p-5 shadow-2xl flex flex-col items-center text-center space-y-3">
+                    <div className="relative w-full h-16 sm:h-20">
+                      <Image
+                        src="/events/kannadotsava/marathon-logo-trimmed.png"
+                        alt="Official Kannadotsava Marathon 2026 Emblem"
+                        fill
+                        className="object-contain drop-shadow-lg"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-sky-300 font-bold bg-black/50 px-3 py-1 rounded-full border border-white/10">
+                      <span>3K WALK &bull; 5K RUN</span>
+                      <span className="text-white/40">&bull;</span>
+                      <span>BENGALURU</span>
+                    </div>
                   </div>
                 </div>
 
@@ -417,12 +435,19 @@ export default function EventsPage() {
                 <div className="rounded-3xl border border-[#142B4A] bg-[#0B1F3A] p-6 sm:p-10 shadow-2xl space-y-8 overflow-hidden text-white">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     {/* Left: Featured Image */}
-                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-xl group">
+                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-[#071322] shadow-xl group">
                       <Image
                         src={event.mainImage}
                         alt={event.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        className={
+                          event.mainImage.includes("logo") ||
+                          event.mainImage.includes("emblem") ||
+                          event.mainImage.includes("certificate") ||
+                          event.mainImage.includes("medal")
+                            ? "object-contain p-6 sm:p-10 group-hover:scale-105 transition-transform duration-700"
+                            : "object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        }
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
 
@@ -556,38 +581,52 @@ export default function EventsPage() {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                          {event.photos.map((photo, idx) => (
-                            <motion.div
-                              key={idx}
-                              initial={{ opacity: 0, y: 15 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: idx * 0.08, duration: 0.4 }}
-                              className="group/photo relative aspect-4/3 rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-lg cursor-pointer"
-                              onClick={() => openLightbox(photo.image, photo.title, photo.caption)}
-                            >
-                              <Image
-                                src={photo.image}
-                                alt={photo.title}
-                                fill
-                                sizes="(max-width: 640px) 100vw, 25vw"
-                                className="object-cover group-hover/photo:scale-105 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-75 group-hover/photo:opacity-90 transition-opacity" />
+                          {event.photos.map((photo, idx) => {
+                            const isGraphicOrProduct =
+                              photo.image.includes("logo") ||
+                              photo.image.includes("emblem") ||
+                              photo.image.includes("seal") ||
+                              photo.image.includes("certificate") ||
+                              photo.image.includes("medal") ||
+                              photo.image.includes("tshirt");
 
-                              <div className="absolute bottom-2.5 left-3 right-3 text-white pointer-events-none">
-                                <p className="text-xs font-bold font-heading line-clamp-1 text-white">
-                                  {photo.title}
-                                </p>
-                                <p className="text-[10px] text-slate-300 line-clamp-1 font-light">
-                                  {photo.caption}
-                                </p>
-                              </div>
+                            return (
+                              <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.08, duration: 0.4 }}
+                                className="group/photo relative aspect-4/3 rounded-2xl overflow-hidden border border-white/10 bg-[#071322] shadow-lg cursor-pointer"
+                                onClick={() => openLightbox(photo.image, photo.title, photo.caption)}
+                              >
+                                <Image
+                                  src={photo.image}
+                                  alt={photo.title}
+                                  fill
+                                  sizes="(max-width: 640px) 100vw, 25vw"
+                                  className={
+                                    isGraphicOrProduct
+                                      ? "object-contain p-3.5 group-hover/photo:scale-105 transition-transform duration-500"
+                                      : "object-cover object-center group-hover/photo:scale-105 transition-transform duration-500"
+                                  }
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-75 group-hover/photo:opacity-90 transition-opacity pointer-events-none" />
 
-                              <div className="absolute top-2 right-2 w-7 h-7 rounded-lg bg-black/60 backdrop-blur-xs flex items-center justify-center opacity-0 group-hover/photo:opacity-100 transition-opacity">
-                                <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
-                              </div>
-                            </motion.div>
-                          ))}
+                                <div className="absolute bottom-2.5 left-3 right-3 text-white pointer-events-none">
+                                  <p className="text-xs font-bold font-heading line-clamp-1 text-white">
+                                    {photo.title}
+                                  </p>
+                                  <p className="text-[10px] text-slate-300 font-mono line-clamp-1 mt-0.5">
+                                    {photo.caption}
+                                  </p>
+                                </div>
+
+                                <div className="absolute top-2 right-2 w-7 h-7 rounded-lg bg-black/60 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/photo:opacity-100 transition-opacity">
+                                  <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
+                                </div>
+                              </motion.div>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}

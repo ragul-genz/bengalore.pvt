@@ -35,7 +35,7 @@ const CINEMA_SLIDES = [
   },
   {
     id: 4,
-    image: "/clients/photos/tumkur-univ-auditorium-front.jpg",
+    image: "/clients/photos/tumkur-auditorium.jpg",
     headline: "SOLUTIONS DELIVERED WITH PASSION",
     subline: "Tumkur University • Smart Auditorium Acoustics & Digital AV",
   },

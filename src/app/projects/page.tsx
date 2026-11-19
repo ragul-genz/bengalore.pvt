@@ -226,7 +226,14 @@ export default function ProjectsPage() {
                       alt={project.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      className={
+                        project.image.includes("comparison") ||
+                        project.image.includes("diagram") ||
+                        project.image.includes("standards") ||
+                        project.image.includes("cert")
+                          ? "object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                          : "object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      }
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
 
@@ -361,7 +368,14 @@ export default function ProjectsPage() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className={
+                      item.image.includes("comparison") ||
+                      item.image.includes("diagram") ||
+                      item.image.includes("standards") ||
+                      item.image.includes("cert")
+                        ? "object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                        : "object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity pointer-events-none" />
 
