@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Menu,
   X,
   Phone,
   Mail,
@@ -155,18 +154,22 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Hamburger Toggle Button */}
+            {/* Circular Crimson/Navy Menu Toggle (Inspired by Reference Design) */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-brand-navy hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+              className="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded-full bg-[#E11D48] hover:bg-[#BE123C] text-white shadow-md hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer focus-visible:outline-none"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-brand-navy" />
+                <X className="w-5 h-5 text-white" />
               ) : (
-                <Menu className="w-6 h-6 text-brand-navy" />
+                <div className="flex flex-col gap-1 items-center justify-center">
+                  <span className="w-4 h-[2px] bg-white rounded-full" />
+                  <span className="w-4 h-[2px] bg-white rounded-full" />
+                  <span className="w-4 h-[2px] bg-white rounded-full" />
+                </div>
               )}
             </button>
           </div>
