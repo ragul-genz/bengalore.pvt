@@ -224,7 +224,7 @@ export function AboutClient() {
                   className="absolute inset-0 opacity-40 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(circle at center, rgba(225,29,72,0.15) 0%, transparent 70%), repeating-conic-gradient(from 0deg, rgba(255,255,255,0.03) 0deg 15deg, transparent 15deg 30deg)",
+                      "radial-gradient(circle at center, rgba(220,38,38,0.15) 0%, transparent 70%), repeating-conic-gradient(from 0deg, rgba(255,255,255,0.03) 0deg 15deg, transparent 15deg 30deg)",
                   }}
                 />
 

@@ -173,7 +173,7 @@ export function Hero() {
             className="fixed inset-0 z-50 bg-[#050B14] flex flex-col items-center justify-center pointer-events-none select-none"
           >
             <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px]" />
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-rose-600/15 blur-[90px]" />
+            <div className="absolute w-[300px] h-[300px] rounded-full bg-[#DC2626]/15 blur-[90px]" />
 
             <motion.div
               initial={{ scale: 0.85, opacity: 0, y: 15 }}

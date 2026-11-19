@@ -30,15 +30,15 @@ export function CtaSection() {
   return (
     <div className="w-full">
       {/* ======================================================== */}
-      {/* 1. BRAND RED "Got a vision? Let's make it real." BANNER */}
+      {/* 1. CORPORATE NAVY & RED ACCENT "Got a vision? Let's make it real." BANNER */}
       {/* ======================================================== */}
-      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-[#DC2626] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none">
-        {/* Center Circular Lighter Red Ambient Spotlight */}
+      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-gradient-to-br from-[#08162B] via-[#0B254E] to-[#0A192F] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none border-b border-white/10">
+        {/* Center Circular Ambient Spotlight */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(239,68,68,0.4) 0%, rgba(185,28,28,0.95) 60%, #DC2626 100%)",
+              "radial-gradient(circle at 50% 50%, rgba(220,38,38,0.2) 0%, rgba(11,37,78,0.7) 60%, transparent 100%)",
           }}
         />
 
@@ -59,12 +59,12 @@ export function CtaSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.65, delay: 0.12, ease: CINEMATIC_EASE }}
-            className="text-base sm:text-xl md:text-2xl text-rose-100 font-light max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed"
           >
             We&apos;re always up for conversations that start with a what if. Whether you&apos;ve got a brief or just a thought, let&apos;s build infrastructure that stands the test of time.
           </motion.p>
 
-          {/* Black Pill "Contact Us ↗" Button (Exact Match to Frame 00:12) */}
+          {/* New Link Red Pill "Contact Us ↗" Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,10 +74,10 @@ export function CtaSection() {
           >
             <a
               href="#contact-form-section"
-              className="group inline-flex items-center gap-4 px-8 py-4 rounded-full bg-black text-white hover:bg-slate-900 font-bold text-sm sm:text-base shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="group inline-flex items-center gap-4 px-8 py-4 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm sm:text-base shadow-2xl shadow-red-950/50 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Contact Us</span>
-              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <div className="w-8 h-8 rounded-full bg-white text-[#DC2626] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight className="w-4 h-4 stroke-[3]" />
               </div>
             </a>

@@ -67,7 +67,7 @@ export function WhyChooseUs() {
       {/* Background Subtle Cyber Glow */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute left-1/4 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-rose-600/10 rounded-full blur-[130px]" />
+        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-[#DC2626]/10 rounded-full blur-[130px]" />
       </div>
 
       <Container size="default" className="relative z-10 space-y-16">
