@@ -214,7 +214,7 @@ export function AboutPreview() {
                     Years of engineering heritage
                   </p>
                   <p className="text-xs text-white/85 font-light">
-                    Founded in 2011 in Rajajinagar, Bangalore • Turnkey Systems
+                    Headquartered in Rajajinagar, Bangalore • Turnkey Systems
                   </p>
                 </div>
               </motion.div>

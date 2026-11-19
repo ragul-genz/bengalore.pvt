@@ -197,7 +197,7 @@ export function Hero() {
                   New Link Technologies Bangalore Pvt. Ltd.
                 </h1>
                 <p className="text-xs sm:text-sm font-mono tracking-[0.2em] text-sky-300 uppercase font-semibold">
-                  Connecting Values • Est. 2011
+                  Connecting Values • Bangalore
                 </p>
               </div>
             </motion.div>

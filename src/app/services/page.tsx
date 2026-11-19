@@ -71,21 +71,23 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "Our Services" */}
+            {/* Right: Vertical Pillar in Vibrant Royal Blue with Giant Overlapping "Our Services" */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
-              <div className="relative w-full max-w-[300px] sm:max-w-sm md:w-96 h-[240px] sm:h-[400px] md:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none">
-                <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
-                  8 DISCIPLINES
-                </span>
+              <div className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[300px] sm:h-[440px] md:h-[520px] rounded-[32px] bg-gradient-to-br from-[#1E64F0] via-[#2563EB] to-[#1D4ED8] border border-blue-400/30 p-8 sm:p-10 md:p-12 shadow-2xl shadow-blue-600/30 flex flex-col justify-between overflow-hidden group select-none">
+                <div className="flex justify-end w-full">
+                  <span className="text-[10px] font-mono tracking-widest text-sky-100 uppercase font-bold bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25 shadow-xs">
+                    8 DISCIPLINES
+                  </span>
+                </div>
 
                 <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
-                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.85]">
+                  <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[104px] font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.84]">
                     Our
                   </span>
-                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.85]">
+                  <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[104px] font-black font-heading tracking-tighter text-[#93C5FD] drop-shadow-md leading-[0.84]">
                     Services
                   </span>
-                  <p className="pt-2 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                  <p className="pt-3 sm:pt-4 text-[11px] sm:text-xs font-mono uppercase tracking-[0.25em] text-white/90 font-bold">
                     CONNECTING VALUES
                   </p>
                 </div>
