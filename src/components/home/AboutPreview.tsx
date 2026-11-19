@@ -131,7 +131,7 @@ export function AboutPreview() {
           </button>
         </div>
 
-        {/* Main Kinetic Typography Layout (Exact Replica of Reference) */}
+        {/* Main Kinetic Typography Layout (Authentic New Link IT Engineering Topic) */}
         <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-12 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -140,7 +140,7 @@ export function AboutPreview() {
             transition={{ duration: 0.8, ease: CINEMATIC_EASE }}
           >
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-medium text-white font-heading tracking-tight leading-none select-none">
-              Infrastructure crafted to
+              Technology engineered to
             </h2>
             <span
               className="block text-6xl sm:text-8xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none"
@@ -148,7 +148,7 @@ export function AboutPreview() {
                 textShadow: `0 0 60px rgba(255,255,255,0.4), 0 0 100px ${activeTheme.glowColor}`,
               }}
             >
-              ELEVATE
+              EMPOWER
             </span>
           </motion.div>
 
@@ -161,7 +161,7 @@ export function AboutPreview() {
             className="max-w-md lg:pb-4"
           >
             <p className={`text-lg sm:text-xl md:text-2xl font-light leading-snug transition-colors duration-700 ${activeTheme.taglineColor}`}>
-              More than equipment, we engineer mission-critical systems that move Karnataka&apos;s premier institutions forward.
+              More than equipment. We engineer turnkey modular data centres, campus fiber backbones, and clean energy that drive Karnataka&apos;s premier institutions.
             </p>
           </motion.div>
         </div>
