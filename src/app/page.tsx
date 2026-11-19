@@ -1,24 +1,43 @@
 import {
   Hero,
   AboutPreview,
-  Services,
   ProjectsPreview,
-  Partners,
   Certificates,
+  Services,
+  Partners,
   WhyChooseUs,
+  TeamSection,
   CtaSection,
 } from "@/components/home";
 
 export default function Home() {
   return (
     <>
+      {/* 1. Pure Minimalist Cinema Hero (With Audio & Morphing Exit Controller) */}
       <Hero />
+
+      {/* 2. Scroll Transition Banner (Elevate + Theme Lightbulb) & Milestone HUD */}
       <AboutPreview />
-      <Services />
+
+      {/* 3. Flagship Creations (3D Coverflow Project Carousel) */}
       <ProjectsPreview />
-      <Partners />
+
+      {/* 4. The Winning Streak (Luxury Gold Accreditations & Commendation Cards) */}
       <Certificates />
+
+      {/* 5. What We Do (Interactive Split Services List with Dynamic Showcase Photo) */}
+      <Services />
+
+      {/* 6. Strategic Government & OEM Brand Alliances */}
+      <Partners />
+
+      {/* 7. Engineering Differentiators */}
       <WhyChooseUs />
+
+      {/* 8. Humans of New Link (Leadership Board) */}
+      <TeamSection />
+
+      {/* 9. Final Turnkey Consultation CTA */}
       <CtaSection />
     </>
   );

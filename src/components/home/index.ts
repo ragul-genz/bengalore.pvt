@@ -7,5 +7,6 @@ export * from "./ProjectsPreview";
 export * from "./Partners";
 export * from "./Clients";
 export * from "./Certificates";
+export * from "./TeamSection";
 export * from "./WhyChooseUs";
 export * from "./CtaSection";

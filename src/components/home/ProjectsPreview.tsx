@@ -3,205 +3,309 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import {
+  ChevronLeft,
+  ChevronRight,
   ArrowRight,
-  Maximize2,
-  Building2,
-  ShieldCheck,
-  Sparkles,
+  CheckCircle2,
 } from "lucide-react";
-import {
-  Container,
-  Lightbox,
-  RevealText,
-  FadeIn,
-  StaggerGroup,
-  StaggerItem,
-  ImageReveal,
-} from "@/components/common";
-import { PROJECTS_DATA, type ProjectItem } from "@/data/projects";
+import { Container, CINEMATIC_EASE, VIEWPORT_CONFIG } from "@/components/common";
+
+interface FlagshipProject {
+  id: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  client: string;
+  location: string;
+  specs: string;
+  description: string;
+  image: string;
+  tag: string;
+}
+
+const FLAGSHIP_PROJECTS: FlagshipProject[] = [
+  {
+    id: "datacenter",
+    badge: "MODULAR DATA CENTRE",
+    title: "Tier-3 Turnkey Modular Data Centre",
+    subtitle: "Precision Server Enclosures & Cold Aisle Containment",
+    client: "University of Agricultural Sciences (UAS), Raichur",
+    location: "Raichur, Karnataka",
+    specs: "Tier-3 Architecture • In-Row Precision Cooling • High-Density Racks",
+    description: "Designed, engineered, and commissioned complete server room infrastructure with hot/cold aisle isolation, smart rack PDU distribution, and uninterrupted power backup for university academic computing.",
+    image: "/projects/project-modular-datacenter.png",
+    tag: "TURNKEY DATA CENTRE",
+  },
+  {
+    id: "command-room",
+    badge: "COMMAND & CONTROL ROOM",
+    title: "Enterprise Multi-Display Surveillance Video Wall",
+    subtitle: "24/7 Mission-Critical High-Definition Monitoring Console",
+    client: "New Link High-Tech Operations Command",
+    location: "Bengaluru, Karnataka",
+    specs: "Ultra-Narrow Bezel Displays • 4K Matrix Switching • Ergonomic Consoles",
+    description: "Multi-screen matrix monitoring suite engineered for round-the-clock facility surveillance, physical security telemetry, and network operations center (NOC) situational awareness.",
+    image: "/projects/project-command-room-video-wall.png",
+    tag: "SURVEILLANCE & NOC",
+  },
+  {
+    id: "solar-plant",
+    badge: "220 kWp SOLAR POWER PLANT",
+    title: "High-Capacity Rooftop Solar Photovoltaic Plant",
+    subtitle: "Institutional Renewable Energy Generation Array",
+    client: "NAAC (National Assessment and Accreditation Council)",
+    location: "Nagarbhavi, Bengaluru",
+    specs: "220 kWp Solar PV Array • Tier-1 Inverters • Executed via ITI Limited",
+    description: "Institutional rooftop clean energy generation project generating over 320,000+ clean units annually, contributing significantly to green campus certification and institutional power resilience.",
+    image: "/clients/photos/naac-solar-rooftop.jpg",
+    tag: "CLEAN ENERGY",
+  },
+  {
+    id: "campus-fiber",
+    badge: "CAMPUS OPTICAL FIBER RING",
+    title: "14-Building Inter-Campus 10Gbps Optical Fiber Ring",
+    subtitle: "High-Speed Underground Armored OFC Backbone",
+    client: "SJB Institute of Technology (SJBIT)",
+    location: "Kengeri, Bengaluru",
+    specs: "14 Institutional Buildings • Multi-Core Armored OFC • Zero Loss Splicing",
+    description: "Multi-building optical fiber backbone connecting academic blocks, research centres, libraries, and administrative wings with redundant ring topology and zero single-point-of-failure routing.",
+    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+    tag: "CAMPUS OFC RING",
+  },
+  {
+    id: "cabling",
+    badge: "STRUCTURED CABLING",
+    title: "High-Density Color-Coded Patch Cabling & Dressing",
+    subtitle: "Gigabit Certified Network Distribution Racks",
+    client: "State Technical Directorate Facility",
+    location: "Bengaluru, Karnataka",
+    specs: "Cat6A F/UTP Structured Dressing • Fluke Certified • 42U Server Racks",
+    description: "Fluke-certified structured cabling infrastructure featuring neat vertical and horizontal trunking, color-coded patch assignments, and clean zero-downtime wire management.",
+    image: "/projects/project-color-patching-dressing.png",
+    tag: "STRUCTURED CABLING",
+  },
+];
 
 export function ProjectsPreview() {
-  const [activeLightbox, setActiveLightbox] = useState<{
-    isOpen: boolean;
-    image: string;
-    title: string;
-    caption: string;
-  }>({
-    isOpen: false,
-    image: "",
-    title: "",
-    caption: "",
-  });
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const openLightbox = (image: string, title: string, caption: string) => {
-    setActiveLightbox({
-      isOpen: true,
-      image,
-      title,
-      caption,
-    });
+  const prevIndex = (activeIndex - 1 + FLAGSHIP_PROJECTS.length) % FLAGSHIP_PROJECTS.length;
+  const nextIndex = (activeIndex + 1) % FLAGSHIP_PROJECTS.length;
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + FLAGSHIP_PROJECTS.length) % FLAGSHIP_PROJECTS.length);
   };
 
-  // 4 Flagship Projects covering Data Centre, Solar, Campus Fiber, and Command Room
-  const flagshipProjects = PROJECTS_DATA.slice(0, 4);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % FLAGSHIP_PROJECTS.length);
+  };
+
+  const activeProject = FLAGSHIP_PROJECTS[activeIndex];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-50/80 backdrop-blur-xs border-b border-slate-200 relative overflow-hidden">
-      {/* Background Ambient High-Tech Glow */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <div className="absolute right-1/4 top-10 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[120px]" />
-        <div className="absolute left-10 bottom-10 w-[400px] h-[400px] bg-sky-100/40 rounded-full blur-[100px]" />
+    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10 select-none">
+      {/* Background Ambient Spotlight */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute left-1/2 -top-24 -translate-x-1/2 w-[700px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute right-10 bottom-10 w-96 h-96 bg-rose-600/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:28px_28px] opacity-40" />
       </div>
 
-      <Container size="default" className="relative z-10">
-        {/* Section Heading & Explore Button */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <div className="max-w-2xl space-y-3 text-left">
-            <FadeIn
-              mode="view"
-              delay={0.03}
-              y={8}
-              duration={0.42}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-blue-700">
-                PROVEN FIELD COMMISSIONING • FLAGSHIP PORTFOLIO
-              </span>
-            </FadeIn>
+      <Container size="default" className="relative z-10 space-y-12 sm:space-y-16">
+        {/* ======================================================== */}
+        {/* SECTION HEADER MATCHING "Flagship Creations" EXACT STYLE */}
+        {/* ======================================================== */}
+        <div className="text-center max-w-4xl mx-auto space-y-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none uppercase"
+          >
+            Flagship Creations
+          </motion.h2>
 
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.045}
-              duration={0.52}
-              text="Our Flagship"
-              highlight="Turnkey Installations"
-              highlightClassName="text-blue-600"
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-slate-900 tracking-tight leading-tight"
-            />
-
-            <FadeIn
-              as="p"
-              mode="view"
-              delay={0.2}
-              y={12}
-              duration={0.55}
-              className="text-sm sm:text-base text-slate-600 leading-relaxed"
-            >
-              Verified physical infrastructure, optical networking, and turnkey technology
-              systems deployed for premier state universities and government directorates across Karnataka.
-            </FadeIn>
-          </div>
-
-          <FadeIn mode="view" delay={0.28} y={12} duration={0.5} className="shrink-0">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-slate-900 hover:bg-blue-600 text-white text-xs sm:text-sm font-semibold shadow-md transition-all duration-200 group"
-            >
-              <span>Explore All Verified Projects</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </FadeIn>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
+            className="space-y-1.5"
+          >
+            <p className="text-sm sm:text-base font-mono uppercase tracking-[0.25em] text-slate-300 font-bold">
+              ENGINEERED. DELIVERED. VERIFIED.
+            </p>
+            <p className="text-base sm:text-lg text-slate-400 font-light max-w-xl mx-auto">
+              We don&apos;t just talk the talk — we walk it, with you
+            </p>
+          </motion.div>
         </div>
 
-        {/* 4 Flagship Projects Grid (Cinema Cards) */}
-        <StaggerGroup
-          mode="view"
-          stagger={0.08}
-          delay={0.1}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {flagshipProjects.map((project: ProjectItem) => (
-            <StaggerItem
-              key={project.id}
-              y={20}
-              className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white shadow-md hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 overflow-hidden relative"
+        {/* ======================================================== */}
+        {/* 3D COVERFLOW CAROUSEL (EVENTUROX STYLE) */}
+        {/* ======================================================== */}
+        <div className="relative max-w-6xl mx-auto flex items-center justify-center px-4 sm:px-0">
+          {/* Navigation Arrow Left */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="absolute left-2 sm:left-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 hover:border-white text-white flex items-center justify-center shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            aria-label="Previous Project"
+          >
+            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Navigation Arrow Right */}
+          <button
+            type="button"
+            onClick={handleNext}
+            className="absolute right-2 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 hover:border-white text-white flex items-center justify-center shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            aria-label="Next Project"
+          >
+            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* 3-Card Carousel Track with 3D Perspective */}
+          <div
+            className="w-full flex items-center justify-center overflow-hidden py-6"
+            style={{ perspective: "1200px" }}
+          >
+            {/* Left Angled Card */}
+            <div
+              onClick={handlePrev}
+              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-2xl shrink-0 -mr-12"
+              style={{
+                transform: "rotateY(22deg) scale(0.85)",
+                transformStyle: "preserve-3d",
+              }}
             >
-              {/* Top Animated Accent Ribbon */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-sky-400 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+              <Image
+                src={FLAGSHIP_PROJECTS[prevIndex].image}
+                alt={FLAGSHIP_PROJECTS[prevIndex].title}
+                fill
+                sizes="300px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
 
-              <div>
-                {/* Project Image with Lightbox Button */}
-                <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900 border-b border-slate-100">
-                  <ImageReveal className="w-full h-full relative" duration={0.65}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-106"
-                    />
-                  </ImageReveal>
+            {/* Center Active Showcase Card */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject.id}
+                initial={{ opacity: 0, scale: 0.94 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
+                className="w-full md:w-[62%] h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl border border-white/20 z-30 shrink-0 group"
+              >
+                <Image
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+                {/* Subtle Cinematic Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
-                  {/* Category Pill */}
-                  <div className="absolute top-3.5 left-3.5">
-                    <span className="px-3.5 py-1 rounded-full text-[11px] font-bold tracking-wide bg-slate-900/90 text-white backdrop-blur-md border border-white/20 shadow-md">
-                      {project.category}
-                    </span>
+                {/* Top Floating Badge */}
+                <div className="absolute top-5 left-5 z-20">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono uppercase font-bold tracking-wider">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{activeProject.badge}</span>
+                  </span>
+                </div>
+
+                {/* Bottom Overlay Info on Card */}
+                <div className="absolute bottom-6 left-6 right-6 z-20 flex items-end justify-between">
+                  <div className="text-left">
+                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
+                      {activeProject.client}
+                    </p>
+                    <p className="text-sm sm:text-base text-white/90 font-medium">
+                      {activeProject.location}
+                    </p>
                   </div>
-
-                  {/* Zoom Lightbox Trigger Button */}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      openLightbox(
-                        project.image,
-                        project.title,
-                        `Client: ${project.client}`
-                      )
-                    }
-                    className="absolute bottom-3.5 right-3.5 w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md hover:bg-white text-slate-900 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 focus-visible:outline-none"
-                    title="Expand photograph"
-                    aria-label={`Expand ${project.title} photograph`}
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-slate-900 text-xs font-semibold backdrop-blur-md border border-white/30 transition-all duration-200"
                   >
-                    <Maximize2 className="w-4 h-4 text-blue-600" />
-                  </button>
+                    <span>View Case</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
+              </motion.div>
+            </AnimatePresence>
 
-                {/* Content Body */}
-                <div className="p-6 sm:p-7 space-y-3.5 text-left">
-                  <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-                    <Building2 className="w-4 h-4 shrink-0 text-blue-600" />
-                    <span className="truncate">{project.client}</span>
-                  </div>
+            {/* Right Angled Card */}
+            <div
+              onClick={handleNext}
+              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-2xl shrink-0 -ml-12"
+              style={{
+                transform: "rotateY(-22deg) scale(0.85)",
+                transformStyle: "preserve-3d",
+              }}
+            >
+              <Image
+                src={FLAGSHIP_PROJECTS[nextIndex].image}
+                alt={FLAGSHIP_PROJECTS[nextIndex].title}
+                fill
+                sizes="300px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
+          </div>
+        </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
-                    {project.title}
-                  </h3>
+        {/* ======================================================== */}
+        {/* ACTIVE PROJECT NARRATIVE (MATCHING "Cult Unbound" TEXT) */}
+        {/* ======================================================== */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeProject.id}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4 }}
+            className="text-center max-w-3xl mx-auto space-y-3"
+          >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
+              {activeProject.title}
+            </h3>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              {activeProject.description}
+            </p>
+            <div className="pt-2 flex items-center justify-center gap-2">
+              <span className="text-[11px] font-mono text-slate-400">
+                {activeProject.specs}
+              </span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-                  <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Highlights & Scope Footer */}
-              <div className="p-6 sm:p-7 pt-0 space-y-4">
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-700 flex items-start gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="leading-snug font-medium">{project.verifiedHighlights}</span>
-                </div>
-              </div>
-            </StaggerItem>
+        {/* Indicator Dots */}
+        <div className="flex items-center justify-center gap-2 pt-2">
+          {FLAGSHIP_PROJECTS.map((item, idx) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveIndex(idx)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === activeIndex
+                  ? "w-8 bg-[#BE123C]"
+                  : "w-2 bg-white/30 hover:bg-white/60"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
           ))}
-        </StaggerGroup>
+        </div>
       </Container>
-
-      {/* Lightbox Modal */}
-      <Lightbox
-        isOpen={activeLightbox.isOpen}
-        onClose={() => setActiveLightbox({ ...activeLightbox, isOpen: false })}
-        imageSrc={activeLightbox.image}
-        imageAlt={activeLightbox.title}
-        title={activeLightbox.title}
-        caption={activeLightbox.caption}
-      />
     </section>
   );
 }

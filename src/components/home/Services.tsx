@@ -3,280 +3,251 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "motion/react";
-import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck } from "lucide-react";
-import {
-  Container,
-  ServiceIcon,
-  RevealText,
-  FadeIn,
-  ImageReveal,
-  CINEMATIC_EASE,
-} from "@/components/common";
-import { SERVICES_DATA, type ServiceItem } from "@/data/services";
-import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { Container, CINEMATIC_EASE, VIEWPORT_CONFIG } from "@/components/common";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
+interface ServiceItemData {
+  number: string;
+  title: string;
+  shortDesc: string;
+  slug: string;
+  client: string;
+  specs: string;
+  image: string;
+}
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: CINEMATIC_EASE,
-    },
+const SERVICES_SPLIT_LIST: ServiceItemData[] = [
+  {
+    number: "01.",
+    title: "Modular Data Centres & Containment",
+    shortDesc: "Complete Tier-3 turnkey modular data centres with in-row precision cooling, hot/cold aisle isolation, and uninterrupted power distribution.",
+    slug: "data-centre-solutions",
+    client: "University of Agricultural Sciences (UAS), Raichur",
+    specs: "Tier-3 Architecture • Cold Aisle Containment • Smart PDU Racks",
+    image: "/projects/project-modular-datacenter.png",
   },
-};
+  {
+    number: "02.",
+    title: "Campus Optical Fiber Networks",
+    shortDesc: "Multi-building 10Gbps underground armored optical fiber backbones with zero single-point-of-failure redundant ring topology.",
+    slug: "networking-solutions",
+    client: "SJB Institute of Technology (SJBIT), Bangalore",
+    specs: "14 Buildings Linked • Armored Multi-Core OFC • OTDR Certified",
+    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+  },
+  {
+    number: "03.",
+    title: "Command & Control Surveillance Video Walls",
+    shortDesc: "Ultra-narrow bezel multi-display video wall arrays and 24/7 operator consoles engineered for round-the-clock facility monitoring.",
+    slug: "video-solutions",
+    client: "New Link High-Tech Operations Command, Bangalore",
+    specs: "Ultra-Narrow Bezel Matrix • 4K Real-Time Video Switching",
+    image: "/projects/project-command-room-video-wall.png",
+  },
+  {
+    number: "04.",
+    title: "220 kWp Rooftop Solar Photovoltaic Plants",
+    shortDesc: "Institutional clean renewable solar energy arrays designed to state grid standards, delivering over 320,000+ units of clean power annually.",
+    slug: "solar-power-solutions",
+    client: "NAAC Bangalore (Executed through ITI Limited)",
+    specs: "220 kWp Solar PV Array • Tier-1 Inverters • Net-Metering Compliant",
+    image: "/clients/photos/naac-solar-rooftop.jpg",
+  },
+  {
+    number: "05.",
+    title: "High-Density Structured Cabling",
+    shortDesc: "Cat6A F/UTP certified cable dressing, vertical and horizontal wire management, and switching matrices for zero-downtime operations.",
+    slug: "structured-cabling",
+    client: "State Technical Directorate Facility, Bangalore",
+    specs: "Fluke Certified • Color-Coded Trunk Dressing • 42U Server Enclosures",
+    image: "/projects/project-color-patching-dressing.png",
+  },
+  {
+    number: "06.",
+    title: "Smart Boardroom AV & Acoustic Integration",
+    shortDesc: "High-definition interactive video conferencing, smart podiums, DSP beamforming microphone arrays, and automated presentation suites.",
+    slug: "auditorium-solutions",
+    client: "Institutional Auditoriums & Executive Boardrooms",
+    specs: "Acoustic Tuning • Automated DSP Switching • 4K Laser Projection",
+    image: "/clients/photos/sjbit-lab-setup.jpg",
+  },
+  {
+    number: "07.",
+    title: "Enterprise Server Compute & Storage Virtualization",
+    shortDesc: "Direct OEM certified server clusters, SAN/NAS storage arrays, and high-availability virtualization matrices for enterprise workloads.",
+    slug: "hardware-solutions",
+    client: "State Government & Public Sector Undertakings",
+    specs: "HP Enterprise & Dell PowerEdge • SAN Storage Arrays • VMware",
+    image: "/clients/photos/sjbit-rack-inspection.jpg",
+  },
+  {
+    number: "08.",
+    title: "24/7 Managed IT SLA & Facility Maintenance",
+    shortDesc: "Accountable multi-year maintenance agreements with dedicated on-site resident engineers, spare part logistics, and guaranteed uptime.",
+    slug: "turnkey-solutions",
+    client: "Universities, Government Bodies & Defense Establishments",
+    specs: "24/7 Response SLA • Preventative Audits • OEM Certified Spares",
+    image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+  },
+];
 
 export function Services() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const categories = [
-    { id: "all", label: "All Turnkey Systems" },
-    { id: "datacenter", label: "Data Centres & Racks" },
-    { id: "networking", label: "Fiber & Structured Cabling" },
-    { id: "av", label: "AV & Command Rooms" },
-    { id: "clean-energy", label: "Solar Clean Energy" },
-  ];
-
-  const filteredServices = SERVICES_DATA.filter((service) => {
-    if (activeCategory === "all") return true;
-    if (activeCategory === "datacenter") return service.slug.includes("data-centre") || service.slug.includes("hardware");
-    if (activeCategory === "networking") return service.slug.includes("networking") || service.slug.includes("cabling");
-    if (activeCategory === "av") return service.slug.includes("audio") || service.slug.includes("video");
-    if (activeCategory === "clean-energy") return service.slug.includes("solar");
-    return true;
-  });
+  const activeService = SERVICES_SPLIT_LIST[activeIndex];
 
   return (
-    <section className="py-24 md:py-32 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10">
-      {/* Background Ambient Cyber-Glow */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <div className="absolute left-1/3 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-rose-600/10 rounded-full blur-[130px]" />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.03] mix-blend-screen"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.7) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
+    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10 select-none">
+      {/* Background Ambient Spotlights */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute right-1/4 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute left-10 bottom-10 w-[450px] h-[450px] bg-rose-600/10 rounded-full blur-[130px]" />
       </div>
 
-      <Container size="default" className="relative z-10">
-        {/* Section Heading & Category Filter Strip */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-          <div className="space-y-3 max-w-2xl text-left">
-            <FadeIn
-              mode="view"
-              delay={0.04}
-              y={8}
-              duration={0.42}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-200">
-                TURNKEY ENGINEERING CAPABILITIES
-              </span>
-            </FadeIn>
-
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.045}
-              duration={0.52}
-              text="End-to-End Mission-Critical"
-              highlight="Technology Infrastructure"
-              highlightClassName="text-sky-400 font-extrabold"
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.12]"
-            />
-
-            <FadeIn
-              as="p"
-              mode="view"
-              delay={0.2}
-              y={10}
-              className="text-sm sm:text-base text-slate-300 leading-relaxed"
-            >
-              Enterprise-grade hardware, structured connectivity, audio-visual automation, and renewable energy engineered for public sector undertakings, premier universities, and commercial enterprises.
-            </FadeIn>
-          </div>
-
-          {/* Quick Category Switcher Tabs */}
-          <FadeIn
-            mode="view"
-            delay={0.24}
-            y={12}
-            className="flex flex-wrap items-center gap-2 shrink-0"
+      <Container size="default" className="relative z-10 space-y-14 sm:space-y-16">
+        {/* ======================================================== */}
+        {/* SECTION HEADER MATCHING "What We Do" EXACT STYLE */}
+        {/* ======================================================== */}
+        <div className="text-center max-w-4xl mx-auto space-y-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none"
           >
-            {categories.map((cat) => {
-              const isActive = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={cn(
-                    "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 select-none",
-                    isActive
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/40 border border-blue-400/50"
-                      : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/10"
-                  )}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </FadeIn>
+            What We Do
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_CONFIG}
+            transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
+            className="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed"
+          >
+            Cutting-edge solutions designed for impact. We craft bespoke digital and physical infrastructure from concept to deployment.
+          </motion.p>
         </div>
 
-        {/* 8 Services Grid (Cinema-Grade Cards with High-Contrast Hover Reveal) */}
-        <motion.div
-          key={activeCategory}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {filteredServices.map((service: ServiceItem) => (
-            <motion.div
-              key={service.slug}
-              variants={cardVariants}
-              className="group relative flex flex-col justify-between rounded-2xl bg-slate-900/90 border border-white/15 overflow-hidden shadow-xl hover:-translate-y-1.5 hover:border-sky-400 hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-300"
-            >
-              {/* Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity z-20" />
-
-              <div>
-                {/* Service Image with Cinema Overlay & Ken Burns Zoom */}
-                <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-950 border-b border-white/10">
-                  <ImageReveal className="w-full h-full relative" duration={0.6}>
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
-                    />
-                  </ImageReveal>
-
-                  {/* Gradient Film Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
-
-                  {/* Icon Badge Overlay */}
-                  <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/20 flex items-center justify-center text-sky-400 shadow-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                    <ServiceIcon name={service.iconName} className="w-5 h-5" />
-                  </div>
-
-                  {/* Tag Pill */}
-                  <div className="absolute bottom-2.5 right-3">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[#050B14]/85 text-slate-200 backdrop-blur-md border border-white/15">
-                      {service.tag}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Area */}
-                <div className="p-5 sm:p-6 space-y-3">
-                  <h3 className="text-lg font-bold font-heading text-white group-hover:text-sky-400 transition-colors leading-snug">
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="focus-visible:outline-none focus-visible:underline"
-                    >
-                      {service.title}
-                    </Link>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed">
-                    {service.shortDescription}
-                  </p>
-
-                  {/* OEM Brand Partners Badge Strip */}
-                  {service.brands && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {service.brands.slice(0, 4).map((b) => (
-                        <span
-                          key={b}
-                          className="text-[10px] px-2 py-0.5 rounded-md bg-white/10 text-slate-200 font-mono font-medium border border-white/10"
-                        >
-                          {b}
-                        </span>
-                      ))}
-                      {service.brands.length > 4 && (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/5 text-slate-400 font-mono">
-                          +{service.brands.length - 4}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="p-5 sm:p-6 pt-0">
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-white transition-colors group/link pt-3 border-t border-white/10 w-full justify-between"
+        {/* ======================================================== */}
+        {/* SPLIT-VIEW INTERACTIVE ACCORDION (EVENTUROX STYLE) */}
+        {/* Left: 8 Numbered Services | Right: Dynamic Full-Height Photo */}
+        {/* ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left Column: Numbered Service Items (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col divide-y divide-white/10">
+            {SERVICES_SPLIT_LIST.map((service, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <div
+                  key={service.number}
+                  onMouseEnter={() => setActiveIndex(idx)}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`py-4 sm:py-5 transition-all duration-300 cursor-pointer group select-none ${
+                    isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+                  }`}
                 >
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Technical Architecture</span>
+                  <div className="flex items-start gap-4">
+                    <span className="text-sm font-mono text-slate-400 font-bold shrink-0 mt-0.5">
+                      {service.number}
+                    </span>
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className={`text-base sm:text-lg font-heading font-bold transition-colors ${
+                          isActive ? "text-white" : "text-slate-300 group-hover:text-white"
+                        }`}>
+                          {service.title}
+                        </h3>
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
+                          isActive ? "translate-x-1 text-[#BE123C]" : "opacity-0 group-hover:opacity-100 text-slate-400"
+                        }`} />
+                      </div>
+
+                      {/* Expanding Short Description for Active Item */}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.p
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed pt-1"
+                          >
+                            {service.shortDesc}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Dynamic Full-Height Showcase Photo (7 cols) */}
+          <div className="lg:col-span-7 sticky top-28">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeService.number}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: CINEMATIC_EASE }}
+                className="relative h-[380px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl border border-white/15 group"
+              >
+                <Image
+                  src={activeService.image}
+                  alt={activeService.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none" />
+
+                {/* Top Number / Client Badge */}
+                <div className="absolute top-5 left-5 right-5 z-20 flex items-center justify-between">
+                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-bold">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>AUTHENTIC DEPLOYMENT</span>
                   </span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 text-sky-400 group-hover/link:text-white" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                  <span className="text-xs font-mono text-slate-300 bg-black/60 px-3 py-1.5 rounded-full border border-white/20">
+                    {activeService.number} of 08
+                  </span>
+                </div>
 
-        {/* View All & Consultation CTA Bar in High-Tech Glassmorphism */}
-        <FadeIn
-          mode="view"
-          delay={0.1}
-          y={16}
-          className="mt-14 p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-white/15 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl backdrop-blur-md relative overflow-hidden"
-        >
-          {/* Subtle Ambient Red Glow matching our logo "Link" accent */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-rose-600/10 via-transparent to-transparent pointer-events-none" />
+                {/* Bottom Overlay with Client Details and CTA */}
+                <div className="absolute bottom-6 left-6 right-6 z-20 space-y-3">
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
+                      {activeService.client}
+                    </p>
+                    <h4 className="text-xl sm:text-2xl font-bold font-heading text-white">
+                      {activeService.title}
+                    </h4>
+                    <p className="text-xs text-slate-300 font-mono mt-0.5">
+                      {activeService.specs}
+                    </p>
+                  </div>
 
-          <div className="space-y-1.5 text-center md:text-left relative z-10">
-            <h4 className="text-xl sm:text-2xl font-extrabold font-heading text-white flex items-center justify-center md:justify-start gap-2">
-              <span>Need a Custom Turnkey Infrastructure Proposal?</span>
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Our engineering team conducts on-site surveys, heat load calculations, and structured fiber planning.
-            </p>
+                  <div className="pt-1">
+                    <Link
+                      href={`/services/${activeService.slug}`}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#BE123C] hover:bg-[#9F1239] text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group/btn"
+                    >
+                      <span>Explore Technical Architecture</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0 relative z-10">
-            <Link
-              href="/contact#quote"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 active:scale-95"
-            >
-              <span>Request Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-semibold backdrop-blur-md transition-all"
-            >
-              <span>View All 8 Services</span>
-            </Link>
-          </div>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   );
