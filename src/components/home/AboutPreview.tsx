@@ -168,65 +168,90 @@ export function AboutPreview() {
       </section>
 
       {/* ======================================================== */}
-      {/* 2. 3-COLUMN LUXURY MILESTONE METRICS (FRAME_V0_25 REPLICA) */}
-      {/* Revealed cleanly on scroll down */}
+      {/* 2. 3-COLUMN LUXURY MILESTONE METRICS (EXACT VIDEO REPLICA) */}
+      {/* Matches user recording Screen_Recording_2026-11-19_120219.mp4 */}
       {/* ======================================================== */}
       <section
         id="about-details"
         className="py-20 md:py-28 bg-[#F4F5F7] text-slate-900 relative overflow-hidden select-none border-b border-slate-200"
       >
         <Container size="default" className="relative z-10">
+          {/* Subtitle / Moments Quote Header (Exact match to top of video frames 00:01 - 00:07) */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-1.5 px-4">
+            <p className="text-base sm:text-lg md:text-xl text-slate-500 font-light">
+              We measure success not just in milestones, but in mission-critical uptime
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-slate-500 font-light">
+              Moments that move institutions, engineering that shapes outcomes
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-6xl mx-auto">
             {/* ======================================================== */}
-            {/* LEFT COLUMN: 2 Stacked Cards (4 cols) */}
+            {/* LEFT COLUMN: 2 Stacked Red Cards (4 cols) */}
             {/* ======================================================== */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              {/* Card 1: 18+ Years of Engineering Heritage */}
+              {/* Card 1: 15+ Years of Engineering Heritage */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className={`rounded-3xl p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] transition-all duration-700 ${activeTheme.cardBg}`}
+                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
-                <div className="text-5xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight">
-                  18+
+                {/* Photo Reveal on Hover (Smooth transition matching video frame 00:02) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                  <Image
+                    src="/projects/project-color-patching-dressing.png"
+                    alt="Years of engineering heritage"
+                    fill
+                    sizes="400px"
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/55" />
                 </div>
-                <div className="space-y-1">
-                  <p className="text-lg sm:text-xl font-bold font-heading">
-                    Years of Engineering Heritage
+
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
+                  15+
+                </div>
+                <div className="relative z-10 space-y-1">
+                  <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
+                    Years of engineering heritage
                   </p>
-                  <p className="text-xs text-white/80">
-                    Founded in 2011 in Rajajinagar, Bangalore • Turnkey Systems.
+                  <p className="text-xs text-white/85 font-light">
+                    Founded in 2011 in Rajajinagar, Bangalore • Turnkey Systems
                   </p>
                 </div>
               </motion.div>
 
-              {/* Card 2: 50+ Implementations (Photo Card with Dark Overlay) */}
+              {/* Card 2: 75+ Public Sector & Institutional Clients */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] group cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
-                <Image
-                  src="/clients/photos/naac-solar-leadership.jpg"
-                  alt="New Link Engineering Leadership"
-                  fill
-                  sizes="400px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors duration-500" />
+                {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05 - 00:06) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                  <Image
+                    src="/clients/photos/naac-solar-leadership.jpg"
+                    alt="Public Sector & Institutional Clients"
+                    fill
+                    sizes="400px"
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/55" />
+                </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight">
-                  50+
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
+                  75+
                 </div>
                 <div className="relative z-10 space-y-1">
-                  <p className="text-lg sm:text-xl font-bold font-heading">
+                  <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
                     Public Sector &amp; Institutional Clients
                   </p>
-                  <p className="text-xs text-white/85">
+                  <p className="text-xs text-white/85 font-light">
                     ITI Limited • KEONICS • UAS Raichur • SJBIT
                   </p>
                 </div>
@@ -235,110 +260,107 @@ export function AboutPreview() {
 
             {/* ======================================================== */}
             {/* CENTER COLUMN: 1 Tall Flagship White Quote Card (4 cols) */}
+            {/* (Matches exact clean layout in video frames 00:01 - 00:07) */}
             {/* ======================================================== */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.6, delay: 0.12, ease: CINEMATIC_EASE }}
-              className="lg:col-span-4 rounded-3xl p-8 sm:p-10 bg-white border border-slate-200/90 shadow-xl hover:shadow-2xl flex flex-col justify-between text-center relative overflow-hidden"
+              className="lg:col-span-4 rounded-3xl p-8 sm:p-12 bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl flex flex-col justify-between items-center text-center relative overflow-hidden"
             >
-              <div className="text-[#DC2626] text-5xl sm:text-6xl font-serif font-black leading-none text-left select-none">
-                “
+              {/* Top Quotation Mark (Two Slanted Red Marks matching video) */}
+              <div className="flex gap-1.5 justify-center text-[#DC2626] select-none pt-2">
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
               </div>
 
-              <div className="my-6 space-y-4">
-                <blockquote className="text-lg sm:text-xl md:text-2xl font-heading font-semibold text-slate-800 leading-snug">
-                  Infrastructure engineered with purpose, driven by reliability, delivered with turnkey precision.
-                </blockquote>
-
-                <div className="pt-2">
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#DC2626] font-bold">
-                    NEW LINK TECHNOLOGIES
-                  </span>
-                  <p className="text-[11px] text-slate-500 font-mono">
-                    Connecting Values • Bangalore Pvt. Ltd.
-                  </p>
-                </div>
+              {/* Center Text (Clean & spacious matching video) */}
+              <div className="my-auto py-8 sm:py-10">
+                <p className="text-xl sm:text-2xl md:text-3xl font-heading font-medium text-slate-800 leading-snug max-w-xs mx-auto">
+                  Infrastructure<br />
+                  engineered with<br />
+                  purpose, driven<br />
+                  by reliability,<br />
+                  delivered with<br />
+                  precision
+                </p>
               </div>
 
-              {/* Leadership Sign-Off */}
-              <div className="pt-4 border-t border-slate-150 flex items-center justify-between">
-                <div className="text-[#DC2626] text-5xl sm:text-6xl font-serif font-black leading-none select-none">
-                  ”
-                </div>
-                <div className="flex items-center gap-2.5 text-right">
-                  <div className="text-xs">
-                    <p className="font-heading font-bold text-slate-900">M.G. Girish &amp; Divya D K</p>
-                    <p className="text-slate-500 text-[10px] font-mono">Executive Leadership</p>
-                  </div>
-                  <div className="flex -space-x-2 shrink-0">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-xs">
-                      <Image
-                        src="/leadership/director-mg-girish.jpg"
-                        alt="M.G. Girish"
-                        fill
-                        sizes="32px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-xs">
-                      <Image
-                        src="/leadership/director-divya-dk.jpg"
-                        alt="Divya D K"
-                        fill
-                        sizes="32px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                  </div>
-                </div>
+              {/* Bottom Quotation Mark (Two Slanted Red Marks matching video) */}
+              <div className="flex gap-1.5 justify-center text-[#DC2626] select-none pb-2">
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
+                <span className="w-2 sm:w-2.5 h-6 sm:h-7 bg-[#DC2626] rounded-xs -skew-x-12 inline-block" />
               </div>
             </motion.div>
 
             {/* ======================================================== */}
-            {/* RIGHT COLUMN: 2 Stacked Cards (4 cols) */}
+            {/* RIGHT COLUMN: 2 Stacked Red Cards (4 cols) */}
             {/* ======================================================== */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              {/* Card 3: 220 kWp Solar Energy Deployed */}
+              {/* Card 3: 220 kWp Clean Solar Energy Deployed */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className={`rounded-3xl p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] transition-all duration-700 ${activeTheme.cardBg}`}
+                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
-                <div className="text-5xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight flex items-baseline">
+                {/* Photo Reveal on Hover (Smooth transition matching video frames 00:03 - 00:04) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                  <Image
+                    src="/clients/photos/naac-solar-rooftop.jpg"
+                    alt="Clean Solar Energy Deployed"
+                    fill
+                    sizes="400px"
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/55" />
+                </div>
+
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight flex items-baseline">
                   <span>220</span>
                   <span className="text-2xl sm:text-3xl ml-1 font-mono font-bold opacity-90">kWp</span>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-lg sm:text-xl font-bold font-heading">
+                <div className="relative z-10 space-y-1">
+                  <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
                     Clean Solar Energy Deployed
                   </p>
-                  <p className="text-xs text-white/80">
-                    320,000+ units annual yield at NAAC via ITI Limited.
+                  <p className="text-xs text-white/85 font-light">
+                    320,000+ units annual yield at NAAC via ITI Limited
                   </p>
                 </div>
               </motion.div>
 
-              {/* Card 4: 99.98% SLA Accountability */}
+              {/* Card 4: 99.98% Mission-Critical SLA Accountability */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.15, ease: CINEMATIC_EASE }}
-                className={`rounded-3xl p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] transition-all duration-700 ${activeTheme.cardBg}`}
+                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
-                <div className="text-5xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight">
+                {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                  <Image
+                    src="/projects/project-modular-datacenter.png"
+                    alt="Mission-Critical SLA Accountability"
+                    fill
+                    sizes="400px"
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/55" />
+                </div>
+
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight">
                   99.98%
                 </div>
-                <div className="space-y-1">
-                  <p className="text-lg sm:text-xl font-bold font-heading">
+                <div className="relative z-10 space-y-1">
+                  <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
                     Mission-Critical SLA Accountability
                   </p>
-                  <p className="text-xs text-white/80">
-                    Zero downtime modular data centre &amp; campus OFC ring SLA.
+                  <p className="text-xs text-white/85 font-light">
+                    Zero downtime modular data centre &amp; campus OFC ring SLA
                   </p>
                 </div>
               </motion.div>
