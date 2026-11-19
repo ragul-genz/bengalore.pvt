@@ -10,7 +10,7 @@ import {
   Send,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
+  Building2,
 } from "lucide-react";
 import { RevealText, FadeIn } from "./MotionPrimitives";
 
@@ -142,7 +142,7 @@ export function ContactForm() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-[11px] font-mono uppercase tracking-wider">
-              <Sparkles className="w-3 h-3 text-[#2563EB]" />
+              <Building2 className="w-3 h-3 text-[#2563EB]" />
               <span>Direct Communication Channel</span>
             </div>
             <RevealText

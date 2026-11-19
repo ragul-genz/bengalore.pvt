@@ -6,7 +6,7 @@ import {
   ArrowUpRight,
   CheckCircle2,
   ShieldCheck,
-  Sparkles,
+  Award,
 } from "lucide-react";
 import {
   Container,
@@ -46,11 +46,6 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Philosophy & Services Purpose */}
             <div className="lg:col-span-7 space-y-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]">
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
-              </div>
-
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug">
                 Engineering today is the backbone of mission-critical institutional operations.
               </h1>
@@ -143,9 +138,8 @@ export default function ServicesPage() {
       <SectionReveal className="py-16 md:py-24 relative overflow-hidden bg-white border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Specialized Infrastructure Disciplines</span>
+            <FadeIn as="p" mode="view" delay={0.04} y={6} className="text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB]">
+              Specialized Infrastructure Disciplines
             </FadeIn>
             <RevealText
               as="h2"
@@ -282,7 +276,7 @@ export default function ServicesPage() {
 
             <div className="space-y-3">
               <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
-                <Sparkles className="w-5 h-5 text-sky-400" />
+                <Award className="w-5 h-5 text-sky-400" />
               </div>
               <h3 className="text-base font-bold font-heading text-white">
                 Turnkey Accountability

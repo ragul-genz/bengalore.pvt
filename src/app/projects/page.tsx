@@ -8,7 +8,6 @@ import {
   Maximize2,
   Building2,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import {
   Container,
@@ -69,11 +68,6 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Philosophy & Project Purpose */}
             <div className="lg:col-span-7 space-y-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]">
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
-              </div>
-
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug">
                 Proven infrastructure executed with uncompromising precision across Karnataka.
               </h1>
@@ -192,9 +186,8 @@ export default function ProjectsPage() {
       <SectionReveal className="py-16 md:py-24 relative overflow-hidden bg-white border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="max-w-3xl mb-14 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Key Project Deliveries</span>
+            <FadeIn as="p" mode="view" delay={0.04} y={6} className="text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB]">
+              Key Project Deliveries
             </FadeIn>
             <RevealText
               as="h2"
@@ -312,9 +305,8 @@ export default function ProjectsPage() {
       <SectionReveal className="py-16 md:py-24 bg-[#F8FAFC] border-b border-slate-200 relative overflow-hidden">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Field Engineering Showcase</span>
+            <FadeIn as="p" mode="view" delay={0.04} y={6} className="text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB]">
+              Field Engineering Showcase
             </FadeIn>
             <RevealText
               as="h2"

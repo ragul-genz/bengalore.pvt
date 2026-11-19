@@ -8,7 +8,6 @@ import {
   Building2,
   TrendingUp,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import {
   Container,
@@ -79,7 +78,7 @@ export function WhyChooseUs() {
             duration={0.42}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md"
           >
-            <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
             <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-200">
               OUR ENGINEERING DIFFERENTIATORS
             </span>

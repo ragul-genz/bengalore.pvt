@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Handshake, Cpu, Layers, Sparkles } from "lucide-react";
+import { ShieldCheck, Handshake, Cpu, Layers } from "lucide-react";
 import {
   Container,
   FadeIn,
@@ -54,7 +54,7 @@ export function Partners() {
               duration={0.42}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#2563EB]" />
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0B1F3A] font-mono">
                 GOVERNMENT &amp; PUBLIC SECTOR ALLIANCES
               </span>

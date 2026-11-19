@@ -14,7 +14,6 @@ import {
   Award,
   Search,
   ArrowRight,
-  Sparkles,
   Phone,
   Camera,
   Sun,
@@ -150,11 +149,6 @@ export default function ClientsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Philosophy & Client Partnership Purpose */}
             <div className="lg:col-span-7 space-y-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]">
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
-              </div>
-
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug">
                 Trusted by premier universities, public sector undertakings, and defense establishments.
               </h1>
@@ -271,9 +265,8 @@ export default function ClientsPage() {
           {/* Header & Search */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
-              <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>Client Directory</span>
+              <FadeIn as="p" mode="view" delay={0.04} y={6} className="text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB]">
+                Client Directory
               </FadeIn>
               <RevealText
                 as="h2"
@@ -446,7 +439,7 @@ export default function ClientsPage() {
                   Official Documentation (Page 23)
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-sky-400" />
+                  <Building2 className="w-4 h-4 text-sky-400" />
                   State &amp; Central Undertakings
                 </span>
               </div>

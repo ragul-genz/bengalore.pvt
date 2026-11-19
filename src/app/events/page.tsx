@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   ExternalLink,
   Globe,
-  Sparkles,
   Camera,
   Maximize2,
   Phone,
@@ -229,16 +228,6 @@ export default function EventsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Purpose Statement & Official Kannadotsava Metadata */}
             <div className="lg:col-span-7 space-y-7">
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>OFFICIAL STRATEGIC PARTNER &bull; KANNADOTSAVA MARATHON 2026</span>
-              </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

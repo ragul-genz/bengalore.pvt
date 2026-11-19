@@ -13,7 +13,6 @@ import {
   Building2,
   ShieldCheck,
   Download,
-  Sparkles,
 } from "lucide-react";
 import {
   Container,
@@ -135,7 +134,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+                  <Building2 className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>Engineering Architecture</span>
                 </div>
                 <RevealText
@@ -301,7 +300,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Request Quote Card */}
               <div className="bg-white text-[#0F172A] rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md space-y-5">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-[11px] font-mono uppercase tracking-wider font-semibold">
-                  <Sparkles className="w-3 h-3 text-[#2563EB]" />
+                  <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
                   <span>Turnkey Project Inquiry</span>
                 </span>
                 <div className="space-y-2">

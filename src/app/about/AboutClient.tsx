@@ -8,7 +8,6 @@ import {
   ArrowRight,
   Mail,
   Phone,
-  Sparkles,
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
@@ -69,16 +68,6 @@ export function AboutClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Philosophy & Institutional Purpose */}
             <div className="lg:col-span-7 space-y-7">
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
-              </motion.div>
-
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
