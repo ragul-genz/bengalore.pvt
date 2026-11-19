@@ -468,34 +468,47 @@ export function AboutClient() {
               </div>
             </div>
 
-            {/* Right Column: Large Crimson Red Card with Founder Photo (Frame 00:10) */}
+            {/* Right Column: Sleek Charcoal Card with Founder Portrait (Exact Match to Reference Video) */}
             <div className="lg:col-span-5 flex justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-                className="relative w-full max-w-sm rounded-3xl overflow-hidden bg-[#BE123C] p-6 sm:p-8 shadow-2xl flex flex-col items-center justify-center text-center space-y-4"
+                className="relative w-full max-w-sm rounded-3xl overflow-hidden bg-[#18181B] border border-slate-300/40 p-6 sm:p-8 shadow-2xl flex flex-col items-center justify-center text-center space-y-4"
               >
-                {/* Subtle Radial Sunburst Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
+                {/* Subtle Radial Sunburst Texture */}
+                <div
+                  className="absolute inset-0 opacity-40 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle at center, rgba(225,29,72,0.15) 0%, transparent 70%), repeating-conic-gradient(from 0deg, rgba(255,255,255,0.03) 0deg 15deg, transparent 15deg 30deg)",
+                  }}
+                />
 
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl">
+                <div className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                   <Image
                     src="/leadership/director-mg-girish.jpg"
                     alt="M.G. Girish - Founder & Managing Director"
                     fill
-                    sizes="220px"
-                    className="object-cover object-top"
+                    sizes="240px"
+                    className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono tracking-widest text-white/90 uppercase font-bold bg-black/60 px-2.5 py-0.5 rounded-full">
+                    NEW LINK
+                  </span>
                 </div>
 
-                <div className="relative z-10 text-white space-y-0.5">
-                  <p className="font-heading font-black text-xl sm:text-2xl tracking-tight">
+                <div className="relative z-10 text-white space-y-0.5 pt-1">
+                  <p className="font-heading font-black text-xl sm:text-2xl tracking-tight text-white">
                     M.G. Girish
                   </p>
-                  <p className="text-xs font-mono uppercase tracking-widest text-rose-200">
-                    15+ Years Turnkey Leadership
+                  <p className="text-xs font-mono uppercase tracking-widest text-[#E11D48] font-bold">
+                    Founder &amp; Managing Director
+                  </p>
+                  <p className="text-[11px] text-slate-400 font-mono">
+                    15+ Years Turnkey Engineering Leadership
                   </p>
                 </div>
               </motion.div>
@@ -530,35 +543,88 @@ export function AboutClient() {
             </p>
           </div>
 
-          {/* Central Black Badge Banner (Matching Frame 00:15) */}
+          {/* Central High-Tech Cinematic Badge & Animation Canvas (Exact Match to Frames 00:13 - 00:21) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.7, ease: CINEMATIC_EASE }}
-            className="max-w-4xl mx-auto rounded-3xl bg-[#050B14] border border-white/15 p-10 sm:p-14 text-center text-white shadow-2xl relative overflow-hidden group"
+            className="max-w-5xl mx-auto rounded-3xl bg-[#050B14] border border-white/20 p-8 sm:p-14 text-center text-white shadow-2xl relative overflow-hidden group min-h-[380px] sm:min-h-[440px] flex flex-col justify-between"
           >
-            {/* Ambient Red Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-rose-600/10 via-transparent to-blue-600/10 pointer-events-none" />
+            {/* Ambient High-Tech Cyber Grid & Laser Beams */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-48 bg-[#E11D48]/15 rounded-full blur-[100px]" />
+              <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
 
-            <div className="relative z-10 flex flex-col items-center space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-heading font-black text-3xl sm:text-5xl tracking-tighter text-white uppercase">
+              {/* High-Speed Optical Fiber Light Beam Animation (Matching Plane Zoom) */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                <svg viewBox="0 0 800 300" className="w-full h-full" fill="none">
+                  <path
+                    d="M 50 250 L 350 150 L 750 50"
+                    stroke="rgba(225, 29, 72, 0.4)"
+                    strokeWidth="2"
+                    strokeDasharray="8 8"
+                  />
+                  <path
+                    d="M 50 50 L 400 150 L 750 250"
+                    stroke="rgba(56, 189, 248, 0.4)"
+                    strokeWidth="2"
+                    strokeDasharray="8 8"
+                  />
+                  <circle cx="400" cy="150" r="80" stroke="rgba(225, 29, 72, 0.2)" strokeWidth="1" />
+                  <circle cx="400" cy="150" r="130" stroke="rgba(56, 189, 248, 0.15)" strokeWidth="1" strokeDasharray="4 4" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Top Tagline */}
+            <div className="relative z-10 flex items-center justify-between text-xs font-mono text-slate-400">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>STATEWIDE MISSION-CRITICAL DEPLOYMENTS</span>
+              </span>
+              <span className="text-[#E11D48] font-bold">EPC GRADE</span>
+            </div>
+
+            {/* Central Iconic Badge */}
+            <div className="relative z-10 my-auto py-8 flex flex-col items-center space-y-4">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <span className="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter text-white uppercase drop-shadow-xl">
                   NEW<span className="text-[#E11D48]">LINK</span>
                 </span>
-                <span className="text-white/30 text-3xl font-light">|</span>
-                <span className="font-heading font-black text-2xl sm:text-4xl tracking-tight text-[#E11D48] uppercase">
-                  TURNKEY
+                <span className="text-white/30 text-3xl sm:text-5xl font-light">|</span>
+                <span className="font-heading font-black text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#E11D48] uppercase drop-shadow-xl">
+                  COLLECTIVE
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-slate-400 font-bold">
+              <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] text-slate-300 font-bold">
                 ENGINEERED INFRASTRUCTURE • CONNECTING VALUES
               </p>
 
-              <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto font-light pt-2">
+              <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto font-light pt-2 leading-relaxed">
                 Built on 15+ years of domain expertise, Fluke certification, and direct OEM Tier-1 partnerships. Delivered on time with zero single-point-of-failure guarantee.
               </p>
+            </div>
+
+            {/* Bottom 4 Domains Bar */}
+            <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-3 pt-6 border-t border-white/10 text-xs font-mono">
+              <div className="bg-white/5 py-2 px-3 rounded-xl border border-white/10">
+                <p className="text-slate-400 text-[10px]">DOMAIN 01</p>
+                <p className="text-white font-bold">Modular Data Centres</p>
+              </div>
+              <div className="bg-white/5 py-2 px-3 rounded-xl border border-white/10">
+                <p className="text-slate-400 text-[10px]">DOMAIN 02</p>
+                <p className="text-white font-bold">Campus OFC Rings</p>
+              </div>
+              <div className="bg-white/5 py-2 px-3 rounded-xl border border-white/10">
+                <p className="text-slate-400 text-[10px]">DOMAIN 03</p>
+                <p className="text-white font-bold">Structured Cabling</p>
+              </div>
+              <div className="bg-white/5 py-2 px-3 rounded-xl border border-white/10">
+                <p className="text-slate-400 text-[10px]">DOMAIN 04</p>
+                <p className="text-white font-bold">220 kWp Solar EPC</p>
+              </div>
             </div>
           </motion.div>
         </Container>
