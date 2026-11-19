@@ -13,7 +13,6 @@ import {
 import {
   Container,
   Lightbox,
-  PageHero,
   RevealText,
   FadeIn,
   StaggerGroup,
@@ -62,19 +61,108 @@ export default function ProjectsPage() {
 
   return (
     <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
-      {/* Projects Hero Banner */}
-      <PageHero
-        eyebrow="Demonstrated Engineering Track Record • Turnkey EPC"
-        title="Our Flagship Projects &"
-        highlight="Turnkey Installations"
-        description="A curated portfolio of verified enterprise projects, institutional campus networks, modular data centres, and sustainable clean energy facilities executed by New Link Technologies Bangalore Pvt. Ltd."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Projects" },
-        ]}
-      />
+      {/* ======================================================== */}
+      {/* 1. HERO SECTION: ICONIC OVERLAPPING "FLAGSHIP PROJECTS" LAYOUT */}
+      {/* ======================================================== */}
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-slate-200">
+        <Container size="default" className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left: Philosophy & Project Purpose */}
+            <div className="lg:col-span-7 space-y-7">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]">
+                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
+              </div>
 
-      {/* Proof Metrics & Credibility Bar in Official Logo Navy */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug">
+                Proven infrastructure executed with uncompromising precision across Karnataka.
+              </h1>
+
+              <div className="space-y-4 text-base sm:text-lg text-[#334155] font-normal leading-relaxed">
+                <p>
+                  A curated portfolio of verified enterprise projects, institutional campus networks, modular data centres, and sustainable clean energy facilities executed by New Link Technologies Bangalore Pvt. Ltd. Every installation is documented by official completion certificates and state endorsements.
+                </p>
+                <p className="text-slate-600 text-sm sm:text-base">
+                  Headquartered in Rajajinagar, Bangalore under Director M.G. Girish, our engineers oversee every phase — initial site feasibility, architecture, tier-1 OEM procurement, certified termination, and long-term SLA maintenance.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>50+ EPC INSTALLATIONS</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
+                  <span>220 kWp SOLAR COMMISSIONED</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "Projects" */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
+              <div className="relative w-full max-w-[300px] sm:max-w-sm md:w-96 h-[240px] sm:h-[400px] md:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none">
+                <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                  EPC PORTFOLIO
+                </span>
+
+                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
+                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.85]">
+                    Flagship
+                  </span>
+                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.85]">
+                    Projects
+                  </span>
+                  <p className="pt-2 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                    CONNECTING VALUES
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 2. FOUR HORIZONTAL VALUE CARDS */}
+      {/* ======================================================== */}
+      <section className="py-12 sm:py-16 bg-[#0E274A] border-b border-[#142B4A] select-none text-white">
+        <Container size="default">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-[#0F172A]">
+                Site Survey
+              </h3>
+              <p className="text-xs text-slate-500 font-mono mt-1">Institutional Assessment</p>
+            </div>
+
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-white">
+                Precision EPC
+              </h3>
+              <p className="text-xs text-sky-300 font-mono mt-1">Tier-1 Hardware</p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-[#0F172A]">
+                Certified QA
+              </h3>
+              <p className="text-xs text-slate-500 font-mono mt-1">OTDR &amp; Standards Verification</p>
+            </div>
+
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-sky-300 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center">
+                Full Handover
+              </h3>
+              <p className="text-xs text-white/70 font-mono mt-1">Official Certificates</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 3. PROOF METRICS BAR */}
+      {/* ======================================================== */}
       <section className="bg-[#0B1F3A] text-white py-12 border-b border-[#142B4A] relative overflow-hidden">
         <Container size="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -98,7 +186,9 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      {/* Primary Project Case Studies */}
+      {/* ======================================================== */}
+      {/* 4. PRIMARY PROJECT CASE STUDIES */}
+      {/* ======================================================== */}
       <SectionReveal className="py-16 md:py-24 relative overflow-hidden bg-white border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="max-w-3xl mb-14 space-y-3">
@@ -216,7 +306,9 @@ export default function ProjectsPage() {
         </Container>
       </SectionReveal>
 
-      {/* Installation Gallery (Authentic Company Work Photographs) */}
+      {/* ======================================================== */}
+      {/* 5. INSTALLATION GALLERY */}
+      {/* ======================================================== */}
       <SectionReveal className="py-16 md:py-24 bg-[#F8FAFC] border-b border-slate-200 relative overflow-hidden">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
@@ -315,7 +407,9 @@ export default function ProjectsPage() {
         </Container>
       </SectionReveal>
 
-      {/* CTA Strip in Logo Navy */}
+      {/* ======================================================== */}
+      {/* 6. CTA STRIP IN LOGO NAVY */}
+      {/* ======================================================== */}
       <SectionReveal className="py-20 bg-[#F8FAFC] text-[#0F172A]">
         <Container size="default">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-6 sm:p-14 text-center text-white shadow-2xl space-y-6">

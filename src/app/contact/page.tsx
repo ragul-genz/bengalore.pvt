@@ -9,11 +9,11 @@ import {
   Building2,
   ExternalLink,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import {
   Container,
   ContactForm,
-  PageHero,
   FadeIn,
   StaggerGroup,
   StaggerItem,
@@ -46,17 +46,104 @@ export default function ContactPage() {
 
   return (
     <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
-      {/* Contact Hero Header */}
-      <PageHero
-        eyebrow="Direct Corporate Communication • Rajajinagar, Bangalore"
-        title="Contact Our Executive"
-        highlight="Engineering Team"
-        description="Connect with our corporate office in Bangalore for turnkey IT project proposals, technical site surveys, structured cabling assessments, and ongoing facility maintenance."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Contact" },
-        ]}
-      />
+      {/* ======================================================== */}
+      {/* 1. HERO SECTION: ICONIC OVERLAPPING "CONTACT US" LAYOUT */}
+      {/* ======================================================== */}
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-slate-200">
+        <Container size="default" className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left: Philosophy & Contact Purpose */}
+            <div className="lg:col-span-7 space-y-7">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]">
+                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+                <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug">
+                Connect with our executive engineering leadership in Bangalore.
+              </h1>
+
+              <div className="space-y-4 text-base sm:text-lg text-[#334155] font-normal leading-relaxed">
+                <p>
+                  Whether you require a turnkey project proposal, a detailed site survey for modular data centres, campus optical fiber expansion, or clean solar power integration, our senior team is ready to assist with rapid response times.
+                </p>
+                <p className="text-slate-600 text-sm sm:text-base">
+                  Visit our corporate headquarters in Rajajinagar, Bangalore, or reach out directly to Director M.G. Girish and our technical project desk for immediate consultations and RFP submissions.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>DIRECT EXECUTIVE DESK</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
+                  <span>RAJAJINAGAR, BANGALORE</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "Contact Us" */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
+              <div className="relative w-full max-w-[300px] sm:max-w-sm md:w-96 h-[240px] sm:h-[400px] md:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none">
+                <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                  HEADQUARTERS
+                </span>
+
+                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
+                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.85]">
+                    Contact
+                  </span>
+                  <span className="block text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.85]">
+                    Us
+                  </span>
+                  <p className="pt-2 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                    CONNECTING VALUES
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 2. FOUR HORIZONTAL VALUE CARDS */}
+      {/* ======================================================== */}
+      <section className="py-12 sm:py-16 bg-[#0E274A] border-b border-[#142B4A] select-none text-white">
+        <Container size="default">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-[#0F172A]">
+                Rajajinagar HQ
+              </h3>
+              <p className="text-xs text-slate-500 font-mono mt-1">Bangalore Central Office</p>
+            </div>
+
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-white">
+                Direct Calls
+              </h3>
+              <p className="text-xs text-sky-300 font-mono mt-1">+91 95353 14141</p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-[#0F172A]">
+                WhatsApp Desk
+              </h3>
+              <p className="text-xs text-slate-500 font-mono mt-1">Instant Technical Chat</p>
+            </div>
+
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-sky-300 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center">
+                24hr Response
+              </h3>
+              <p className="text-xs text-white/70 font-mono mt-1">RFP &amp; Site Assessment</p>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Main Grid: Form + Corporate Information */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-[#F8FAFC]">
