@@ -28,20 +28,6 @@ const LEADERSHIP_TEAM: TeamMember[] = [
     bio: "With over a decade of operational governance, Divya combines strategic precision, strict SLA adherence, and vendor coordination to ensure turnkey project delivery without single-point failure.",
     image: "/leadership/director-divya-dk.jpg",
   },
-  {
-    id: "optical-architect",
-    name: "Senior Network Systems Architect",
-    role: "HEAD - OPTICAL & DATA NETWORKING",
-    bio: "Certified fiber systems specialist overseeing 10Gbps campus-wide backbone rings, high-density structured cabling, and Tier-3 modular data centre rack containment.",
-    image: "/leadership/director-mg-girish.jpg",
-  },
-  {
-    id: "solar-engineer",
-    name: "Lead Clean Energy Project Engineer",
-    role: "HEAD - RENEWABLE SOLAR ENERGY",
-    bio: "Electrical engineering authority directing institutional rooftop solar photovoltaic installations up to 220 kWp capacity in full compliance with state utility and NAAC guidelines.",
-    image: "/leadership/director-divya-dk.jpg",
-  },
 ];
 
 export function TeamSection() {
