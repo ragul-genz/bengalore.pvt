@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kannadotsava Events | New Link Technologies Bangalore Pvt. Ltd.",
+  title: "Kannadotsava Marathon 2026 | New Link Technologies Bangalore Pvt. Ltd.",
   description:
-    "Kannadotsava (www.kannadotsava.com) – Celebrating Karnataka's rich cultural heritage, language, traditions, and community harmony, proudly supported by New Link Technologies Bangalore Pvt. Ltd.",
+    "Official event details for Kannadotsava Marathon 2026 (www.kannadotsava.com) taking place on Saturday, 19 December 2026 at Bangalore University, Bengaluru. 3K Walk & 5K Run celebrating Kannada language and heritage. Strategic Partner: New Link Technologies Bangalore Pvt. Ltd.",
   alternates: {
     canonical: "/events",
   },
   openGraph: {
-    title: "Kannadotsava – www.kannadotsava.com | New Link Technologies Bangalore Pvt. Ltd.",
+    title: "Kannadotsava Marathon 2026 – www.kannadotsava.com | New Link Technologies",
     description:
-      "Official event portal and photo gallery for Kannadotsava (www.kannadotsava.com), celebrating Karnataka culture and arts.",
+      "Join the Kannadotsava Marathon 2026 at Bangalore University on 19 December 2026. 3K Walk & 5K Run celebrating Kannada culture. Registration package includes T-shirt, Medal & Certificate.",
     url: "https://www.newlinktec.com/events",
   },
 };

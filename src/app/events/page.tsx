@@ -2,17 +2,21 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ExternalLink,
   Globe,
   Sparkles,
-  Heart,
   Camera,
   Maximize2,
   Phone,
+  Mail,
   ChevronDown,
+  Calendar,
+  MapPin,
+  Award,
+  Clock,
+  CheckCircle2,
 } from "lucide-react";
 import {
   Container,
@@ -33,6 +37,9 @@ interface EventCaseStudy {
   description: string;
   websiteUrl?: string;
   websiteLabel?: string;
+  highlights?: string[];
+  schedule?: { time: string; event: string }[];
+  kitItems?: string[];
   photos: {
     title: string;
     caption: string;
@@ -42,96 +49,136 @@ interface EventCaseStudy {
 
 const EVENT_CASE_STUDIES: EventCaseStudy[] = [
   {
-    id: "kannadotsava",
+    id: "kannadotsava-marathon",
     index: "001",
     total: "003",
-    title: "KANNADOTSAVA ANNUAL CULTURAL FESTIVAL",
-    nativeTitle: "ಕನ್ನಡೋತ್ಸವ",
-    tagline: "Celebrating Karnataka's Rich Heritage, Kannada Literature & Traditional Arts",
-    mainImage: "/clients/photos/tumkur-auditorium.jpg",
-    yearTag: "KANNADOTSAVA 2026",
+    title: "KANNADOTSAVA MARATHON 2026",
+    nativeTitle: "ಕನ್ನಡೋತ್ಸವ ಮ್ಯಾರಥಾನ್ 2026",
+    tagline: "3 KM Walk & 5 KM Run • Saturday, 19 December 2026 • Bangalore University Campus",
+    mainImage: "/events/kannadotsava/hero-1.jpg",
+    yearTag: "19 DEC 2026",
     description:
-      "A PREMIER ANNUAL CULTURAL FESTIVAL CELEBRATING KARNATAKA'S GLORIOUS HERITAGE, RICH LITERATURE, FOLK ARTS, CLASSICAL MUSIC, AND COMMUNITY HARMONY. PROUDLY ORGANIZED AND POWERED BY NEW LINK TECHNOLOGIES BANGALORE PVT. LTD. UNDER OUR CORE MOTTO 'CONNECTING VALUES'.",
+      "KANNADOTSAVA MARATHON 2026 IS MORE THAN A WALK OR RUN; IT IS A MASS COMMUNITY MOVEMENT (ಜನಾಂದೋಲನ) TO CELEBRATE, PROTECT, AND PROMOTE THE KANNADA LANGUAGE AND CULTURE. OPEN TO FAMILIES, STUDENTS, ATHLETES, AND CITIZENS OF ALL AGES. ನಮ್ಮ ಭಾಷೆ ನಮ್ಮ ಹೆಮ್ಮೆ, ನಮ್ಮ ಸಂಸ್ಕೃತಿ ನಮ್ಮ ಶಕ್ತಿ! ಎಲ್ಲರೂ ಕನ್ನಡವನ್ನೇ ಬಳಸಿ · ಕನ್ನಡ ಉಳಿಸಿ, ಬೆಳೆಸಿ, ಕಲಿಸಿ.",
     websiteUrl: "https://www.kannadotsava.com",
     websiteLabel: "www.kannadotsava.com",
+    highlights: [
+      "To create awareness about the importance of Kannada & preserve linguistic heritage",
+      "To encourage the younger generation to learn, speak, read, and proudly embrace Kannada",
+      "To unite people from all communities through the spirit of language, culture, and solidarity",
+      "To promote Kannada as a language of knowledge, science, education, and technology",
+    ],
     photos: [
       {
-        title: "Grand Ceremonial Inauguration",
-        caption: "Ceremonial lamp lighting, traditional welcome, and inaugural address by dignitaries.",
-        image: "/clients/photos/tumkur-inauguration.jpg",
+        title: "Community Runners Assembly",
+        caption: "Vibrant assembly of participants celebrating Kannada unity at Bangalore University campus.",
+        image: "/events/kannadotsava/hero-group.webp",
       },
       {
-        title: "Stage Festivities & Classical Concerts",
-        caption: "Captivating classical orchestra, folk rhythms, and youth cultural showcases.",
-        image: "/clients/photos/tumkur-auditorium.jpg",
+        title: "Official Kannadotsava Seal",
+        caption: "Official marathon emblem featuring Karnataka map silhouette and dynamic runners.",
+        image: "/events/kannadotsava/marathon-logo.png",
       },
       {
-        title: "Community Honors & Felicitations",
-        caption: "Honoring eminent guests, artists, and community contributors with traditional honors.",
-        image: "/clients/photos/naac-solar-leadership.jpg",
+        title: "Marathon Course & Campus Grounds",
+        caption: "Participants pacing through the scenic Jnana Bharathi campus avenues.",
+        image: "/events/kannadotsava/hero-2.jpg",
       },
       {
-        title: "Academic & Institutional Assembly",
-        caption: "Vibrant gathering of patrons, educators, and youth celebrating cultural preservation.",
-        image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+        title: "Cultural Movement in Action",
+        caption: "Promoting physical fitness alongside mothertongue pride and community solidarity.",
+        image: "/events/kannadotsava/hero-1.jpg",
       },
     ],
   },
   {
-    id: "inaugurations",
+    id: "schedule-amenities",
     index: "002",
     total: "003",
-    title: "INSTITUTIONAL DIGNITARY INAUGURATIONS",
-    tagline: "High-Level Facility Commissionings & University Dedications",
-    mainImage: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
-    yearTag: "STATEWIDE EPC",
+    title: "EVENT ITINERARY & RUNNER AMENITIES",
+    nativeTitle: "ವೇಳಾಪಟ್ಟಿ & ಸವಲತ್ತುಗಳು",
+    tagline: "Tentative Schedule • ₹1,250 All-Inclusive Runner Kit • Medals & Finisher Apparel",
+    mainImage: "/events/kannadotsava/medal-front-back.jpg",
+    yearTag: "KIT & SCHEDULE",
     description:
-      "CEREMONIAL FACILITY LAUNCHES, DIGNITARY RIBBON CUTTINGS, AND KEYNOTE ADDRESSES ACROSS KARNATAKA STATE UNIVERSITIES, PUBLIC SECTOR UNDERTAKINGS, AND AUTONOMOUS BODIES LED BY DIRECTOR M.G. GIRISH AND EXECUTIVE LEADERSHIP.",
+      "EVERY REGISTERED PARTICIPANT (₹1,250 ENTRY) RECEIVES THE EXCLUSIVE OFFICIAL FINISHER PACKAGE: CUSTOMISED KANNADOTSAVA MARATHON DRI-FIT T-SHIRT, CAST COMMEMORATIVE FINISHER MEDAL WITH KANNADA MOTIFS, CERTIFICATE OF COMPLETION, ENERGIZING BREAKFAST PACK, BRANDED TOTE BAG, AND A DEDICATED KANNADA LEARNING BOOK.",
+    websiteUrl: "https://www.kannadotsava.com/event-details",
+    websiteLabel: "kannadotsava.com/event-details",
+    schedule: [
+      { time: "06:00 AM", event: "Registration & Bib Check-in" },
+      { time: "07:00 AM", event: "Zumba & Mass Energizer Warm-up" },
+      { time: "07:30 AM", event: "Ceremonial Flag Off (3K & 5K)" },
+      { time: "09:30 AM", event: "Prize Distribution & Breakfast" },
+    ],
+    kitItems: [
+      "Customised Kannadotsava Marathon T-Shirt",
+      "Cast Finisher Medal (Front & Back Engravings)",
+      "Official Certificate of Participation",
+      "Nutritious Breakfast Pack & Hydration",
+      "Branded Commemorative Tote Bag",
+      "Kannada Learning & Heritage Book",
+    ],
     photos: [
       {
-        title: "Vice Chancellor & Directorate Inauguration",
-        caption: "Modular data centre ribbon cutting at UAS Raichur with university leadership.",
-        image: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
+        title: "Commemorative Medal (Front & Back)",
+        caption: "Double-sided cast metal finisher medal with Karnataka state map and Kannada calligraphy.",
+        image: "/events/kannadotsava/medal-front-back.jpg",
       },
       {
-        title: "Auditorium Acoustic Facility Dedication",
-        caption: "Inaugural ceremony of smart multi-purpose auditorium at Tumkur University.",
-        image: "/clients/photos/tumkur-inauguration.jpg",
+        title: "Official Kannadotsava T-Shirt",
+        caption: "Dri-fit athletic running t-shirt designed specifically for the 2026 Marathon.",
+        image: "/events/kannadotsava/tshirt.jpg",
       },
       {
-        title: "Campus Optical Fiber Ring Handover",
-        caption: "Official handover ceremony of 10Gbps armored campus ring at SJBIT Bangalore.",
-        image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+        title: "Finisher Certificate of Participation",
+        caption: "Official authenticated certificate awarded to all 3K Walk and 5K Run finishers.",
+        image: "/events/kannadotsava/certificate.jpg",
+      },
+      {
+        title: "Finisher Medal Close-up",
+        caption: "High-relief finish celebrating personal endurance and Kannada cultural preservation.",
+        image: "/events/kannadotsava/medal.jpg",
       },
     ],
   },
   {
-    id: "youth-heritage",
+    id: "mission-partnership",
     index: "003",
     total: "003",
-    title: "YOUTH CULTURAL EMPOWERMENT & ARTS ENCLAVE",
-    tagline: "Inspiring the Next Generation Through Language, Arts & Technology",
-    mainImage: "/clients/photos/naac-solar-leadership.jpg",
-    yearTag: "HERITAGE & ARTS",
+    title: "MISSION, IDENTITY & PARTNERSHIP",
+    nativeTitle: "ನಮ್ಮ ದೃಷ್ಟಿಕೋನ · Our Vision",
+    tagline: "Concept by Raksana Foundation • Strategic Partner: New Link Technologies",
+    mainImage: "/events/kannadotsava/marathon-logo.png",
+    yearTag: "CONNECTING VALUES",
     description:
-      "FOSTERING YOUTH PARTICIPATION IN KANNADA LITERATURE, POETRY RECITALS, CLASSICAL TRADITIONS, AND DIGITAL INNOVATION. STRENGTHENING COMMUNITY TIES AND CULTURAL PRIDE ACROSS EDUCATIONAL CAMPUSES.",
+      "“ಕನ್ನಡ ಕೇವಲ ನಾವು ಮಾತನಾಡುವ ಭಾಷೆಯಲ್ಲ; ಅದು ನಮ್ಮ ಅಸ್ಮಿತೆ, ನಮ್ಮ ಹೆಮ್ಮೆ ಮತ್ತು ನಮ್ಮ ಪರಂಪರೆ. ಅದನ್ನು ಉಳಿಸಿ, ಬೆಳೆಸಿ, ಮುಂದಿನ ಪೀಳಿಗೆಗೆ ಹೆಮ್ಮೆಯಿಂದ ಹಸ್ತಾಂತರಿಸುವುದು ನಮ್ಮೆಲ್ಲರ ಜವಾಬ್ದಾರಿ.” (KANNADA IS AN IDENTITY WE MUST PRESERVE, PRACTISE AND PASS ON). NEW LINK TECHNOLOGIES BANGALORE PVT. LTD. PROUDLY SERVES AS OFFICIAL STRATEGIC BUSINESS PARTNER UNDER OUR MOTTO 'CONNECTING VALUES'.",
     websiteUrl: "https://www.kannadotsava.com",
-    websiteLabel: "kannadotsava.com",
+    websiteLabel: "www.kannadotsava.com",
+    highlights: [
+      "Strategic Business Partner: New Link Technologies Bangalore Pvt. Ltd.",
+      "Concept & Copyright: Raksana Foundation",
+      "Linguistic and cultural outreach across Karnataka schools, universities, and industries",
+      "Bridging generational gaps to establish Kannada as a digital and technological powerhouse",
+    ],
     photos: [
       {
-        title: "Patron Honors & Keynote Speeches",
-        caption: "Director M.G. Girish addressing patrons on institutional empowerment.",
-        image: "/clients/photos/naac-solar-leadership.jpg",
+        title: "Kannadotsava Marathon Insignia",
+        caption: "Symbol of athletic perseverance, community solidarity, and Kannada linguistic heritage.",
+        image: "/events/kannadotsava/marathon-logo.png",
       },
       {
-        title: "Grand Cultural Assembly",
-        caption: "Hundreds of students and patrons gathered for Karnataka heritage celebration.",
-        image: "/clients/photos/tumkur-auditorium.jpg",
+        title: "Community Heritage Walk & Run",
+        caption: "Uniting citizens from across Karnataka under a single banner of cultural pride.",
+        image: "/events/kannadotsava/hero-group.webp",
       },
       {
-        title: "Educational Technology Dedication",
-        caption: "Hands-on engineering showcase and student excellence felicitations.",
-        image: "/clients/photos/tumkur-computer-lab.jpg",
+        title: "Fitness & Cultural Harmony",
+        caption: "Encouraging a healthy lifestyle while championing mother-tongue education.",
+        image: "/events/kannadotsava/hero-2.jpg",
+      },
+      {
+        title: "Next Generation Empowerment",
+        caption: "Passing on Kannada literature, history, and linguistic pride to youth and children.",
+        image: "/events/kannadotsava/certificate.jpg",
       },
     ],
   },
@@ -139,9 +186,9 @@ const EVENT_CASE_STUDIES: EventCaseStudy[] = [
 
 export default function EventsPage() {
   const [expandedEvents, setExpandedEvents] = useState<Record<string, boolean>>({
-    kannadotsava: true, // First one open by default
-    inaugurations: false,
-    "youth-heritage": false,
+    "kannadotsava-marathon": true,
+    "schedule-amenities": true,
+    "mission-partnership": false,
   });
 
   const [lightbox, setLightbox] = useState<{
@@ -176,13 +223,11 @@ export default function EventsPage() {
     <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
       {/* ======================================================== */}
       {/* 1. HERO SECTION: ICONIC OVERLAPPING EVENT PILLAR LAYOUT */}
-      {/* (1:1 Match to Video Frames 00:01 - 00:04) */}
-      {/* Left: Manifesto | Right: Vertical Logo Color Pillar + Overlapping "Cultural Events" */}
       {/* ======================================================== */}
       <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left: Purpose Statement */}
+            {/* Left: Purpose Statement & Official Kannadotsava Metadata */}
             <div className="lg:col-span-7 space-y-7">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -191,17 +236,23 @@ export default function EventsPage() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>OFFICIAL CULTURAL &amp; COMMUNITY INITIATIVE</span>
+                <span>OFFICIAL STRATEGIC PARTNER &bull; KANNADOTSAVA MARATHON 2026</span>
               </motion.div>
 
-              <motion.h2
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug"
+                transition={{ duration: 0.6, delay: 0.08, ease: CINEMATIC_EASE }}
+                className="space-y-2"
               >
-                Cultural platforms today unite communities, celebrate heritage, and empower the future.
-              </motion.h2>
+                <p className="text-sm font-mono uppercase tracking-widest text-[#2563EB] font-bold">
+                  Run. Walk. Celebrate Kannada.
+                </p>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-[1.15]">
+                  ನಮ್ಮ ಭಾಷೆ ನಮ್ಮ ಹೆಮ್ಮೆ, <br />
+                  <span className="text-[#2563EB]">ನಮ್ಮ ಸಂಸ್ಕೃತಿ ನಮ್ಮ ಶಕ್ತಿ!</span>
+                </h1>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -210,8 +261,8 @@ export default function EventsPage() {
                 className="space-y-4 text-base sm:text-lg text-[#334155] font-normal leading-relaxed"
               >
                 <p>
-                  At New Link Technologies Bangalore Pvt. Ltd., we champion{" "}
-                  <strong className="text-[#0F172A] font-bold">Kannadotsava</strong> (
+                  New Link Technologies Bangalore Pvt. Ltd. is the proud Strategic Business Partner for{" "}
+                  <strong className="text-[#0F172A] font-bold">Kannadotsava Marathon 2026</strong> (
                   <a
                     href="https://www.kannadotsava.com"
                     target="_blank"
@@ -220,33 +271,81 @@ export default function EventsPage() {
                   >
                     www.kannadotsava.com
                   </a>
-                  ) — a grand annual celebration of Karnataka&apos;s rich cultural heritage, Kannada literature, traditional music, and youth empowerment.
+                  ) — a mass cultural movement taking place on{" "}
+                  <strong className="text-[#0F172A] font-bold">
+                    Saturday, 19 December 2026 at Bangalore University, Bengaluru
+                  </strong>
+                  .
                 </p>
                 <p className="text-slate-600 text-sm sm:text-base">
-                  Under our corporate motto &ldquo;Connecting Values,&rdquo; our executive leadership team actively contributes to preserving state traditions while supporting dignitary convocations, institutional facility inaugurations, and community outreach across Bangalore and statewide.
+                  A walk and run to celebrate, protect, and promote the Kannada language and culture — open to families, students, professionals, and citizens of all ages across Karnataka:{" "}
+                  <span className="font-semibold text-[#0B1F3A]">
+                    &ldquo;ಎಲ್ಲರೂ ಕನ್ನಡವನ್ನೇ ಬಳಸಿ · ಕನ್ನಡ ಉಳಿಸಿ, ಬೆಳೆಸಿ, ಕಲಿಸಿ&rdquo;
+                  </span>
+                  .
                 </p>
               </motion.div>
 
+              {/* Event Key Highlights Grid */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.25, ease: CINEMATIC_EASE }}
-                className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600"
+                transition={{ duration: 0.5, delay: 0.22, ease: CINEMATIC_EASE }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2"
+              >
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#2563EB] font-bold uppercase">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>Date</span>
+                  </div>
+                  <p className="text-sm font-bold text-[#0F172A] mt-1">19 Dec 2026</p>
+                  <p className="text-[11px] text-slate-500">Saturday Morning</p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#2563EB] font-bold uppercase">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>Venue</span>
+                  </div>
+                  <p className="text-sm font-bold text-[#0F172A] mt-1">Bangalore Univ.</p>
+                  <p className="text-[11px] text-slate-500">Bengaluru Campus</p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs col-span-2 sm:col-span-1">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#2563EB] font-bold uppercase">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>Categories</span>
+                  </div>
+                  <p className="text-sm font-bold text-[#0F172A] mt-1">3K Walk | 5K Run</p>
+                  <p className="text-[11px] text-slate-500">₹1,250 All-Inclusive Kit</p>
+                </div>
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.28, ease: CINEMATIC_EASE }}
+                className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono"
               >
                 <a
                   href="https://www.kannadotsava.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0B1F3A] hover:bg-[#142B4A] active:scale-95 text-white font-bold uppercase tracking-wider shadow-lg transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0B1F3A] hover:bg-[#142B4A] active:scale-95 text-white font-bold uppercase tracking-wider shadow-lg transition-all cursor-pointer"
                 >
                   <Globe className="w-4 h-4 text-white" />
-                  <span>Visit www.kannadotsava.com</span>
+                  <span>Register on www.kannadotsava.com</span>
                   <ExternalLink className="w-3.5 h-3.5 text-white" />
                 </a>
-                <span className="flex items-center gap-1.5 text-slate-600 font-semibold">
-                  <Heart className="w-4 h-4 text-[#2563EB] fill-[#2563EB]" />
-                  <span>Sponsored by New Link Technologies</span>
-                </span>
+
+                <a
+                  href="tel:+919606916622"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-100 border border-slate-300 text-[#0F172A] font-bold uppercase tracking-wider shadow-xs transition-all cursor-pointer"
+                >
+                  <Phone className="w-4 h-4 text-[#2563EB]" />
+                  <span>Call: +91 96069 16622</span>
+                </a>
               </motion.div>
             </div>
 
@@ -256,23 +355,41 @@ export default function EventsPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="relative w-full max-w-[300px] sm:max-w-sm md:w-96 h-[240px] sm:h-[400px] md:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none"
+                className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[280px] sm:h-[420px] md:h-[540px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex flex-col justify-between overflow-hidden group select-none"
               >
-                {/* Vertical Pill Tag */}
-                <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
-                  HERITAGE
-                </span>
+                {/* Top Badge */}
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                    KANNADA HERITAGE
+                  </span>
+                  <span className="text-[10px] font-mono text-white/70 font-bold">
+                    DEC 2026
+                  </span>
+                </div>
 
-                {/* Giant Overlapping Headline (Exact Match to Reference Frame 00:01) */}
+                {/* Center Graphic: Official Kannadotsava Emblem in glowing circular container */}
+                <div className="relative my-auto flex flex-col items-center justify-center">
+                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-3 shadow-inner flex items-center justify-center">
+                    <Image
+                      src="/events/kannadotsava/marathon-logo.png"
+                      alt="Official Kannadotsava Marathon 2026 Emblem"
+                      width={130}
+                      height={130}
+                      className="object-contain drop-shadow-md"
+                    />
+                  </div>
+                </div>
+
+                {/* Giant Overlapping Headline (Reference Video Frame 00:01 Match) */}
                 <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
-                  <h1 className="text-5xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.88]">
+                  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.88]">
                     Cultural
-                  </h1>
-                  <h1 className="text-5xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.88]">
+                  </h2>
+                  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.88]">
                     Events
-                  </h1>
-                  <p className="pt-2 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
-                    KANNADOTSAVA &bull; KARNATAKA
+                  </h2>
+                  <p className="pt-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                    ಕನ್ನಡೋತ್ಸವ &bull; BENGALURU 2026
                   </p>
                 </div>
               </motion.div>
@@ -282,9 +399,7 @@ export default function EventsPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 2. EVENT CASE STUDIES WITH "SHOW PHOTOS" EXPANDABLE GALLERY */}
-      {/* (1:1 Match to Video Frames 00:05 - 00:15) */}
-      {/* 001 / 003 Counter + Left Featured Photo + Right Narrative + Toggle */}
+      {/* 2. AUTHENTIC CASE STUDIES WITH "SHOW PHOTOS" TOGGLE */}
       {/* ======================================================== */}
       <section className="py-20 sm:py-28 bg-[#F1F5F9] border-b border-slate-200 relative overflow-hidden">
         <Container size="default" className="space-y-20">
@@ -293,7 +408,7 @@ export default function EventsPage() {
 
             return (
               <div key={event.id} className="space-y-6">
-                {/* Numbered Index Header (Exact Match to Frame 00:05: "001 / 003 CULT UNBOUND") */}
+                {/* Numbered Index Header */}
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 text-sm sm:text-base font-mono">
                   <span className="font-extrabold text-[#0B1F3A] text-lg sm:text-xl">
                     {event.index}
@@ -312,8 +427,8 @@ export default function EventsPage() {
                 {/* Main Dark Card Container */}
                 <div className="rounded-3xl border border-[#142B4A] bg-[#0B1F3A] p-6 sm:p-10 shadow-2xl space-y-8 overflow-hidden text-white">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    {/* Left: Featured Image (Matching Frame 00:05) */}
-                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-black shadow-xl group">
+                    {/* Left: Featured Image */}
+                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-xl group">
                       <Image
                         src={event.mainImage}
                         alt={event.title}
@@ -322,7 +437,7 @@ export default function EventsPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
 
-                      {/* Bottom-left Tag (Exact Match to Frame 00:05: "CULT UNBOUND 2026") */}
+                      {/* Bottom-left Tag */}
                       <div className="absolute bottom-4 left-5 text-white select-none">
                         <p className="text-xs font-mono font-bold tracking-widest uppercase text-white/90">
                           {event.yearTag}
@@ -340,7 +455,7 @@ export default function EventsPage() {
                       </button>
                     </div>
 
-                    {/* Right: Narrative & "SHOW PHOTOS" Button (Matching Frame 00:05) */}
+                    {/* Right: Narrative, Highlights & "SHOW PHOTOS" Button */}
                     <div className="lg:col-span-5 space-y-6">
                       <div className="space-y-3">
                         <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
@@ -350,6 +465,55 @@ export default function EventsPage() {
                           {event.description}
                         </p>
                       </div>
+
+                      {/* Bullet Highlights if available */}
+                      {event.highlights && (
+                        <div className="space-y-2 pt-1 border-t border-white/10">
+                          {event.highlights.map((h, i) => (
+                            <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                              <span>{h}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Schedule Breakdown if Case Study 002 */}
+                      {event.schedule && (
+                        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
+                          {event.schedule.map((item, i) => (
+                            <div
+                              key={i}
+                              className="p-2.5 rounded-xl bg-white/5 border border-white/10"
+                            >
+                              <div className="flex items-center gap-1 text-[11px] font-mono text-sky-300 font-bold">
+                                <Clock className="w-3 h-3" />
+                                <span>{item.time}</span>
+                              </div>
+                              <p className="text-xs text-white font-medium mt-0.5 leading-tight">
+                                {item.event}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Runner Amenities Pack List if Case Study 002 */}
+                      {event.kitItems && (
+                        <div className="pt-2 border-t border-white/10 space-y-1.5">
+                          <p className="text-[11px] font-mono uppercase text-sky-300 font-bold">
+                            What&apos;s Included (₹1,250 Registration):
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                            {event.kitItems.map((kit, i) => (
+                              <div key={i} className="flex items-center gap-1.5">
+                                <CheckCircle2 className="w-3 h-3 text-[#2563EB] shrink-0" />
+                                <span className="text-[11px]">{kit}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {event.websiteUrl && (
                         <div className="pt-1">
@@ -366,7 +530,7 @@ export default function EventsPage() {
                         </div>
                       )}
 
-                      {/* Interactive "SHOW PHOTOS" / "HIDE PHOTOS" Button in Brand Color */}
+                      {/* Interactive "SHOW PHOTOS" / "HIDE PHOTOS" Button */}
                       <div className="pt-2">
                         <button
                           type="button"
@@ -397,7 +561,7 @@ export default function EventsPage() {
                       >
                         <div className="flex items-center justify-between text-xs font-mono text-slate-300">
                           <span className="uppercase tracking-wider">
-                            Photographic Records &bull; {event.photos.length} Images
+                            Photographic Records &bull; {event.photos.length} High-Resolution Assets
                           </span>
                           <span className="text-sky-300">Click photo to expand</span>
                         </div>
@@ -451,16 +615,18 @@ export default function EventsPage() {
       {/* ======================================================== */}
       <section className="py-20 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-t border-slate-200">
         <Container size="default">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-8 sm:p-14 text-center text-white shadow-2xl space-y-6">
             <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-white/10 px-3.5 py-1 rounded-full border border-white/20">
               <Globe className="w-3.5 h-3.5" />
-              <span>Official Event Website: www.kannadotsava.com</span>
+              <span>Official Event Portal: www.kannadotsava.com</span>
             </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
-              Join the Celebration of Karnataka&apos;s Rich Heritage
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-snug">
+              ಬನ್ನಿ, ಕನ್ನಡಕ್ಕಾಗಿ ಹೆಜ್ಜೆ ಹಾಕೋಣ! <br />
+              <span className="text-sky-300">Run. Walk. Celebrate Kannada.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-200 font-normal leading-relaxed max-w-2xl mx-auto">
-              Visit the official web portal to learn more about upcoming cultural events, artist schedules, and participation opportunities at Kannadotsava.
+              Saturday, 19 December 2026 &bull; Bangalore University, Bengaluru. <br />
+              Registration package (₹1,250) includes customized athletic T-shirt, cast finisher medal, certificate of completion, breakfast, tote bag, and Kannada book.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -471,37 +637,35 @@ export default function EventsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
               >
                 <Globe className="w-4 h-4 text-white" />
-                <span>Visit www.kannadotsava.com</span>
+                <span>Register on www.kannadotsava.com</span>
                 <ExternalLink className="w-4 h-4 text-white" />
               </a>
-              <Link
-                href="/contact"
+
+              <a
+                href="tel:+919606916622"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
-                <span>Contact New Link Technologies</span>
-              </Link>
+                <Phone className="w-4 h-4 text-sky-300" />
+                <span>Call +91 96069 16622</span>
+              </a>
             </div>
 
             <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+              <a
+                href="mailto:admin@kannadotsava.com"
+                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-sky-400" />
+                <span>admin@kannadotsava.com</span>
+              </a>
+              <span className="text-white/20 hidden sm:inline">•</span>
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[0].phoneRaw}`}
                 className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-sky-400" />
                 <span>
-                  {COMPANY_DETAILS.leadership.directors[0].name}:{" "}
-                  {COMPANY_DETAILS.leadership.directors[0].phone}
-                </span>
-              </a>
-              <span className="text-white/20">•</span>
-              <a
-                href={`tel:${COMPANY_DETAILS.leadership.directors[1].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-sky-400" />
-                <span>
-                  {COMPANY_DETAILS.leadership.directors[1].name}:{" "}
-                  {COMPANY_DETAILS.leadership.directors[1].phone}
+                  Strategic Partner: {COMPANY_DETAILS.leadership.directors[0].name} ({COMPANY_DETAILS.leadership.directors[0].phone})
                 </span>
               </a>
             </div>
