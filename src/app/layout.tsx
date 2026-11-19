@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/components/layout";
-import { JsonLd, FloatingWhatsApp, MotionProvider, PremiumBackground } from "@/components/common";
+import { JsonLd, FloatingWhatsApp, MotionProvider, PremiumBackground, SmoothScroll } from "@/components/common";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -101,6 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-sans bg-transparent text-brand-text selection:bg-brand-blue selection:text-white">
         <MotionProvider>
+          <SmoothScroll />
           <PremiumBackground />
           <JsonLd />
           <Navbar />

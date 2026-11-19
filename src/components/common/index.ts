@@ -13,3 +13,4 @@ export * from "./FloatingWhatsApp";
 export * from "./PageHero";
 export * from "./MotionPrimitives";
 export * from "./PremiumBackground";
+export * from "./SmoothScroll";
