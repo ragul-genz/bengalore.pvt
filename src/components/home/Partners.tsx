@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ShieldCheck, Handshake, Cpu, Layers, Sparkles } from "lucide-react";
 import {
   Container,
-  RevealText,
   FadeIn,
   StaggerGroup,
   StaggerItem,
@@ -53,7 +52,7 @@ export function Partners() {
       <Container size="default" className="relative z-10 space-y-20">
         {/* 1. Public Sector Strategic Collaborations */}
         <div>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="text-center max-w-4xl mx-auto mb-14 space-y-4">
             <FadeIn
               mode="view"
               delay={0.03}
@@ -67,27 +66,18 @@ export function Partners() {
               </span>
             </FadeIn>
 
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.045}
-              duration={0.52}
-              text="Our Technology &amp;"
-              highlight="Public Sector Partners"
-              highlightClassName="text-sky-400 font-extrabold"
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.12]"
-            />
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none uppercase">
+              Powering Partnership
+            </h2>
 
             <FadeIn
               as="p"
               mode="view"
               delay={0.2}
               y={10}
-              className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto"
+              className="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed"
             >
-              Collaborating closely with leading public sector undertakings, government directorates, and engineering enterprises to execute state-level IT and clean energy infrastructure.
+              Engineering dependable synergy one mission-critical deployment at a time
             </FadeIn>
           </div>
 
