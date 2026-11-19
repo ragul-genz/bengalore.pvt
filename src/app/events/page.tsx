@@ -338,16 +338,19 @@ export default function EventsPage() {
               </motion.div>
             </div>
 
-            {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "Cultural Events" */}
+            {/* Right: Vertical Pillar - Modern Editorial High-Contrast Typography */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[320px] sm:h-[440px] md:h-[540px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex flex-col justify-between overflow-hidden group select-none"
+                className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] lg:w-[400px] h-[340px] sm:h-[420px] md:h-[480px] rounded-3xl bg-[#090C15] border border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col justify-between overflow-hidden select-none"
               >
+                {/* Brand Red Accent Stroke (Matching New Link Logo & Kannadotsava Red) */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-[#DC2626]" />
+
                 {/* Subtle atmospheric authentic event background */}
-                <div className="absolute inset-0 pointer-events-none opacity-20">
+                <div className="absolute inset-0 pointer-events-none opacity-15">
                   <Image
                     src="/events/kannadotsava/hero-group.webp"
                     alt="Kannadotsava community atmosphere"
@@ -355,22 +358,12 @@ export default function EventsPage() {
                     sizes="400px"
                     className="object-cover object-center filter saturate-150"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/85 to-[#0B1F3A]/90" />
-                </div>
-
-                {/* Top Badge */}
-                <div className="relative z-10 flex items-center justify-between w-full">
-                  <span className="text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur-md">
-                    KANNADA HERITAGE
-                  </span>
-                  <span className="text-[10px] font-mono text-white/80 font-bold bg-black/40 px-2.5 py-1 rounded-full border border-white/10">
-                    DEC 2026
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090C15] via-[#090C15]/85 to-[#090C15]/90" />
                 </div>
 
                 {/* Center Graphic: Prominently framed authentic Kannadotsava Brand Emblem Container */}
                 <div className="relative z-10 my-auto w-full flex flex-col items-center justify-center py-2 sm:py-3">
-                  <div className="relative w-full rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/20 p-4 sm:p-5 shadow-2xl flex flex-col items-center text-center space-y-3">
+                  <div className="relative w-full rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 p-4 sm:p-5 shadow-2xl flex flex-col items-center text-center space-y-3">
                     <div className="relative w-full h-16 sm:h-20">
                       <Image
                         src="/events/kannadotsava/marathon-logo-trimmed.png"
@@ -379,7 +372,7 @@ export default function EventsPage() {
                         className="object-contain drop-shadow-lg"
                       />
                     </div>
-                    <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-sky-300 font-bold bg-black/50 px-3 py-1 rounded-full border border-white/10">
+                    <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold bg-black/60 px-3 py-1 rounded-full border border-white/10">
                       <span>3K WALK &bull; 5K RUN</span>
                       <span className="text-white/40">&bull;</span>
                       <span>BENGALURU</span>
@@ -387,15 +380,15 @@ export default function EventsPage() {
                   </div>
                 </div>
 
-                {/* Giant Overlapping Headline (Reference Video Frame 00:01 Match) */}
-                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
-                  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.88]">
+                {/* Editorial Headline: Cultural Events */}
+                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1 overflow-visible whitespace-nowrap">
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-black font-heading tracking-tight text-white leading-[0.9]">
                     Cultural
-                  </h2>
-                  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.88]">
+                  </span>
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-black font-heading tracking-tight text-white leading-[0.9]">
                     Events
-                  </h2>
-                  <p className="pt-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                  </span>
+                  <p className="pt-3 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">
                     ಕನ್ನಡೋತ್ಸವ &bull; BENGALURU 2026
                   </p>
                 </div>
@@ -417,25 +410,25 @@ export default function EventsPage() {
               <div key={event.id} className="space-y-6">
                 {/* Numbered Index Header */}
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 text-sm sm:text-base font-mono">
-                  <span className="font-extrabold text-[#0B1F3A] text-lg sm:text-xl">
+                  <span className="font-extrabold text-[#0F172A] text-lg sm:text-xl">
                     {event.index}
                   </span>
                   <span className="text-slate-400">/ {event.total}</span>
-                  <span className="text-[#2563EB] font-bold uppercase tracking-wider pl-2">
+                  <span className="text-[#DC2626] font-bold uppercase tracking-wider pl-2">
                     {event.title}
                   </span>
                   {event.nativeTitle && (
-                    <span className="text-[#0B1F3A] font-bold font-heading text-lg">
+                    <span className="text-[#0F172A] font-bold font-heading text-lg">
                       ({event.nativeTitle})
                     </span>
                   )}
                 </div>
 
-                {/* Main Dark Card Container */}
-                <div className="rounded-3xl border border-[#142B4A] bg-[#0B1F3A] p-6 sm:p-10 shadow-2xl space-y-8 overflow-hidden text-white">
+                {/* Main White Card Container */}
+                <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xl space-y-8 overflow-hidden text-[#0F172A]">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     {/* Left: Featured Image */}
-                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-[#071322] shadow-xl group">
+                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-md group">
                       <Image
                         src={event.mainImage}
                         alt={event.title}
@@ -445,15 +438,15 @@ export default function EventsPage() {
                           event.mainImage.includes("emblem") ||
                           event.mainImage.includes("certificate") ||
                           event.mainImage.includes("medal")
-                            ? "object-contain p-6 sm:p-10 group-hover:scale-105 transition-transform duration-700"
+                            ? "object-contain p-6 sm:p-10 bg-white group-hover:scale-105 transition-transform duration-700"
                             : "object-cover object-center group-hover:scale-105 transition-transform duration-700"
                         }
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
                       {/* Bottom-left Tag */}
                       <div className="absolute bottom-4 left-5 text-white select-none">
-                        <p className="text-xs font-mono font-bold tracking-widest uppercase text-white/90">
+                        <p className="text-xs font-mono font-bold tracking-widest uppercase text-white/95 bg-black/60 px-3 py-1 rounded-full backdrop-blur-sm">
                           {event.yearTag}
                         </p>
                       </div>
@@ -462,30 +455,30 @@ export default function EventsPage() {
                       <button
                         type="button"
                         onClick={() => openLightbox(event.mainImage, event.title, event.tagline)}
-                        className="absolute top-3 right-3 w-9 h-9 rounded-xl bg-black/60 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all cursor-pointer"
+                        className="absolute top-3 right-3 w-9 h-9 rounded-xl bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all cursor-pointer"
                         title="View photo full size"
                       >
-                        <Maximize2 className="w-4 h-4 text-sky-400" />
+                        <Maximize2 className="w-4 h-4 text-white" />
                       </button>
                     </div>
 
                     {/* Right: Narrative, Highlights & "SHOW PHOTOS" Button */}
                     <div className="lg:col-span-5 space-y-6">
                       <div className="space-y-3">
-                        <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
+                        <p className="text-xs font-mono uppercase tracking-widest text-[#DC2626] font-bold">
                           {event.tagline}
                         </p>
-                        <p className="text-xs sm:text-sm font-sans uppercase font-bold text-slate-200 leading-relaxed tracking-wide">
+                        <p className="text-xs sm:text-sm font-sans uppercase font-bold text-slate-700 leading-relaxed tracking-wide">
                           {event.description}
                         </p>
                       </div>
 
                       {/* Bullet Highlights if available */}
                       {event.highlights && (
-                        <div className="space-y-2 pt-1 border-t border-white/10">
+                        <div className="space-y-2 pt-1 border-t border-slate-200">
                           {event.highlights.map((h, i) => (
-                            <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                            <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
                               <span>{h}</span>
                             </div>
                           ))}
@@ -494,17 +487,17 @@ export default function EventsPage() {
 
                       {/* Schedule Breakdown if Case Study 002 */}
                       {event.schedule && (
-                        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
+                        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200">
                           {event.schedule.map((item, i) => (
                             <div
                               key={i}
-                              className="p-2.5 rounded-xl bg-white/5 border border-white/10"
+                              className="p-2.5 rounded-xl bg-slate-50 border border-slate-200"
                             >
-                              <div className="flex items-center gap-1 text-[11px] font-mono text-sky-300 font-bold">
+                              <div className="flex items-center gap-1 text-[11px] font-mono text-[#DC2626] font-bold">
                                 <Clock className="w-3 h-3" />
                                 <span>{item.time}</span>
                               </div>
-                              <p className="text-xs text-white font-medium mt-0.5 leading-tight">
+                              <p className="text-xs text-slate-800 font-medium mt-0.5 leading-tight">
                                 {item.event}
                               </p>
                             </div>
@@ -514,14 +507,14 @@ export default function EventsPage() {
 
                       {/* Runner Amenities Pack List if Case Study 002 */}
                       {event.kitItems && (
-                        <div className="pt-2 border-t border-white/10 space-y-1.5">
-                          <p className="text-[11px] font-mono uppercase text-sky-300 font-bold">
+                        <div className="pt-2 border-t border-slate-200 space-y-1.5">
+                          <p className="text-[11px] font-mono uppercase text-[#DC2626] font-bold">
                             What&apos;s Included (₹1,250 Registration):
                           </p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-600">
                             {event.kitItems.map((kit, i) => (
                               <div key={i} className="flex items-center gap-1.5">
-                                <CheckCircle2 className="w-3 h-3 text-[#2563EB] shrink-0" />
+                                <CheckCircle2 className="w-3 h-3 text-[#DC2626] shrink-0" />
                                 <span className="text-[11px]">{kit}</span>
                               </div>
                             ))}
@@ -535,9 +528,9 @@ export default function EventsPage() {
                             href={event.websiteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-white transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold"
                           >
-                            <Globe className="w-3.5 h-3.5 text-sky-400" />
+                            <Globe className="w-3.5 h-3.5 text-[#DC2626]" />
                             <span>Official Portal: {event.websiteLabel}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
@@ -549,7 +542,7 @@ export default function EventsPage() {
                         <button
                           type="button"
                           onClick={() => togglePhotos(event.id)}
-                          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-95 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xl transition-all cursor-pointer select-none"
+                          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#DC2626] hover:bg-[#B91C1C] active:scale-95 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer select-none"
                         >
                           <Camera className="w-4 h-4 text-white" />
                           <span>{isExpanded ? "HIDE PHOTOS" : "SHOW PHOTOS"}</span>
@@ -571,13 +564,13 @@ export default function EventsPage() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-                        className="pt-6 border-t border-white/10 overflow-hidden space-y-4"
+                        className="pt-6 border-t border-slate-200 overflow-hidden space-y-4"
                       >
-                        <div className="flex items-center justify-between text-xs font-mono text-slate-300">
-                          <span className="uppercase tracking-wider">
-                            Photographic Records &bull; {event.photos.length} High-Resolution Assets
+                        <div className="flex items-center justify-between text-xs font-mono text-slate-500">
+                          <span className="uppercase tracking-wider font-bold">
+                            Official Event Gallery &bull; {event.photos.length} Photographs
                           </span>
-                          <span className="text-sky-300">Click photo to expand</span>
+                          <span className="text-slate-400">Click photo to expand</span>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -596,7 +589,7 @@ export default function EventsPage() {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.08, duration: 0.4 }}
-                                className="group/photo relative aspect-4/3 rounded-2xl overflow-hidden border border-white/10 bg-[#071322] shadow-lg cursor-pointer"
+                                className="group/photo relative aspect-4/3 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm hover:shadow-md cursor-pointer"
                                 onClick={() => openLightbox(photo.image, photo.title, photo.caption)}
                               >
                                 <Image
@@ -606,7 +599,7 @@ export default function EventsPage() {
                                   sizes="(max-width: 640px) 100vw, 25vw"
                                   className={
                                     isGraphicOrProduct
-                                      ? "object-contain p-3.5 group-hover/photo:scale-105 transition-transform duration-500"
+                                      ? "object-contain p-3.5 bg-white group-hover/photo:scale-105 transition-transform duration-500"
                                       : "object-cover object-center group-hover/photo:scale-105 transition-transform duration-500"
                                   }
                                 />
@@ -616,13 +609,13 @@ export default function EventsPage() {
                                   <p className="text-xs font-bold font-heading line-clamp-1 text-white">
                                     {photo.title}
                                   </p>
-                                  <p className="text-[10px] text-slate-300 font-mono line-clamp-1 mt-0.5">
+                                  <p className="text-[10px] text-slate-200 font-mono line-clamp-1 mt-0.5">
                                     {photo.caption}
                                   </p>
                                 </div>
 
                                 <div className="absolute top-2 right-2 w-7 h-7 rounded-lg bg-black/60 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/photo:opacity-100 transition-opacity">
-                                  <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
+                                  <Maximize2 className="w-3.5 h-3.5 text-white" />
                                 </div>
                               </motion.div>
                             );
@@ -643,14 +636,14 @@ export default function EventsPage() {
       {/* ======================================================== */}
       <section className="py-20 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-t border-slate-200">
         <Container size="default">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-8 sm:p-14 text-center text-white shadow-2xl space-y-6">
-            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-white/10 px-3.5 py-1 rounded-full border border-white/20">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#090C15] border border-white/10 p-8 sm:p-14 text-center text-white shadow-2xl space-y-6">
+            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3.5 py-1 rounded-full border border-white/20">
               <Globe className="w-3.5 h-3.5" />
               <span>Official Event Portal: www.kannadotsava.com</span>
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-snug">
               ಬನ್ನಿ, ಕನ್ನಡಕ್ಕಾಗಿ ಹೆಜ್ಜೆ ಹಾಕೋಣ! <br />
-              <span className="text-sky-300">Run. Walk. Celebrate Kannada.</span>
+              <span className="text-amber-400">Run. Walk. Celebrate Kannada.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-200 font-normal leading-relaxed max-w-2xl mx-auto">
               Saturday, 19 December 2026 &bull; Bangalore University, Bengaluru. <br />
@@ -662,7 +655,7 @@ export default function EventsPage() {
                 href="https://www.kannadotsava.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
               >
                 <Globe className="w-4 h-4 text-white" />
                 <span>Register on www.kannadotsava.com</span>
@@ -673,7 +666,7 @@ export default function EventsPage() {
                 href="tel:+919606916622"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
-                <Phone className="w-4 h-4 text-sky-300" />
+                <Phone className="w-4 h-4 text-amber-400" />
                 <span>Call +91 96069 16622</span>
               </a>
             </div>
@@ -681,17 +674,17 @@ export default function EventsPage() {
             <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
               <a
                 href="mailto:admin@kannadotsava.com"
-                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-sky-400" />
+                <Mail className="w-3.5 h-3.5 text-amber-400" />
                 <span>admin@kannadotsava.com</span>
               </a>
               <span className="text-white/20 hidden sm:inline">•</span>
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[0].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-sky-400" />
+                <Phone className="w-3.5 h-3.5 text-amber-400" />
                 <span>
                   Strategic Partner: {COMPANY_DETAILS.leadership.directors[0].name} ({COMPANY_DETAILS.leadership.directors[0].phone})
                 </span>

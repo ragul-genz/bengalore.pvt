@@ -71,23 +71,20 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Right: Vertical Pillar in Vibrant Royal Blue with Giant Overlapping "Our Services" */}
+            {/* Right: Vertical Pillar - Modern Editorial High-Contrast Typography */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
-              <div className="relative w-full max-w-[320px] sm:max-w-sm md:w-96 h-[300px] sm:h-[440px] md:h-[520px] rounded-[32px] bg-gradient-to-br from-[#1E64F0] via-[#2563EB] to-[#1D4ED8] border border-blue-400/30 p-8 sm:p-10 md:p-12 shadow-2xl shadow-blue-600/30 flex flex-col justify-between overflow-hidden group select-none">
-                <div className="flex justify-end w-full">
-                  <span className="text-[10px] font-mono tracking-widest text-sky-100 uppercase font-bold bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25 shadow-xs">
-                    8 DISCIPLINES
-                  </span>
-                </div>
+              <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] lg:w-[400px] h-[320px] sm:h-[420px] md:h-[480px] rounded-3xl bg-[#090C15] border border-white/10 p-6 sm:p-8 md:p-9 shadow-2xl flex flex-col justify-end overflow-hidden select-none">
+                {/* Brand Red Accent Stroke (Matching New Link Logo) */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-[#DC2626]" />
 
-                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
-                  <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[104px] font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.84]">
+                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1 overflow-visible whitespace-nowrap">
+                  <span className="block text-4xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight text-white leading-[0.9]">
                     Our
                   </span>
-                  <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[104px] font-black font-heading tracking-tighter text-[#93C5FD] drop-shadow-md leading-[0.84]">
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-heading tracking-tight text-white leading-[0.9]">
                     Services
                   </span>
-                  <p className="pt-3 sm:pt-4 text-[11px] sm:text-xs font-mono uppercase tracking-[0.25em] text-white/90 font-bold">
+                  <p className="pt-3 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">
                     CONNECTING VALUES
                   </p>
                 </div>
@@ -100,7 +97,7 @@ export default function ServicesPage() {
       {/* ======================================================== */}
       {/* 2. FOUR HORIZONTAL VALUE CARDS */}
       {/* ======================================================== */}
-      <section className="py-12 sm:py-16 bg-[#0E274A] border-b border-[#142B4A] select-none text-white">
+      <section className="py-12 sm:py-16 bg-[#090C15] border-b border-white/10 select-none text-white">
         <Container size="default">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
@@ -110,11 +107,11 @@ export default function ServicesPage() {
               <p className="text-xs text-slate-500 font-mono mt-1">Detailed Technical Surveys</p>
             </div>
 
-            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
+            <div className="bg-white/[0.06] border border-white/15 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/10 transition-all duration-300 min-h-[140px]">
               <h3 className="text-xl sm:text-2xl font-extrabold font-heading tracking-tight text-white">
                 Turnkey EPC
               </h3>
-              <p className="text-xs text-sky-300 font-mono mt-1">Single-Source Delivery</p>
+              <p className="text-xs text-slate-300 font-mono mt-1">Single-Source Delivery</p>
             </div>
 
             <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[140px]">
@@ -124,11 +121,11 @@ export default function ServicesPage() {
               <p className="text-xs text-slate-500 font-mono mt-1">Fluke &amp; OTDR Verified</p>
             </div>
 
-            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 text-sky-300 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[140px]">
-              <h3 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center">
+            <div className="bg-white/[0.06] border border-white/15 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/10 transition-all duration-300 min-h-[140px]">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center text-white">
                 24/7 SLA Support
               </h3>
-              <p className="text-xs text-white/70 font-mono mt-1">Comprehensive Lifecycle</p>
+              <p className="text-xs text-slate-300 font-mono mt-1">Comprehensive Lifecycle</p>
             </div>
           </div>
         </Container>
