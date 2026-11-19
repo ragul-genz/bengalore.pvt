@@ -10,6 +10,8 @@ import {
   Monitor,
   Cpu,
   Maximize2,
+  Minimize2,
+  Volume2,
   Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -112,6 +114,22 @@ export function HeroCinemaReel({
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden select-none bg-[#050B14]">
+      {/* ======================================================== */}
+      {/* CINEMASCOPE 2.39:1 LETTERBOX BARS (ON CINEMA MODE) */}
+      {/* ======================================================== */}
+      <motion.div
+        initial={false}
+        animate={{ height: isCinemaMode ? 56 : 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-0 left-0 right-0 bg-black z-40 pointer-events-none border-b border-white/10"
+      />
+      <motion.div
+        initial={false}
+        animate={{ height: isCinemaMode ? 64 : 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute bottom-0 left-0 right-0 bg-black z-40 pointer-events-none border-t border-white/10"
+      />
+
       {/* 1. Cinematic Background Image Engine with Ken Burns or Rapid Strobe */}
       <AnimatePresence mode={isRapidMontage ? "popLayout" : "sync"}>
         <motion.div
@@ -123,8 +141,8 @@ export function HeroCinemaReel({
           }
           animate={{
             opacity: 1,
-            scale: isRapidMontage ? 1.05 : 1.07,
-            filter: "brightness(1) contrast(1)",
+            scale: isCinemaMode ? 1.09 : isRapidMontage ? 1.05 : 1.07,
+            filter: isCinemaMode ? "brightness(1.05) contrast(1.08)" : "brightness(1) contrast(1)",
           }}
           exit={
             isRapidMontage
@@ -133,11 +151,11 @@ export function HeroCinemaReel({
           }
           transition={{
             opacity: {
-              duration: isRapidMontage ? 0.25 : 1.2,
+              duration: isRapidMontage ? 0.22 : 1.2,
               ease: [0.16, 1, 0.3, 1],
             },
             scale: {
-              duration: isRapidMontage ? 0.45 : 8.5,
+              duration: isRapidMontage ? 0.4 : isCinemaMode ? 6.0 : 8.5,
               ease: isRapidMontage ? "easeOut" : "linear",
             },
           }}
@@ -155,7 +173,7 @@ export function HeroCinemaReel({
           {/* Flash Shutter Overlay for Rapid Montage Cuts */}
           {isRapidMontage && (
             <motion.div
-              initial={{ opacity: 0.6 }}
+              initial={{ opacity: 0.65 }}
               animate={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="absolute inset-0 bg-white mix-blend-overlay pointer-events-none"
@@ -164,12 +182,12 @@ export function HeroCinemaReel({
         </motion.div>
       </AnimatePresence>
 
-      {/* 2. Studio Lighting & Cyber Ambient Vignette Layers */}
+      {/* 2. Studio Lighting & Cyber Ambient Vignette Layers (Dissolves in Cinema Mode) */}
       <motion.div
         animate={{
-          opacity: isCinemaMode ? 0.25 : isRapidMontage ? 0.4 : 0.88,
+          opacity: isCinemaMode ? 0.08 : isRapidMontage ? 0.35 : 0.88,
         }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.55 }}
         className="absolute inset-0 pointer-events-none transition-opacity"
       >
         {/* Left deep obsidian wash for crystal-clear typography readability */}
@@ -193,17 +211,24 @@ export function HeroCinemaReel({
       </motion.div>
 
       {/* 3. Live HUD Telemetry Overlay (Active Project Specs) */}
-      <div className="absolute top-20 sm:top-24 right-4 sm:right-8 lg:right-12 z-20 pointer-events-none flex flex-col items-end gap-2 text-right">
+      <div className="absolute top-20 sm:top-24 right-4 sm:right-8 lg:right-12 z-30 pointer-events-none flex flex-col items-end gap-2 text-right">
         <motion.div
           key={`hud-${currentProject.id}`}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#050B14]/80 backdrop-blur-md border border-white/10 text-white shadow-xl"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#050B14]/85 backdrop-blur-md border border-white/15 text-white shadow-xl"
         >
-          {isRapidMontage ? (
+          {isCinemaMode ? (
             <>
-              <Zap className="w-3 h-3 text-amber-400 animate-bounce" />
+              <Volume2 className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-emerald-300 font-bold">
+                CINEMATIC SOUND &amp; REEL ACTIVE • 0{currentIndex + 1}/05
+              </span>
+            </>
+          ) : isRapidMontage ? (
+            <>
+              <Zap className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
               <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-300 font-bold">
                 KINETIC RAPID MONTAGE • 0{currentIndex + 1}/05
               </span>
@@ -230,7 +255,7 @@ export function HeroCinemaReel({
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="hidden sm:flex flex-col items-end p-3 rounded-xl bg-[#050B14]/70 backdrop-blur-md border border-white/10 text-white max-w-xs text-right shadow-2xl"
+          className="hidden sm:flex flex-col items-end p-3 rounded-xl bg-[#050B14]/75 backdrop-blur-md border border-white/15 text-white max-w-xs text-right shadow-2xl"
         >
           <span className="text-[10px] uppercase tracking-wider font-bold text-sky-400 flex items-center gap-1.5">
             <Icon className="w-3.5 h-3.5" />
@@ -246,7 +271,7 @@ export function HeroCinemaReel({
       </div>
 
       {/* 4. Bottom Project Timeline Rails (Interactive Slide Switcher) */}
-      <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8 z-30 flex items-center justify-between gap-3 pointer-events-auto">
+      <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8 z-50 flex items-center justify-between gap-3 pointer-events-auto">
         {/* Project Thumbnail Navigation Pills */}
         <div className="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none max-w-full">
           {AUTHENTIC_PROJECT_REELS.map((item, idx) => {
@@ -258,8 +283,8 @@ export function HeroCinemaReel({
                 className={cn(
                   "group relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-left transition-all duration-300 shrink-0 cursor-pointer",
                   isActive
-                    ? "bg-white/15 backdrop-blur-md border border-white/30 text-white shadow-lg shadow-blue-900/30"
-                    : "bg-[#050B14]/60 backdrop-blur-xs border border-white/10 text-slate-400 hover:text-white hover:bg-white/10"
+                    ? "bg-white/20 backdrop-blur-md border border-white/40 text-white shadow-lg shadow-blue-900/40"
+                    : "bg-[#050B14]/70 backdrop-blur-xs border border-white/10 text-slate-400 hover:text-white hover:bg-white/10"
                 )}
               >
                 {/* Active Indicator Line */}
@@ -284,7 +309,7 @@ export function HeroCinemaReel({
                   <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ duration: 7, ease: "linear" }}
+                    transition={{ duration: 6.5, ease: "linear" }}
                     className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full origin-left bg-gradient-to-r from-blue-500 via-sky-400 to-rose-500"
                   />
                 )}
@@ -297,24 +322,36 @@ export function HeroCinemaReel({
         <button
           onClick={() => onCinemaModeChange(!isCinemaMode)}
           className={cn(
-            "hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold backdrop-blur-md transition-all shrink-0 border cursor-pointer",
+            "inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold backdrop-blur-md transition-all shrink-0 border cursor-pointer shadow-lg",
             isCinemaMode
-              ? "bg-rose-600/90 hover:bg-rose-600 text-white border-rose-400 shadow-lg shadow-rose-950/50"
-              : "bg-white/10 hover:bg-white/20 text-white border-white/15"
+              ? "bg-rose-600 hover:bg-rose-500 text-white border-rose-400 shadow-rose-950/60"
+              : "bg-white/15 hover:bg-white/25 text-white border-white/25 hover:border-white/50"
           )}
-          title={isCinemaMode ? "Exit Cinema View" : "Expand Cinema View"}
+          title={isCinemaMode ? "Exit Cinema View" : "Expand Cinema View with Audio"}
         >
-          <Maximize2 className="w-3.5 h-3.5" />
-          <span>{isCinemaMode ? "Exit Cinema View" : "Full View"}</span>
+          {isCinemaMode ? (
+            <>
+              <Minimize2 className="w-3.5 h-3.5 text-white" />
+              <span>Exit Cinema</span>
+            </>
+          ) : (
+            <>
+              <Maximize2 className="w-3.5 h-3.5 text-white" />
+              <span>Full Cinema</span>
+            </>
+          )}
         </button>
       </div>
 
       {/* 5. Circular Hold Progress Visual Pulse (when user holds) */}
       {holdProgress > 0 && holdProgress < 100 && (
-        <div className="absolute inset-0 pointer-events-none z-40 flex items-center justify-center">
-          <div className="relative w-40 h-40 rounded-full border-2 border-dashed border-sky-400/50 animate-spin" />
-          <div className="absolute text-center text-xs font-mono uppercase tracking-widest text-sky-300 font-bold">
-            {holdProgress}%
+        <div className="absolute inset-0 pointer-events-none z-50 flex items-center justify-center">
+          <div className="relative w-44 h-44 rounded-full border-2 border-dashed border-yellow-300/60 animate-spin" />
+          <div className="absolute flex flex-col items-center">
+            <Volume2 className="w-6 h-6 text-yellow-300 animate-pulse mb-1" />
+            <span className="text-xs font-mono uppercase tracking-widest text-yellow-200 font-bold">
+              AUDIO &amp; REEL {holdProgress}%
+            </span>
           </div>
         </div>
       )}

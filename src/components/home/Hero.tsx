@@ -8,9 +8,13 @@ import {
   Play,
   Sparkles,
   RotateCcw,
+  Volume2,
+  VolumeX,
+  Minimize2,
 } from "lucide-react";
 import { Container, CINEMATIC_EASE } from "@/components/common";
 import { HeroCinemaReel, AUTHENTIC_PROJECT_REELS } from "./HeroCinemaReel";
+import { cinematicAudio } from "@/lib/cinematicAudio";
 
 // Rotating Dynamic Action Verbs (matching the exact reference screenshot styling)
 const ROTATING_HIGHLIGHT_WORDS = [
@@ -50,6 +54,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
   const [isCinemaMode, setIsCinemaMode] = useState(false);
+  const [isHolding, setIsHolding] = useState(false);
   const [holdProgress, setHoldProgress] = useState(0);
   const [isRapidMontage, setIsRapidMontage] = useState(false);
   const [showIntroLogo, setShowIntroLogo] = useState(true);
@@ -90,15 +95,15 @@ export function Hero() {
 
   // 3. Ambient Auto-Slide (every 6.5s when montage is not active)
   useEffect(() => {
-    if (isRapidMontage) return;
+    if (isRapidMontage || isHolding) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % AUTHENTIC_PROJECT_REELS.length);
     }, 6500);
 
     return () => clearInterval(timer);
-  }, [isRapidMontage]);
+  }, [isRapidMontage, isHolding]);
 
-  // 4. Kinetic Kinetic Word Cycle ("apro letter uh inta matri varutula")
+  // 4. Kinetic Word Cycle ("apro letter uh inta matri varutula")
   useEffect(() => {
     wordCycleTimerRef.current = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ROTATING_HIGHLIGHT_WORDS.length);
@@ -114,11 +119,14 @@ export function Hero() {
     setIsRapidMontage(false);
   };
 
-  // 5. Interactive "Tap & Hold to Play" Controller Engine
+  // 5. Interactive "Tap & Hold to Play" Controller Engine (With Music & Video Cinema Mode)
   const startHold = () => {
     if (holdIntervalRef.current) clearInterval(holdIntervalRef.current);
+    setIsHolding(true);
+    cinematicAudio.play(); // Start rich cinematic audio immediately on hold!
+
     const startTime = Date.now();
-    const duration = 800; // 800ms hold to trigger full cinema mode
+    const duration = 750; // 750ms hold to trigger full locked cinema mode
 
     holdIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -126,7 +134,7 @@ export function Hero() {
       setHoldProgress(progress);
 
       if (progress >= 100) {
-        clearInterval(holdIntervalRef.current!);
+        if (holdIntervalRef.current) clearInterval(holdIntervalRef.current);
         setIsCinemaMode(true);
         triggerRapidMontage();
       }
@@ -135,14 +143,28 @@ export function Hero() {
 
   const endHold = () => {
     if (holdIntervalRef.current) clearInterval(holdIntervalRef.current);
-    if (holdProgress < 100) {
+    setIsHolding(false);
+
+    // If released before 100% and not already in locked cinema mode, stop audio
+    if (holdProgress < 100 && !isCinemaMode) {
+      cinematicAudio.stop();
       setHoldProgress(0);
     }
   };
 
-  const handleQuickTap = () => {
-    // Quick click toggles cinema mode or triggers rapid montage
-    triggerRapidMontage();
+  const toggleCinemaMode = (targetState?: boolean) => {
+    const nextState = targetState !== undefined ? targetState : !isCinemaMode;
+    setIsCinemaMode(nextState);
+
+    if (nextState) {
+      cinematicAudio.play();
+      setHoldProgress(100);
+      triggerRapidMontage();
+    } else {
+      cinematicAudio.stop();
+      setHoldProgress(0);
+      setIsHolding(false);
+    }
   };
 
   // Circular progress SVG values
@@ -151,6 +173,7 @@ export function Hero() {
   const strokeDashoffset = circumference - (holdProgress / 100) * circumference;
 
   const currentWord = ROTATING_HIGHLIGHT_WORDS[wordIndex];
+  const isCinemaActive = isCinemaMode || isHolding;
 
   return (
     <div className="relative bg-[#050B14] text-white overflow-hidden">
@@ -235,18 +258,18 @@ export function Hero() {
       {/* 1. MAIN VIEWPORT CINEMA SECTION (HERO) */}
       {/* ======================================================== */}
       <section className="relative min-h-[92vh] lg:min-h-screen w-full flex flex-col justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-36 overflow-hidden">
-        {/* Background Cinema Showreel Engine (Ken Burns or Rapid-Cut Strobe) */}
+        {/* Background Cinema Showreel Engine (With Ken Burns, Rapid-Cut Strobe & Cinema Mode) */}
         <HeroCinemaReel
           currentIndex={currentSlide}
           onSelectIndex={handleSelectSlide}
-          isCinemaMode={isCinemaMode}
-          onCinemaModeChange={setIsCinemaMode}
+          isCinemaMode={isCinemaActive}
+          onCinemaModeChange={toggleCinemaMode}
           holdProgress={holdProgress}
           isRapidMontage={isRapidMontage}
         />
 
         {/* ======================================================== */}
-        {/* FLOATING "TAP & HOLD TO PLAY" CONTROLLER (REFERENCE REPLICA) */}
+        {/* FLOATING "TAP & HOLD TO PLAY" CONTROLLER (MATCHES REFERENCE) */}
         {/* ======================================================== */}
         <div className="absolute top-20 sm:top-24 left-4 sm:left-8 lg:left-12 z-30 pointer-events-auto">
           <div
@@ -255,11 +278,11 @@ export function Hero() {
             onMouseLeave={endHold}
             onTouchStart={startHold}
             onTouchEnd={endHold}
-            onClick={handleQuickTap}
+            onClick={() => toggleCinemaMode()}
             role="button"
             tabIndex={0}
-            className="group relative inline-flex items-center gap-3.5 px-4 py-2.5 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 hover:border-white/50 text-white shadow-2xl transition-all duration-300 cursor-pointer select-none"
-            title="Click or Tap & Hold to inspect high-speed cinema reel"
+            className="group relative inline-flex items-center gap-3.5 px-4 py-2.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/25 hover:border-yellow-300 text-white shadow-2xl transition-all duration-300 cursor-pointer select-none"
+            title="Click or Tap & Hold to play cinematic showreel with audio"
           >
             {/* SVG Circular Progress Ring with Center Dot */}
             <div className="relative w-9 h-9 flex items-center justify-center shrink-0">
@@ -278,7 +301,7 @@ export function Hero() {
                   cx="18"
                   cy="18"
                   r={radius}
-                  stroke="#E2F13C" // Neon Lime
+                  stroke="#E2F13C" // High-voltage Lime/Yellow
                   strokeWidth="2.5"
                   fill="transparent"
                   strokeDasharray={circumference}
@@ -288,47 +311,62 @@ export function Hero() {
                 />
               </svg>
 
-              {/* White Center Dot (exact replica of Eventurox dot) */}
-              <span className="absolute w-2.5 h-2.5 rounded-full bg-white group-hover:scale-125 transition-transform shadow-xs shadow-white" />
+              {/* Center Dot / Audio Icon (exact replica of Eventurox dot) */}
+              {isCinemaActive ? (
+                <Volume2 className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
+              ) : (
+                <span className="absolute w-2.5 h-2.5 rounded-full bg-white group-hover:scale-125 transition-transform shadow-xs shadow-white" />
+              )}
             </div>
 
             {/* Label */}
             <div className="flex flex-col text-left pr-1">
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-white group-hover:text-yellow-200 transition-colors">
-                {holdProgress > 0 ? `Holding (${holdProgress}%)` : "Tap & Hold to Play"}
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-white group-hover:text-yellow-200 transition-colors flex items-center gap-1.5">
+                {isCinemaMode
+                  ? "Playing Cinema with Sound"
+                  : isHolding
+                  ? `Holding Reel (${holdProgress}%)`
+                  : "Tap & Hold to Play"}
+                {isCinemaActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />}
               </span>
               <span className="text-[10px] text-slate-300 font-mono tracking-tight hidden sm:inline-block">
-                {isRapidMontage ? "Playing 5 Authentic Sites" : "Inspect Authentic Visuals"}
+                {isCinemaActive ? "Sound & 5 Authentic Sites Active" : "Hold for Music & Full Video"}
               </span>
             </div>
 
-            {/* Replay Montage Icon */}
+            {/* Quick Replay Icon */}
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                triggerRapidMontage();
+                toggleCinemaMode();
               }}
-              className="p-1 rounded-full hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
-              title="Fast-cut Montage Replay"
+              className="p-1.5 rounded-full hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+              title="Toggle Cinema Mode with Audio"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              {isCinemaActive ? (
+                <VolumeX className="w-3.5 h-3.5 text-rose-400" />
+              ) : (
+                <RotateCcw className="w-3.5 h-3.5 text-slate-300" />
+              )}
             </button>
           </div>
         </div>
 
         {/* ======================================================== */}
-        {/* FOREGROUND HERO TYPOGRAPHY (MATCHING REFERENCE SCREENSHOT) */}
+        {/* FOREGROUND HERO TYPOGRAPHY (DISSOLVES IN CINEMA MODE) */}
         {/* ======================================================== */}
         <Container size="default" className="relative z-20">
           <motion.div
             animate={{
-              opacity: isCinemaMode ? 0 : 1,
-              y: isCinemaMode ? 30 : 0,
-              filter: isCinemaMode ? "blur(8px)" : "blur(0px)",
+              opacity: isCinemaActive ? 0 : 1,
+              y: isCinemaActive ? 40 : 0,
+              scale: isCinemaActive ? 0.96 : 1,
+              filter: isCinemaActive ? "blur(12px)" : "blur(0px)",
+              pointerEvents: isCinemaActive ? "none" : "auto",
             }}
             transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-            className="max-w-4xl flex flex-col space-y-6 sm:space-y-7 text-left pointer-events-auto"
+            className="max-w-4xl flex flex-col space-y-6 sm:space-y-7 text-left"
           >
             {/* Eyebrow Pill with Dual Color Brand Accents */}
             <motion.div
@@ -427,19 +465,43 @@ export function Hero() {
                 <span>Corporate Profile</span>
               </Link>
 
-              {/* Quick Replay Button */}
+              {/* Quick Cinema Mode Trigger Button */}
               <button
                 type="button"
-                onClick={triggerRapidMontage}
+                onClick={() => toggleCinemaMode()}
                 className="hidden sm:inline-flex items-center gap-2 px-4 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 font-semibold text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer"
-                title="Trigger 5-Site Speed Montage"
+                title="Play Cinema Showreel with Music"
               >
                 <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-                <span>Quick Montage</span>
+                <span>Play Cinema Reel</span>
               </button>
             </motion.div>
           </motion.div>
         </Container>
+
+        {/* ======================================================== */}
+        {/* FLOATING "EXIT CINEMA" BUTTON (VISIBLE IN LOCKED CINEMA MODE) */}
+        {/* ======================================================== */}
+        <AnimatePresence>
+          {isCinemaMode && (
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 25 }}
+              transition={{ duration: 0.35 }}
+              className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
+            >
+              <button
+                type="button"
+                onClick={() => toggleCinemaMode(false)}
+                className="flex items-center gap-2.5 px-6 py-3 rounded-full bg-black/85 hover:bg-black backdrop-blur-md border border-white/30 hover:border-white text-white font-mono text-xs uppercase tracking-wider shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              >
+                <Minimize2 className="w-4 h-4 text-rose-400" />
+                <span>Exit Fullscreen Cinema Mode</span>
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </div>
   );
