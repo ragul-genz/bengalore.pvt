@@ -87,13 +87,7 @@ export function Certificates() {
   };
 
   return (
-    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10 select-none">
-      {/* Background Ambient Gold Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[150px]" />
-        <div className="absolute left-10 bottom-10 w-96 h-96 bg-yellow-600/10 rounded-full blur-[130px]" />
-      </div>
-
+    <section className="py-24 md:py-36 bg-white text-[#0F172A] relative overflow-hidden border-b border-slate-200 select-none">
       <Container size="default" className="relative z-10 space-y-16">
         {/* ======================================================== */}
         {/* SECTION HEADER MATCHING "The Winning Streak" EXACT STYLE */}
@@ -104,7 +98,7 @@ export function Certificates() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none"
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-none uppercase"
           >
             The Winning Streak
           </motion.h2>
@@ -114,17 +108,17 @@ export function Certificates() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
-            className="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto"
+            className="text-base sm:text-xl text-slate-500 font-normal max-w-2xl mx-auto"
           >
             When experience meets excellence, recognition follows
           </motion.p>
         </div>
 
         {/* ======================================================== */}
-        {/* GOLD LUXURY AWARDS CARDS (EVENTUROX 3-TOP + 2-BOTTOM GRID) */}
+        {/* CERTIFICATE & AWARDS CARDS (3-TOP + 2-BOTTOM GRID) */}
         {/* ======================================================== */}
         <div className="space-y-6">
-          {/* Top Row: 3 Gold-Bordered Cards */}
+          {/* Top Row: 3 Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {WINNING_AWARDS.slice(0, 3).map((award, i) => (
               <motion.div
@@ -134,10 +128,10 @@ export function Certificates() {
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: CINEMATIC_EASE }}
                 onClick={() => openLightbox(award.image, award.title, award.description)}
-                className="group relative rounded-3xl p-7 sm:p-8 bg-[#080E1A] border border-amber-500/35 hover:border-amber-400 transition-all duration-300 flex flex-col justify-between text-center cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-amber-500/15 hover:-translate-y-1.5"
+                className="group relative rounded-3xl p-7 sm:p-8 bg-[#F8FAFC] border border-slate-200 hover:border-[#2563EB] transition-all duration-300 flex flex-col justify-between text-center cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1.5"
               >
                 {/* Certificate Thumbnail Preview Container */}
-                <div className="relative w-full h-36 rounded-2xl bg-black/40 border border-amber-500/20 overflow-hidden mb-6 flex items-center justify-center p-2">
+                <div className="relative w-full h-36 rounded-2xl bg-white border border-slate-200 overflow-hidden mb-6 flex items-center justify-center p-2 shadow-inner">
                   <Image
                     src={award.image}
                     alt={award.title}
@@ -145,29 +139,28 @@ export function Certificates() {
                     sizes="350px"
                     className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <span className="absolute bottom-2 right-2 text-[10px] font-mono text-amber-300 bg-black/60 px-2 py-0.5 rounded-full border border-amber-500/30 flex items-center gap-1">
-                    <Maximize2 className="w-2.5 h-2.5" />
+                  <span className="absolute bottom-2 right-2 text-[10px] font-mono text-[#0B1F3A] bg-white/90 px-2 py-0.5 rounded-full border border-slate-200 flex items-center gap-1 shadow-sm font-semibold">
+                    <Maximize2 className="w-2.5 h-2.5 text-[#2563EB]" />
                     <span>Inspect</span>
                   </span>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-amber-200 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-[#0F172A] group-hover:text-[#2563EB] transition-colors">
                     {award.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {award.description}
                   </p>
                 </div>
 
-                {/* Golden Glowing Pill/Line Underneath (Exact Match to Reference) */}
-                <div className="w-20 h-1 bg-amber-400/80 rounded-full mx-auto mt-6 shadow-[0_0_12px_rgba(251,191,36,0.9)]" />
+                {/* Brand Blue Accent Pill Underneath */}
+                <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mt-6" />
               </motion.div>
             ))}
           </div>
 
-          {/* Bottom Row: 2 Gold-Bordered Cards Centered */}
+          {/* Bottom Row: 2 Cards Centered */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
             {WINNING_AWARDS.slice(3, 5).map((award, i) => (
               <motion.div
@@ -177,10 +170,10 @@ export function Certificates() {
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: CINEMATIC_EASE }}
                 onClick={() => openLightbox(award.image, award.title, award.description)}
-                className="group relative rounded-3xl p-7 sm:p-8 bg-[#080E1A] border border-amber-500/35 hover:border-amber-400 transition-all duration-300 flex flex-col justify-between text-center cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-amber-500/15 hover:-translate-y-1.5"
+                className="group relative rounded-3xl p-7 sm:p-8 bg-[#F8FAFC] border border-slate-200 hover:border-[#2563EB] transition-all duration-300 flex flex-col justify-between text-center cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1.5"
               >
                 {/* Certificate Thumbnail Preview Container */}
-                <div className="relative w-full h-36 rounded-2xl bg-black/40 border border-amber-500/20 overflow-hidden mb-6 flex items-center justify-center p-2">
+                <div className="relative w-full h-36 rounded-2xl bg-white border border-slate-200 overflow-hidden mb-6 flex items-center justify-center p-2 shadow-inner">
                   <Image
                     src={award.image}
                     alt={award.title}
@@ -188,24 +181,23 @@ export function Certificates() {
                     sizes="350px"
                     className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <span className="absolute bottom-2 right-2 text-[10px] font-mono text-amber-300 bg-black/60 px-2 py-0.5 rounded-full border border-amber-500/30 flex items-center gap-1">
-                    <Maximize2 className="w-2.5 h-2.5" />
+                  <span className="absolute bottom-2 right-2 text-[10px] font-mono text-[#0B1F3A] bg-white/90 px-2 py-0.5 rounded-full border border-slate-200 flex items-center gap-1 shadow-sm font-semibold">
+                    <Maximize2 className="w-2.5 h-2.5 text-[#2563EB]" />
                     <span>Inspect</span>
                   </span>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-amber-200 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-[#0F172A] group-hover:text-[#2563EB] transition-colors">
                     {award.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {award.description}
                   </p>
                 </div>
 
-                {/* Golden Glowing Pill/Line Underneath (Exact Match to Reference) */}
-                <div className="w-20 h-1 bg-amber-400/80 rounded-full mx-auto mt-6 shadow-[0_0_12px_rgba(251,191,36,0.9)]" />
+                {/* Brand Blue Accent Pill Underneath */}
+                <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mt-6" />
               </motion.div>
             ))}
           </div>

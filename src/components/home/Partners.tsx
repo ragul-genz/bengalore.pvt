@@ -42,13 +42,7 @@ export function Partners() {
   const row2Brands = OEM_BRAND_PARTNERS.slice(half);
 
   return (
-    <section className="py-24 md:py-32 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10">
-      {/* Background Ambient High-Tech Glow */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <div className="absolute right-1/3 top-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute left-10 bottom-0 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-[130px]" />
-      </div>
-
+    <section className="py-24 md:py-32 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-b border-slate-200">
       <Container size="default" className="relative z-10 space-y-20">
         {/* 1. Public Sector Strategic Collaborations */}
         <div>
@@ -58,15 +52,15 @@ export function Partners() {
               delay={0.03}
               y={8}
               duration={0.42}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15"
             >
-              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-200">
+              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0B1F3A] font-mono">
                 GOVERNMENT &amp; PUBLIC SECTOR ALLIANCES
               </span>
             </FadeIn>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none uppercase">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-none uppercase">
               Powering Partnership
             </h2>
 
@@ -75,7 +69,7 @@ export function Partners() {
               mode="view"
               delay={0.2}
               y={10}
-              className="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed"
+              className="text-base sm:text-xl text-slate-500 font-normal max-w-2xl mx-auto leading-relaxed"
             >
               Engineering dependable synergy one mission-critical deployment at a time
             </FadeIn>
@@ -92,14 +86,14 @@ export function Partners() {
               <StaggerItem
                 key={partner.name}
                 y={16}
-                className="p-6 rounded-2xl border border-white/15 bg-slate-900/80 backdrop-blur-md shadow-xl hover:-translate-y-1.5 hover:border-sky-400 hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm hover:-translate-y-1.5 hover:border-[#2563EB] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Top Subtle Brand Ribbon */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#2563EB] opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div className="space-y-4">
                   {partner.logo ? (
-                    <div className="h-16 w-full rounded-xl bg-white p-3 flex items-center justify-center shadow-xs border border-white/20 group-hover:scale-102 transition-transform">
+                    <div className="h-16 w-full rounded-xl bg-slate-50 p-3 flex items-center justify-center border border-slate-100 group-hover:scale-102 transition-transform">
                       <Image
                         src={partner.logo}
                         alt={`${partner.name} official emblem`}
@@ -109,30 +103,30 @@ export function Partners() {
                       />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-400/30 flex items-center justify-center text-sky-400">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563EB]">
                       <Handshake className="w-6 h-6" />
                     </div>
                   )}
 
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-sky-400 font-mono">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#2563EB] font-mono">
                       {partner.type}
                     </span>
-                    <h3 className="text-lg font-bold font-heading text-white mt-0.5 leading-snug group-hover:text-sky-300 transition-colors">
+                    <h3 className="text-lg font-bold font-heading text-[#0F172A] mt-0.5 leading-snug group-hover:text-[#2563EB] transition-colors">
                       {partner.name}
                     </h3>
-                    <p className="text-xs text-slate-400 font-medium">
+                    <p className="text-xs text-slate-500 font-medium">
                       {partner.location}
                     </p>
                   </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed pt-1 line-clamp-3">
+                  <p className="text-xs text-slate-600 leading-relaxed pt-1 line-clamp-3">
                     {partner.scopeOfWork}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center gap-2 text-[11px] font-semibold text-slate-300">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-2 text-[11px] font-semibold text-slate-600">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Authorized Association</span>
                 </div>
               </StaggerItem>
@@ -141,16 +135,16 @@ export function Partners() {
         </div>
 
         {/* 2. OEM Brand Ecosystem - Continuous Cinema Gliding Marquee Ticker */}
-        <div className="pt-16 border-t border-white/10 space-y-10">
+        <div className="pt-16 border-t border-slate-200 space-y-10">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono uppercase tracking-[0.14em] text-sky-400 font-bold flex items-center justify-center gap-2">
+            <span className="text-xs font-mono uppercase tracking-[0.14em] text-[#2563EB] font-bold flex items-center justify-center gap-2">
               <Cpu className="w-4 h-4" />
               GLOBAL OEM BRAND ECOSYSTEM • TIER-1 ALLIANCES
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#0F172A] tracking-tight">
               Certified Hardware, Audio-Visual &amp; Optical Brands
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-500">
               Turnkey integration with authentic manufacturer warranties, genuine components, and certified engineering deployments.
             </p>
           </div>
@@ -162,7 +156,7 @@ export function Partners() {
               {[...row1Brands, ...row1Brands].map((brand, i) => (
                 <div
                   key={`r1-${brand.name}-${i}`}
-                  className="w-44 sm:w-48 h-20 rounded-2xl bg-white p-3 flex flex-col items-center justify-center border border-white/20 shadow-lg shrink-0 transition-transform hover:scale-105"
+                  className="w-44 sm:w-48 h-20 rounded-2xl bg-white p-3 flex flex-col items-center justify-center border border-slate-200 shadow-sm shrink-0 transition-transform hover:scale-105"
                 >
                   <Image
                     src={brand.logo}
@@ -184,7 +178,7 @@ export function Partners() {
               {[...row2Brands, ...row2Brands].map((brand, i) => (
                 <div
                   key={`r2-${brand.name}-${i}`}
-                  className="w-44 sm:w-48 h-20 rounded-2xl bg-white p-3 flex flex-col items-center justify-center border border-white/20 shadow-lg shrink-0 transition-transform hover:scale-105"
+                  className="w-44 sm:w-48 h-20 rounded-2xl bg-white p-3 flex flex-col items-center justify-center border border-slate-200 shadow-sm shrink-0 transition-transform hover:scale-105"
                 >
                   <Image
                     src={brand.logo}
@@ -213,8 +207,8 @@ export function Partners() {
                   className={cn(
                     "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2",
                     activeFilter === opt.id
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/40 border border-blue-400"
-                      : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
+                      ? "bg-[#2563EB] text-white shadow-md border border-[#2563EB]"
+                      : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200"
                   )}
                 >
                   <span>{opt.label}</span>
@@ -222,8 +216,8 @@ export function Partners() {
                     className={cn(
                       "text-[10px] px-1.5 py-0.5 rounded-full font-mono",
                       activeFilter === opt.id
-                        ? "bg-white/20 text-white"
-                        : "bg-white/10 text-slate-400"
+                        ? "bg-white/25 text-white"
+                        : "bg-slate-100 text-slate-600"
                     )}
                   >
                     {opt.count}
@@ -237,10 +231,10 @@ export function Partners() {
               {filteredBrands.map((brand) => (
                 <div
                   key={brand.name}
-                  className="p-3 rounded-2xl border border-white/10 bg-slate-900/90 hover:border-sky-400/80 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300 text-center flex flex-col justify-between items-center group"
+                  className="p-3 rounded-2xl border border-slate-200 bg-white hover:border-[#2563EB] hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-center flex flex-col justify-between items-center group shadow-xs"
                 >
                   {/* Brand Logo Container */}
-                  <div className="w-full h-14 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-2 group-hover:scale-102 transition-transform">
+                  <div className="w-full h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 group-hover:scale-102 transition-transform">
                     <Image
                       src={brand.logo}
                       alt={`${brand.name} official logo`}
@@ -253,10 +247,10 @@ export function Partners() {
 
                   {/* Brand Details */}
                   <div className="mt-2 w-full">
-                    <span className="text-xs sm:text-sm font-bold font-heading text-white group-hover:text-sky-400 transition-colors block truncate">
+                    <span className="text-xs sm:text-sm font-bold font-heading text-[#0F172A] group-hover:text-[#2563EB] transition-colors block truncate">
                       {brand.name}
                     </span>
-                    <span className="text-[10.5px] text-slate-400 font-medium line-clamp-1 mt-0.5 block">
+                    <span className="text-[10.5px] text-slate-500 font-normal line-clamp-1 mt-0.5 block">
                       {brand.category}
                     </span>
                   </div>
@@ -266,12 +260,12 @@ export function Partners() {
           </div>
 
           {/* Trust Banner Footer */}
-          <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
             <div className="flex items-center gap-2">
-              <Layers className="w-4 h-4 text-sky-400 shrink-0" />
+              <Layers className="w-4 h-4 text-[#2563EB] shrink-0" />
               <span>Authentic OEM warranties, genuine components &amp; certified tier-1 engineer deployments.</span>
             </div>
-            <span className="font-semibold text-slate-200">28+ Tier-1 Global OEM Alliances</span>
+            <span className="font-semibold text-[#0B1F3A]">28+ Tier-1 Global OEM Alliances</span>
           </div>
         </div>
       </Container>

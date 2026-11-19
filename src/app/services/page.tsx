@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+    <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
       {/* Services Hero Header */}
       <PageHero
         eyebrow="Full Lifecycle Engineering • Bangalore, India"
@@ -46,14 +46,11 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid Section */}
-      <SectionReveal className="py-16 md:py-24 relative overflow-hidden">
-        {/* Ambient background glow */}
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-
+      <SectionReveal className="py-16 md:py-24 relative overflow-hidden bg-white border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
               <span>Specialized Infrastructure Disciplines</span>
             </FadeIn>
             <RevealText
@@ -63,9 +60,9 @@ export default function ServicesPage() {
               delay={0.08}
               stagger={0.045}
               text="Our Specialized Service Capabilities"
-              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight"
             />
-            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+            <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
               End-to-end design, deployment, testing, and lifecycle maintenance delivered across Karnataka and nationwide.
             </FadeIn>
           </div>
@@ -80,11 +77,11 @@ export default function ServicesPage() {
               <StaggerItem
                 key={service.slug}
                 y={18}
-                className="group flex flex-col justify-between bg-[#0A1220] rounded-3xl border border-white/10 overflow-hidden shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_35px_rgba(56,189,248,0.18)] transition-all duration-300"
+                className="group flex flex-col justify-between bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 text-[#0F172A]"
               >
                 <div>
                   {/* Image */}
-                  <div className="relative aspect-16/10 w-full overflow-hidden bg-black/60 border-b border-white/10">
+                  <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900 border-b border-slate-200">
                     <Image
                       src={service.image}
                       alt={service.title}
@@ -92,14 +89,14 @@ export default function ServicesPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1220] via-transparent to-transparent opacity-90 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-sky-400 border border-white/20 flex items-center justify-center text-white shadow-lg">
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-[#0B1F3A] border border-white/20 flex items-center justify-center text-white shadow-lg">
                       <ServiceIcon name={service.iconName} className="w-5 h-5 text-white" />
                     </div>
 
                     <div className="absolute bottom-2.5 right-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wide bg-black/80 text-sky-400 border border-sky-400/30 backdrop-blur-md">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wide bg-[#0B1F3A]/90 text-white border border-white/20 backdrop-blur-md">
                         {service.tag}
                       </span>
                     </div>
@@ -107,17 +104,17 @@ export default function ServicesPage() {
 
                   {/* Body */}
                   <div className="p-5 sm:p-6 space-y-3">
-                    <h3 className="text-lg font-bold font-heading text-white group-hover:text-sky-300 transition-colors leading-snug">
+                    <h3 className="text-lg font-bold font-heading text-[#0F172A] group-hover:text-[#2563EB] transition-colors leading-snug">
                       <Link href={`/services/${service.slug}`} className="focus-visible:outline-none focus-visible:underline">
                         {service.title}
                       </Link>
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 font-light line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 font-normal line-clamp-3 leading-relaxed">
                       {service.shortDescription}
                     </p>
 
                     {/* Feature snippets */}
-                    <div className="pt-2 space-y-1.5 border-t border-white/10">
+                    <div className="pt-2 space-y-1.5 border-t border-slate-100">
                       {service.features.slice(0, 2).map((feat, idx) => (
                         <div key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-300">
                           <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
@@ -204,12 +201,12 @@ export default function ServicesPage() {
         </Container>
       </SectionReveal>
 
-      {/* Bottom Consultation CTA */}
-      <SectionReveal className="py-20 bg-[#070E1A] text-white border-t border-white/10">
+      {/* Bottom Consultation CTA in Logo Navy */}
+      <SectionReveal className="py-20 bg-[#F8FAFC] text-[#0F172A] border-t border-slate-200">
         <Container size="default">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
             <FadeIn mode="view" delay={0.04} y={8} duration={0.42}>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-sky-300 text-xs font-mono uppercase tracking-wider">
                 Connecting Values
               </span>
             </FadeIn>
@@ -229,7 +226,7 @@ export default function ServicesPage() {
               mode="view"
               delay={0.22}
               y={14}
-              className="text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto"
+              className="text-base text-slate-200 font-normal leading-relaxed max-w-2xl mx-auto"
             >
               Contact New Link Technologies Bangalore Pvt. Ltd. for technical proposals,
               BOM formulation, and site survey appointments.
@@ -242,14 +239,14 @@ export default function ServicesPage() {
             >
               <Link
                 href="/contact#quote"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
               >
                 <span>Request a Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider border border-white/15 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider border border-white/20 transition-all cursor-pointer"
               >
                 <span>Contact Office</span>
               </Link>

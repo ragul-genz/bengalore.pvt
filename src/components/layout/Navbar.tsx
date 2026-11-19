@@ -98,23 +98,23 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Right: Distinctive New Link 3-Dot Executive Button ("3 dot konjam different ah vachiru") */}
+          {/* Right: Distinctive New Link Executive Menu Button in Authentic Logo Colors */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="group relative p-[2px] rounded-full bg-gradient-to-tr from-blue-600 via-sky-400 to-blue-500 shadow-xl hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
+            className="group relative p-[2px] rounded-full bg-[#0B1F3A] hover:bg-[#142B4A] border border-white/30 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:outline-none"
             aria-expanded={isOpen}
             aria-label="Toggle executive navigation and company details"
           >
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#050B14]/95 backdrop-blur-md flex items-center justify-center transition-colors group-hover:bg-[#08162B]">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-colors">
               {isOpen ? (
                 <X className="w-5 h-5 text-white" />
               ) : (
-                /* 3 Distinct Dots in Sapphire, White & Sky */
+                /* 3 Distinct Dots in Brand Logo Colors: Royal Blue, White, Brand Red */
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 group-hover:scale-125 transition-transform" />
+                  <span className="w-2 h-2 rounded-full bg-[#2563EB] group-hover:scale-125 transition-transform" />
                   <span className="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform delay-75" />
-                  <span className="w-2 h-2 rounded-full bg-sky-400 group-hover:scale-125 transition-transform delay-150" />
+                  <span className="w-2 h-2 rounded-full bg-[#D8232A] group-hover:scale-125 transition-transform delay-150" />
                 </div>
               )}
             </div>
@@ -140,17 +140,17 @@ export function Navbar() {
               aria-hidden="true"
             />
 
-            {/* Slide-Over Drawer Panel */}
+            {/* Slide-Over Drawer Panel in Official Logo Navy */}
             <motion.aside
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-y-0 right-0 w-full max-w-md sm:max-w-lg bg-[#050B14]/98 backdrop-blur-2xl border-l border-white/15 z-50 shadow-2xl flex flex-col h-[100dvh] max-h-screen overflow-hidden"
+              className="fixed inset-y-0 right-0 w-full max-w-md sm:max-w-lg bg-[#0B1F3A] border-l border-white/15 z-50 shadow-2xl flex flex-col h-[100dvh] max-h-screen overflow-hidden text-white"
               aria-label="Site Navigation"
             >
               {/* STICKY TOP HEADER (Non-scrollable, always accessible) */}
-              <div className="shrink-0 px-6 sm:px-8 py-5 border-b border-white/10 flex items-center justify-between bg-[#050B14]/95 backdrop-blur-md z-10">
+              <div className="shrink-0 px-6 sm:px-8 py-5 border-b border-white/10 flex items-center justify-between bg-[#0B1F3A] z-10">
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}

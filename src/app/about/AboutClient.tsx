@@ -58,19 +58,13 @@ export function AboutClient() {
   };
 
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+    <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
       {/* ======================================================== */}
       {/* 1. HERO SECTION: ICONIC "ABOUT US" OVERLAP LAYOUT */}
       {/* (1:1 Match to Video Frames 00:01 - 00:05) */}
-      {/* Left: Manifesto & Purpose | Right: Vertical Color Pillar + Overlapping "About Us" */}
+      {/* Left: Manifesto & Purpose | Right: Vertical Logo Color Pillar + Overlapping "About Us" */}
       {/* ======================================================== */}
-      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-white/10">
-        {/* Ambient Cyber Lighting */}
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px]" />
-          <div className="absolute top-1/4 right-10 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px]" />
-        </div>
-
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left: Philosophy & Institutional Purpose */}
@@ -79,9 +73,9 @@ export function AboutClient() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-sky-400 text-xs font-mono uppercase tracking-[0.18em]"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-[0.18em]"
               >
-                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>NEW LINK TECHNOLOGIES BANGALORE PVT. LTD.</span>
               </motion.div>
 
@@ -89,7 +83,7 @@ export function AboutClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight leading-snug"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-snug"
               >
                 Infrastructure today is a powerful foundation for growth, not just operations.
               </motion.h2>
@@ -98,12 +92,12 @@ export function AboutClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.18, ease: CINEMATIC_EASE }}
-                className="space-y-4 text-base sm:text-lg text-slate-300 font-light leading-relaxed"
+                className="space-y-4 text-base sm:text-lg text-[#334155] font-normal leading-relaxed"
               >
                 <p>
                   At New Link Technologies, we align every element: modular data centres, campus optical fiber networks, structured cabling, audio-visual automation, and clean solar energy, to the exact outcomes each institution demands. Our focus is on turnkey precision, so critical engineering reaches its most reliable, standards-compliant, and optimized form faster.
                 </p>
-                <p className="text-slate-400 text-sm sm:text-base">
+                <p className="text-slate-600 text-sm sm:text-base">
                   Headquartered in Rajajinagar, Bangalore under Director M.G. Girish, we partner with premier universities, public sector undertakings, and defense establishments to engineer enduring infrastructure built with precision, integrity, and purpose.
                 </p>
               </motion.div>
@@ -112,30 +106,27 @@ export function AboutClient() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25, ease: CINEMATIC_EASE }}
-                className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400"
+                className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600"
               >
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span>ISO 9001:2015 CERTIFIED</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-sky-400" />
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
                   <span>FOUNDED IN 2011 • RAJAJINAGAR, BANGALORE</span>
                 </div>
               </motion.div>
             </div>
 
-            {/* Right: Vertical Sapphire Pillar with Giant Overlapping "About Us" */}
+            {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "About Us" */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="relative w-72 sm:w-80 md:w-96 h-[460px] sm:h-[520px] rounded-3xl bg-gradient-to-b from-blue-600 via-blue-700 to-[#0A1A36] border border-blue-400/30 p-8 shadow-2xl flex items-center justify-center overflow-hidden group select-none"
+                className="relative w-72 sm:w-80 md:w-96 h-[460px] sm:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none"
               >
-                {/* Subtle Radial Mesh */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.25)_0%,transparent_70%)] pointer-events-none" />
-
                 {/* Vertical Pill Tag */}
                 <span className="absolute top-6 right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
                   EST. 2011
@@ -143,10 +134,10 @@ export function AboutClient() {
 
                 {/* Giant Overlapping "About Us" Headline (Exact match to Reference Frame 00:01) */}
                 <div className="relative z-10 text-left space-y-1">
-                  <h1 className="text-7xl sm:text-8xl md:text-9xl font-black font-heading tracking-tighter text-white drop-shadow-2xl leading-[0.85]">
+                  <h1 className="text-7xl sm:text-8xl md:text-9xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.85]">
                     About
                   </h1>
-                  <h1 className="text-7xl sm:text-8xl md:text-9xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-2xl leading-[0.85]">
+                  <h1 className="text-7xl sm:text-8xl md:text-9xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.85]">
                     Us
                   </h1>
                   <p className="pt-4 text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
@@ -164,11 +155,11 @@ export function AboutClient() {
       {/* (1:1 Match to Video Frames 00:06 - 00:13) */}
       {/* Curved Widescreen Display + Centered Headline + Clickable Next Arrow */}
       {/* ======================================================== */}
-      <section className="py-20 sm:py-28 bg-[#070F1D] border-b border-white/10 relative overflow-hidden select-none">
+      <section className="py-20 sm:py-28 bg-[#0B1F3A] border-b border-[#142B4A] relative overflow-hidden select-none text-white">
         <Container size="default" className="relative z-10 space-y-8">
           {/* Top Label & Counter */}
-          <div className="flex items-center justify-between text-xs font-mono text-slate-400 border-b border-white/10 pb-4">
-            <span className="font-bold uppercase tracking-[0.2em] text-sky-400">
+          <div className="flex items-center justify-between text-xs font-mono text-slate-300 border-b border-white/15 pb-4">
+            <span className="font-bold uppercase tracking-[0.2em] text-sky-300">
               A Legacy of Engineering Excellence
             </span>
             <span>
@@ -177,7 +168,7 @@ export function AboutClient() {
           </div>
 
           {/* Widescreen Cinema Reel Container */}
-          <div className="relative aspect-16/10 sm:aspect-21/9 w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border border-white/15 bg-black shadow-2xl group">
+          <div className="relative aspect-16/10 sm:aspect-21/9 w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border border-white/20 bg-black shadow-2xl group">
             <AnimatePresence mode="wait">
               <motion.div
                 key={CINEMA_SLIDES[currentSlide].id}
@@ -222,7 +213,7 @@ export function AboutClient() {
             <button
               type="button"
               onClick={handleNextSlide}
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/60 hover:bg-blue-600 active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/20 shadow-2xl transition-all duration-300 cursor-pointer group/arrow z-20"
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#0B1F3A]/80 hover:bg-[#2563EB] active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/30 shadow-2xl transition-all duration-300 cursor-pointer group/arrow z-20"
               aria-label="Next slide"
             >
               <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8 transition-transform group-hover/arrow:translate-x-1" />
@@ -234,9 +225,9 @@ export function AboutClient() {
       {/* ======================================================== */}
       {/* 3. FOUR HORIZONTAL VALUE CARDS */}
       {/* (1:1 Match to Video Frames 00:14 - 00:16) */}
-      {/* Alternating White Solid Cards & Dark Glass Cards */}
+      {/* Alternating White Solid Cards & Dark Glass Cards on Brand Navy Canvas */}
       {/* ======================================================== */}
-      <section className="py-16 sm:py-20 bg-[#050B14] border-b border-white/10 select-none">
+      <section className="py-16 sm:py-20 bg-[#0E274A] border-b border-[#142B4A] select-none text-white">
         <Container size="default">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Card 1: Collaborate (Solid White Card) */}
@@ -247,20 +238,20 @@ export function AboutClient() {
               transition={{ duration: 0.5, delay: 0.05, ease: CINEMATIC_EASE }}
               className="bg-white rounded-3xl p-8 sm:p-10 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[160px]"
             >
-              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight">
+              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight text-[#0F172A]">
                 Collaborate
               </h4>
             </motion.div>
 
-            {/* Card 2: Elevate (Dark Glass Card) */}
+            {/* Card 2: Elevate (Navy Glass Card) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-              className="bg-white/[0.04] border border-white/10 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/[0.08] hover:border-sky-400/40 transition-all duration-300 min-h-[160px]"
+              className="bg-white/10 border border-white/20 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[160px]"
             >
-              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight text-slate-200">
+              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight text-white">
                 Elevate
               </h4>
             </motion.div>
@@ -273,18 +264,18 @@ export function AboutClient() {
               transition={{ duration: 0.5, delay: 0.15, ease: CINEMATIC_EASE }}
               className="bg-white rounded-3xl p-8 sm:p-10 text-slate-950 flex flex-col justify-center items-center text-center shadow-xl hover:scale-[1.02] transition-transform duration-300 min-h-[160px]"
             >
-              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight">
+              <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight text-[#0F172A]">
                 And Transform
               </h4>
             </motion.div>
 
-            {/* Card 4: Infrastructure With A Purpose (Dark Glass Card) */}
+            {/* Card 4: Infrastructure With A Purpose (Navy Glass Card) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.5, delay: 0.2, ease: CINEMATIC_EASE }}
-              className="bg-white/[0.04] border border-white/10 rounded-3xl p-8 sm:p-10 text-sky-400 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/[0.08] hover:border-sky-400/40 transition-all duration-300 min-h-[160px]"
+              className="bg-white/10 border border-white/20 rounded-3xl p-8 sm:p-10 text-sky-300 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[160px]"
             >
               <h4 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center">
                 Infrastructure With A Purpose
@@ -299,12 +290,12 @@ export function AboutClient() {
       {/* (1:1 Match to Video Frames 00:17 - 00:20) */}
       {/* Left: Detailed Mission Text | Right: Real Photographic Mosaic */}
       {/* ======================================================== */}
-      <section className="py-20 sm:py-32 bg-[#081120] border-b border-white/10 relative overflow-hidden">
+      <section className="py-20 sm:py-32 bg-white border-b border-slate-200 relative overflow-hidden text-[#0F172A]">
         <Container size="default">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left: Detailed Mission Narrative (Matching Text from Frame 00:20) */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="space-y-4 text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg text-[#334155] font-normal leading-relaxed">
                 <p>
                   At New Link Technologies Bangalore Pvt. Ltd., we align every element: modular data centres, campus optical fiber networks, structured cabling, audio-visual automation, and clean solar power, to the exact operational outcomes each institution demands. Our focus is on maximizing engineering precision, so infrastructure reaches its most reliable and future-ready state faster.
                 </p>
@@ -313,21 +304,21 @@ export function AboutClient() {
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-slate-400">
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>100% Turnkey Handover SLA</span>
+              <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-slate-600">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span className="font-semibold text-slate-800">100% Turnkey Handover SLA</span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <ShieldCheck className="w-4 h-4 text-sky-400" />
-                  <span>Statewide Public Sector Execution</span>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
+                  <span className="font-semibold text-slate-800">Statewide Public Sector Execution</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Photographic Mosaic (Matching Photo Container at Frame 00:20) */}
             <div className="lg:col-span-6">
-              <div className="relative aspect-16/10 w-full rounded-3xl overflow-hidden border border-white/15 bg-black shadow-2xl group">
+              <div className="relative aspect-16/10 w-full rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-xl group">
                 <Image
                   src="/clients/photos/naac-solar-leadership.jpg"
                   alt="New Link Technologies Leadership and Engineering Directorate"
@@ -353,7 +344,7 @@ export function AboutClient() {
       {/* 5. "FOUNDER'S NOTE" */}
       {/* Frames: Director M.G. Girish Manifesto & Authentic Portrait */}
       {/* ======================================================== */}
-      <section className="py-24 sm:py-36 bg-[#050B14] text-white relative overflow-hidden select-none border-b border-white/10">
+      <section className="py-24 sm:py-36 bg-[#0B1F3A] text-white relative overflow-hidden select-none border-b border-[#142B4A]">
         <Container size="default" className="relative z-10 space-y-12">
           {/* Header */}
           <div className="text-center max-w-4xl mx-auto space-y-4">
@@ -372,7 +363,7 @@ export function AboutClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
-              className="text-lg sm:text-xl md:text-2xl font-light text-slate-300 italic max-w-3xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl font-light text-slate-200 italic max-w-3xl mx-auto leading-relaxed"
             >
               &ldquo;With over 15 years in the enterprise technology industry, my motivation behind establishing New Link Technologies was simple: to redefine and elevate turnkey IT infrastructure with enduring technical integrity in every possible way.&rdquo;
             </motion.blockquote>
@@ -381,25 +372,25 @@ export function AboutClient() {
           {/* Grid Layout: Text Left, Portrait Card Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center max-w-5xl mx-auto pt-6">
             {/* Left Column: Manifesto & Sign-Off */}
-            <div className="lg:col-span-7 space-y-6 text-slate-300 font-light">
+            <div className="lg:col-span-7 space-y-6 text-slate-200 font-light">
               <div className="space-y-4 text-xs sm:text-sm font-mono uppercase tracking-wider text-white font-bold leading-relaxed">
                 <p>
                   AT NEW LINK, OUR GOAL HAS ALWAYS BEEN TO BUILD AN ENGINEERING SYSTEM WHERE EVERY CAMPUS, PUBLIC SECTOR UNDERTAKING, AND ENTERPRISE IS EMPOWERED WITH ROCK-SOLID RELIABILITY, TRANSPARENT BILLS OF MATERIALS, AND ACCOUNTABLE 24/7 SLA SUPPORT.
                 </p>
-                <p className="font-normal text-slate-300 normal-case font-sans text-sm sm:text-base leading-relaxed">
+                <p className="font-normal text-slate-200 normal-case font-sans text-sm sm:text-base leading-relaxed">
                   When engineering precision, standards compliance, and genuine technical passion come together, extraordinary infrastructure follows. We do not just integrate equipment — we build mission-critical foundations that power Karnataka&apos;s leading universities, healthcare directorates, and public infrastructure.
                 </p>
               </div>
 
               {/* Founder Sign-off */}
-              <div className="pt-6 border-t border-white/10 space-y-1">
+              <div className="pt-6 border-t border-white/15 space-y-1">
                 <h4 className="text-xl sm:text-2xl font-black font-heading text-white">
                   M.G. Girish
                 </h4>
                 <p className="text-xs sm:text-sm font-mono font-bold text-sky-400 uppercase tracking-wider">
                   Founder &amp; Managing Director
                 </p>
-                <p className="text-xs text-slate-400 font-mono">
+                <p className="text-xs text-slate-300 font-mono">
                   New Link Technologies Bangalore Pvt. Ltd.
                 </p>
               </div>
@@ -412,7 +403,7 @@ export function AboutClient() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-                className="relative w-full max-w-sm rounded-3xl overflow-hidden bg-[#0A1220] border border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col items-center justify-center text-center space-y-4"
+                className="relative w-full max-w-sm rounded-3xl overflow-hidden bg-[#142B4A] border border-white/20 p-6 sm:p-8 shadow-2xl flex flex-col items-center justify-center text-center space-y-4"
               >
                 <div className="relative w-48 h-48 sm:w-60 sm:h-60 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                   <Image
@@ -435,7 +426,7 @@ export function AboutClient() {
                   <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
                     Founder &amp; Managing Director
                   </p>
-                  <p className="text-[11px] text-slate-400 font-mono">
+                  <p className="text-[11px] text-slate-300 font-mono">
                     15+ Years Turnkey Engineering Leadership
                   </p>
                 </div>
@@ -448,13 +439,13 @@ export function AboutClient() {
       {/* ======================================================== */}
       {/* 6. "HUMANS OF NEW LINK" LEADERSHIP BOARD (2 AUTHENTIC DIRECTORS) */}
       {/* ======================================================== */}
-      <section className="py-24 sm:py-36 bg-[#081120] text-white relative overflow-hidden border-b border-white/10 select-none">
+      <section className="py-24 sm:py-36 bg-[#0E274A] text-white relative overflow-hidden border-b border-[#142B4A] select-none">
         <Container size="default" className="relative z-10 space-y-16">
           <div className="text-center max-w-4xl mx-auto space-y-3">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none">
               Humans of New Link
             </h2>
-            <p className="text-base sm:text-xl text-slate-400 font-light max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto">
               Behind every mission-critical deployment is accountable executive leadership
             </p>
           </div>
@@ -468,7 +459,7 @@ export function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: CINEMATIC_EASE }}
-                className="group bg-[#0A1220] rounded-3xl p-6 sm:p-7 border border-white/10 shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
+                className="group bg-[#0B1F3A] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-xl hover:border-sky-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
               >
                 <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-900 shadow-md">
                   <Image
@@ -488,26 +479,26 @@ export function AboutClient() {
                     <p className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
                       {director.role} • New Link Technologies
                     </p>
-                    <p className="text-xs text-slate-400 font-mono">
+                    <p className="text-xs text-slate-300 font-mono">
                       {director.designation}
                     </p>
                   </div>
 
-                  <p className="text-xs text-slate-300 font-light leading-relaxed line-clamp-3">
+                  <p className="text-xs text-slate-200 font-light leading-relaxed line-clamp-3">
                     {director.bio[0]}
                   </p>
 
-                  <div className="pt-2 border-t border-white/10 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+                  <div className="pt-2 border-t border-white/10 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300">
                     <a
                       href={`tel:${director.phoneRaw}`}
-                      className="hover:text-sky-400 transition-colors flex items-center gap-1.5"
+                      className="hover:text-white transition-colors flex items-center gap-1.5"
                     >
                       <Phone className="w-3 h-3 text-sky-400" />
                       <span>{director.phone}</span>
                     </a>
                     <a
                       href={`mailto:${director.email}`}
-                      className="hover:text-sky-400 transition-colors flex items-center gap-1.5"
+                      className="hover:text-white transition-colors flex items-center gap-1.5"
                     >
                       <Mail className="w-3 h-3 text-sky-400" />
                       <span>{director.email}</span>
@@ -523,30 +514,30 @@ export function AboutClient() {
       {/* ======================================================== */}
       {/* 7. EXECUTIVE TURNKEY CONSULTATION CTA */}
       {/* ======================================================== */}
-      <section className="py-20 sm:py-28 bg-[#050B14] text-white relative overflow-hidden">
+      <section className="py-20 sm:py-28 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden">
         <Container size="default">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-sky-300 text-xs font-mono uppercase tracking-wider">
               CONNECTING VALUES
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
               Ready to Build Infrastructure That Endures?
             </h2>
-            <p className="text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-slate-200 font-normal leading-relaxed max-w-2xl mx-auto">
               Connect directly with Director M.G. Girish and our engineering leadership for turnkey project execution, campus surveys, and institutional proposals.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact#quote"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
               >
                 <span>Request Turnkey Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/20 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
                 <span>Contact Headquarters</span>
               </Link>

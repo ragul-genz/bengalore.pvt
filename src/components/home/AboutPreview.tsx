@@ -19,34 +19,34 @@ const BULB_COLOR_THEMES = [
   {
     id: "royal-navy",
     name: "Corporate Royal Navy",
-    bgClass: "bg-[#0B254E]", // Deep royal space navy
+    bgClass: "bg-[#0B1F3A]", // Official Logo Navy
     accentColor: "#38BDF8",
-    glowColor: "rgba(37, 99, 235, 0.5)",
+    glowColor: "rgba(37, 99, 235, 0.3)",
     taglineColor: "text-sky-100",
-    cardBg: "bg-[#0B254E]",
+    cardBg: "bg-[#0B1F3A]",
     cardBorder: "border-[#1E3A8A]",
     badgeBg: "bg-white/20 text-white",
   },
   {
     id: "sapphire-blue",
     name: "Enterprise Sapphire Blue",
-    bgClass: "bg-[#0F2C59]", // Deep enterprise sapphire
+    bgClass: "bg-[#1E3A8A]", // Deep enterprise sapphire
     accentColor: "#60A5FA",
-    glowColor: "rgba(59, 130, 246, 0.5)",
+    glowColor: "rgba(59, 130, 246, 0.3)",
     taglineColor: "text-blue-100",
-    cardBg: "bg-[#0F2C59]",
+    cardBg: "bg-[#1E3A8A]",
     cardBorder: "border-[#1D4ED8]",
     badgeBg: "bg-white/20 text-white",
   },
   {
-    id: "cyber-cyan",
-    name: "Cyber Cyan Matrix",
-    bgClass: "bg-[#034A6E]", // Deep cyber cyan
-    accentColor: "#22D3EE",
-    glowColor: "rgba(6, 182, 212, 0.5)",
-    taglineColor: "text-cyan-100",
-    cardBg: "bg-[#034A6E]",
-    cardBorder: "border-[#075985]",
+    id: "technical-slate",
+    name: "Technical Deep Slate",
+    bgClass: "bg-[#1E293B]", // Deep technical slate
+    accentColor: "#38BDF8",
+    glowColor: "rgba(56, 189, 248, 0.3)",
+    taglineColor: "text-slate-200",
+    cardBg: "bg-[#1E293B]",
+    cardBorder: "border-[#334155]",
     badgeBg: "bg-white/20 text-white",
   },
   {
@@ -54,21 +54,21 @@ const BULB_COLOR_THEMES = [
     name: "Clean Energy Emerald",
     bgClass: "bg-[#064E3B]", // Deep emerald green
     accentColor: "#34D399",
-    glowColor: "rgba(16, 185, 129, 0.5)",
+    glowColor: "rgba(16, 185, 129, 0.3)",
     taglineColor: "text-emerald-100",
     cardBg: "bg-[#064E3B]",
     cardBorder: "border-[#065F46]",
     badgeBg: "bg-white/20 text-white",
   },
   {
-    id: "obsidian",
-    name: "Deep Space Obsidian",
-    bgClass: "bg-[#0F172A]", // Deep obsidian black
-    accentColor: "#E2F13C",
-    glowColor: "rgba(226, 241, 60, 0.4)",
-    taglineColor: "text-yellow-100",
-    cardBg: "bg-[#0F172A]",
-    cardBorder: "border-[#1E293B]",
+    id: "royal-indigo",
+    name: "Royal Enterprise Indigo",
+    bgClass: "bg-[#1E1B4B]", // Deep enterprise indigo
+    accentColor: "#818CF8",
+    glowColor: "rgba(129, 140, 248, 0.3)",
+    taglineColor: "text-indigo-100",
+    cardBg: "bg-[#1E1B4B]",
+    cardBorder: "border-[#312E81]",
     badgeBg: "bg-white/20 text-white",
   },
 ];
@@ -142,12 +142,7 @@ export function AboutPreview() {
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-medium text-white font-heading tracking-tight leading-none select-none">
               Technology engineered to
             </h2>
-            <span
-              className="block text-5xl sm:text-7xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none"
-              style={{
-                textShadow: `0 0 60px rgba(255,255,255,0.4), 0 0 100px ${activeTheme.glowColor}`,
-              }}
-            >
+            <span className="block text-5xl sm:text-7xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none">
               EMPOWER
             </span>
           </motion.div>
@@ -197,7 +192,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B1F3A] hover:bg-[#142B4A] border border-[#1E3A8A]/50 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frame 00:02) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -230,7 +225,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B1F3A] hover:bg-[#142B4A] border border-[#1E3A8A]/50 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05 - 00:06) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -314,7 +309,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B1F3A] hover:bg-[#142B4A] border border-[#1E3A8A]/50 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:03 - 00:04) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -348,7 +343,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B254E] hover:bg-[#0E2E5E] border border-blue-500/20 transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#0B1F3A] hover:bg-[#142B4A] border border-[#1E3A8A]/50 transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">

@@ -105,14 +105,7 @@ export function ProjectsPreview() {
   const activeProject = FLAGSHIP_PROJECTS[activeIndex];
 
   return (
-    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10 select-none">
-      {/* Background Ambient Spotlight */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute left-1/2 -top-24 -translate-x-1/2 w-[700px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute right-10 bottom-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:28px_28px] opacity-40" />
-      </div>
-
+    <section className="py-24 md:py-36 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-b border-slate-200 select-none">
       <Container size="default" className="relative z-10 space-y-12 sm:space-y-16">
         {/* ======================================================== */}
         {/* SECTION HEADER MATCHING "Flagship Creations" EXACT STYLE */}
@@ -123,7 +116,7 @@ export function ProjectsPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none uppercase"
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-none uppercase"
           >
             Flagship Creations
           </motion.h2>
@@ -135,10 +128,10 @@ export function ProjectsPreview() {
             transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
             className="space-y-1.5"
           >
-            <p className="text-sm sm:text-base font-mono uppercase tracking-[0.25em] text-slate-300 font-bold">
+            <p className="text-sm sm:text-base font-mono uppercase tracking-[0.25em] text-[#0B1F3A] font-bold">
               ENGINEERED. DELIVERED. VERIFIED.
             </p>
-            <p className="text-base sm:text-lg text-slate-400 font-light max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-500 font-normal max-w-xl mx-auto">
               We don&apos;t just talk the talk — we walk it, with you
             </p>
           </motion.div>
@@ -152,7 +145,7 @@ export function ProjectsPreview() {
           <button
             type="button"
             onClick={handlePrev}
-            className="absolute left-2 sm:left-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 hover:border-white text-white flex items-center justify-center shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            className="absolute left-2 sm:left-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
             aria-label="Previous Project"
           >
             <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -162,7 +155,7 @@ export function ProjectsPreview() {
           <button
             type="button"
             onClick={handleNext}
-            className="absolute right-2 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 hover:border-white text-white flex items-center justify-center shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            className="absolute right-2 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
             aria-label="Next Project"
           >
             <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -176,7 +169,7 @@ export function ProjectsPreview() {
             {/* Left Angled Card */}
             <div
               onClick={handlePrev}
-              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-2xl shrink-0 -mr-12"
+              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-xl shrink-0 -mr-12"
               style={{
                 transform: "rotateY(22deg) scale(0.85)",
                 transformStyle: "preserve-3d",
@@ -189,7 +182,7 @@ export function ProjectsPreview() {
                 sizes="300px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/60" />
+              <div className="absolute inset-0 bg-slate-900/40" />
             </div>
 
             {/* Center Active Showcase Card */}
@@ -200,7 +193,7 @@ export function ProjectsPreview() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-                className="w-full md:w-[62%] h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl border border-white/20 z-30 shrink-0 group"
+                className="w-full md:w-[62%] h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl border border-slate-300 z-30 shrink-0 group"
               >
                 <Image
                   src={activeProject.image}
@@ -216,7 +209,7 @@ export function ProjectsPreview() {
 
                 {/* Top Floating Badge */}
                 <div className="absolute top-5 left-5 z-20">
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono uppercase font-bold tracking-wider">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A]/90 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono uppercase font-bold tracking-wider">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{activeProject.badge}</span>
                   </span>
@@ -234,7 +227,7 @@ export function ProjectsPreview() {
                   </div>
                   <Link
                     href="/projects"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-slate-900 text-xs font-semibold backdrop-blur-md border border-white/30 transition-all duration-200"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white hover:bg-slate-100 text-[#0B1F3A] font-bold text-xs shadow-lg transition-all duration-200"
                   >
                     <span>View Case</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -246,7 +239,7 @@ export function ProjectsPreview() {
             {/* Right Angled Card */}
             <div
               onClick={handleNext}
-              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-2xl shrink-0 -ml-12"
+              className="hidden md:block w-1/4 h-[340px] lg:h-[400px] rounded-3xl overflow-hidden relative opacity-40 hover:opacity-70 transition-all duration-500 cursor-pointer shadow-xl shrink-0 -ml-12"
               style={{
                 transform: "rotateY(-22deg) scale(0.85)",
                 transformStyle: "preserve-3d",
@@ -259,7 +252,7 @@ export function ProjectsPreview() {
                 sizes="300px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/60" />
+              <div className="absolute inset-0 bg-slate-900/40" />
             </div>
           </div>
         </div>
@@ -276,14 +269,14 @@ export function ProjectsPreview() {
             transition={{ duration: 0.4 }}
             className="text-center max-w-3xl mx-auto space-y-3"
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-[#0F172A] tracking-tight">
               {activeProject.title}
             </h3>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
               {activeProject.description}
             </p>
             <div className="pt-2 flex items-center justify-center gap-2">
-              <span className="text-[11px] font-mono text-slate-400">
+              <span className="text-[11px] font-mono text-slate-500 font-medium">
                 {activeProject.specs}
               </span>
             </div>
@@ -298,8 +291,8 @@ export function ProjectsPreview() {
               onClick={() => setActiveIndex(idx)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 idx === activeIndex
-                  ? "w-8 bg-blue-500"
-                  : "w-2 bg-white/30 hover:bg-white/60"
+                  ? "w-8 bg-[#2563EB]"
+                  : "w-2 bg-slate-300 hover:bg-slate-400"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />

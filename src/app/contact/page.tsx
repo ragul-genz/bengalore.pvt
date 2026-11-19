@@ -45,7 +45,7 @@ export default function ContactPage() {
     "https://www.google.com/maps/search/?api=1&query=No.+12%2F1%2C+11th+%27B%27+Main+Road%2C+36th+Cross%2C+2nd+Block%2C+Rajajinagar%2C+Bangalore+-+560010";
 
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+    <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
       {/* Contact Hero Header */}
       <PageHero
         eyebrow="Direct Corporate Communication • Rajajinagar, Bangalore"
@@ -59,9 +59,7 @@ export default function ContactPage() {
       />
 
       {/* Main Grid: Form + Corporate Information */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Ambient background glow */}
-        <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <section className="py-16 md:py-24 relative overflow-hidden bg-[#F8FAFC]">
 
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -73,7 +71,7 @@ export default function ContactPage() {
             {/* Direct Contact Details & Action Cards (5 cols) */}
             <StaggerGroup mode="view" stagger={0.09} delay={0.1} className="lg:col-span-5 space-y-6">
               {/* Official Corporate Office Card */}
-              <StaggerItem y={16} className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-7 shadow-2xl space-y-5">
+              <StaggerItem y={16} className="bg-[#0B1F3A] rounded-3xl border border-[#142B4A] p-6 sm:p-7 shadow-xl space-y-5 text-white">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
                     <Building2 className="w-4 h-4 text-sky-400" />
@@ -214,7 +212,7 @@ export default function ContactPage() {
               </StaggerItem>
 
               {/* Official Corporate Contact Presentation Card */}
-              <StaggerItem y={16} className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-3">
+              <StaggerItem y={16} className="bg-[#0B1F3A] rounded-3xl border border-[#142B4A] p-6 shadow-xl space-y-3 text-white">
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-400">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>ISO 9001:2015 &amp; PSU COMPLIANT CREDENTIALS</span>
@@ -230,7 +228,7 @@ export default function ContactPage() {
               </StaggerItem>
 
               {/* Directions & Map Card */}
-              <StaggerItem y={16} className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-4">
+              <StaggerItem y={16} className="bg-[#0B1F3A] rounded-3xl border border-[#142B4A] p-6 shadow-xl space-y-4 text-white">
                 <div className="flex items-center justify-between">
                   <h4 className="text-sm font-bold font-heading text-white">
                     Rajajinagar Office Location Map

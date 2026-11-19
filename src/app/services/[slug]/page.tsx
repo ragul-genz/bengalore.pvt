@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+    <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#2563EB] selection:text-white min-h-screen">
       {/* Service Hero Header */}
       <PageHero
         eyebrow={`${service.tag} • Enterprise Delivery`}
@@ -89,26 +89,23 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <Link
             href="/contact#quote"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/25 transition-all cursor-pointer"
           >
             <span>Request Technical Quote</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href={`tel:${COMPANY_DETAILS.contact.phone}`}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-xs uppercase tracking-wider transition-all"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 active:scale-[0.98] text-[#0F172A] border border-slate-200 font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
           >
-            <Phone className="w-4 h-4 text-sky-400" />
+            <Phone className="w-4 h-4 text-[#2563EB]" />
             <span>Call: {COMPANY_DETAILS.contact.phoneDisplay}</span>
           </a>
         </div>
       </PageHero>
 
       {/* Main Content Layout */}
-      <section className="py-14 md:py-20 relative overflow-hidden">
-        {/* Ambient Glow */}
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-
+      <section className="py-14 md:py-20 relative">
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Primary Details (8 cols) */}
@@ -118,7 +115,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 mode="view"
                 delay={0.05}
                 y={16}
-                className="relative aspect-16/10 w-full rounded-3xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl"
+                className="relative aspect-16/10 w-full rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-xl"
               >
                 <Image
                   src={service.image}
@@ -128,7 +125,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   sizes="(max-width: 1024px) 100vw, 65vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 via-transparent to-transparent pointer-events-none" />
               </FadeIn>
 
               {/* Comprehensive Description */}
@@ -136,10 +132,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 mode="view"
                 delay={0.08}
                 y={16}
-                className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-4 shadow-2xl"
+                className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>Engineering Architecture</span>
                 </div>
                 <RevealText
@@ -149,14 +145,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   delay={0.06}
                   stagger={0.04}
                   text="Engineering Overview & Delivery Scope"
-                  className="text-xl sm:text-2xl font-bold font-heading text-white"
+                  className="text-xl sm:text-2xl font-bold font-heading text-[#0F172A]"
                 />
                 <FadeIn
                   as="p"
                   mode="view"
                   delay={0.18}
                   y={12}
-                  className="text-base text-slate-300 font-light leading-relaxed"
+                  className="text-base text-slate-600 font-normal leading-relaxed"
                 >
                   {service.fullDescription}
                 </FadeIn>
@@ -165,7 +161,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   mode="view"
                   delay={0.26}
                   y={12}
-                  className="text-sm text-slate-400 font-light leading-relaxed pt-2 border-t border-white/10"
+                  className="text-sm text-slate-500 font-normal leading-relaxed pt-3 border-t border-slate-100"
                 >
                   Every solution deployed by New Link Technologies Bangalore Pvt. Ltd.
                   follows structured installation methodologies, strict adherence to site
@@ -175,23 +171,23 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Authorized Technology Brands / OEMs */}
               {service.brands && service.brands.length > 0 && (
-                <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-4 shadow-2xl">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
+                <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold font-heading text-white">
+                    <h3 className="text-xl font-bold font-heading text-[#0F172A]">
                       Authorized Technology Brands &amp; OEMs
                     </h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-300 font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 font-normal">
                     Installed and integrated using genuine equipment from certified enterprise manufacturers:
                   </p>
                   <div className="flex flex-wrap gap-2.5 pt-1">
                     {service.brands.map((brand) => (
                       <span
                         key={brand}
-                        className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-xs sm:text-sm font-mono font-medium hover:border-sky-400/60 hover:text-sky-300 transition-colors"
+                        className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] text-xs sm:text-sm font-mono font-medium hover:border-[#2563EB] hover:text-[#2563EB] transition-colors"
                       >
                         {brand}
                       </span>
@@ -202,21 +198,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Solution Architecture / Features Diagram */}
               {service.diagramImage && (
-                <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-5 shadow-2xl">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
+                <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center">
                       <Building2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold font-heading text-white">
+                      <h3 className="text-xl font-bold font-heading text-[#0F172A]">
                         Solution Architecture &amp; Features
                       </h3>
-                      <p className="text-xs text-slate-400 font-mono">
+                      <p className="text-xs text-slate-500 font-mono">
                         Official technical integration topology from New Link Technologies Bangalore Pvt. Ltd. profile
                       </p>
                     </div>
                   </div>
-                  <div className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/10 bg-black/60 p-4">
+                  <div className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
                     <Image
                       src={service.diagramImage}
                       alt={`${service.title} Architecture Diagram`}
@@ -228,12 +224,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               )}
 
               {/* Key Features & Architecture Specifications */}
-              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-6 shadow-2xl">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-white">
+                  <h3 className="text-xl font-bold font-heading text-[#0F172A]">
                     Key Solution Capabilities
                   </h3>
                 </div>
@@ -242,10 +238,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/40 transition-all duration-300"
+                      className="flex items-start gap-3 p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-[#2563EB]/40 transition-all duration-300"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                      <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {feature}
                       </span>
                     </div>
@@ -254,12 +250,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* Scope of Deliverables */}
-              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-6 shadow-2xl">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-sky-400">
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center">
                     <FileText className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-white">
+                  <h3 className="text-xl font-bold font-heading text-[#0F172A]">
                     Scope of Deliverables
                   </h3>
                 </div>
@@ -268,9 +264,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.deliverables.map((deliv, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 font-light"
+                      className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 font-normal"
                     >
-                      <span className="w-6 h-6 rounded-lg bg-sky-950/60 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xs font-mono font-bold shrink-0">
+                      <span className="w-6 h-6 rounded-lg bg-[#0B1F3A] text-white flex items-center justify-center text-xs font-mono font-bold shrink-0">
                         0{idx + 1}
                       </span>
                       <span className="pt-0.5 leading-relaxed">{deliv}</span>
@@ -281,18 +277,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Verified Institutional Reference Highlight */}
               {service.referenceHighlights && (
-                <div className="p-6 rounded-3xl border border-sky-500/30 bg-[#06152B] flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30">
+                <div className="p-6 sm:p-7 rounded-3xl bg-[#0B1F3A] text-white flex items-start gap-4 shadow-xl">
+                  <div className="w-10 h-10 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs font-mono uppercase font-bold text-sky-400 tracking-wider">
+                    <p className="text-xs font-mono uppercase font-bold text-sky-300 tracking-wider">
                       Verified Portfolio Deployment
                     </p>
-                    <p className="text-sm font-semibold text-white font-heading">
+                    <p className="text-base font-bold text-white font-heading">
                       {service.referenceHighlights}
                     </p>
-                    <p className="text-xs text-slate-400 font-light">
+                    <p className="text-xs text-slate-300 font-normal">
                       Validated in official company records and customer appreciation certificates.
                     </p>
                   </div>
@@ -303,16 +299,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Sidebar (4 cols) */}
             <FadeIn mode="view" delay={0.12} y={16} className="lg:col-span-4 space-y-6 sticky top-24">
               {/* Request Quote Card */}
-              <div className="bg-[#0A1220] text-white rounded-3xl p-6 sm:p-7 border border-white/10 shadow-2xl space-y-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-[11px] font-mono uppercase tracking-wider">
-                  <Sparkles className="w-3 h-3 text-sky-400" />
+              <div className="bg-white text-[#0F172A] rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md space-y-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-[11px] font-mono uppercase tracking-wider font-semibold">
+                  <Sparkles className="w-3 h-3 text-[#2563EB]" />
                   <span>Turnkey Project Inquiry</span>
                 </span>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold font-heading text-white">
+                  <h3 className="text-xl font-bold font-heading text-[#0F172A]">
                     Request a Technical Proposal
                   </h3>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">
+                  <p className="text-xs text-slate-600 font-normal leading-relaxed">
                     Need turnkey supply, cabling, or equipment maintenance for {service.title}?
                     Contact our Rajajinagar office.
                   </p>
@@ -320,45 +316,45 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
                 <Link
                   href="/contact#quote"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/25 transition-all cursor-pointer"
                 >
                   <span>Get Proposal &amp; Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <div className="pt-4 border-t border-white/10 space-y-3 text-xs text-slate-300 font-mono">
+                <div className="pt-4 border-t border-slate-100 space-y-3 text-xs text-slate-600 font-mono">
                   <a
                     href={`tel:${COMPANY_DETAILS.contact.phone}`}
-                    className="flex items-center gap-2.5 hover:text-white transition-colors"
+                    className="flex items-center gap-2.5 hover:text-[#2563EB] transition-colors"
                   >
-                    <Phone className="w-4 h-4 text-sky-400 shrink-0" />
+                    <Phone className="w-4 h-4 text-[#2563EB] shrink-0" />
                     <span>{COMPANY_DETAILS.contact.phoneDisplay}</span>
                   </a>
                   <a
                     href={`mailto:${COMPANY_DETAILS.contact.email}`}
-                    className="flex items-center gap-2.5 hover:text-white transition-colors break-all"
+                    className="flex items-center gap-2.5 hover:text-[#2563EB] transition-colors break-all"
                   >
-                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-[#2563EB] shrink-0" />
                     <span>{COMPANY_DETAILS.contact.email}</span>
                   </a>
-                  <div className="flex items-start gap-2.5 text-slate-400 font-sans text-xs">
-                    <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-slate-500 font-sans text-xs">
+                    <MapPin className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Rajajinagar, Bangalore - 560010</span>
                   </div>
                 </div>
               </div>
 
               {/* Download Company Profile PDF Card */}
-              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-3">
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 text-sky-400 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
                     <Download className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold font-heading text-white">
+                    <h4 className="text-sm font-bold font-heading text-[#0F172A]">
                       Official Company Profile
                     </h4>
-                    <p className="text-xs text-slate-400 font-mono">
+                    <p className="text-xs text-slate-500 font-mono">
                       Comprehensive portfolio document
                     </p>
                   </div>
@@ -368,16 +364,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   href="/documents/New-Link-Company-Profile.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-mono font-bold text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/10"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-mono font-bold text-[#0F172A] bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200"
                 >
-                  <FileText className="w-4 h-4 text-sky-400" />
+                  <FileText className="w-4 h-4 text-[#2563EB]" />
                   <span>Download Profile PDF (10 MB)</span>
                 </a>
               </div>
 
               {/* Navigation List to Other Services */}
-              <div className="bg-[#0A1220] rounded-3xl border border-white/10 p-6 shadow-2xl space-y-4">
-                <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+                <h4 className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                   Other Specialized Services
                 </h4>
 
@@ -386,16 +382,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     <Link
                       key={other.slug}
                       href={`/services/${other.slug}`}
-                      className="flex items-center justify-between p-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-sky-300 transition-colors group"
+                      className="flex items-center justify-between p-2.5 rounded-xl text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#2563EB] transition-colors group"
                     >
                       <div className="flex items-center gap-2 truncate">
                         <ServiceIcon
                           name={other.iconName}
-                          className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 shrink-0"
+                          className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#2563EB] shrink-0"
                         />
                         <span className="truncate">{other.title}</span>
                       </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400 transition-colors shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#2563EB] transition-colors shrink-0" />
                     </Link>
                   ))}
                 </div>

@@ -142,7 +142,7 @@ export default function ClientsPage() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
+    <div className="relative bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0B1F3A] selection:text-white min-h-screen">
       {/* Page Hero Banner */}
       <PageHero
         eyebrow="Trusted Partnerships • Public Sector & Institutional Reach"
@@ -155,23 +155,23 @@ export default function ClientsPage() {
         ]}
       />
 
-      {/* Proof Metrics & Credibility Bar */}
-      <section className="bg-[#081120] text-white py-12 border-b border-white/10 relative overflow-hidden">
+      {/* Proof Metrics & Credibility Bar in Official Logo Navy */}
+      <section className="bg-[#0B1F3A] text-white py-12 border-b border-[#142B4A] relative overflow-hidden">
         <Container size="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+            <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
               <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">16+</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Verified Institutional Clients</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+            <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
               <p className="text-3xl sm:text-4xl font-black font-mono text-emerald-400">100%</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Government &amp; PSU SLA Compliance</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.15} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+            <FadeIn mode="view" delay={0.15} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
               <p className="text-3xl sm:text-4xl font-black font-mono text-white">14+</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Buildings Campus Optical Fiber</p>
             </FadeIn>
-            <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+            <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
               <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">220 kWp</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Clean Solar Generation Delivered</p>
             </FadeIn>
@@ -180,16 +180,13 @@ export default function ClientsPage() {
       </section>
 
       {/* Main Clients Directory Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Ambient Glow */}
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-
+      <section className="py-16 md:py-24 relative overflow-hidden bg-white border-b border-slate-200">
         <Container size="default" className="relative z-10">
           {/* Header & Search */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
-              <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+              <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1F3A]/5 border border-[#0B1F3A]/15 text-[#0B1F3A] text-xs font-mono uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>Client Directory</span>
               </FadeIn>
               <RevealText
@@ -199,9 +196,9 @@ export default function ClientsPage() {
                 delay={0.08}
                 stagger={0.04}
                 text="Verified Public Sector & Institutional Clientele"
-                className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
+                className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#0F172A] tracking-tight"
               />
-              <FadeIn as="p" mode="view" delay={0.2} y={10} className="text-sm sm:text-base text-slate-300 font-light max-w-2xl leading-relaxed">
+              <FadeIn as="p" mode="view" delay={0.2} y={10} className="text-sm sm:text-base text-slate-600 font-normal max-w-2xl leading-relaxed">
                 Browse through our long-standing relationships with government entities, universities, and healthcare organizations across Karnataka.
               </FadeIn>
             </div>
@@ -215,7 +212,7 @@ export default function ClientsPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search client, sector or scope..."
-                  className="w-full pl-10 pr-12 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 shadow-lg transition-all"
+                  className="w-full pl-10 pr-12 py-3 rounded-xl border border-slate-200 bg-slate-50 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 shadow-sm transition-all"
                 />
                 {searchQuery && (
                   <button
@@ -239,14 +236,14 @@ export default function ClientsPage() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold shadow-lg shadow-blue-600/30"
-                      : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
+                      ? "bg-[#0B1F3A] text-white font-bold shadow-md"
+                      : "bg-slate-100 text-slate-700 hover:text-[#0B1F3A] hover:bg-slate-200 border border-slate-200"
                   }`}
                 >
                   <span>{cat.label}</span>
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      isActive ? "bg-white/20 text-white" : "bg-white/10 text-slate-300"
+                      isActive ? "bg-white/20 text-white" : "bg-white text-slate-700"
                     }`}
                   >
                     {cat.count}
@@ -269,11 +266,11 @@ export default function ClientsPage() {
                 <StaggerItem
                   key={client.name}
                   y={16}
-                  className="bg-[#0A1220] p-6 rounded-3xl border border-white/10 shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group text-[#0F172A]"
                 >
                   <div className="space-y-4">
                     {/* Official Client Photo / Logo Container (White Capsule for Perfect Contrast) */}
-                    <div className="relative w-full h-32 rounded-2xl bg-white/95 border border-white/20 p-4 flex items-center justify-center overflow-hidden shadow-md group-hover:scale-[1.02] transition-all">
+                    <div className="relative w-full h-32 rounded-2xl bg-slate-50 border border-slate-200 p-4 flex items-center justify-center overflow-hidden shadow-xs group-hover:scale-[1.02] transition-all">
                       {client.logo ? (
                         <Image
                           src={client.logo}
@@ -284,39 +281,39 @@ export default function ClientsPage() {
                         />
                       ) : (
                         <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center">
-                          {categoryIcons[client.type] || <Building2 className="w-6 h-6 text-blue-600" />}
+                          {categoryIcons[client.type] || <Building2 className="w-6 h-6 text-[#2563EB]" />}
                         </div>
                       )}
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center gap-1.5">
-                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-2.5 py-0.5 rounded-full border border-sky-500/30">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#0B1F3A] bg-[#0B1F3A]/5 px-2.5 py-0.5 rounded-full border border-[#0B1F3A]/15">
                           {categoryIcons[client.type]}
                           <span>{client.type}</span>
                         </span>
                       </div>
 
-                      <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors">
+                      <h3 className="text-base font-bold font-heading text-[#0F172A] leading-snug group-hover:text-[#2563EB] transition-colors">
                         {client.name}
                       </h3>
 
-                      <p className="text-xs text-slate-400 font-mono">
+                      <p className="text-xs text-slate-500 font-mono">
                         {client.location}
                       </p>
 
-                      <p className="text-xs text-slate-300 font-light leading-relaxed pt-1 line-clamp-3">
+                      <p className="text-xs text-slate-600 font-normal leading-relaxed pt-1 line-clamp-3">
                         {client.scopeOfWork}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
-                    <span className="flex items-center gap-1 text-slate-400">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono">
+                    <span className="flex items-center gap-1 text-slate-500">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                       <span>Turnkey Delivery</span>
                     </span>
-                    <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
+                    <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">
                       Verified
                     </span>
                   </div>
@@ -697,24 +694,24 @@ export default function ClientsPage() {
         </Container>
       </section>
 
-      {/* Call to Action for Enterprise & Government Inquiries */}
-      <section className="py-20 bg-[#050B14] text-white relative overflow-hidden">
+      {/* Call to Action for Enterprise & Government Inquiries in Logo Navy */}
+      <section className="py-20 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-t border-slate-200">
         <Container size="default" className="relative z-10">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-3 py-1 rounded-full border border-sky-500/30">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
+            <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-white/10 px-3 py-1 rounded-full border border-white/20">
               Partner with New Link Technologies Bangalore Pvt. Ltd.
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
               Ready to Deliver Dependable Infrastructure for Your Organization?
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-200 font-normal leading-relaxed max-w-2xl mx-auto">
               Connect directly with our Executive Directors — M.G. Girish and Divya D K — to explore turnkey institutional IT execution, campus optical networking, modular data centres, or government tender participation.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer"
               >
                 <span>Initiate Project Discussion</span>
                 <ArrowRight className="w-4 h-4" />

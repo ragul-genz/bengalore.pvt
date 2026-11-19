@@ -98,13 +98,7 @@ export function Services() {
   const activeService = SERVICES_SPLIT_LIST[activeIndex];
 
   return (
-    <section className="py-24 md:py-36 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10 select-none">
-      {/* Background Ambient Spotlights */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute right-1/4 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute left-10 bottom-10 w-[450px] h-[450px] bg-sky-500/10 rounded-full blur-[130px]" />
-      </div>
-
+    <section className="py-24 md:py-36 bg-[#0B1F3A] text-white relative overflow-hidden border-b border-[#142B4A] select-none">
       <Container size="default" className="relative z-10 space-y-14 sm:space-y-16">
         {/* ======================================================== */}
         {/* SECTION HEADER MATCHING "What We Do" EXACT STYLE */}
@@ -115,7 +109,7 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none"
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-none uppercase"
           >
             What We Do
           </motion.h2>
@@ -137,7 +131,7 @@ export function Services() {
         {/* ======================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Numbered Service Items (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col divide-y divide-white/10">
+          <div className="lg:col-span-5 flex flex-col divide-y divide-[#1E3A8A]">
             {SERVICES_SPLIT_LIST.map((service, idx) => {
               const isActive = idx === activeIndex;
               return (
@@ -150,7 +144,7 @@ export function Services() {
                   }`}
                 >
                   <div className="flex items-start gap-4">
-                    <span className="text-sm font-mono text-slate-400 font-bold shrink-0 mt-0.5">
+                    <span className="text-sm font-mono text-sky-400 font-bold shrink-0 mt-0.5">
                       {service.number}
                     </span>
                     <div className="flex-1 space-y-1">
@@ -173,7 +167,7 @@ export function Services() {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.25 }}
-                            className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed pt-1"
+                            className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-1"
                           >
                             {service.shortDesc}
                           </motion.p>
@@ -195,7 +189,7 @@ export function Services() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: CINEMATIC_EASE }}
-                className="relative h-[380px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl border border-white/15 group"
+                className="relative h-[380px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl border border-white/20 group"
               >
                 <Image
                   src={activeService.image}
@@ -237,7 +231,7 @@ export function Services() {
                   <div className="pt-1">
                     <Link
                       href={`/services/${activeService.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-950/40 transition-all duration-200 group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold shadow-lg transition-all duration-200 group/btn"
                     >
                       <span>Explore Technical Architecture</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

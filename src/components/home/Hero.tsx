@@ -169,21 +169,18 @@ export function Hero() {
         {showIntroLogo && (
           <motion.div
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-50 bg-[#050B14] flex flex-col items-center justify-center pointer-events-none select-none"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-50 bg-[#0B1F3A] flex flex-col items-center justify-center pointer-events-none select-none"
           >
-            <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px]" />
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-sky-500/15 blur-[90px]" />
-
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex flex-col items-center text-center space-y-6 z-10 px-4"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="relative flex flex-col items-center text-center space-y-4 z-10 px-4"
             >
-              {/* Official Authentic New Link Technologies Logo in White Glass Capsule */}
-              <div className="relative px-8 py-5 sm:px-12 sm:py-6 rounded-3xl bg-white shadow-[0_0_60px_rgba(56,189,248,0.35)] border border-white/60 flex items-center justify-center">
+              {/* Official Authentic New Link Technologies Logo in White Capsule */}
+              <div className="relative px-8 py-5 sm:px-12 sm:py-6 rounded-3xl bg-white shadow-2xl border border-white/60 flex items-center justify-center">
                 <Image
                   src="/logo/company-logo.png"
                   alt="New Link Technologies Bangalore Pvt. Ltd."
@@ -195,25 +192,13 @@ export function Hero() {
               </div>
 
               {/* Full Company Name */}
-              <div className="space-y-1.5 text-center">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white tracking-wide">
+              <div className="space-y-1 text-center">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold font-heading text-white tracking-wide">
                   New Link Technologies Bangalore Pvt. Ltd.
                 </h1>
-                <div className="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-sky-400 uppercase font-semibold">
-                  <span>Connecting Values</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-                  <span>Est. 2011</span>
-                </div>
-              </div>
-
-              {/* Sleek Progress Indicator Bar */}
-              <div className="w-56 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-2">
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.4, ease: "easeInOut" }}
-                  className="w-full h-full bg-gradient-to-r from-blue-600 via-sky-400 to-blue-500 origin-left"
-                />
+                <p className="text-xs sm:text-sm font-mono tracking-[0.2em] text-sky-300 uppercase font-semibold">
+                  Connecting Values • Est. 2011
+                </p>
               </div>
             </motion.div>
           </motion.div>
@@ -331,7 +316,6 @@ export function Hero() {
                   className="inline-block"
                   style={{
                     color: currentWord.color,
-                    textShadow: `0 0 40px ${currentWord.color}88, 0 0 80px ${currentWord.color}44`,
                   }}
                 >
                   {currentWord.word}

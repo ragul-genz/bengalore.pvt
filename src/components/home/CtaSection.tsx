@@ -30,18 +30,9 @@ export function CtaSection() {
   return (
     <div className="w-full">
       {/* ======================================================== */}
-      {/* 1. CORPORATE NAVY & RED ACCENT "Got a vision? Let's make it real." BANNER */}
+      {/* 1. CORPORATE LOGO NAVY "Got a vision? Let's make it real." BANNER */}
       {/* ======================================================== */}
-      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-gradient-to-br from-[#08162B] via-[#0B254E] to-[#0A192F] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none border-b border-white/10">
-        {/* Center Circular Ambient Spotlight */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(220,38,38,0.2) 0%, rgba(11,37,78,0.7) 60%, transparent 100%)",
-          }}
-        />
-
+      <section className="relative w-full py-28 sm:py-36 md:py-44 bg-[#0B1F3A] text-white flex flex-col items-center justify-center text-center px-6 overflow-hidden select-none border-b border-[#142B4A]">
         <Container size="default" className="relative z-10 max-w-4xl mx-auto space-y-6">
           <motion.h2
             initial={{ opacity: 0, y: 25 }}
@@ -64,7 +55,7 @@ export function CtaSection() {
             We&apos;re always up for conversations that start with a what if. Whether you&apos;ve got a brief or just a thought, let&apos;s build infrastructure that stands the test of time.
           </motion.p>
 
-          {/* New Link Red Pill "Contact Us ↗" Button */}
+          {/* New Link Royal Blue Pill "Contact Us ↗" Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,10 +65,10 @@ export function CtaSection() {
           >
             <a
               href="#contact-form-section"
-              className="group inline-flex items-center gap-4 px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm sm:text-base shadow-2xl shadow-blue-950/50 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="group inline-flex items-center gap-4 px-8 py-4 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm sm:text-base shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Contact Us</span>
-              <div className="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <div className="w-8 h-8 rounded-full bg-white text-[#2563EB] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight className="w-4 h-4 stroke-[3]" />
               </div>
             </a>
