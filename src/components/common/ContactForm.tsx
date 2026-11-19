@@ -192,7 +192,7 @@ export function ContactForm() {
                 type="text"
                 placeholder="e.g. Rajesh Kumar"
                 {...register("fullName")}
-                className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+                className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                   errors.fullName ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
                 }`}
                 disabled={isSubmitting}
@@ -217,7 +217,7 @@ export function ContactForm() {
                 type="text"
                 placeholder="e.g. Karnataka University / PSU Enterprise"
                 {...register("companyName")}
-                className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+                className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                   errors.companyName ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
                 }`}
                 disabled={isSubmitting}
@@ -242,7 +242,7 @@ export function ContactForm() {
                 type="email"
                 placeholder="e.g. name@company.com"
                 {...register("email")}
-                className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+                className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                   errors.email ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
                 }`}
                 disabled={isSubmitting}
@@ -267,7 +267,7 @@ export function ContactForm() {
                 type="tel"
                 placeholder="e.g. +91 98765 43210"
                 {...register("phone")}
-                className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+                className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                   errors.phone ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
                 }`}
                 disabled={isSubmitting}
@@ -291,7 +291,7 @@ export function ContactForm() {
             <select
               id="interestedService"
               {...register("interestedService")}
-              className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+              className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                 errors.interestedService ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
               }`}
               disabled={isSubmitting}
@@ -327,7 +327,7 @@ export function ContactForm() {
               rows={4}
               placeholder="Please provide details about project location, campus size, delivery timelines, or technical specifications..."
               {...register("projectDetails")}
-              className={`w-full px-4 py-3 rounded-xl border text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
+              className={`w-full px-4 py-3 rounded-xl border text-base sm:text-sm text-[#0F172A] bg-slate-50 placeholder:text-slate-400 focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/20 transition-all ${
                 errors.projectDetails ? "border-amber-400 bg-amber-50/50" : "border-slate-200"
               }`}
               disabled={isSubmitting}

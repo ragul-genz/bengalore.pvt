@@ -116,8 +116,8 @@ export default function ServicesPage() {
                     {/* Feature snippets */}
                     <div className="pt-2 space-y-1.5 border-t border-slate-100">
                       {service.features.slice(0, 2).map((feat, idx) => (
-                        <div key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                        <div key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
                           <span className="line-clamp-1">{feat}</span>
                         </div>
                       ))}
@@ -127,12 +127,12 @@ export default function ServicesPage() {
                     {service.brands && (
                       <div className="flex flex-wrap gap-1 pt-1">
                         {service.brands.slice(0, 4).map((b) => (
-                          <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-white/5 text-slate-300 font-mono border border-white/10">
+                          <span key={b} className="text-[10px] px-2 py-0.5 rounded-md bg-slate-50 text-slate-700 font-mono border border-slate-200">
                             {b}
                           </span>
                         ))}
                         {service.brands.length > 4 && (
-                          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/5 text-sky-400 font-mono border border-sky-400/20">
+                          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-blue-50 text-[#2563EB] font-mono border border-blue-200">
                             +{service.brands.length - 4}
                           </span>
                         )}

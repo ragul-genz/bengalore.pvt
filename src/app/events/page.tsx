@@ -251,27 +251,27 @@ export default function EventsPage() {
             </div>
 
             {/* Right: Vertical Pillar in Official Logo Navy with Giant Overlapping "Cultural Events" */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last mb-4 lg:mb-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="relative w-72 sm:w-80 md:w-96 h-[460px] sm:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none"
+                className="relative w-full max-w-[300px] sm:max-w-sm md:w-96 h-[240px] sm:h-[400px] md:h-[520px] rounded-3xl bg-[#0B1F3A] border border-[#142B4A] p-6 sm:p-8 shadow-2xl shadow-[#0B1F3A]/25 flex items-center justify-center overflow-hidden group select-none"
               >
                 {/* Vertical Pill Tag */}
-                <span className="absolute top-6 right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
                   HERITAGE
                 </span>
 
                 {/* Giant Overlapping Headline (Exact Match to Reference Frame 00:01) */}
-                <div className="relative z-10 text-left space-y-1">
-                  <h1 className="text-6xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.88]">
+                <div className="relative z-10 text-left space-y-0.5 sm:space-y-1">
+                  <h1 className="text-5xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-white drop-shadow-md leading-[0.88]">
                     Cultural
                   </h1>
-                  <h1 className="text-6xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.88]">
+                  <h1 className="text-5xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-md leading-[0.88]">
                     Events
                   </h1>
-                  <p className="pt-4 text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                  <p className="pt-2 sm:pt-4 text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
                     KANNADOTSAVA &bull; KARNATAKA
                   </p>
                 </div>
@@ -294,7 +294,7 @@ export default function EventsPage() {
             return (
               <div key={event.id} className="space-y-6">
                 {/* Numbered Index Header (Exact Match to Frame 00:05: "001 / 003 CULT UNBOUND") */}
-                <div className="flex items-center gap-3 text-sm sm:text-base font-mono">
+                <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 text-sm sm:text-base font-mono">
                   <span className="font-extrabold text-[#0B1F3A] text-lg sm:text-xl">
                     {event.index}
                   </span>

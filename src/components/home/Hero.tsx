@@ -208,7 +208,7 @@ export function Hero() {
       {/* ======================================================== */}
       {/* MAIN VIEWPORT CINEMA SECTION (100% REPLICA OF REFERENCE) */}
       {/* ======================================================== */}
-      <section className="relative h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden">
         {/* Background Fullscreen Cinema Showreel */}
         <HeroCinemaReel
           currentIndex={currentSlide}
@@ -223,7 +223,7 @@ export function Hero() {
         {/* "TAP & HOLD TO PLAY" CONTROLLER / MORPHS TO "X" IN CINEMA */}
         {/* (Exact match to frames 00:00 - 00:13 of reference video) */}
         {/* ======================================================== */}
-        <div className="absolute top-20 sm:top-24 left-6 sm:left-10 lg:left-14 z-40 pointer-events-auto">
+        <div className="absolute top-20 sm:top-24 left-4 sm:left-10 lg:left-14 z-40 pointer-events-auto">
           {isCinemaActive ? (
             /* Close/Exit Circular Button with 'X' (Matches Frame 00:06-00:13) */
             <motion.button
@@ -304,7 +304,7 @@ export function Hero() {
             className="flex flex-col items-center text-center space-y-3 sm:space-y-4 max-w-5xl mx-auto"
           >
             {/* Big Main Title */}
-            <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-black tracking-tight text-white leading-none uppercase select-none drop-shadow-xl">
+            <h1 className="font-heading text-2xl sm:text-5xl md:text-7xl lg:text-[84px] font-black tracking-tight text-white leading-none uppercase select-none drop-shadow-xl px-2">
               <span>ENGINEERED TO </span>
               <AnimatePresence mode="wait">
                 <motion.span
@@ -324,7 +324,7 @@ export function Hero() {
             </h1>
 
             {/* Subtitle matching "Beyond experiences. Into impact" */}
-            <p className="text-lg sm:text-2xl md:text-3xl font-medium text-white/95 tracking-tight drop-shadow-md select-none">
+            <p className="text-base sm:text-2xl md:text-3xl font-medium text-white/95 tracking-tight drop-shadow-md select-none px-4">
               Beyond infrastructure. <span className="font-bold text-white">Into performance</span>
             </p>
           </motion.div>

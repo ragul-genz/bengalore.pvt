@@ -116,7 +116,7 @@ export function ProjectsPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.6, ease: CINEMATIC_EASE }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-none uppercase"
+            className="text-3xl sm:text-6xl md:text-7xl font-extrabold font-heading text-[#0F172A] tracking-tight leading-none uppercase"
           >
             Flagship Creations
           </motion.h2>
@@ -128,10 +128,10 @@ export function ProjectsPreview() {
             transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
             className="space-y-1.5"
           >
-            <p className="text-sm sm:text-base font-mono uppercase tracking-[0.25em] text-[#0B1F3A] font-bold">
+            <p className="text-xs sm:text-base font-mono uppercase tracking-[0.25em] text-[#0B1F3A] font-bold">
               ENGINEERED. DELIVERED. VERIFIED.
             </p>
-            <p className="text-base sm:text-lg text-slate-500 font-normal max-w-xl mx-auto">
+            <p className="text-sm sm:text-lg text-slate-500 font-normal max-w-xl mx-auto px-2">
               We don&apos;t just talk the talk — we walk it, with you
             </p>
           </motion.div>
@@ -140,30 +140,30 @@ export function ProjectsPreview() {
         {/* ======================================================== */}
         {/* 3D COVERFLOW CAROUSEL (EVENTUROX STYLE) */}
         {/* ======================================================== */}
-        <div className="relative max-w-6xl mx-auto flex items-center justify-center px-4 sm:px-0">
+        <div className="relative max-w-6xl mx-auto flex items-center justify-center px-1 sm:px-0">
           {/* Navigation Arrow Left */}
           <button
             type="button"
             onClick={handlePrev}
-            className="absolute left-2 sm:left-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            className="absolute left-1 sm:left-4 z-40 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/95 hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
             aria-label="Previous Project"
           >
-            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
+            <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" />
           </button>
 
           {/* Navigation Arrow Right */}
           <button
             type="button"
             onClick={handleNext}
-            className="absolute right-2 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+            className="absolute right-1 sm:right-4 z-40 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/95 hover:bg-slate-50 border border-slate-300 text-[#0F172A] flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
             aria-label="Next Project"
           >
-            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
+            <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7" />
           </button>
 
           {/* 3-Card Carousel Track with 3D Perspective */}
           <div
-            className="w-full flex items-center justify-center overflow-hidden py-6"
+            className="w-full flex items-center justify-center overflow-hidden py-4 sm:py-6"
             style={{ perspective: "1200px" }}
           >
             {/* Left Angled Card */}
@@ -193,7 +193,7 @@ export function ProjectsPreview() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
-                className="w-full md:w-[62%] h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl border border-slate-300 z-30 shrink-0 group"
+                className="w-full md:w-[62%] h-[300px] sm:h-[460px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-2xl border border-slate-300 z-30 shrink-0 group"
               >
                 <Image
                   src={activeProject.image}
@@ -208,29 +208,29 @@ export function ProjectsPreview() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
                 {/* Top Floating Badge */}
-                <div className="absolute top-5 left-5 z-20">
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A]/90 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono uppercase font-bold tracking-wider">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="absolute top-3 sm:top-5 left-3 sm:left-5 z-20">
+                  <span className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#0B1F3A]/90 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider">
+                    <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
                     <span>{activeProject.badge}</span>
                   </span>
                 </div>
 
                 {/* Bottom Overlay Info on Card */}
-                <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6 z-20 flex items-end justify-between gap-3">
-                  <div className="text-left">
-                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
+                <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 z-20 flex items-end justify-between gap-2 sm:gap-3">
+                  <div className="text-left max-w-[65%] sm:max-w-none">
+                    <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-sky-300 font-bold truncate">
                       {activeProject.client}
                     </p>
-                    <p className="text-sm sm:text-base text-white/90 font-medium">
+                    <p className="text-xs sm:text-base text-white/90 font-medium truncate">
                       {activeProject.location}
                     </p>
                   </div>
                   <Link
                     href="/projects"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white hover:bg-slate-100 text-[#0B1F3A] font-bold text-xs shadow-lg transition-all duration-200"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white hover:bg-slate-100 text-[#0B1F3A] font-bold text-[11px] sm:text-xs shadow-lg transition-all duration-200 shrink-0"
                   >
                     <span>View Case</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </Link>
                 </div>
               </motion.div>

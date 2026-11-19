@@ -269,7 +269,7 @@ export default function ProjectsPage() {
               <StaggerItem
                 key={item.id}
                 y={18}
-                className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300"
+                className="group relative rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-md hover:border-[#2563EB] hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative aspect-4/3 w-full overflow-hidden bg-black/60">
                   <Image
@@ -318,7 +318,7 @@ export default function ProjectsPage() {
       {/* CTA Strip in Logo Navy */}
       <SectionReveal className="py-20 bg-[#F8FAFC] text-[#0F172A]">
         <Container size="default">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-6 sm:p-14 text-center text-white shadow-2xl space-y-6">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
               CONNECTING VALUES
             </span>

@@ -139,10 +139,10 @@ export function AboutPreview() {
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.8, ease: CINEMATIC_EASE }}
           >
-            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-medium text-white font-heading tracking-tight leading-none select-none">
+            <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-[76px] font-medium text-white font-heading tracking-tight leading-none select-none">
               Technology engineered to
             </h2>
-            <span className="block text-5xl sm:text-7xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none">
+            <span className="block text-4xl sm:text-7xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none">
               EMPOWER
             </span>
           </motion.div>
@@ -155,7 +155,7 @@ export function AboutPreview() {
             transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
             className="max-w-md lg:pb-4"
           >
-            <p className={`text-lg sm:text-xl md:text-2xl font-light leading-snug transition-colors duration-700 ${activeTheme.taglineColor}`}>
+            <p className={`text-base sm:text-xl md:text-2xl font-light leading-snug transition-colors duration-700 ${activeTheme.taglineColor}`}>
               More than equipment. We engineer turnkey modular data centres, campus fiber backbones, and clean energy that drive Karnataka&apos;s premier institutions.
             </p>
           </motion.div>

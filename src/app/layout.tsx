@@ -106,14 +106,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${manrope.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-transparent text-brand-text selection:bg-brand-blue selection:text-white">
+      <body className="min-h-full flex flex-col font-sans bg-transparent text-brand-text selection:bg-brand-blue selection:text-white overflow-x-hidden">
         <MotionProvider>
           <RouteTransitionBar />
           <SmoothScroll />
           <PremiumBackground />
           <JsonLd />
           <Navbar />
-          <main className="relative z-10 flex-1 w-full">{children}</main>
+          <main className="relative z-10 flex-1 w-full overflow-x-hidden">{children}</main>
           <Footer />
           <FloatingWhatsApp />
         </MotionProvider>

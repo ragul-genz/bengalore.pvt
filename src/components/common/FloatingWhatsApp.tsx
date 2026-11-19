@@ -12,7 +12,7 @@ export function FloatingWhatsApp() {
   return (
     <aside
       aria-label="Direct WhatsApp Contact"
-      className="fixed bottom-6 right-6 z-50 flex items-center group select-none"
+      className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center group select-none"
     >
       <div className="hidden md:flex items-center mr-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-medium shadow-lg backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
         <span>Chat on WhatsApp</span>
@@ -24,10 +24,10 @@ export function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with New Link Technologies on WhatsApp"
-        className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-110 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50"
+        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-110 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50"
       >
         <svg
-          className="w-7 h-7 sm:w-8 sm:h-8 fill-current"
+          className="w-6 h-6 sm:w-8 sm:h-8 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
