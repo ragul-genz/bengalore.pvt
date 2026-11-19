@@ -228,7 +228,7 @@ export function AboutClient() {
                   }}
                 />
 
-                <div className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                <div className="relative w-48 h-48 sm:w-60 sm:h-60 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                   <Image
                     src="/leadership/director-mg-girish.jpg"
                     alt="M.G. Girish - Founder & Managing Director"
@@ -330,12 +330,12 @@ export function AboutClient() {
 
             {/* Central Iconic Badge */}
             <div className="relative z-10 my-auto py-8 flex flex-col items-center space-y-4">
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                <span className="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter text-white uppercase drop-shadow-xl">
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
+                <span className="font-heading font-black text-3xl sm:text-6xl md:text-7xl tracking-tighter text-white uppercase drop-shadow-xl">
                   NEW<span className="text-[#DC2626]">LINK</span>
                 </span>
-                <span className="text-white/30 text-3xl sm:text-5xl font-light">|</span>
-                <span className="font-heading font-black text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#DC2626] uppercase drop-shadow-xl">
+                <span className="text-white/30 text-2xl sm:text-5xl font-light">|</span>
+                <span className="font-heading font-black text-2xl sm:text-5xl md:text-6xl tracking-tight text-[#DC2626] uppercase drop-shadow-xl">
                   COLLECTIVE
                 </span>
               </div>
@@ -438,7 +438,7 @@ export function AboutClient() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.7, ease: CINEMATIC_EASE }}
-              className="group relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 h-[340px] sm:h-[460px] lg:h-[540px] cursor-pointer"
+              className="group relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 h-[260px] sm:h-[460px] lg:h-[540px] cursor-pointer"
             >
               <Image
                 src="/clients/photos/naac-solar-leadership.jpg"

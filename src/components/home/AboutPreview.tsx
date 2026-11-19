@@ -143,7 +143,7 @@ export function AboutPreview() {
               Technology engineered to
             </h2>
             <span
-              className="block text-6xl sm:text-8xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none"
+              className="block text-5xl sm:text-7xl md:text-9xl lg:text-[124px] font-black text-white font-heading tracking-tighter leading-none mt-2 uppercase select-none"
               style={{
                 textShadow: `0 0 60px rgba(255,255,255,0.4), 0 0 100px ${activeTheme.glowColor}`,
               }}
@@ -197,7 +197,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frame 00:02) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -230,7 +230,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05 - 00:06) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -267,7 +267,7 @@ export function AboutPreview() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.6, delay: 0.12, ease: CINEMATIC_EASE }}
-              className="lg:col-span-4 rounded-3xl p-8 sm:p-12 bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl flex flex-col justify-between items-center text-center relative overflow-hidden"
+              className="lg:col-span-4 rounded-3xl p-6 sm:p-12 bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl flex flex-col justify-between items-center text-center relative overflow-hidden"
             >
               {/* Top Quotation Mark (Two Slanted Red Marks matching video) */}
               <div className="flex gap-1.5 justify-center text-[#DC2626] select-none pt-2">
@@ -304,7 +304,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:03 - 00:04) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -338,7 +338,7 @@ export function AboutPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: 0.15, ease: CINEMATIC_EASE }}
-                className="group relative rounded-3xl overflow-hidden p-8 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[220px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
+                className="group relative rounded-3xl overflow-hidden p-6 sm:p-9 text-white shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[200px] sm:min-h-[240px] bg-[#DC2626] transition-all duration-500 cursor-pointer"
               >
                 {/* Photo Reveal on Hover (Smooth transition matching video frames 00:05) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">

@@ -125,7 +125,7 @@ export function TeamSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={VIEWPORT_CONFIG}
             transition={{ duration: 0.7, ease: CINEMATIC_EASE }}
-            className="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 h-[360px] sm:h-[480px] lg:h-[560px] cursor-pointer"
+            className="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 h-[260px] sm:h-[480px] lg:h-[560px] cursor-pointer"
           >
             {/* Authentic Team Handover Photo (Grayscale -> Full Color on Hover) */}
             <Image
