@@ -99,7 +99,7 @@ export function Lightbox({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-lg bg-red-600/80 hover:bg-red-600 text-white transition-colors ml-2"
+            className="p-2 rounded-lg bg-slate-800/80 hover:bg-blue-600 text-white transition-colors ml-2"
             title="Close"
           >
             <X className="w-5 h-5" />

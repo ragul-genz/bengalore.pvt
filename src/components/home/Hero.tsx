@@ -29,7 +29,7 @@ const ROTATING_HIGHLIGHT_WORDS = [
   },
   {
     word: "PROTECT",
-    color: "#FB7185", // Brand Crimson Red
+    color: "#38BDF8", // Cyber Cyan / Security Blue
     sublabel: "24/7 Command & Control Room Surveillance Video Walls",
   },
   {

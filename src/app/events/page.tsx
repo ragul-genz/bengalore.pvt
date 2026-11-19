@@ -3,31 +3,147 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import {
   ExternalLink,
   Globe,
   Sparkles,
   Heart,
-  Calendar,
-  MapPin,
   Camera,
   Maximize2,
-  CheckCircle2,
   Phone,
+  ChevronDown,
 } from "lucide-react";
 import {
   Container,
   Lightbox,
-  PageHero,
-  RevealText,
-  FadeIn,
-  StaggerGroup,
-  StaggerItem,
+  CINEMATIC_EASE,
 } from "@/components/common";
-import { KANNADOTSAVA_EVENT, type GallerySlot } from "@/data/events";
 import { COMPANY_DETAILS } from "@/data/company";
 
+interface EventCaseStudy {
+  id: string;
+  index: string;
+  total: string;
+  title: string;
+  nativeTitle?: string;
+  tagline: string;
+  mainImage: string;
+  yearTag: string;
+  description: string;
+  websiteUrl?: string;
+  websiteLabel?: string;
+  photos: {
+    title: string;
+    caption: string;
+    image: string;
+  }[];
+}
+
+const EVENT_CASE_STUDIES: EventCaseStudy[] = [
+  {
+    id: "kannadotsava",
+    index: "001",
+    total: "003",
+    title: "KANNADOTSAVA ANNUAL CULTURAL FESTIVAL",
+    nativeTitle: "ಕನ್ನಡೋತ್ಸವ",
+    tagline: "Celebrating Karnataka's Rich Heritage, Kannada Literature & Traditional Arts",
+    mainImage: "/clients/photos/tumkur-auditorium.jpg",
+    yearTag: "KANNADOTSAVA 2026",
+    description:
+      "A PREMIER ANNUAL CULTURAL FESTIVAL CELEBRATING KARNATAKA'S GLORIOUS HERITAGE, RICH LITERATURE, FOLK ARTS, CLASSICAL MUSIC, AND COMMUNITY HARMONY. PROUDLY ORGANIZED AND POWERED BY NEW LINK TECHNOLOGIES BANGALORE PVT. LTD. UNDER OUR CORE MOTTO 'CONNECTING VALUES'.",
+    websiteUrl: "https://www.kannadotsava.com",
+    websiteLabel: "www.kannadotsava.com",
+    photos: [
+      {
+        title: "Grand Ceremonial Inauguration",
+        caption: "Ceremonial lamp lighting, traditional welcome, and inaugural address by dignitaries.",
+        image: "/clients/photos/tumkur-inauguration.jpg",
+      },
+      {
+        title: "Stage Festivities & Classical Concerts",
+        caption: "Captivating classical orchestra, folk rhythms, and youth cultural showcases.",
+        image: "/clients/photos/tumkur-auditorium.jpg",
+      },
+      {
+        title: "Community Honors & Felicitations",
+        caption: "Honoring eminent guests, artists, and community contributors with traditional honors.",
+        image: "/clients/photos/naac-solar-leadership.jpg",
+      },
+      {
+        title: "Academic & Institutional Assembly",
+        caption: "Vibrant gathering of patrons, educators, and youth celebrating cultural preservation.",
+        image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+      },
+    ],
+  },
+  {
+    id: "inaugurations",
+    index: "002",
+    total: "003",
+    title: "INSTITUTIONAL DIGNITARY INAUGURATIONS",
+    tagline: "High-Level Facility Commissionings & University Dedications",
+    mainImage: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
+    yearTag: "STATEWIDE EPC",
+    description:
+      "CEREMONIAL FACILITY LAUNCHES, DIGNITARY RIBBON CUTTINGS, AND KEYNOTE ADDRESSES ACROSS KARNATAKA STATE UNIVERSITIES, PUBLIC SECTOR UNDERTAKINGS, AND AUTONOMOUS BODIES LED BY DIRECTOR M.G. GIRISH AND EXECUTIVE LEADERSHIP.",
+    photos: [
+      {
+        title: "Vice Chancellor & Directorate Inauguration",
+        caption: "Modular data centre ribbon cutting at UAS Raichur with university leadership.",
+        image: "/clients/photos/uas-raichur-datacenter-inauguration.jpg",
+      },
+      {
+        title: "Auditorium Acoustic Facility Dedication",
+        caption: "Inaugural ceremony of smart multi-purpose auditorium at Tumkur University.",
+        image: "/clients/photos/tumkur-inauguration.jpg",
+      },
+      {
+        title: "Campus Optical Fiber Ring Handover",
+        caption: "Official handover ceremony of 10Gbps armored campus ring at SJBIT Bangalore.",
+        image: "/clients/photos/sjbit-campus-fiber-handover.jpg",
+      },
+    ],
+  },
+  {
+    id: "youth-heritage",
+    index: "003",
+    total: "003",
+    title: "YOUTH CULTURAL EMPOWERMENT & ARTS ENCLAVE",
+    tagline: "Inspiring the Next Generation Through Language, Arts & Technology",
+    mainImage: "/clients/photos/naac-solar-leadership.jpg",
+    yearTag: "HERITAGE & ARTS",
+    description:
+      "FOSTERING YOUTH PARTICIPATION IN KANNADA LITERATURE, POETRY RECITALS, CLASSICAL TRADITIONS, AND DIGITAL INNOVATION. STRENGTHENING COMMUNITY TIES AND CULTURAL PRIDE ACROSS EDUCATIONAL CAMPUSES.",
+    websiteUrl: "https://www.kannadotsava.com",
+    websiteLabel: "kannadotsava.com",
+    photos: [
+      {
+        title: "Patron Honors & Keynote Speeches",
+        caption: "Director M.G. Girish addressing patrons on institutional empowerment.",
+        image: "/clients/photos/naac-solar-leadership.jpg",
+      },
+      {
+        title: "Grand Cultural Assembly",
+        caption: "Hundreds of students and patrons gathered for Karnataka heritage celebration.",
+        image: "/clients/photos/tumkur-auditorium.jpg",
+      },
+      {
+        title: "Educational Technology Dedication",
+        caption: "Hands-on engineering showcase and student excellence felicitations.",
+        image: "/clients/photos/tumkur-computer-lab.jpg",
+      },
+    ],
+  },
+];
+
 export default function EventsPage() {
+  const [expandedEvents, setExpandedEvents] = useState<Record<string, boolean>>({
+    kannadotsava: true, // First one open by default
+    inaugurations: false,
+    "youth-heritage": false,
+  });
+
   const [lightbox, setLightbox] = useState<{
     isOpen: boolean;
     image: string;
@@ -40,6 +156,13 @@ export default function EventsPage() {
     caption: "",
   });
 
+  const togglePhotos = (id: string) => {
+    setExpandedEvents((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   const openLightbox = (image: string, title: string, caption: string) => {
     setLightbox({
       isOpen: true,
@@ -51,322 +174,294 @@ export default function EventsPage() {
 
   return (
     <div className="relative bg-[#050B14] text-white selection:bg-blue-600 selection:text-white min-h-screen">
-      {/* Page Hero Banner */}
-      <PageHero
-        eyebrow="Official Cultural Initiative • Karnataka Heritage"
-        title="Kannadotsava"
-        highlight="www.kannadotsava.com"
-        description="A premier annual festival celebrating the glorious culture, literature, classical music, folk arts, and community harmony of Karnataka, proudly organized and supported by New Link Technologies Bangalore Pvt. Ltd."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Events" },
-        ]}
-      />
-
-      {/* Official Web Portal Highlight Ribbon */}
-      <section className="bg-[#081120] text-white py-10 border-b border-white/10 relative overflow-hidden">
-        <Container size="default">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Official Cultural Web Portal</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold font-heading text-white">
-                Discover Kannadotsava at{" "}
-                <span className="text-amber-400 font-extrabold tracking-wide">
-                  www.kannadotsava.com
-                </span>
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-300 font-light">
-                Official online destination for festival announcements, cultural schedules, and event gallery.
-              </p>
-            </div>
-
-            <div className="shrink-0 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={KANNADOTSAVA_EVENT.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-              >
-                <Globe className="w-4 h-4 text-slate-950 group-hover:rotate-12 transition-transform" />
-                <span>Visit www.kannadotsava.com</span>
-                <ExternalLink className="w-4 h-4 text-slate-950" />
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Main Kannadotsava Overview Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* ======================================================== */}
+      {/* 1. HERO SECTION: ICONIC OVERLAPPING EVENT PILLAR LAYOUT */}
+      {/* (1:1 Match to Video Frames 00:01 - 00:04) */}
+      {/* Left: Manifesto | Right: Vertical Color Pillar + Overlapping "Case Studies" / "Events" */}
+      {/* ======================================================== */}
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden border-b border-white/10">
+        {/* Ambient Cyber Lighting */}
+        <div className="absolute inset-0 pointer-events-none select-none">
+          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px]" />
+          <div className="absolute top-1/4 right-10 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px]" />
+        </div>
 
         <Container size="default" className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-                  <span>Cultural Excellence &amp; Community Spirit</span>
-                </FadeIn>
-                <div className="flex items-baseline gap-3 flex-wrap">
-                  <RevealText
-                    as="h2"
-                    by="word"
-                    mode="view"
-                    delay={0.08}
-                    stagger={0.04}
-                    text="Kannadotsava"
-                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
-                  />
-                  <span className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-heading">
-                    ({KANNADOTSAVA_EVENT.nativeTitle})
-                  </span>
-                </div>
-                <p className="text-base sm:text-lg font-mono font-semibold text-sky-400">
-                  {KANNADOTSAVA_EVENT.tagline}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left: Purpose Statement */}
+            <div className="lg:col-span-7 space-y-7">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: CINEMATIC_EASE }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-sky-400 text-xs font-mono uppercase tracking-[0.18em]"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <span>OFFICIAL CULTURAL &amp; COMMUNITY INITIATIVE</span>
+              </motion.div>
 
-              <div className="space-y-4 text-slate-300 text-sm sm:text-base font-light leading-relaxed">
-                {KANNADOTSAVA_EVENT.aboutText.map((paragraph, idx) => (
-                  <FadeIn key={idx} as="p" mode="view" delay={0.15 + idx * 0.08} y={10}>
-                    {paragraph}
-                  </FadeIn>
-                ))}
-              </div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: CINEMATIC_EASE }}
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight leading-snug"
+              >
+                Cultural platforms today unite communities, celebrate heritage, and empower the future.
+              </motion.h2>
 
-              {/* Verified Key Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {KANNADOTSAVA_EVENT.keyHighlights.map((highlight) => (
-                  <div
-                    key={highlight.title}
-                    className="p-4 rounded-2xl border border-white/10 bg-[#0A1220] space-y-1.5"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.18, ease: CINEMATIC_EASE }}
+                className="space-y-4 text-base sm:text-lg text-slate-300 font-light leading-relaxed"
+              >
+                <p>
+                  At New Link Technologies Bangalore Pvt. Ltd., we champion{" "}
+                  <strong className="text-white font-bold">Kannadotsava</strong> (
+                  <a
+                    href="https://www.kannadotsava.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky-400 hover:underline font-mono"
                   >
-                    <div className="flex items-center gap-2 text-xs font-bold text-white">
-                      <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
-                      <span>{highlight.title}</span>
-                    </div>
-                    <p className="text-xs text-slate-300 font-light leading-relaxed pl-6">
-                      {highlight.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                    www.kannadotsava.com
+                  </a>
+                  ) — a grand annual celebration of Karnataka&apos;s rich cultural heritage, Kannada literature, traditional music, and youth empowerment.
+                </p>
+                <p className="text-slate-400 text-sm sm:text-base">
+                  Under our corporate motto &ldquo;Connecting Values,&rdquo; our executive leadership team actively contributes to preserving state traditions while supporting dignitary convocations, institutional facility inaugurations, and community outreach across Bangalore and statewide.
+                </p>
+              </motion.div>
 
-              {/* Direct Portal Link Box */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25, ease: CINEMATIC_EASE }}
+                className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400"
+              >
                 <a
-                  href={KANNADOTSAVA_EVENT.websiteUrl}
+                  href="https://www.kannadotsava.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider font-bold border border-white/15 transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-95 text-white font-bold uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all cursor-pointer"
                 >
-                  <Globe className="w-4 h-4 text-sky-400" />
-                  <span>Explore www.kannadotsava.com</span>
-                  <ExternalLink className="w-4 h-4 text-slate-400" />
+                  <Globe className="w-4 h-4 text-white" />
+                  <span>Visit www.kannadotsava.com</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-white" />
                 </a>
-                <span className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 text-slate-400">
                   <Heart className="w-4 h-4 text-sky-400 fill-sky-400" />
-                  <span>Proudly Supported by New Link Technologies</span>
+                  <span>Sponsored by New Link Technologies</span>
                 </span>
-              </div>
+              </motion.div>
             </div>
 
-            {/* Right Card: Feature Showcase Card */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#0A1220] p-8 text-white shadow-2xl space-y-6">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-amber-400" />
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-300">
-                      Community &amp; Culture
-                    </span>
-                  </div>
-                  <span className="text-xs text-slate-400 font-mono">Annual Tradition</span>
-                </div>
+            {/* Right: Vertical Sapphire Pillar with Giant Overlapping "Cultural Events" (Exact Match to Frame 00:01) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: CINEMATIC_EASE }}
+                className="relative w-72 sm:w-80 md:w-96 h-[460px] sm:h-[520px] rounded-3xl bg-gradient-to-b from-blue-600 via-blue-700 to-[#0A1A36] border border-blue-400/30 p-8 shadow-2xl flex items-center justify-center overflow-hidden group select-none"
+              >
+                {/* Subtle Radial Glow */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.25)_0%,transparent_70%)] pointer-events-none" />
 
-                <div className="space-y-3">
-                  <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-white leading-tight">
-                    ಕನ್ನಡೋತ್ಸವ
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                    Celebrating unity, Kannada literature, state heritage, classical arts, and youth cultural empowerment in Bangalore and throughout Karnataka.
+                {/* Vertical Pill Tag */}
+                <span className="absolute top-6 right-6 text-[10px] font-mono tracking-widest text-sky-200 uppercase font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                  HERITAGE
+                </span>
+
+                {/* Giant Overlapping Headline (Exact Match to Reference Frame 00:01) */}
+                <div className="relative z-10 text-left space-y-1">
+                  <h1 className="text-6xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-white drop-shadow-2xl leading-[0.88]">
+                    Cultural
+                  </h1>
+                  <h1 className="text-6xl sm:text-7xl md:text-8xl font-black font-heading tracking-tighter text-sky-300 drop-shadow-2xl leading-[0.88]">
+                    Events
+                  </h1>
+                  <p className="pt-4 text-xs font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+                    KANNADOTSAVA &bull; KARNATAKA
                   </p>
                 </div>
+              </motion.div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
-                {/* Key Event Metadata */}
-                <div className="space-y-3 pt-2 text-xs">
-                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                    <Globe className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white font-mono">Official Web Portal</p>
-                      <a
-                        href={KANNADOTSAVA_EVENT.websiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-amber-300 hover:underline font-mono text-xs"
-                      >
-                        www.kannadotsava.com
-                      </a>
-                    </div>
-                  </div>
+      {/* ======================================================== */}
+      {/* 2. EVENT CASE STUDIES WITH "SHOW PHOTOS" EXPANDABLE GALLERY */}
+      {/* (1:1 Match to Video Frames 00:05 - 00:15) */}
+      {/* 001 / 003 Counter + Left Featured Photo + Right Narrative + Toggle */}
+      {/* ======================================================== */}
+      <section className="py-20 sm:py-28 bg-[#070F1D] border-b border-white/10 relative overflow-hidden">
+        <Container size="default" className="space-y-20">
+          {EVENT_CASE_STUDIES.map((event) => {
+            const isExpanded = expandedEvents[event.id] ?? false;
 
-                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                    <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white font-mono">Event Hub</p>
-                      <p className="text-slate-300 text-xs font-light">Bangalore &amp; Across Karnataka</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                    <Calendar className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white font-mono">Organized &amp; Supported By</p>
-                      <p className="text-slate-300 text-xs font-light">
-                        New Link Technologies Bangalore Pvt. Ltd.
-                      </p>
-                    </div>
-                  </div>
+            return (
+              <div key={event.id} className="space-y-6">
+                {/* Numbered Index Header (Exact Match to Frame 00:05: "001 / 003 CULT UNBOUND") */}
+                <div className="flex items-center gap-3 text-sm sm:text-base font-mono">
+                  <span className="font-extrabold text-white text-lg sm:text-xl">
+                    {event.index}
+                  </span>
+                  <span className="text-slate-500">/ {event.total}</span>
+                  <span className="text-sky-400 font-bold uppercase tracking-wider pl-2">
+                    {event.title}
+                  </span>
+                  {event.nativeTitle && (
+                    <span className="text-amber-400 font-bold font-heading text-lg">
+                      ({event.nativeTitle})
+                    </span>
+                  )}
                 </div>
 
-                <div className="pt-2">
-                  <a
-                    href={KANNADOTSAVA_EVENT.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
-                  >
-                    <span>Launch Portal: www.kannadotsava.com</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                {/* Main Dark Card Container */}
+                <div className="rounded-3xl border border-white/10 bg-[#0A1220] p-6 sm:p-10 shadow-2xl space-y-8 overflow-hidden hover:border-sky-400/40 transition-colors">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    {/* Left: Featured Image (Matching Frame 00:05) */}
+                    <div className="lg:col-span-7 relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-white/15 bg-black shadow-xl group">
+                      <Image
+                        src={event.mainImage}
+                        alt={event.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Bottom-left Tag (Exact Match to Frame 00:05: "CULT UNBOUND 2026") */}
+                      <div className="absolute bottom-4 left-5 text-white select-none">
+                        <p className="text-xs font-mono font-bold tracking-widest uppercase text-white/90">
+                          {event.yearTag}
+                        </p>
+                      </div>
+
+                      {/* Expand Button */}
+                      <button
+                        type="button"
+                        onClick={() => openLightbox(event.mainImage, event.title, event.tagline)}
+                        className="absolute top-3 right-3 w-9 h-9 rounded-xl bg-black/60 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all cursor-pointer"
+                        title="View photo full size"
+                      >
+                        <Maximize2 className="w-4 h-4 text-sky-400" />
+                      </button>
+                    </div>
+
+                    {/* Right: Narrative & "SHOW PHOTOS" Button (Matching Frame 00:05) */}
+                    <div className="lg:col-span-5 space-y-6">
+                      <div className="space-y-3">
+                        <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
+                          {event.tagline}
+                        </p>
+                        <p className="text-xs sm:text-sm font-sans uppercase font-bold text-slate-200 leading-relaxed tracking-wide">
+                          {event.description}
+                        </p>
+                      </div>
+
+                      {event.websiteUrl && (
+                        <div className="pt-1">
+                          <a
+                            href={event.websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-white transition-colors"
+                          >
+                            <Globe className="w-3.5 h-3.5 text-sky-400" />
+                            <span>Official Portal: {event.websiteLabel}</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </div>
+                      )}
+
+                      {/* Interactive "SHOW PHOTOS" / "HIDE PHOTOS" Button (Exact Match to Frames 00:05 - 00:08) */}
+                      <div className="pt-2">
+                        <button
+                          type="button"
+                          onClick={() => togglePhotos(event.id)}
+                          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-95 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer select-none"
+                        >
+                          <Camera className="w-4 h-4 text-white" />
+                          <span>{isExpanded ? "HIDE PHOTOS" : "SHOW PHOTOS"}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-300 ${
+                              isExpanded ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Expandable Photo Grid (Unrolls when "SHOW PHOTOS" is active, Frames 00:09 - 00:13) */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.45, ease: CINEMATIC_EASE }}
+                        className="pt-6 border-t border-white/10 overflow-hidden space-y-4"
+                      >
+                        <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                          <span className="uppercase tracking-wider">
+                            Photographic Records &bull; {event.photos.length} Images
+                          </span>
+                          <span className="text-sky-400">Click photo to expand</span>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                          {event.photos.map((photo, idx) => (
+                            <motion.div
+                              key={idx}
+                              initial={{ opacity: 0, y: 15 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: idx * 0.08, duration: 0.4 }}
+                              className="group/photo relative aspect-4/3 rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-lg cursor-pointer"
+                              onClick={() => openLightbox(photo.image, photo.title, photo.caption)}
+                            >
+                              <Image
+                                src={photo.image}
+                                alt={photo.title}
+                                fill
+                                sizes="(max-width: 640px) 100vw, 25vw"
+                                className="object-cover group-hover/photo:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-75 group-hover/photo:opacity-90 transition-opacity" />
+
+                              <div className="absolute bottom-2.5 left-3 right-3 text-white pointer-events-none">
+                                <p className="text-xs font-bold font-heading line-clamp-1 text-white">
+                                  {photo.title}
+                                </p>
+                                <p className="text-[10px] text-slate-300 line-clamp-1 font-light">
+                                  {photo.caption}
+                                </p>
+                              </div>
+
+                              <div className="absolute top-2 right-2 w-7 h-7 rounded-lg bg-black/60 backdrop-blur-xs flex items-center justify-center opacity-0 group-hover/photo:opacity-100 transition-opacity">
+                                <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </Container>
       </section>
 
-      {/* Dedicated Photo Gallery Section */}
-      <section className="py-16 md:py-24 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
+      {/* ======================================================== */}
+      {/* 3. OFFICIAL WEB PORTAL & COMMUNITY CALL TO ACTION */}
+      {/* ======================================================== */}
+      <section className="py-20 bg-[#050B14] text-white relative overflow-hidden border-t border-white/10">
         <Container size="default">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={6} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-              <Camera className="w-3.5 h-3.5 text-sky-400" />
-              <span>Event Photographs &amp; Glimpses</span>
-            </FadeIn>
-            <RevealText
-              as="h2"
-              by="word"
-              mode="view"
-              delay={0.08}
-              stagger={0.04}
-              text="Kannadotsava Photo Gallery"
-              className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
-            />
-            <FadeIn as="p" mode="view" delay={0.2} y={10} className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-              A curated photographic gallery capturing ceremonial inaugurations, cultural recitals, audience gatherings, and patron honors at Kannadotsava.
-            </FadeIn>
-
-            {/* Note badge */}
-            <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-mono">
-              <Camera className="w-4 h-4 text-sky-400" />
-              <span>Official high-resolution event photographs will be displayed here</span>
-            </div>
-          </div>
-
-          {/* Photo Gallery Grid with Slots */}
-          <StaggerGroup
-            mode="view"
-            stagger={0.06}
-            delay={0.08}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {KANNADOTSAVA_EVENT.gallerySlots.map((slot: GallerySlot) => (
-              <StaggerItem
-                key={slot.id}
-                y={16}
-                className="group bg-[#0A1220] rounded-3xl border border-white/10 overflow-hidden shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Photo Frame Container */}
-                  <div className="relative aspect-4/3 w-full bg-black/60 flex items-center justify-center p-6 border-b border-white/10 overflow-hidden">
-                    {slot.image ? (
-                      <div
-                        className="relative w-full h-full cursor-pointer"
-                        onClick={() => openLightbox(slot.image!, slot.title, slot.caption)}
-                      >
-                        <Image
-                          src={slot.image}
-                          alt={slot.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 text-xs font-mono font-bold text-slate-900 shadow-md">
-                            <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
-                            <span>View Photo</span>
-                          </span>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-center space-y-3 p-4">
-                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 shadow-xs flex items-center justify-center mx-auto text-sky-400 group-hover:scale-110 transition-all">
-                          <Camera className="w-7 h-7 text-sky-400" />
-                        </div>
-                        <div className="space-y-1">
-                          <p className="text-xs font-bold text-white font-heading">
-                            {slot.title}
-                          </p>
-                          <p className="text-[11px] text-slate-400 font-mono">
-                            Photo Updating Shortly
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Slot Details */}
-                  <div className="p-5 sm:p-6 space-y-2">
-                    <span className="inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-2.5 py-0.5 rounded-full border border-sky-500/30">
-                      {slot.category}
-                    </span>
-                    <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors">
-                      {slot.title}
-                    </h3>
-                    <p className="text-xs text-slate-300 font-light leading-relaxed">
-                      {slot.caption}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="px-5 pb-5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>Kannadotsava Archive</span>
-                  <a
-                    href={KANNADOTSAVA_EVENT.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sky-400 hover:text-white transition-colors flex items-center gap-1"
-                  >
-                    <span>kannadotsava.com</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </Container>
-      </section>
-
-      {/* Call to Action for Kannadotsava Portal */}
-      <section className="py-20 bg-[#050B14] text-white relative overflow-hidden">
-        <Container size="default" className="relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30">
+            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-3.5 py-1 rounded-full border border-sky-500/30">
               <Globe className="w-3.5 h-3.5" />
               <span>Official Event Website: www.kannadotsava.com</span>
             </span>
@@ -374,23 +469,23 @@ export default function EventsPage() {
               Join the Celebration of Karnataka&apos;s Rich Heritage
             </h2>
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-              Visit the official web portal to learn more about upcoming cultural events, artist lineups, and participation opportunities at Kannadotsava.
+              Visit the official web portal to learn more about upcoming cultural events, artist schedules, and participation opportunities at Kannadotsava.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={KANNADOTSAVA_EVENT.websiteUrl}
+                href="https://www.kannadotsava.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
               >
-                <Globe className="w-4 h-4 text-slate-950" />
+                <Globe className="w-4 h-4 text-white" />
                 <span>Visit www.kannadotsava.com</span>
-                <ExternalLink className="w-4 h-4 text-slate-950" />
+                <ExternalLink className="w-4 h-4 text-white" />
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.98] text-white border border-white/15 font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
                 <span>Contact New Link Technologies</span>
               </Link>
@@ -423,7 +518,7 @@ export default function EventsPage() {
         </Container>
       </section>
 
-      {/* Lightbox for Event Photos */}
+      {/* Global Image Lightbox Modal */}
       <Lightbox
         isOpen={lightbox.isOpen}
         onClose={() => setLightbox({ ...lightbox, isOpen: false })}
