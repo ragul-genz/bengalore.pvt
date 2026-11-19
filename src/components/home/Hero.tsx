@@ -359,6 +359,26 @@ export function Hero() {
             </p>
           </motion.div>
         </Container>
+
+        {/* Minimal Scroll Cue */}
+        <motion.div
+          animate={{
+            opacity: isCinemaActive ? 0 : 0.75,
+            y: [0, 6, 0],
+          }}
+          transition={{
+            opacity: { duration: 0.3 },
+            y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+          }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 pointer-events-none select-none z-20"
+        >
+          <span className="text-[9px] font-mono uppercase tracking-[0.22em] text-white/80 font-bold">
+            SCROLL FOR DETAILS
+          </span>
+          <div className="w-4 h-6 rounded-full border border-white/40 flex items-start justify-center p-1">
+            <div className="w-1 h-1.5 rounded-full bg-white" />
+          </div>
+        </motion.div>
       </section>
     </div>
   );
