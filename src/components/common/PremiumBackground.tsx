@@ -74,12 +74,12 @@ export function PremiumBackground() {
           }}
         />
 
-        {/* Center-Right Ambient Orb: Soft Ice Cyan */}
+        {/* Center-Right Ambient Orb: Soft Corporate Royal Blue */}
         <div
           className="absolute top-[40%] -right-[8%] w-[520px] sm:w-[700px] h-[520px] sm:h-[700px] rounded-full blur-[120px] sm:blur-[150px] opacity-70 animate-ambient-drift-2"
           style={{
             background:
-              "radial-gradient(circle, rgba(56,189,248,0.08) 0%, rgba(37,99,235,0.04) 55%, transparent 80%)",
+              "radial-gradient(circle, rgba(37,99,235,0.08) 0%, rgba(30,58,138,0.04) 55%, transparent 80%)",
           }}
         />
       </motion.div>

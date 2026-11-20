@@ -167,7 +167,7 @@ export function Services() {
                 {/* Bottom Overlay with Client Details and CTA */}
                 <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20 space-y-2 sm:space-y-3">
                   <div>
-                    <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-sky-400 font-bold truncate">
+                    <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#DC2626] font-bold truncate">
                       {activeService.client}
                     </p>
                     <h4 className="text-lg sm:text-2xl font-bold font-heading text-white">
@@ -206,7 +206,7 @@ export function Services() {
                   }`}
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <span className="text-xs sm:text-sm font-mono text-sky-400 font-bold shrink-0 mt-0.5">
+                    <span className="text-xs sm:text-sm font-mono text-[#DC2626] font-bold shrink-0 mt-0.5">
                       {service.number}
                     </span>
                     <div className="flex-1 space-y-1">
@@ -217,7 +217,7 @@ export function Services() {
                           {service.title}
                         </h3>
                         <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                          isActive ? "translate-x-1 text-sky-400" : "opacity-0 group-hover:opacity-100 text-slate-400"
+                          isActive ? "translate-x-1 text-[#DC2626]" : "opacity-0 group-hover:opacity-100 text-slate-400"
                         }`} />
                       </div>
 

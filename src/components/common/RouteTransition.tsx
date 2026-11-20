@@ -62,7 +62,7 @@ export function RouteTransitionBar() {
             ease: [0.16, 1, 0.3, 1],
             times: [0, 0.75, 1],
           }}
-          className="h-full w-full bg-gradient-to-r from-blue-700 via-sky-400 to-cyan-300 shadow-[0_0_15px_#38bdf8,0_0_25px_#2563eb]"
+          className="h-full w-full bg-gradient-to-r from-blue-700 via-[#DC2626] to-blue-500 shadow-[0_0_15px_rgba(220,38,38,0.4),0_0_25px_rgba(37,99,235,0.4)]"
         />
       </AnimatePresence>
     </div>

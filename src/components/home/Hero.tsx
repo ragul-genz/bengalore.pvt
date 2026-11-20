@@ -19,7 +19,7 @@ const ROTATING_HIGHLIGHT_WORDS = [
   },
   {
     word: "CONNECT",
-    color: "#38BDF8", // Cyber Cyan
+    color: "#DC2626", // Brand Crimson Red
     sublabel: "10Gbps Multi-Building Inter-Campus Optical Fiber Rings",
   },
   {
@@ -29,12 +29,12 @@ const ROTATING_HIGHLIGHT_WORDS = [
   },
   {
     word: "PROTECT",
-    color: "#38BDF8", // Cyber Cyan / Security Blue
+    color: "#3B82F6", // Corporate Royal Blue
     sublabel: "24/7 Command & Control Room Surveillance Video Walls",
   },
   {
     word: "SCALE",
-    color: "#60A5FA", // Electric Royal Blue
+    color: "#F59E0B", // Enterprise Gold/Amber
     sublabel: "High-Density Structured Cabling & Switching Matrices",
   },
 ];
@@ -196,7 +196,7 @@ export function Hero() {
                 <h1 className="text-lg sm:text-xl md:text-2xl font-bold font-heading text-white tracking-wide">
                   New Link Technologies Bangalore Pvt. Ltd.
                 </h1>
-                <p className="text-xs sm:text-sm font-mono tracking-[0.2em] text-sky-300 uppercase font-semibold">
+                <p className="text-xs sm:text-sm font-mono tracking-[0.2em] text-slate-300 uppercase font-semibold">
                   Connecting Values • Bangalore
                 </p>
               </div>

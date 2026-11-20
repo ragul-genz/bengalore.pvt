@@ -24,7 +24,7 @@ const reasons = [
     description:
       "A unified, single-window provider across IT, Hardware, Software, Infrastructure, and Consulting, eliminating multi-vendor coordination friction.",
     badge: "SINGLE-WINDOW TURNKEY",
-    accent: "#38BDF8", // Cyber Cyan
+    accent: "#DC2626", // Brand Red
   },
   {
     icon: Server,
@@ -56,17 +56,17 @@ const reasons = [
     description:
       "Aligned with our founding motto 'Connecting Values' — delivering transparent proposals, practical bills of materials, and accountable multi-year SLA support.",
     badge: "CONNECTING VALUES",
-    accent: "#60A5FA", // Sky Blue
+    accent: "#DC2626", // Brand Red
   },
 ];
 
 export function WhyChooseUs() {
   return (
     <section className="py-24 md:py-32 bg-[#050B14] text-white relative overflow-hidden border-b border-white/10">
-      {/* Background Subtle Cyber Glow */}
+      {/* Background Subtle Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute left-1/4 top-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-sky-500/10 rounded-full blur-[130px]" />
+        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-red-600/5 rounded-full blur-[130px]" />
       </div>
 
       <Container size="default" className="relative z-10 space-y-16">
@@ -78,7 +78,7 @@ export function WhyChooseUs() {
             duration={0.42}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#DC2626]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-200">
               OUR ENGINEERING DIFFERENTIATORS
             </span>
@@ -93,7 +93,7 @@ export function WhyChooseUs() {
             duration={0.52}
             text="Why Choose"
             highlight="New Link Technologies Bangalore Pvt. Ltd.?"
-            highlightClassName="text-sky-400 font-extrabold"
+            highlightClassName="text-[#2563EB] font-extrabold"
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.12]"
           />
 
@@ -121,7 +121,7 @@ export function WhyChooseUs() {
               <StaggerItem
                 key={item.title}
                 y={18}
-                className="group relative bg-slate-900/90 p-7 sm:p-8 rounded-3xl border border-white/15 shadow-xl hover:-translate-y-2 hover:border-sky-400 hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
+                className="group relative bg-slate-900/90 p-7 sm:p-8 rounded-3xl border border-white/15 shadow-xl hover:-translate-y-2 hover:border-white/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
               >
                 {/* Top Glowing Brand Accent */}
                 <div
@@ -149,7 +149,7 @@ export function WhyChooseUs() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors leading-snug">
+                    <h3 className="text-xl font-bold font-heading text-white group-hover:text-white transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5">

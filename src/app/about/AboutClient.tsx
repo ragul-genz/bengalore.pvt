@@ -146,7 +146,7 @@ export function AboutClient() {
         <Container size="default" className="relative z-10 space-y-8">
           {/* Top Label & Counter */}
           <div className="flex items-center justify-between text-xs font-mono text-slate-300 border-b border-white/15 pb-4">
-            <span className="font-bold uppercase tracking-[0.2em] text-sky-300">
+            <span className="font-bold uppercase tracking-[0.2em] text-white">
               A Legacy of Engineering Excellence
             </span>
             <span>
@@ -188,7 +188,7 @@ export function AboutClient() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="text-xs sm:text-sm font-mono text-sky-300 font-semibold uppercase tracking-wider drop-shadow-md"
+                    className="text-xs sm:text-sm font-mono text-white/90 font-semibold uppercase tracking-wider drop-shadow-md"
                   >
                     {CINEMA_SLIDES[currentSlide].subline}
                   </motion.p>
@@ -212,9 +212,9 @@ export function AboutClient() {
       {/* ======================================================== */}
       {/* 3. FOUR HORIZONTAL VALUE CARDS */}
       {/* (1:1 Match to Video Frames 00:14 - 00:16) */}
-      {/* Alternating White Solid Cards & Dark Glass Cards on Brand Navy Canvas */}
+      {/* Alternating White Solid Cards & Dark Glass Cards on Brand Black Canvas */}
       {/* ======================================================== */}
-      <section className="py-16 sm:py-20 bg-[#0E274A] border-b border-[#142B4A] select-none text-white">
+      <section className="py-16 sm:py-20 bg-[#090C15] border-b border-white/10 select-none text-white">
         <Container size="default">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Card 1: Collaborate (Solid White Card) */}
@@ -230,13 +230,13 @@ export function AboutClient() {
               </h4>
             </motion.div>
 
-            {/* Card 2: Elevate (Navy Glass Card) */}
+            {/* Card 2: Elevate (Dark Glass Card) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.5, delay: 0.1, ease: CINEMATIC_EASE }}
-              className="bg-white/10 border border-white/20 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[160px]"
+              className="bg-white/[0.06] border border-white/15 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/10 transition-all duration-300 min-h-[160px]"
             >
               <h4 className="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight text-white">
                 Elevate
@@ -256,15 +256,15 @@ export function AboutClient() {
               </h4>
             </motion.div>
 
-            {/* Card 4: Infrastructure With A Purpose (Navy Glass Card) */}
+            {/* Card 4: Infrastructure With A Purpose (Dark Glass Card) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_CONFIG}
               transition={{ duration: 0.5, delay: 0.2, ease: CINEMATIC_EASE }}
-              className="bg-white/10 border border-white/20 rounded-3xl p-8 sm:p-10 text-sky-300 flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/15 transition-all duration-300 min-h-[160px]"
+              className="bg-white/[0.06] border border-white/15 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-center items-center text-center shadow-xl hover:bg-white/10 transition-all duration-300 min-h-[160px]"
             >
-              <h4 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center">
+              <h4 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-center text-white">
                 Infrastructure With A Purpose
               </h4>
             </motion.div>
@@ -317,7 +317,7 @@ export function AboutClient() {
                   <p className="text-sm font-bold font-heading text-white">
                     Engineering Leadership &amp; Operational Governance
                   </p>
-                  <p className="text-xs text-sky-300 font-mono">
+                  <p className="text-xs text-slate-300 font-mono">
                     Director M.G. Girish &amp; Divya D K with Engineering Directorate
                   </p>
                 </div>
@@ -374,7 +374,7 @@ export function AboutClient() {
                 <h4 className="text-xl sm:text-2xl font-black font-heading text-white">
                   M.G. Girish
                 </h4>
-                <p className="text-xs sm:text-sm font-mono font-bold text-sky-400 uppercase tracking-wider">
+                <p className="text-xs sm:text-sm font-mono font-bold text-[#DC2626] uppercase tracking-wider">
                   Founder &amp; Managing Director
                 </p>
                 <p className="text-xs text-slate-300 font-mono">
@@ -410,7 +410,7 @@ export function AboutClient() {
                   <p className="font-heading font-black text-xl sm:text-2xl tracking-tight text-white">
                     M.G. Girish
                   </p>
-                  <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
+                  <p className="text-xs font-mono uppercase tracking-widest text-[#DC2626] font-bold">
                     Founder &amp; Managing Director
                   </p>
                   <p className="text-[11px] text-slate-300 font-mono">
@@ -446,7 +446,7 @@ export function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_CONFIG}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: CINEMATIC_EASE }}
-                className="group bg-[#0B1F3A] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-xl hover:border-sky-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
+                className="group bg-[#0B1F3A] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-xl hover:border-white/40 hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-6"
               >
                 <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden relative shrink-0 bg-slate-900 shadow-md">
                   <Image
@@ -463,7 +463,7 @@ export function AboutClient() {
                     <h3 className="text-xl sm:text-2xl font-bold font-heading text-white tracking-tight">
                       {director.name}
                     </h3>
-                    <p className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
+                    <p className="text-xs font-mono uppercase tracking-wider text-[#DC2626] font-bold">
                       {director.role} • New Link Technologies
                     </p>
                     <p className="text-xs text-slate-300 font-mono">
@@ -480,14 +480,14 @@ export function AboutClient() {
                       href={`tel:${director.phoneRaw}`}
                       className="hover:text-white transition-colors flex items-center gap-1.5"
                     >
-                      <Phone className="w-3 h-3 text-sky-400" />
+                      <Phone className="w-3 h-3 text-[#2563EB]" />
                       <span>{director.phone}</span>
                     </a>
                     <a
                       href={`mailto:${director.email}`}
                       className="hover:text-white transition-colors flex items-center gap-1.5"
                     >
-                      <Mail className="w-3 h-3 text-sky-400" />
+                      <Mail className="w-3 h-3 text-[#2563EB]" />
                       <span>{director.email}</span>
                     </a>
                   </div>
@@ -504,7 +504,7 @@ export function AboutClient() {
       <section className="py-20 sm:py-28 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden">
         <Container size="default">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-sky-300 text-xs font-mono uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-mono uppercase tracking-wider">
               CONNECTING VALUES
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">

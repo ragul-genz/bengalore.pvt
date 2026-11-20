@@ -177,7 +177,7 @@ export function Navbar() {
               </div>
 
               {/* SCROLLABLE BODY (Guaranteed smooth scroll on all mobile and desktop browsers) */}
-              <div className="flex-1 overflow-y-auto overscroll-contain px-6 sm:px-8 py-6 space-y-7 touch-pan-y scrollbar-thin scrollbar-thumb-white/20 hover:scrollbar-thumb-sky-400/50">
+              <div className="flex-1 overflow-y-auto overscroll-contain px-6 sm:px-8 py-6 space-y-7 touch-pan-y scrollbar-thin scrollbar-thumb-white/20 hover:scrollbar-thumb-blue-400/50">
                 
                 {/* Directory Navigation */}
                 <div className="space-y-2">
@@ -185,7 +185,7 @@ export function Navbar() {
                     <p className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-slate-400">
                       Directory Navigation
                     </p>
-                    <span className="text-[10px] font-mono text-sky-400 bg-sky-950/60 border border-sky-500/30 px-2 py-0.5 rounded-full font-semibold">
+                    <span className="text-[10px] font-mono text-blue-300 bg-blue-950/60 border border-blue-500/30 px-2 py-0.5 rounded-full font-semibold">
                       {COMPANY_DETAILS.navLinks.length} Routes
                     </span>
                   </div>
@@ -208,28 +208,18 @@ export function Navbar() {
                             className={cn(
                               "relative flex items-center justify-between py-3.5 px-4 rounded-xl font-heading text-lg sm:text-xl font-bold tracking-tight transition-all duration-200 group overflow-hidden cursor-pointer",
                               active
-                                ? "bg-gradient-to-r from-blue-600/35 via-blue-500/25 to-sky-500/15 text-white border-l-4 border-sky-400 shadow-lg shadow-blue-900/30"
+                                ? "bg-white/10 text-white border-l-4 border-[#DC2626] shadow-lg shadow-black/20"
                                 : "text-slate-300 hover:text-white hover:bg-white/8 hover:translate-x-1",
-                              isClicked && "scale-[0.98] ring-2 ring-sky-400 bg-sky-500/25 shadow-[0_0_20px_rgba(56,189,248,0.4)]"
+                              isClicked && "scale-[0.98] ring-2 ring-[#DC2626] bg-white/15"
                             )}
                           >
-                            {/* Animated Active/Click Glow Pill */}
-                            {isClicked && (
-                              <motion.div
-                                layoutId="nav-click-glow"
-                                initial={{ opacity: 0.8, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="absolute inset-0 bg-gradient-to-r from-blue-600/40 via-sky-500/30 to-blue-400/20 pointer-events-none"
-                              />
-                            )}
-
                             <div className="flex items-center gap-3.5 relative z-10">
                               <span
                                 className={cn(
                                   "font-mono text-xs font-semibold px-2 py-0.5 rounded-md transition-colors",
                                   active
-                                    ? "text-sky-300 bg-sky-500/20 border border-sky-400/30"
-                                    : "text-slate-400 group-hover:text-sky-400 bg-white/5"
+                                    ? "text-white bg-[#DC2626]/30 border border-[#DC2626]/40"
+                                    : "text-slate-400 group-hover:text-white bg-white/5"
                                 )}
                               >
                                 0{idx + 1}
@@ -241,9 +231,9 @@ export function Navbar() {
                               className={cn(
                                 "w-5 h-5 transition-transform duration-200 relative z-10",
                                 active
-                                  ? "text-sky-300 translate-x-1"
+                                  ? "text-white translate-x-1"
                                   : "text-slate-500 group-hover:text-white group-hover:translate-x-1.5",
-                                isClicked && "translate-x-2 text-sky-300"
+                                isClicked && "translate-x-2 text-white"
                               )}
                             />
                           </Link>
@@ -258,7 +248,7 @@ export function Navbar() {
                   <Link
                     href="/contact#quote"
                     onClick={() => handleNavClick("/contact")}
-                    className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-500 hover:brightness-110 active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all cursor-pointer group"
+                    className="w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wider shadow-xl transition-all cursor-pointer group"
                   >
                     <span>Request Turnkey Quote</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -274,14 +264,14 @@ export function Navbar() {
                     href={`tel:${COMPANY_DETAILS.contact.phone}`}
                     className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    <Phone className="w-4 h-4 text-sky-400 shrink-0" />
+                    <Phone className="w-4 h-4 text-blue-400 shrink-0" />
                     <span className="truncate">{COMPANY_DETAILS.contact.phoneDisplay}</span>
                   </a>
                   <a
                     href={`mailto:${COMPANY_DETAILS.contact.email}`}
                     className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-blue-400 shrink-0" />
                     <span className="truncate">{COMPANY_DETAILS.contact.email}</span>
                   </a>
                   <div className="flex items-start gap-3 p-2.5 rounded-lg bg-white/5">

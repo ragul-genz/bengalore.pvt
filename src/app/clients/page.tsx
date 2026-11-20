@@ -42,9 +42,9 @@ import { COMPANY_DETAILS } from "@/data/company";
 type ClientCategory = "all" | "Government & PSU" | "Academic Institution" | "Healthcare & Research";
 
 const categoryIcons: Record<string, React.ReactNode> = {
-  "Government & PSU": <Landmark className="w-4 h-4 text-sky-400" />,
-  "Academic Institution": <GraduationCap className="w-4 h-4 text-sky-400" />,
-  "Healthcare & Research": <Hospital className="w-4 h-4 text-sky-400" />,
+  "Government & PSU": <Landmark className="w-4 h-4 text-[#DC2626]" />,
+  "Academic Institution": <GraduationCap className="w-4 h-4 text-[#DC2626]" />,
+  "Healthcare & Research": <Hospital className="w-4 h-4 text-[#DC2626]" />,
 };
 
 export default function ClientsPage() {
@@ -239,7 +239,7 @@ export default function ClientsPage() {
         <Container size="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">16+</p>
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">16+</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Verified Institutional Clients</p>
             </FadeIn>
             <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
@@ -251,7 +251,7 @@ export default function ClientsPage() {
               <p className="text-xs sm:text-sm text-slate-300 font-light">Buildings Campus Optical Fiber</p>
             </FadeIn>
             <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">220 kWp</p>
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">220 kWp</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Clean Solar Generation Delivered</p>
             </FadeIn>
           </div>
@@ -408,7 +408,7 @@ export default function ClientsPage() {
                   setSearchQuery("");
                   setActiveCategory("all");
                 }}
-                className="mt-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-sky-400 text-white text-xs font-mono uppercase tracking-wider font-bold transition-all cursor-pointer"
+                className="mt-4 px-5 py-2.5 rounded-xl bg-[#2563EB] hover:bg-blue-700 text-white text-xs font-mono uppercase tracking-wider font-bold transition-all cursor-pointer"
               >
                 Reset Filters
               </button>
@@ -423,7 +423,7 @@ export default function ClientsPage() {
             className="mt-16 bg-[#0A1220] rounded-3xl border border-white/10 p-6 sm:p-10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8"
           >
             <div className="space-y-3 max-w-xl text-center lg:text-left">
-              <span className="inline-block text-[11px] font-mono font-bold text-sky-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-mono font-bold text-[#DC2626] uppercase tracking-wider">
                 Corporate Portfolio Archive
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
@@ -438,7 +438,7 @@ export default function ClientsPage() {
                   Official Documentation (Page 23)
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-sky-400" />
+                  <Building2 className="w-4 h-4 text-white" />
                   State &amp; Central Undertakings
                 </span>
               </div>
@@ -454,7 +454,7 @@ export default function ClientsPage() {
                 )
               }
             >
-              <div className="relative w-80 sm:w-96 h-52 rounded-2xl overflow-hidden border border-white/20 bg-black/60 shadow-xl group-hover:border-sky-400 transition-colors">
+              <div className="relative w-80 sm:w-96 h-52 rounded-2xl overflow-hidden border border-white/20 bg-black/60 shadow-xl group-hover:border-white/50 transition-colors">
                 <Image
                   src="/clients/client-partners-grid.png"
                   alt="New Link Technologies Official Client and Partner Emblem Sheet"
@@ -481,8 +481,8 @@ export default function ClientsPage() {
       <section className="py-16 md:py-24 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-              <Camera className="w-3.5 h-3.5 text-sky-400" />
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-mono uppercase tracking-wider">
+              <Camera className="w-3.5 h-3.5 text-white" />
               <span>Photographic Evidence • Field Deployments</span>
             </FadeIn>
             <RevealText
@@ -509,7 +509,7 @@ export default function ClientsPage() {
                   onClick={() => setPhotoCategory(cat.id)}
                   className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold shadow-lg shadow-blue-600/30"
+                      ? "bg-[#2563EB] text-white font-bold shadow-lg shadow-blue-600/30"
                       : "bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
                   }`}
                 >
@@ -538,7 +538,7 @@ export default function ClientsPage() {
               <StaggerItem
                 key={photo.id}
                 y={18}
-                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 overflow-hidden"
+                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-white/30 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <div>
                   {/* Photo Container */}
@@ -568,12 +568,12 @@ export default function ClientsPage() {
                   <div className="p-5 sm:p-6 space-y-3">
                     {/* Category & Location Badges */}
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5 bg-sky-950/60 px-2.5 py-1 rounded-md border border-sky-500/30">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#DC2626] flex items-center gap-1.5 bg-red-950/40 px-2.5 py-1 rounded-md border border-red-500/30">
                         {photo.sectorTag === "solar" && <Sun className="w-3.5 h-3.5 text-amber-400" />}
-                        {photo.sectorTag === "datacenter" && <Server className="w-3.5 h-3.5 text-sky-400" />}
+                        {photo.sectorTag === "datacenter" && <Server className="w-3.5 h-3.5 text-[#DC2626]" />}
                         {photo.sectorTag === "campus" && <Network className="w-3.5 h-3.5 text-emerald-400" />}
-                        {photo.sectorTag === "auditorium" && <Tv className="w-3.5 h-3.5 text-sky-300" />}
-                        {photo.sectorTag === "healthcare" && <Hospital className="w-3.5 h-3.5 text-sky-400" />}
+                        {photo.sectorTag === "auditorium" && <Tv className="w-3.5 h-3.5 text-[#DC2626]" />}
+                        {photo.sectorTag === "healthcare" && <Hospital className="w-3.5 h-3.5 text-[#DC2626]" />}
                         <span>{photo.category}</span>
                       </span>
                       <span className="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded-md border border-white/10">
@@ -582,10 +582,10 @@ export default function ClientsPage() {
                     </div>
 
                     <div>
-                      <p className="text-[11px] font-mono font-bold text-sky-400 uppercase tracking-wider">
+                      <p className="text-[11px] font-mono font-bold text-[#DC2626] uppercase tracking-wider">
                         {photo.client}
                       </p>
-                      <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-sky-300 transition-colors mt-0.5">
+                      <h3 className="text-base font-bold font-heading text-white leading-snug group-hover:text-white transition-colors mt-0.5">
                         {photo.title}
                       </h3>
                     </div>
@@ -618,7 +618,7 @@ export default function ClientsPage() {
                     <button
                       type="button"
                       onClick={() => openLightbox(photo.image, photo.title, `${photo.client} • ${photo.location} — ${photo.caption}`)}
-                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-sky-400 hover:text-white transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-[#DC2626] hover:text-red-400 transition-colors cursor-pointer"
                     >
                       <Camera className="w-3 h-3" />
                       <span>Full View</span>
@@ -635,8 +635,8 @@ export default function ClientsPage() {
       <section className="py-16 md:py-24 relative overflow-hidden">
         <Container size="default">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
-              <Award className="w-3.5 h-3.5 text-sky-400" />
+            <FadeIn as="span" mode="view" delay={0.04} y={8} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#DC2626] text-xs font-mono uppercase tracking-wider font-bold">
+              <Award className="w-3.5 h-3.5 text-[#DC2626]" />
               <span>Government &amp; Institutional Commendations</span>
             </FadeIn>
             <RevealText
@@ -664,7 +664,7 @@ export default function ClientsPage() {
               <StaggerItem
                 key={cert.id}
                 y={18}
-                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)] transition-all duration-300 overflow-hidden"
+                className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0A1220] shadow-xl hover:border-white/30 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <div>
                   {/* Certificate Scan Container */}
@@ -698,7 +698,7 @@ export default function ClientsPage() {
 
                   {/* Details */}
                   <div className="p-5 sm:p-6 space-y-3">
-                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#DC2626] uppercase tracking-wider">
                       <Award className="w-4 h-4 shrink-0" />
                       <span className="truncate">{cert.category}</span>
                     </div>
@@ -741,7 +741,7 @@ export default function ClientsPage() {
       <section className="py-16 md:py-20 bg-[#081120] border-t border-b border-white/10 relative overflow-hidden">
         <Container size="default">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#DC2626] text-xs font-mono uppercase tracking-wider font-bold">
               Enterprise Standards
             </span>
             <h3 className="text-xl sm:text-3xl font-bold font-heading text-white">
@@ -776,7 +776,7 @@ export default function ClientsPage() {
       <section className="py-20 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden border-t border-slate-200">
         <Container size="default" className="relative z-10">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
-            <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-white/10 px-3 py-1 rounded-full border border-white/20">
+            <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/20">
               Partner with New Link Technologies Bangalore Pvt. Ltd.
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
@@ -805,17 +805,17 @@ export default function ClientsPage() {
             <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[0].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-sky-400" />
+                <Phone className="w-3.5 h-3.5 text-white" />
                 <span>{COMPANY_DETAILS.leadership.directors[0].name}: {COMPANY_DETAILS.leadership.directors[0].phone}</span>
               </a>
               <span className="text-white/20">•</span>
               <a
                 href={`tel:${COMPANY_DETAILS.leadership.directors[1].phoneRaw}`}
-                className="inline-flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-sky-400" />
+                <Phone className="w-3.5 h-3.5 text-white" />
                 <span>{COMPANY_DETAILS.leadership.directors[1].name}: {COMPANY_DETAILS.leadership.directors[1].phone}</span>
               </a>
             </div>

@@ -36,7 +36,7 @@ export const AUTHENTIC_PROJECT_REELS: ProjectReelItem[] = [
     metrics: "Tier-3 Standard • Hot/Cold Aisle Containment",
     image: "/projects/project-modular-datacenter.png",
     icon: Server,
-    accentColor: "#38BDF8", // Cyber Cyan
+    accentColor: "#2563EB", // Corporate Royal Blue
   },
   {
     id: "command-room",

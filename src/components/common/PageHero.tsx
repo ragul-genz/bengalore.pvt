@@ -57,7 +57,7 @@ export function PageHero({
                         {crumb.label}
                       </Link>
                     ) : (
-                      <span className="text-sky-300 font-semibold">{crumb.label}</span>
+                      <span className="text-white font-semibold">{crumb.label}</span>
                     )}
                   </React.Fragment>
                 ))}
@@ -67,7 +67,7 @@ export function PageHero({
         )}
 
         <div className="max-w-3xl space-y-5">
-          {/* Eyebrow with Subtle Accent Line */}
+          {/* Eyebrow with Subtle Brand Red Line */}
           <FadeIn
             mode="mount"
             delay={0.08}
@@ -79,14 +79,14 @@ export function PageHero({
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.45, delay: 0.08, ease: CINEMATIC_EASE }}
-              className="w-7 h-[2px] bg-sky-400 rounded-full shrink-0 origin-left"
+              className="w-7 h-[2px] bg-[#DC2626] rounded-full shrink-0 origin-left"
             />
-            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.16em] text-sky-300">
+            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.16em] text-slate-300">
               {eyebrow}
             </span>
           </FadeIn>
 
-          {/* Word-by-word Dual-tone Headline Reveal */}
+          {/* Word-by-word Headline Reveal */}
           <RevealText
             as="h1"
             by="word"
@@ -96,7 +96,7 @@ export function PageHero({
             duration={0.52}
             text={title}
             highlight={highlight}
-            highlightClassName="text-sky-400"
+            highlightClassName="text-white font-extrabold"
             className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08]"
           />
 

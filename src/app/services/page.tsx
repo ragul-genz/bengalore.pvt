@@ -250,8 +250,8 @@ export default function ServicesPage() {
             className="mt-16 p-8 sm:p-10 rounded-3xl bg-[#0B1F3A] border border-[#142B4A] shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-8 text-white"
           >
             <div className="space-y-3">
-              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
-                <ShieldCheck className="w-5 h-5 text-sky-400" />
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#2563EB]">
+                <ShieldCheck className="w-5 h-5 text-[#2563EB]" />
               </div>
               <h3 className="text-base font-bold font-heading text-white">
                 Government &amp; Institutional Rigor
@@ -262,8 +262,8 @@ export default function ServicesPage() {
             </div>
 
             <div className="space-y-3">
-              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
-                <CheckCircle2 className="w-5 h-5 text-sky-400" />
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#DC2626]">
+                <CheckCircle2 className="w-5 h-5 text-[#DC2626]" />
               </div>
               <h3 className="text-base font-bold font-heading text-white">
                 Standards-Compliant Execution
@@ -274,8 +274,8 @@ export default function ServicesPage() {
             </div>
 
             <div className="space-y-3">
-              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
-                <Award className="w-5 h-5 text-sky-400" />
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#2563EB]">
+                <Award className="w-5 h-5 text-[#2563EB]" />
               </div>
               <h3 className="text-base font-bold font-heading text-white">
                 Turnkey Accountability
@@ -295,7 +295,7 @@ export default function ServicesPage() {
         <Container size="default">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-10 sm:p-14 text-center text-white shadow-2xl space-y-6">
             <FadeIn mode="view" delay={0.04} y={8} duration={0.42}>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-sky-300 text-xs font-mono uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-mono uppercase tracking-wider">
                 Connecting Values
               </span>
             </FadeIn>
@@ -307,7 +307,7 @@ export default function ServicesPage() {
               stagger={0.045}
               text="Ready to Discuss Your"
               highlight="Turnkey Infrastructure?"
-              highlightClassName="text-sky-400"
+              highlightClassName="text-white font-extrabold"
               className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
             <FadeIn

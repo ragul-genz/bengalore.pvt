@@ -133,7 +133,7 @@ export function ContactForm() {
               onClick={handleReset}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0B1F3A] hover:bg-[#142B4A] text-white font-semibold text-sm transition-all cursor-pointer shadow-md"
             >
-              <RotateCcw className="w-4 h-4 text-sky-400" />
+              <RotateCcw className="w-4 h-4 text-white" />
               <span>Submit Another Inquiry</span>
             </button>
           </div>

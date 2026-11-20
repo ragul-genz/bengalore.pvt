@@ -160,7 +160,7 @@ export default function ProjectsPage() {
         <Container size="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <FadeIn mode="view" delay={0.05} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">100%</p>
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">100%</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Turnkey SLA Handover</p>
             </FadeIn>
             <FadeIn mode="view" delay={0.1} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
@@ -168,7 +168,7 @@ export default function ProjectsPage() {
               <p className="text-xs sm:text-sm text-slate-300 font-light">Modular Data Center Architecture</p>
             </FadeIn>
             <FadeIn mode="view" delay={0.15} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-              <p className="text-3xl sm:text-4xl font-black font-mono text-sky-400">10 Gbps</p>
+              <p className="text-3xl sm:text-4xl font-black font-mono text-white">10 Gbps</p>
               <p className="text-xs sm:text-sm text-slate-300 font-light">Campus Optical Fiber Rings</p>
             </FadeIn>
             <FadeIn mode="view" delay={0.2} y={10} className="space-y-1 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
@@ -250,7 +250,7 @@ export default function ProjectsPage() {
                       title="View full-size photograph"
                       aria-label={`View full-size photograph of ${project.title}`}
                     >
-                      <Maximize2 className="w-4 h-4 text-sky-400" />
+                      <Maximize2 className="w-4 h-4 text-white" />
                     </button>
 
                     <div className="absolute top-3 left-3">
@@ -380,7 +380,7 @@ export default function ProjectsPage() {
 
                   {/* Category Pill */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/80 text-sky-400 border border-sky-400/30 backdrop-blur-md">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/80 text-white border border-white/20 backdrop-blur-md">
                       {item.category}
                     </span>
                   </div>
@@ -393,7 +393,7 @@ export default function ProjectsPage() {
                     title="Expand photograph"
                     aria-label={`Expand ${item.title}`}
                   >
-                    <Maximize2 className="w-4 h-4 text-sky-400" />
+                    <Maximize2 className="w-4 h-4 text-white" />
                   </button>
 
                   {/* Caption & Title overlay */}
@@ -418,7 +418,7 @@ export default function ProjectsPage() {
       <SectionReveal className="py-20 bg-[#F8FAFC] text-[#0F172A]">
         <Container size="default">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[#0B1F3A] p-6 sm:p-14 text-center text-white shadow-2xl space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-sky-400 text-xs font-mono uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-mono uppercase tracking-wider">
               CONNECTING VALUES
             </span>
             <RevealText
@@ -429,7 +429,7 @@ export default function ProjectsPage() {
               stagger={0.045}
               text="Planning a Similar"
               highlight="Enterprise Deployment?"
-              highlightClassName="text-sky-400"
+              highlightClassName="text-white font-extrabold"
               className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             />
             <FadeIn as="p" mode="view" delay={0.22} y={14} className="text-base text-slate-300 font-light leading-relaxed">

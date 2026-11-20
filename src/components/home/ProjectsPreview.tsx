@@ -218,7 +218,7 @@ export function ProjectsPreview() {
                 {/* Bottom Overlay Info on Card */}
                 <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 z-20 flex items-end justify-between gap-2 sm:gap-3">
                   <div className="text-left max-w-[65%] sm:max-w-none">
-                    <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-sky-300 font-bold truncate">
+                    <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-bold truncate">
                       {activeProject.client}
                     </p>
                     <p className="text-xs sm:text-base text-white/90 font-medium truncate">

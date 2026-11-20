@@ -281,7 +281,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs font-mono uppercase font-bold text-sky-300 tracking-wider">
+                    <p className="text-xs font-mono uppercase font-bold text-amber-400 tracking-wider">
                       Verified Portfolio Deployment
                     </p>
                     <p className="text-base font-bold text-white font-heading">

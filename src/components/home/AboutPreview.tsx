@@ -20,9 +20,9 @@ const BULB_COLOR_THEMES = [
     id: "royal-navy",
     name: "Corporate Royal Navy",
     bgClass: "bg-[#0B1F3A]", // Official Logo Navy
-    accentColor: "#38BDF8",
-    glowColor: "rgba(37, 99, 235, 0.3)",
-    taglineColor: "text-sky-100",
+    accentColor: "#DC2626", // Brand Red
+    glowColor: "rgba(220, 38, 38, 0.25)",
+    taglineColor: "text-slate-100",
     cardBg: "bg-[#0B1F3A]",
     cardBorder: "border-[#1E3A8A]",
     badgeBg: "bg-white/20 text-white",
@@ -42,8 +42,8 @@ const BULB_COLOR_THEMES = [
     id: "technical-slate",
     name: "Technical Deep Slate",
     bgClass: "bg-[#1E293B]", // Deep technical slate
-    accentColor: "#38BDF8",
-    glowColor: "rgba(56, 189, 248, 0.3)",
+    accentColor: "#2563EB",
+    glowColor: "rgba(37, 99, 235, 0.3)",
     taglineColor: "text-slate-200",
     cardBg: "bg-[#1E293B]",
     cardBorder: "border-[#334155]",
@@ -206,7 +206,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-white transition-colors">
                   15+
                 </div>
                 <div className="relative z-10 space-y-1">
@@ -239,7 +239,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-white transition-colors">
                   75+
                 </div>
                 <div className="relative z-10 space-y-1">
@@ -323,9 +323,9 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight flex items-baseline text-white group-hover:text-sky-300 transition-colors">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight flex items-baseline text-white group-hover:text-white transition-colors">
                   <span>220</span>
-                  <span className="text-2xl sm:text-3xl ml-1 font-mono font-bold text-sky-400">kWp</span>
+                  <span className="text-2xl sm:text-3xl ml-1 font-mono font-bold text-amber-400">kWp</span>
                 </div>
                 <div className="relative z-10 space-y-1">
                   <p className="text-lg sm:text-xl font-bold font-heading leading-snug">
@@ -357,7 +357,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 bg-black/55" />
                 </div>
 
-                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-white group-hover:text-white transition-colors">
                   99.98%
                 </div>
                 <div className="relative z-10 space-y-1">
